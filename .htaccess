@@ -6,7 +6,7 @@ Options -Indexes
    RewriteCond %{REQUEST_FILENAME} !-f
    RewriteCond %{REQUEST_FILENAME} !-d
    RewriteCond $1 !^(index\.php|public|robots\.txt)
-   RewriteRule ^(.*)$ /pro/peyug_project/crm/rise_academy/index.php [L]
+   RewriteRule ^(.*)$ /pro/peyug_project/rise_academy/index.php [L]
 
    RewriteCond %{REQUEST_URI} ^system.*
    RewriteRule ^(.*)$ /index.php?/$1 [L]
