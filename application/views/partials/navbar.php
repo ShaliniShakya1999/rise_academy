@@ -32,7 +32,7 @@ $nav_active = function ($segment) use ($s1, $is_home) {
                     <a href="<?= base_url('jobs'); ?>" class="ra-nav-dark-link px-3 py-2 rounded-md text-white/90 hover:text-white <?= $nav_active('jobs') ? 'is-active' : ''; ?>">Jobs</a>
                     <a href="<?= base_url('internship'); ?>" class="ra-nav-dark-link px-3 py-2 rounded-md text-white/90 hover:text-white <?= $nav_active('internship') ? 'is-active' : ''; ?>">Internship</a>
                     <a href="<?= base_url('resume-checker'); ?>" class="ra-nav-dark-link px-3 py-2 rounded-md text-white/90 hover:text-white <?= $nav_active('resume-checker') ? 'is-active' : ''; ?>">Resume Checker</a>
-                    <a href="<?= base_url('project-submission'); ?>" class="ra-nav-dark-link px-3 py-2 rounded-md text-white/90 hover:text-white <?= $nav_active('project-submission') ? 'is-active' : ''; ?>">Project Submission</a>
+                    <a href="<?= base_url('projects/login'); ?>" target="_blank" class="ra-nav-dark-link px-3 py-2 rounded-md text-white/90 hover:text-white">Project Submission</a>
                 </nav>
 
                 <!-- Right: secondary + auth -->
@@ -79,7 +79,7 @@ $nav_active = function ($segment) use ($s1, $is_home) {
                 <a href="<?= base_url('jobs'); ?>" class="block px-3 py-2.5 rounded-lg hover:bg-white/10 <?= $nav_active('jobs') ? 'bg-white/15 font-bold' : ''; ?>">Jobs</a>
                 <a href="<?= base_url('internship'); ?>" class="block px-3 py-2.5 rounded-lg hover:bg-white/10 <?= $nav_active('internship') ? 'bg-white/15 font-bold' : ''; ?>">Internship</a>
                 <a href="<?= base_url('resume-checker'); ?>" class="block px-3 py-2.5 rounded-lg hover:bg-white/10 <?= $nav_active('resume-checker') ? 'bg-white/15 font-bold' : ''; ?>">Resume Checker</a>
-                <a href="<?= base_url('project-submission'); ?>" class="block px-3 py-2.5 rounded-lg hover:bg-white/10 <?= $nav_active('project-submission') ? 'bg-white/15 font-bold' : ''; ?>">Project Submission</a>
+                <a href="<?= base_url('projects/login'); ?>" target="_blank" class="block px-3 py-2.5 rounded-lg hover:bg-white/10">Project Submission</a>
                 <div class="border-t border-white/10 my-2 pt-2 space-y-0.5">
                     <a href="<?= base_url('templates'); ?>" class="block px-3 py-2 rounded-lg hover:bg-white/10 text-white/80">Templates</a>
                     <?php if ($is_logged_in): ?>

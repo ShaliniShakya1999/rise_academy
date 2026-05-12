@@ -1,0 +1,116 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (!class_exists("My_Controller"))
+    include_once APPPATH . 'core/My_Controller.php';
+
+class User extends My_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->require_login();
+        
+        // If Admin tries to access user dashboard, redirect to admin panel
+        if ($this->session->userdata('role_id') == 1) {
+            redirect('projects/admin');
+        }
+
+        $this->load->model('Project_model');
+        $this->load->library('form_validation');
+    }
+
+    public function index()
+    {
+        $user_id = $this->session->userdata('user_id');
+        $projects = $this->Project_model->get_by_user($user_id);
+
+        $this->loadview('projects/user/dashboard', [
+            'page_title' => 'My Projects',
+            'projects'   => $projects,
+        ], 'projects/project_layout');
+    }
+
+    public function submit()
+    {
+        if ($this->input->method() === 'post') {
+            $data = [
+                'user_id'       => $this->session->userdata('user_id'),
+                'full_name'     => $this->session->userdata('full_name'),
+                'email'         => $this->session->userdata('email'),
+                'project_title' => $this->input->post('project_title', true),
+                'sub_domain'    => $this->input->post('sub_domain', true),
+                'description'   => $this->input->post('description', true),
+                'status'        => 'requested'
+            ];
+
+                // Handle file upload if any
+                if (!empty($_FILES['project_file']['name'])) {
+                    $config['upload_path']   = './uploads/projects/';
+                    $config['allowed_types'] = 'pdf|zip|rar|doc|docx';
+                    $config['max_size']      = 5120; // 5MB
+
+                    if (!is_dir($config['upload_path'])) {
+                        mkdir($config['upload_path'], 0777, true);
+                    }
+
+                    $this->load->library('upload', $config);
+                    if ($this->upload->do_upload('project_file')) {
+                        $upload_data = $this->upload->data();
+                        $data['file_path'] = 'uploads/projects/' . $upload_data['file_name'];
+                    }
+                }
+
+                $this->Project_model->insert($data);
+                $this->session->set_flashdata('project_ok', 'Project submitted successfully! It is now under review.');
+                redirect('projects/user');
+                return;
+        }
+
+        $user_id = $this->session->userdata('user_id');
+        $projects = $this->Project_model->get_by_user($user_id);
+
+        $this->loadview('projects/user/submit', [
+            'page_title' => 'Submit New Project',
+            'projects'   => $projects,
+        ], 'projects/project_layout');
+    }
+    public function chat()
+    {
+        $this->loadview('projects/user/chat', [
+            'page_title' => 'Chat Support',
+        ], 'projects/project_layout');
+    }
+
+    public function calendar()
+    {
+        $this->loadview('projects/user/calendar', [
+            'page_title' => 'Project Calendar',
+        ], 'projects/project_layout');
+    }
+
+    public function faq()
+    {
+        $this->loadview('projects/user/faq', [
+            'page_title' => 'Support & FAQs',
+        ], 'projects/project_layout');
+    }
+
+    public function applications()
+    {
+        $user_id = $this->session->userdata('user_id');
+        $this->load->model('Internship_model');
+        $applications = $this->db->select('ia.*, i.title as internship_title')
+                                ->from('internship_applications ia')
+                                ->join('internships i', 'i.id = ia.internship_id', 'left')
+                                ->where('ia.user_id', $user_id)
+                                ->order_by('ia.applied_at', 'DESC')
+                                ->get()
+                                ->result();
+        
+        $this->loadview('projects/user/applications', [
+            'page_title' => 'My Applications',
+            'applications' => $applications
+        ], 'projects/project_layout');
+    }
+}

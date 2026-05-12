@@ -84,39 +84,18 @@ class Layout extends My_Controller
 
     public function resume_checker()
     {
-        $this->loadview('Website/resume_checker', ['page_title' => 'Resume Checker']);
+        $this->loadview('Website/resume_checker', [
+            'page_title'  => 'AI ATS Resume Checker',
+            'page_assets' => [
+                'css' => 'assets/website/css/resume-checker.css?v=2',
+                'js'  => 'assets/website/js/resume-checker.js?v=2',
+            ],
+        ]);
     }
 
     public function project_submission()
     {
-        $this->load->library('form_validation');
-
-        if ($this->input->method() === 'post') {
-            $this->form_validation->set_rules('full_name', 'Full name', 'required|min_length[2]|max_length[150]');
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[190]');
-            $this->form_validation->set_rules('project_title', 'Project title', 'required|min_length[3]|max_length[200]');
-            $this->form_validation->set_rules('description', 'Description', 'required|min_length[20]');
-            $this->form_validation->set_rules('project_url', 'Project URL', 'trim|max_length[500]|callback__optional_url');
-            $this->form_validation->set_rules('agree', 'Confirmation', 'required');
-
-            if ($this->form_validation->run()) {
-                if ($this->db->table_exists('notifications')) {
-                    $this->db->insert('notifications', [
-                        'user_id' => $this->session->userdata('user_id') ?: null,
-                        'channel' => 'in_app',
-                        'title'   => 'Project submission received',
-                        'body'    => substr((string) $this->input->post('project_title', true), 0, 250),
-                    ]);
-                }
-                $this->session->set_flashdata('project_ok', 'Thank you! We received your project details. Our team will review and contact you by email within 5–7 business days.');
-                redirect('project-submission');
-                return;
-            }
-        }
-
-        $this->loadview('Website/project_submission', [
-            'page_title' => 'Project Submission',
-        ]);
+        redirect('projects/login');
     }
 
     /**

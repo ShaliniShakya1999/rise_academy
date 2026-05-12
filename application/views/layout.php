@@ -38,6 +38,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="<?= base_url('assets/website/css/site.css?v=4'); ?>">
+    <?php if (!empty($data['page_assets']) && is_array($data['page_assets'])): ?>
+        <?php if (!empty($data['page_assets']['css'])): ?>
+            <link rel="stylesheet" href="<?= base_url($data['page_assets']['css']); ?>">
+        <?php endif; ?>
+    <?php endif; ?>
 </head>
 <body class="font-sans bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col dark:bg-slate-950 dark:text-slate-100" x-data x-init="if (localStorage.getItem('ra_dark') === '1') document.documentElement.classList.add('dark')">
 
@@ -116,6 +121,9 @@ if ($content_view !== '') {
 
 <?php $this->load->view('partials/footer', ['compact_top' => ($user_shell || $admin_shell)]); ?>
 
+<?php if (!empty($data['page_assets']) && is_array($data['page_assets']) && !empty($data['page_assets']['js'])): ?>
+    <script src="<?= base_url($data['page_assets']['js']); ?>"></script>
+<?php endif; ?>
 <script src="<?= base_url('assets/website/js/site.js?v=3'); ?>"></script>
 </body>
 </html>

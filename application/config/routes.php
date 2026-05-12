@@ -56,5 +56,22 @@ $route['admin/reports']         = 'admin/reports';
 $route['admin/settings']        = 'admin/settings';
 $route['admin/security']        = 'admin/security';
 
+// ----- Project Submission Panel (New) -----
+$route['projects/login']             = 'projects/auth/login';
+$route['projects/logout']            = 'projects/auth/logout';
+$route['projects/admin']             = 'projects/admin/index';
+$route['projects/admin/internships'] = 'projects/admin/internships';
+$route['projects/admin/add_internship'] = 'projects/admin/add_internship';
+$route['projects/admin/delete_internship/(:num)'] = 'projects/admin/delete_internship/$1';
+$route['projects/admin/applications'] = 'projects/admin/applications';
+$route['projects/admin/update_status/(:num)'] = 'projects/admin/update_status/$1';
+$route['projects/admin/delete/(:num)']        = 'projects/admin/delete/$1';
+$route['projects/user']              = 'projects/user/index';
+$route['projects/user/submit']       = 'projects/user/submit';
+$route['projects/user/chat']         = 'projects/user/chat';
+$route['projects/user/calendar']     = 'projects/user/calendar';
+$route['projects/user/faq']          = 'projects/user/faq';
+$route['projects/user/applications'] = 'projects/user/applications';
+
 // ----- Setup (one-time, delete after seeding) -----
 $route['setup/seed']            = 'setup/seed';
