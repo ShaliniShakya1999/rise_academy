@@ -12,6 +12,8 @@ $route['404_override']        = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // ----- Public pages -----
+$route['job']            = 'layout/jobs';
+$route['resume-builder'] = 'layout/home';
 $route['about']     = 'layout/about';
 $route['privacy']   = 'layout/privacy';
 $route['templates'] = 'layout/templates';

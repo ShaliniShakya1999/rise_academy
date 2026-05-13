@@ -2,13 +2,7 @@
 $q          = isset($filters['q']) ? $filters['q'] : '';
 $cat_active = isset($filters['category']) ? $filters['category'] : '';
 $type_active= isset($filters['employment_type']) ? $filters['employment_type'] : '';
-
-$type_color = [
-    'full-time'   => 'bg-emerald-100 text-emerald-800',
-    'part-time'   => 'bg-amber-100 text-amber-800',
-    'internship'  => 'bg-violet-100 text-violet-800',
-    'contract'    => 'bg-sky-100 text-sky-800',
-];
+$remote     = !empty($filters['is_remote']);
 
 $is_logged = (bool) $this->session->userdata('logged_in');
 $saved_ids = isset($saved_job_ids) && is_array($saved_job_ids) ? $saved_job_ids : [];
@@ -26,80 +20,77 @@ $flash_info = $this->session->flashdata('info');
             </div>
         <?php endif; ?>
         <?php if ($flash_info): ?>
-            <div class="rounded-xl bg-violet-50 border border-violet-200 text-violet-800 px-4 py-3 text-sm font-medium ra-animate-in">
+            <div class="rounded-xl bg-brand-50 border border-brand-200 text-brand-800 px-4 py-3 text-sm font-medium ra-animate-in">
                 <?= htmlspecialchars($flash_info); ?>
             </div>
         <?php endif; ?>
     </div>
 <?php endif; ?>
-<div class="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
-    <div class="absolute top-20 right-0 w-96 h-96 bg-violet-200/40 rounded-full blur-3xl ra-float-slow pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-80 h-80 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
+<div class="relative overflow-hidden bg-gradient-to-b from-brand-50/80 to-white">
+    <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-brand-100/50 to-transparent pointer-events-none"></div>
 
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
 
         <!-- Hero -->
         <div class="ra-animate-in lg:flex lg:items-end lg:justify-between gap-8">
             <div class="max-w-2xl">
-                <p class="text-sm font-semibold uppercase tracking-wider text-violet-600">Careers</p>
-                <h1 class="mt-2 font-display text-4xl sm:text-5xl font-extrabold text-slate-900">Jobs</h1>
+                <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Opportunities</p>
+                <h1 class="mt-2 font-display text-4xl sm:text-5xl font-extrabold text-slate-900">Browse Jobs</h1>
                 <p class="mt-4 text-lg text-slate-600">
-                    Curated full-time and part-time roles from our hiring partners. Filter by category, location, or keyword and apply with your Rise Academy resume.
+                    Find your next career move with top companies hiring talent globally. Full-time, part-time and remote roles across all industries.
                 </p>
             </div>
             <div class="ra-animate-in ra-animate-in-delay-2 mt-6 lg:mt-0">
-                <div class="rounded-2xl bg-slate-900 text-white px-5 py-3 shadow-lg">
-                    <p class="text-xs opacity-75">Open positions</p>
+                <div class="rounded-2xl bg-brand-600 text-white px-5 py-3 shadow-lg ra-glow-pulse">
+                    <p class="text-xs opacity-90">Open positions</p>
                     <p class="text-2xl font-display font-extrabold"><?= (int) ($total ?? 0); ?></p>
                 </div>
             </div>
         </div>
 
-        <!-- Search + filter bar -->
+        <!-- Search + filter -->
         <form method="get" action="<?= base_url('jobs'); ?>"
-              class="ra-animate-in ra-animate-in-delay-1 mt-10 rounded-2xl bg-white border border-slate-200 shadow-sm p-3 sm:p-4 flex flex-col sm:flex-row gap-3">
+              class="ra-animate-in ra-animate-in-delay-1 mt-10 rounded-2xl bg-white border border-slate-200 shadow-sm p-3 sm:p-4 flex flex-col sm:flex-row gap-3 sm:items-center">
             <div class="relative flex-1">
                 <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 </span>
                 <input type="search" name="q" value="<?= htmlspecialchars($q); ?>"
-                       placeholder="Search by title, company, or skill…"
-                       class="w-full pl-10 pr-3 py-2.5 rounded-xl border-slate-300 focus:border-violet-500 focus:ring-violet-500">
+                       placeholder="Search jobs by title, company or skill…"
+                       class="w-full pl-10 pr-3 py-2.5 rounded-xl border-slate-300 focus:border-brand-500 focus:ring-brand-500">
             </div>
-            <select name="category" class="rounded-xl border-slate-300 focus:border-violet-500 focus:ring-violet-500 py-2.5">
+            <select name="category" class="rounded-xl border-slate-300 focus:border-brand-500 focus:ring-brand-500 py-2.5">
                 <option value="">All categories</option>
                 <?php foreach (($categories ?? []) as $c): ?>
                     <option value="<?= htmlspecialchars($c); ?>" <?= $cat_active === $c ? 'selected' : ''; ?>><?= htmlspecialchars(ucfirst($c)); ?></option>
                 <?php endforeach; ?>
             </select>
-            <select name="type" class="rounded-xl border-slate-300 focus:border-violet-500 focus:ring-violet-500 py-2.5">
-                <option value="">All types</option>
-                <?php foreach (['full-time', 'part-time', 'contract', 'internship'] as $t): ?>
-                    <option value="<?= $t; ?>" <?= $type_active === $t ? 'selected' : ''; ?>><?= htmlspecialchars(ucfirst($t)); ?></option>
-                <?php endforeach; ?>
-            </select>
-            <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 transition">Filter</button>
+            <label class="inline-flex items-center gap-2 text-sm text-slate-700 px-2">
+                <input type="checkbox" name="remote" value="1" <?= $remote ? 'checked' : ''; ?> class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+                Remote only
+            </label>
+            <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2.5 transition">Search Jobs</button>
         </form>
 
         <!-- Results -->
         <?php if (empty($jobs)): ?>
             <div class="mt-12 rounded-3xl border-2 border-dashed border-slate-200 bg-white px-8 py-16 text-center">
-                <div class="mx-auto w-14 h-14 grid place-items-center rounded-xl bg-violet-50 text-violet-700">
+                <div class="mx-auto w-14 h-14 grid place-items-center rounded-xl bg-brand-50 text-brand-700">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
                 </div>
                 <h3 class="mt-4 font-bold text-slate-900">No jobs match your filters</h3>
                 <p class="mt-1 text-sm text-slate-500">Try clearing the search or selecting a different category.</p>
-                <a href="<?= base_url('jobs'); ?>" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-violet-700 hover:text-violet-900">Clear filters →</a>
+                <a href="<?= base_url('jobs'); ?>" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">Clear filters →</a>
             </div>
         <?php else: ?>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 <?php $idx = 1; foreach ($jobs as $j):
-                    $type_cls = $type_color[$j->employment_type] ?? 'bg-slate-100 text-slate-700';
                     $is_saved = in_array((int) $j->id, $saved_ids, true);
                 ?>
-                    <article class="ra-animate-in ra-animate-in-delay-<?= min($idx++, 4); ?> group relative rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-violet-200 transition-all duration-300">
+                    <article class="ra-animate-in ra-animate-in-delay-<?= min($idx++, 4); ?> group relative rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-brand-200 transition-all duration-300">
 
-                        <!-- Save button (heart) -->
+                        <!-- Save button -->
                         <form method="post" action="<?= base_url('wishlist/toggle'); ?>" class="absolute top-4 right-4 z-10 ra-wish-form" data-item-type="job" data-item-id="<?= (int) $j->id; ?>">
                             <input type="hidden" name="item_type" value="job">
                             <input type="hidden" name="item_id" value="<?= (int) $j->id; ?>">
@@ -115,14 +106,16 @@ $flash_info = $this->session->flashdata('info');
                         </form>
 
                         <div class="flex items-start gap-3 pr-10">
-                            <div class="shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 text-white grid place-items-center font-bold">
-                                <?= htmlspecialchars($j->logo_text ?: 'CO'); ?>
+                            <div class="shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-brand-900 to-brand-600 text-white grid place-items-center font-bold">
+                                <?= htmlspecialchars($j->logo_text ?: 'JO'); ?>
                             </div>
                             <div class="min-w-0 flex-1">
-                                <h2 class="font-bold text-slate-900 truncate group-hover:text-violet-700 transition"><?= htmlspecialchars($j->title); ?></h2>
+                                <h2 class="font-bold text-slate-900 truncate group-hover:text-brand-700 transition"><?= htmlspecialchars($j->title); ?></h2>
                                 <p class="text-sm text-slate-500 truncate"><?= htmlspecialchars($j->company); ?></p>
                             </div>
-                            <span class="shrink-0 text-[11px] font-semibold rounded-full px-2 py-0.5 <?= $type_cls; ?>"><?= htmlspecialchars(ucfirst($j->employment_type)); ?></span>
+                            <span class="shrink-0 text-[11px] font-semibold rounded-full px-2 py-0.5 bg-brand-100 text-brand-800">
+                                <?= htmlspecialchars(ucfirst($j->category)); ?>
+                            </span>
                         </div>
 
                         <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
@@ -133,22 +126,16 @@ $flash_info = $this->session->flashdata('info');
                             <?php if ($j->is_remote): ?>
                                 <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 text-emerald-700 px-2.5 py-1 font-medium">Remote</span>
                             <?php endif; ?>
-                            <?php if (!empty($j->salary_label)): ?>
-                                <span class="inline-flex items-center gap-1 rounded-full bg-amber-50 text-amber-700 px-2.5 py-1 font-medium">
-                                    <?= htmlspecialchars($j->salary_label); ?>
-                                </span>
+                            <?php if (!empty($j->type)): ?>
+                                <span class="inline-flex items-center gap-1 rounded-full bg-brand-50 text-brand-700 px-2.5 py-1 font-medium"><?= htmlspecialchars($j->type); ?></span>
                             <?php endif; ?>
                         </div>
 
                         <p class="mt-3 text-sm text-slate-600 line-clamp-2"><?= htmlspecialchars($j->description); ?></p>
 
-                        <?php if (!empty($j->requirements)): ?>
-                            <p class="mt-3 text-xs text-slate-500"><span class="font-semibold text-slate-700">Requirements:</span> <?= htmlspecialchars($j->requirements); ?></p>
-                        <?php endif; ?>
-
                         <a href="<?= $this->session->userdata('logged_in') ? base_url('dashboard') : base_url('register'); ?>"
-                           class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-violet-600 hover:text-violet-800">
-                            Apply now
+                           class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-800">
+                            View details
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         </a>
                     </article>
@@ -156,12 +143,4 @@ $flash_info = $this->session->flashdata('info');
             </div>
         <?php endif; ?>
 
-        <!-- CTA -->
-        <div class="ra-animate-in ra-animate-in-delay-4 mt-14 rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 to-indigo-50 p-8 text-center">
-            <h3 class="font-display text-xl font-bold text-slate-900">Polish your resume first</h3>
-            <p class="mt-2 text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
-                Before you apply, build an ATS-friendly resume with our templates—<a href="<?= base_url('templates'); ?>" class="font-semibold text-violet-700 underline">browse templates</a>.
-            </p>
-        </div>
-    </div>
 </div>

@@ -33,7 +33,7 @@
                         <div class="w-8 h-8 rounded-full bg-rose-400 border-2 border-white"></div>
                         <div class="w-8 h-8 rounded-full bg-amber-400 border-2 border-white"></div>
                         <div class="w-8 h-8 rounded-full bg-emerald-400 border-2 border-white"></div>
-                        <div class="w-8 h-8 rounded-full bg-sky-400 border-2 border-white"></div>
+                        <div class="w-8 h-8 rounded-full bg-brand-400 border-2 border-white"></div>
                     </div>
                     <p><strong class="text-slate-900">10,000+</strong> resumes built this month</p>
                 </div>

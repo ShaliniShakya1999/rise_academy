@@ -3,184 +3,24 @@
  * Preview mockups — must be defined before first use (PHP executes top-to-bottom).
  */
 if (!function_exists('_render_template_preview')) {
-    function _render_template_preview($slug, $primary = null)
+    function _render_template_preview($slug)
     {
-        $slug    = strtolower((string) $slug);
-        $primary = $primary ?: '#1e3a8a';
+        $slug = strtolower((string) $slug);
+        $path = base_url('assets/website/images/previews/');
+        
+        // Map slug to image filename
+        $img = 'basic.png'; // Default
+        if ($slug === 'creative' || $slug === 'modern') $img = 'creative.png';
+        if ($slug === 'classic' || $slug === 'professional') $img = 'standard.png';
+        if ($slug === 'standard') $img = 'standard.png';
+        if ($slug === 'minimal' || $slug === 'compact') $img = 'basic.png';
+
         ob_start();
-        switch ($slug) {
-            case 'modern':
-            case 'creative':
-                ?>
-                <div class="h-full grid grid-cols-[35%_1fr] text-[7px]">
-                    <div class="p-2 text-white space-y-2" style="background: linear-gradient(180deg, <?= htmlspecialchars($primary); ?>, #0f172a);">
-                        <div class="w-8 h-8 rounded-full bg-white/25 mx-auto"></div>
-                        <div class="space-y-1">
-                            <div class="h-1.5 w-3/4 bg-white/50 rounded"></div>
-                            <div class="h-1 w-1/2 bg-white/30 rounded"></div>
-                        </div>
-                        <div class="pt-1">
-                            <div class="h-1.5 w-1/2 bg-white/70 rounded mb-1"></div>
-                            <div class="space-y-0.5">
-                                <div class="h-0.5 w-full bg-white/40 rounded"></div>
-                                <div class="h-0.5 w-5/6 bg-white/40 rounded"></div>
-                                <div class="h-0.5 w-3/4 bg-white/40 rounded"></div>
-                            </div>
-                        </div>
-                        <div class="pt-1">
-                            <div class="h-1.5 w-1/2 bg-white/70 rounded mb-1"></div>
-                            <div class="grid grid-cols-2 gap-0.5">
-                                <div class="h-0.5 bg-white/40 rounded"></div>
-                                <div class="h-0.5 bg-white/40 rounded"></div>
-                                <div class="h-0.5 bg-white/40 rounded"></div>
-                                <div class="h-0.5 bg-white/40 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-2 space-y-1.5">
-                        <div class="h-2.5 w-2/3 bg-slate-800 rounded"></div>
-                        <div class="h-1 w-1/2 bg-slate-400 rounded"></div>
-                        <div class="pt-1">
-                            <div class="h-1.5 w-1/3 rounded" style="background:<?= htmlspecialchars($primary); ?>"></div>
-                            <div class="mt-1 space-y-0.5">
-                                <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                                <div class="h-0.5 w-5/6 bg-slate-200 rounded"></div>
-                                <div class="h-0.5 w-3/4 bg-slate-200 rounded"></div>
-                            </div>
-                        </div>
-                        <div class="pt-1">
-                            <div class="h-1.5 w-1/3 rounded" style="background:<?= htmlspecialchars($primary); ?>"></div>
-                            <div class="mt-1 space-y-0.5">
-                                <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                                <div class="h-0.5 w-5/6 bg-slate-200 rounded"></div>
-                                <div class="h-0.5 w-2/3 bg-slate-200 rounded"></div>
-                            </div>
-                        </div>
-                        <div class="pt-1">
-                            <div class="h-1.5 w-1/3 rounded" style="background:<?= htmlspecialchars($primary); ?>"></div>
-                            <div class="mt-1 space-y-0.5">
-                                <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                                <div class="h-0.5 w-4/6 bg-slate-200 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                break;
-
-            case 'classic':
-                ?>
-                <div class="h-full p-3 text-[7px] text-slate-700">
-                    <div class="text-center border-b border-slate-300 pb-2">
-                        <div class="h-3 w-2/3 mx-auto bg-slate-900 rounded"></div>
-                        <div class="mt-1 h-1 w-1/2 mx-auto bg-slate-400 rounded"></div>
-                        <div class="mt-1 flex justify-center gap-1.5 text-[6px] text-slate-500">
-                            <span>email • phone • city</span>
-                        </div>
-                    </div>
-                    <div class="mt-2 space-y-2">
-                        <div>
-                            <div class="h-1.5 w-1/4 bg-slate-900 rounded"></div>
-                            <div class="mt-1 space-y-0.5">
-                                <div class="h-0.5 w-full bg-slate-300 rounded"></div>
-                                <div class="h-0.5 w-5/6 bg-slate-300 rounded"></div>
-                                <div class="h-0.5 w-4/6 bg-slate-300 rounded"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="h-1.5 w-1/3 bg-slate-900 rounded"></div>
-                            <div class="mt-1 flex items-start justify-between gap-2">
-                                <div class="flex-1 space-y-0.5">
-                                    <div class="h-1 w-3/4 bg-slate-800 rounded"></div>
-                                    <div class="h-0.5 w-full bg-slate-300 rounded"></div>
-                                    <div class="h-0.5 w-5/6 bg-slate-300 rounded"></div>
-                                </div>
-                                <div class="h-1 w-12 bg-slate-400 rounded"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="h-1.5 w-1/3 bg-slate-900 rounded"></div>
-                            <div class="mt-1 flex items-start justify-between gap-2">
-                                <div class="flex-1 space-y-0.5">
-                                    <div class="h-1 w-2/3 bg-slate-800 rounded"></div>
-                                    <div class="h-0.5 w-full bg-slate-300 rounded"></div>
-                                </div>
-                                <div class="h-1 w-12 bg-slate-400 rounded"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="h-1.5 w-1/4 bg-slate-900 rounded"></div>
-                            <div class="mt-1 grid grid-cols-3 gap-1">
-                                <div class="h-1 bg-slate-300 rounded"></div>
-                                <div class="h-1 bg-slate-300 rounded"></div>
-                                <div class="h-1 bg-slate-300 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                break;
-
-            case 'compact':
-                ?>
-                <div class="h-full p-2 text-[6px] text-slate-800 space-y-1">
-                    <div class="h-2 w-3/4 bg-slate-900 rounded"></div>
-                    <div class="h-0.5 w-1/2 bg-slate-400 rounded"></div>
-                    <div class="h-px bg-slate-200"></div>
-                    <?php for ($i = 0; $i < 6; $i++): ?>
-                        <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                    <?php endfor; ?>
-                    <div class="flex flex-wrap gap-0.5 pt-0.5">
-                        <span class="h-0.5 w-5 bg-slate-100 border border-slate-300 rounded"></span>
-                        <span class="h-0.5 w-6 bg-slate-100 border border-slate-300 rounded"></span>
-                        <span class="h-0.5 w-4 bg-slate-100 border border-slate-300 rounded"></span>
-                    </div>
-                </div>
-                <?php
-                break;
-
-            case 'minimal':
-            default:
-                ?>
-                <div class="h-full p-4 text-[7px] text-slate-800 space-y-2.5">
-                    <div>
-                        <div class="h-3 w-2/3 bg-slate-900 rounded"></div>
-                        <div class="mt-1 h-1 w-1/3 bg-slate-400 rounded"></div>
-                    </div>
-                    <div class="h-px bg-slate-200"></div>
-                    <div class="space-y-0.5">
-                        <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                        <div class="h-0.5 w-5/6 bg-slate-200 rounded"></div>
-                        <div class="h-0.5 w-3/4 bg-slate-200 rounded"></div>
-                    </div>
-                    <div class="pt-1">
-                        <div class="h-1 w-1/5 bg-slate-700 rounded uppercase"></div>
-                        <div class="mt-1 space-y-0.5">
-                            <div class="h-1 w-1/2 bg-slate-700 rounded"></div>
-                            <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                            <div class="h-0.5 w-5/6 bg-slate-200 rounded"></div>
-                        </div>
-                    </div>
-                    <div class="pt-1">
-                        <div class="h-1 w-1/5 bg-slate-700 rounded uppercase"></div>
-                        <div class="mt-1 space-y-0.5">
-                            <div class="h-1 w-1/2 bg-slate-700 rounded"></div>
-                            <div class="h-0.5 w-full bg-slate-200 rounded"></div>
-                        </div>
-                    </div>
-                    <div class="pt-1">
-                        <div class="h-1 w-1/5 bg-slate-700 rounded uppercase"></div>
-                        <div class="mt-1 flex flex-wrap gap-0.5">
-                            <span class="h-1 w-6 bg-slate-100 border border-slate-300 rounded"></span>
-                            <span class="h-1 w-8 bg-slate-100 border border-slate-300 rounded"></span>
-                            <span class="h-1 w-7 bg-slate-100 border border-slate-300 rounded"></span>
-                            <span class="h-1 w-5 bg-slate-100 border border-slate-300 rounded"></span>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                break;
-        }
+        ?>
+        <div class="h-full w-full bg-white flex items-center justify-center">
+            <img src="<?= $path . $img; ?>" alt="Template Preview" class="w-full h-full object-cover object-top">
+        </div>
+        <?php
         return ob_get_clean();
     }
 }
@@ -339,7 +179,7 @@ $category_label = [
                     <div class="mt-4 flex items-center justify-between">
                         <div class="flex items-center gap-1">
                             <?php
-                            $swatches = ['#2563eb', '#0ea5e9', '#10b981', '#f59e0b', '#ef4444'];
+                            $swatches = ['#085CF0', '#092676', '#10b981', '#f59e0b', '#ef4444'];
                             foreach ($swatches as $sw):
                             ?>
                                 <span class="w-3.5 h-3.5 rounded-full ring-2 ring-white" style="background:<?= htmlspecialchars($sw, ENT_QUOTES, 'UTF-8'); ?>"></span>

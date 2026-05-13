@@ -12,6 +12,12 @@ class Layout extends My_Controller
 {
     public function index()
     {
+        // Standalone landing page with its own header/footer
+        $this->load->view('Website/landing_standalone', ['page_title' => 'Rise Academy — Welcome']);
+    }
+
+    public function home()
+    {
         $this->loadview('Website/index', ['page_title' => 'Build resumes that get you hired']);
     }
 

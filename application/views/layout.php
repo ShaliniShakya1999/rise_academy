@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' — Rise Academy' : 'Rise Academy — Resume Builder'; ?></title>
     <meta name="description" content="Create ATS-friendly, professional resumes in minutes. Modern templates, live preview, instant PDF download.">
-
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?= base_url('assets/website/images/rise_logo.png'); ?>">
+    
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
         tailwind.config = {
@@ -18,12 +21,12 @@
                     },
                     colors: {
                         brand: {
-                            50:  '#eef4ff',
-                            100: '#dbe6ff',
-                            500: '#3b6cff',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
+                            50:  '#f0f9ff',
+                            100: '#AFE9FD',
+                            500: '#085CF0',
+                            600: '#085CF0',
+                            700: '#092676',
+                            900: '#050A34',
                         }
                     },
                     boxShadow: {

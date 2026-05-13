@@ -4,12 +4,17 @@
    ========================================================= */
 
 :root {
-    --re-indigo:        #4f46e5;
-    --re-indigo-600:    #4338ca;
-    --re-purple:        #7c3aed;
-    --re-purple-600:    #6d28d9;
-    --re-violet-50:     #f5f3ff;
-    --re-violet-100:    #ede9fe;
+    --re-navy:          #050A34;
+    --re-royal:         #092676;
+    --re-bright:        #085CF0;
+    --re-sky:           #AFE9FD;
+    
+    --re-indigo:        var(--re-bright);
+    --re-indigo-600:    var(--re-royal);
+    --re-purple:        var(--re-royal);
+    --re-purple-600:    var(--re-navy);
+    --re-violet-50:     #f0f7ff;
+    --re-violet-100:    var(--re-sky);
     --re-slate-50:      #f8fafc;
     --re-slate-100:     #f1f5f9;
     --re-slate-200:     #e2e8f0;
@@ -20,14 +25,14 @@
     --re-slate-700:     #334155;
     --re-slate-800:     #1e293b;
     --re-slate-900:     #0f172a;
-    --re-ink:           #0b1020;
+    --re-ink:           var(--re-navy);
     --re-success:       #10b981;
     --re-danger:        #ef4444;
     --re-warning:       #f59e0b;
 
-    --re-gradient:        linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #6366f1 100%);
-    --re-gradient-soft:   linear-gradient(135deg, #ede9fe 0%, #e0e7ff 100%);
-    --re-gradient-text:   linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+    --re-gradient:        linear-gradient(135deg, var(--re-navy) 0%, var(--re-royal) 50%, var(--re-bright) 100%);
+    --re-gradient-soft:   linear-gradient(135deg, var(--re-sky) 0%, #e0f2fe 100%);
+    --re-gradient-text:   linear-gradient(135deg, var(--re-royal) 0%, var(--re-bright) 100%);
 
     --re-radius-sm: 10px;
     --re-radius:    16px;
@@ -662,6 +667,125 @@ html { scroll-behavior: smooth; }
     overflow: hidden;
 }
 
+/* --- Premium Layouts (Live Preview & Print) --- */
+
+/* Modern (Two Column - High Fidelity) */
+.rp--modern {
+    display: grid;
+    grid-template-columns: 32% 1fr;
+    min-height: 297mm;
+    margin: -18mm -16mm; /* Full bleed into A4 padding */
+    background: #fff;
+}
+.rp--modern .rp-sidebar {
+    background: linear-gradient(180deg, var(--re-navy) 0%, var(--re-royal) 100%);
+    color: #fff;
+    padding: 20mm 10mm;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.rp--modern .rp-main {
+    padding: 20mm 14mm;
+    background: #fff;
+}
+.rp--modern .rp-name {
+    color: #fff;
+    font-size: 22pt;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -0.02em;
+}
+.rp--modern .rp-role {
+    color: #94a3b8;
+    font-size: 11pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 15px;
+}
+.rp--modern .rp-section h2 {
+    color: #f8fafc;
+    font-size: 11pt;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+}
+.rp--modern .rp-sidebar .rp-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 9pt;
+    color: #cbd5e1;
+}
+.rp--modern .rp-sidebar .rp-contact i { color: #64748b; width: 16px; }
+.rp--modern .rp-skill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #f1f5f9;
+    padding: 3px 10px;
+    font-size: 8.5pt;
+}
+
+/* Classic (Professional - High Fidelity) */
+.rp--classic .rp-head {
+    text-align: center;
+    border-bottom: 3px solid #1e293b;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.rp--classic .rp-name {
+    font-size: 28pt;
+    color: #0f172a;
+}
+.rp--classic .rp-contact {
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px;
+}
+.rp--classic .rp-section h2 {
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 0; border-right: 0;
+    padding: 6px 0;
+    margin: 20px 0 15px;
+}
+
+/* Minimal (Compact - High Fidelity) */
+.rp--minimal .rp-head {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+.rp--minimal .rp-name {
+    font-size: 20pt;
+    color: #334155;
+}
+.rp--minimal .rp-section h2 {
+    font-size: 10pt;
+    color: #6366f1;
+    border: 0;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.rp--minimal .rp-item {
+    margin-bottom: 12px;
+}
+.rp--minimal .rp-item__title {
+    font-size: 11pt;
+}
+
+/* Common Components */
+.rp-summary { font-size: 10.5pt; color: #475569; line-height: 1.6; margin-bottom: 10px; }
+.rp-item__title { font-weight: 700; color: #0f172a; font-size: 11pt; }
+.rp-item__sub { color: #4f46e5; font-weight: 600; font-size: 10pt; margin-top: 1px; }
+.rp-item__date { font-weight: 600; color: #64748b; font-size: 9.5pt; }
+.rp-item__desc { color: #334155; font-size: 10pt; margin-top: 5px; line-height: 1.5; }
+.rp-skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.rp-skill { font-weight: 600; border-radius: 4px; }
+
 /* Preview content styling */
 .rp-head { border-bottom: 2px solid #1e293b; padding-bottom: 10px; margin-bottom: 14px; }
 .rp-name {
@@ -758,45 +882,75 @@ html { scroll-behavior: smooth; }
 .re-skel--block { height: 80px; }
 
 /* =========================================================
-   Empty state
+   Print Styles (PDF Export)
    ========================================================= */
-.re-empty {
-    text-align: center;
-    padding: 28px 16px;
-    color: var(--re-slate-500);
-}
-.re-empty__icon {
-    width: 56px; height: 56px;
-    border-radius: 16px;
-    background: var(--re-gradient-soft);
-    color: var(--re-indigo);
-    display: grid; place-items: center;
-    margin: 0 auto 12px;
-    font-size: 22px;
-}
-.re-empty p { margin: 6px 0 0; font-size: 13px; }
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    body {
+        margin: 0;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+    .re-topnav,
+    .re-sidebar,
+    .re-editor,
+    .re-toolbar,
+    .re-action-bar,
+    .re-mobile-toggle,
+    .re-zoom {
+        display: none !important;
+    }
+    .re-app {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+    .re-preview-pane {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        overflow: visible !important;
+    }
+    .re-canvas {
+        padding: 0 !important;
+        background: #fff !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+    .re-a4-wrap {
+        transform: none !important;
+        width: 100% !important;
+    }
+    .re-a4 {
+        box-shadow: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 auto !important;
+        padding: 18mm 16mm !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
 
-/* =========================================================
-   Animations
-   ========================================================= */
-@keyframes re-spin {
-    to { transform: rotate(360deg); }
-}
-@keyframes re-shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-@keyframes re-pop {
-    0% { transform: scale(.7); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-@keyframes re-rise {
-    0% { transform: translate(-50%, 40px); opacity: 0; }
-    100% { transform: translate(-50%, 0); opacity: 1; }
-}
-@keyframes re-fade-up {
-    0% { opacity: 0; transform: translateY(8px); }
-    100% { opacity: 1; transform: translateY(0); }
+    /* Layout specific print fixes */
+    .rp--modern {
+        margin: -18mm -16mm !important; /* Counteract A4 padding for full-bleed sidebar */
+        min-height: 297mm !important;
+    }
+    .rp--modern .rp-sidebar {
+        background: #1e293b !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+    }
 }
 .re-fade-up { animation: re-fade-up .5s ease-out both; }
 
@@ -891,17 +1045,98 @@ html { scroll-behavior: smooth; }
    Print (PDF export)
    ========================================================= */
 @media print {
-    body * { visibility: hidden; }
-    .re-canvas, .re-canvas * { visibility: visible; }
+    @page {
+        margin: 0;
+        size: A4 portrait;
+    }
+    
+    html, body {
+        height: auto !important;
+        background: #fff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Hide everything that isn't the resume canvas */
+    .re-topnav, 
+    .re-sidebar, 
+    .re-editor, 
+    .re-action-bar, 
+    .re-mobile-toggle, 
+    .re-toolbar,
+    #mobileToggle,
+    .re-zoom,
+    #zoomReset {
+        display: none !important;
+    }
+
+    .re-main {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .re-app {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+        background: #fff !important;
+    }
+
+    .re-preview-pane {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        max-height: none !important;
+        height: auto !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        transform: none !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
     .re-canvas {
-        position: absolute; top: 0; left: 0;
-        padding: 0; background: #fff;
-        width: 100%; height: auto; overflow: visible;
+        background: #fff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        display: block !important;
+        height: auto !important;
+        min-height: 0 !important;
     }
-    .re-a4-wrap { transform: none !important; }
+
+    .re-a4-wrap {
+        transform: none !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     .re-a4 {
-        box-shadow: none;
-        border-radius: 0;
-        margin: 0; padding: 18mm 16mm;
+        box-shadow: none !important;
+        border: 0 !important;
+        margin: 0 auto !important;
+        padding: 16mm 14mm !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        background: #fff !important;
+        color: #000 !important;
+        position: relative !important;
+        overflow: visible !important;
     }
+
+    /* Ensure text colors are visible in print */
+    .rp-name { color: #000 !important; }
+    .rp-role { color: #333 !important; }
+    .rp-item__title { color: #000 !important; }
+    .rp-section h2 { border-bottom-color: #000 !important; color: #000 !important; }
+    .rp-contact i { color: #000 !important; }
 }

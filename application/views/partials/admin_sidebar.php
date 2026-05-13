@@ -9,11 +9,11 @@ $active = isset($active) ? $active : 'admin';
 $link = function ($key, $label, $href, $icon) use ($active) {
     $on = ($active === $key);
     $cls = $on
-        ? 'bg-indigo-500/25 text-white ring-1 ring-indigo-400/40 shadow-lg shadow-indigo-950/30'
+        ? 'bg-brand-500/25 text-white ring-1 ring-brand-400/40 shadow-lg shadow-brand-950/30'
         : 'text-slate-300 hover:bg-white/5 hover:text-white';
     ?>
     <a href="<?= $href; ?>" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition <?= $cls; ?>">
-        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg <?= $on ? 'bg-indigo-500 text-white' : 'bg-slate-800 text-slate-400'; ?>">
+        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg <?= $on ? 'bg-brand-600 text-white' : 'bg-slate-800 text-slate-400'; ?>">
             <?= $icon; ?>
         </span>
         <span class="truncate"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></span>
@@ -45,7 +45,7 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
         localStorage.setItem('ra_admin_sb', this.collapsed ? '1' : '0');
     }
 }"
-       class="ra-admin-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-slate-700/80 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white shadow-2xl transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
+       class="ra-admin-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-slate-700/80 bg-gradient-to-b from-[#050A34] via-[#092676] to-[#050A34] text-white shadow-2xl transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
        :class="{
            '-translate-x-full': !open,
            'translate-x-0': open,
@@ -61,11 +61,9 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
     <div x-show="open" x-transition.opacity x-cloak class="fixed inset-0 z-[55] bg-slate-900/70 lg:hidden" @click="open = false"></div>
 
     <div class="flex h-14 shrink-0 items-center justify-between border-b border-slate-700/80 px-3 lg:h-16">
-        <a href="<?= base_url('admin'); ?>" class="flex min-w-0 items-center gap-2 font-display font-extrabold text-white">
-            <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-indigo-600 text-white">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </span>
-            <span class="truncate text-sm sm:text-base ra-admin-nav__txt" x-show="!collapsed">Admin</span>
+        <a href="<?= base_url('admin'); ?>" class="flex min-w-0 items-center gap-2">
+            <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="Rise Academy Admin" class="h-8 w-auto brightness-0 invert" x-show="!collapsed">
+            <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="A" class="h-8 w-8 object-left overflow-hidden" x-show="collapsed">
         </a>
         <button type="button" class="hidden h-9 w-9 place-items-center rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 lg:grid"
                 @click="toggleCollapse()" title="Collapse sidebar">

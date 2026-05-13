@@ -220,117 +220,104 @@
         const s = state.sections;
         const h = s.header || {};
         const summary = (s.summary && s.summary.text) || '';
+        const templateId = parseInt(state.templateId, 10);
+        
+        // Clear previous state
+        preview.className = '';
+        
+        // Map ID to slug/class
+        let layoutClass = 'rp--modern'; // Default
+        if (templateId === 2) layoutClass = 'rp--classic';
+        if (templateId === 3) layoutClass = 'rp--minimal';
+        
+        preview.classList.add(layoutClass);
 
         let html = '';
 
-        // Header
-        html += '<div class="rp-head">';
-        html +=   '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
-        if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
-        html +=   '<div class="rp-contact">';
-        if (h.email)    html += '<span><i class="fa-solid fa-envelope"></i>' + escapeHtml(h.email) + '</span>';
-        if (h.phone)    html += '<span><i class="fa-solid fa-phone"></i>' + escapeHtml(h.phone) + '</span>';
-        if (h.location) html += '<span><i class="fa-solid fa-location-dot"></i>' + escapeHtml(h.location) + '</span>';
-        if (h.website)  html += '<span><i class="fa-solid fa-globe"></i>' + escapeHtml(h.website) + '</span>';
-        if (h.linkedin) html += '<span><i class="fa-brands fa-linkedin"></i>' + escapeHtml(h.linkedin) + '</span>';
-        if (h.github)   html += '<span><i class="fa-brands fa-github"></i>' + escapeHtml(h.github) + '</span>';
-        html +=   '</div>';
-        html += '</div>';
+        // Shared Header/Contact logic
+        const getContactHtml = () => {
+            let res = '';
+            if (h.email)    res += '<span><i class="fa-solid fa-envelope"></i>' + escapeHtml(h.email) + '</span>';
+            if (h.phone)    res += '<span><i class="fa-solid fa-phone"></i>' + escapeHtml(h.phone) + '</span>';
+            if (h.location) res += '<span><i class="fa-solid fa-location-dot"></i>' + escapeHtml(h.location) + '</span>';
+            if (h.website)  res += '<span><i class="fa-solid fa-globe"></i>' + escapeHtml(h.website) + '</span>';
+            if (h.linkedin) res += '<span><i class="fa-brands fa-linkedin"></i>' + escapeHtml(h.linkedin) + '</span>';
+            if (h.github)   res += '<span><i class="fa-brands fa-github"></i>' + escapeHtml(h.github) + '</span>';
+            return res;
+        };
 
-        // Summary
-        if (summary.trim()) {
-            html += '<div class="rp-section">';
-            html += '<h2>Profile Summary</h2>';
-            html += '<p class="rp-summary">' + nl2br(summary) + '</p>';
-            html += '</div>';
-        }
+        const getSummaryHtml = () => {
+            if (!summary.trim()) return '';
+            let res = '<div class="rp-section">';
+            res += '<h2>Profile Summary</h2>';
+            res += '<p class="rp-summary">' + nl2br(summary) + '</p>';
+            res += '</div>';
+            return res;
+        };
 
-        // Experience
-        const expItems = (s.experience && s.experience.items) || [];
-        if (expItems.some(notEmpty)) {
-            html += '<div class="rp-section"><h2>Experience</h2>';
-            expItems.forEach(it => {
+        const getListHtml = (key, title) => {
+            const items = (s[key] && s[key].items) || [];
+            if (!items.some(notEmpty)) return '';
+            let res = '<div class="rp-section"><h2>' + title + '</h2>';
+            items.forEach(it => {
                 if (!notEmpty(it)) return;
-                html += '<div class="rp-item">';
-                html += '<div class="rp-item__row">';
-                html += '<div><h3 class="rp-item__title">' + escapeHtml(it.title || '') + '</h3>';
-                if (it.subtitle) html += '<div class="rp-item__sub">' + escapeHtml(it.subtitle) + '</div>';
-                html += '</div>';
-                if (it.period) html += '<span class="rp-item__date">' + escapeHtml(it.period) + '</span>';
-                html += '</div>';
-                if (it.description) html += '<p class="rp-item__desc">' + nl2br(it.description) + '</p>';
-                html += '</div>';
+                res += '<div class="rp-item">';
+                res += '<div class="rp-item__row">';
+                res += '<div><h3 class="rp-item__title">' + escapeHtml(it.title || '') + '</h3>';
+                if (it.subtitle) res += '<div class="rp-item__sub">' + escapeHtml(it.subtitle) + '</div>';
+                res += '</div>';
+                const date = it.period || it.dateLabel || '';
+                if (date) res += '<span class="rp-item__date">' + escapeHtml(date) + '</span>';
+                res += '</div>';
+                if (it.description) res += '<p class="rp-item__desc">' + nl2br(it.description) + '</p>';
+                res += '</div>';
             });
-            html += '</div>';
-        }
+            res += '</div>';
+            return res;
+        };
 
-        // Education
-        const eduItems = (s.education && s.education.items) || [];
-        if (eduItems.some(notEmpty)) {
-            html += '<div class="rp-section"><h2>Education</h2>';
-            eduItems.forEach(it => {
-                if (!notEmpty(it)) return;
-                html += '<div class="rp-item">';
-                html += '<div class="rp-item__row">';
-                html += '<div><h3 class="rp-item__title">' + escapeHtml(it.title || '') + '</h3>';
-                if (it.subtitle) html += '<div class="rp-item__sub">' + escapeHtml(it.subtitle) + '</div>';
-                html += '</div>';
-                if (it.period) html += '<span class="rp-item__date">' + escapeHtml(it.period) + '</span>';
-                html += '</div>';
-                if (it.description) html += '<p class="rp-item__desc">' + nl2br(it.description) + '</p>';
-                html += '</div>';
-            });
-            html += '</div>';
-        }
-
-        // Skills
-        const skillItems = (s.skills && s.skills.items) || [];
-        if (skillItems.length) {
-            html += '<div class="rp-section"><h2>Skills</h2>';
-            html += '<div class="rp-skills">';
-            skillItems.forEach(sk => {
+        const getSkillsHtml = () => {
+            const items = (s.skills && s.skills.items) || [];
+            if (!items.length) return '';
+            let res = '<div class="rp-section"><h2>Skills</h2>';
+            res += '<div class="rp-skills">';
+            items.forEach(sk => {
                 const name = typeof sk === 'string' ? sk : sk.name;
-                if (name) html += '<span class="rp-skill">' + escapeHtml(name) + '</span>';
+                if (name) res += '<span class="rp-skill">' + escapeHtml(name) + '</span>';
             });
-            html += '</div></div>';
-        }
+            res += '</div></div>';
+            return res;
+        };
 
-        // Projects
-        const projItems = (s.projects && s.projects.items) || [];
-        if (projItems.some(notEmpty)) {
-            html += '<div class="rp-section"><h2>Projects</h2>';
-            projItems.forEach(it => {
-                if (!notEmpty(it)) return;
-                html += '<div class="rp-item">';
-                html += '<div class="rp-item__row">';
-                html += '<div><h3 class="rp-item__title">' + escapeHtml(it.title || '') + '</h3>';
-                if (it.subtitle) html += '<div class="rp-item__sub">' + escapeHtml(it.subtitle) + '</div>';
-                html += '</div>';
-                if (it.period) html += '<span class="rp-item__date">' + escapeHtml(it.period) + '</span>';
-                html += '</div>';
-                if (it.description) html += '<p class="rp-item__desc">' + nl2br(it.description) + '</p>';
-                html += '</div>';
-            });
+        // RENDER BY LAYOUT
+        if (layoutClass === 'rp--modern') {
+            // Modern Two-Column
+            html += '<div class="rp-sidebar">';
+            html +=   '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
+            if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
+            html +=   '<div class="rp-contact">' + getContactHtml() + '</div>';
+            html +=   getSkillsHtml();
             html += '</div>';
-        }
-
-        // Certifications (stored under achievements)
-        const certItems = (s.achievements && s.achievements.items) || [];
-        if (certItems.some(notEmpty)) {
-            html += '<div class="rp-section"><h2>Certifications & Achievements</h2>';
-            certItems.forEach(it => {
-                if (!notEmpty(it)) return;
-                html += '<div class="rp-item">';
-                html += '<div class="rp-item__row">';
-                html += '<div><h3 class="rp-item__title">' + escapeHtml(it.title || '') + '</h3>';
-                if (it.subtitle) html += '<div class="rp-item__sub">' + escapeHtml(it.subtitle) + '</div>';
-                html += '</div>';
-                if (it.dateLabel || it.period) html += '<span class="rp-item__date">' + escapeHtml(it.dateLabel || it.period) + '</span>';
-                html += '</div>';
-                if (it.description) html += '<p class="rp-item__desc">' + nl2br(it.description) + '</p>';
-                html += '</div>';
-            });
+            html += '<div class="rp-main">';
+            html +=   getSummaryHtml();
+            html +=   getListHtml('experience', 'Experience');
+            html +=   getListHtml('education', 'Education');
+            html +=   getListHtml('projects', 'Projects');
+            html +=   getListHtml('achievements', 'Certifications');
             html += '</div>';
+        } else {
+            // Classic or Minimal (Single Column)
+            html += '<div class="rp-head">';
+            html +=   '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
+            if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
+            html +=   '<div class="rp-contact">' + getContactHtml() + '</div>';
+            html += '</div>';
+            html += getSummaryHtml();
+            html += getListHtml('experience', 'Experience');
+            html += getListHtml('education', 'Education');
+            html += getSkillsHtml();
+            html += getListHtml('projects', 'Projects');
+            html += getListHtml('achievements', 'Certifications');
         }
 
         preview.innerHTML = html;
@@ -423,6 +410,7 @@
     // ============================================================
     $('#templateSelect')?.addEventListener('change', e => {
         state.templateId = parseInt(e.target.value, 10) || 1;
+        renderPreview(); // Immediate visual change
         scheduleSave();
     });
 
@@ -456,14 +444,19 @@
     // ============================================================
     $('#btnDownload')?.addEventListener('click', e => {
         e.preventDefault();
+        // Force a final render to ensure data is fresh
+        renderPreview();
+        
         const prevZoom = state.zoom;
         state.zoom = 1;
         applyZoom();
+        
+        // Wait slightly longer for the browser to recalculate the 1:1 layout
         setTimeout(() => {
             window.print();
             state.zoom = prevZoom;
             applyZoom();
-        }, 200);
+        }, 500);
     });
 
     // ============================================================
