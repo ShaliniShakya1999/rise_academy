@@ -107,4 +107,107 @@ class Admin extends My_Controller
         $this->session->set_flashdata('project_ok', 'Project deleted successfully.');
         redirect('projects/admin');
     }
+
+    /* ------------------------------------------------------------------
+     | Revenue Analytics
+     * -----------------------------------------------------------------*/
+
+    public function revenue()
+    {
+        $this->require_admin();
+
+        $daily = $this->_get_daily_revenue(30);
+        $hourly = $this->_get_hourly_revenue_today();
+        $recent = $this->_get_recent_payments(10);
+        $kpis = $this->_get_revenue_kpis();
+
+        $this->loadview('projects/admin/revenue', [
+            'page_title' => 'Revenue Analytics',
+            'daily'      => $daily,
+            'hourly'     => $hourly,
+            'recent'     => $recent,
+            'kpis'       => $kpis,
+            'use_admin_shell' => true,
+        ], 'projects/project_layout');
+    }
+
+    private function _get_daily_revenue($days = 30)
+    {
+        $out = [];
+        $start = strtotime(date('Y-m-d', strtotime("-" . ($days - 1) . " days")));
+        for ($i = 0; $i < $days; $i++) {
+            $out[date('Y-m-d', $start + $i * 86400)] = 0;
+        }
+
+        if (!$this->db->table_exists('payments')) return $out;
+
+        $since = date('Y-m-d 00:00:00', $start);
+        $rows = $this->db->select("DATE(created_at) as d, SUM(amount_paise) as total", false)
+            ->where('status', 'paid')
+            ->where('created_at >=', $since)
+            ->group_by("DATE(created_at)")
+            ->get('payments')->result();
+
+        foreach ($rows as $r) {
+            if (isset($out[$r->d])) $out[$r->d] = round($r->total / 100, 2);
+        }
+        return $out;
+    }
+
+    private function _get_hourly_revenue_today()
+    {
+        $out = [];
+        for ($i = 0; $i < 24; $i++) {
+            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $out[$hour . ":00"] = 0;
+        }
+
+        if (!$this->db->table_exists('payments')) return $out;
+
+        $today = date('Y-m-d 00:00:00');
+        $rows = $this->db->select("HOUR(created_at) as h, SUM(amount_paise) as total", false)
+            ->where('status', 'paid')
+            ->where('created_at >=', $today)
+            ->group_by("HOUR(created_at)")
+            ->get('payments')->result();
+
+        foreach ($rows as $r) {
+            $hour = str_pad($r->h, 2, '0', STR_PAD_LEFT) . ":00";
+            if (isset($out[$hour])) $out[$hour] = round($r->total / 100, 2);
+        }
+        return $out;
+    }
+
+    private function _get_recent_payments($limit = 10)
+    {
+        if (!$this->db->table_exists('payments')) return [];
+        return $this->db->select('p.*, u.full_name, u.email')
+            ->from('payments p')
+            ->join('users u', 'u.id = p.user_id', 'left')
+            ->order_by('p.id', 'DESC')
+            ->limit($limit)
+            ->get()->result();
+    }
+
+    private function _get_revenue_kpis()
+    {
+        $stats = ['today' => 0, 'month' => 0, 'total' => 0, 'count' => 0];
+        if (!$this->db->table_exists('payments')) return $stats;
+
+        $today = date('Y-m-d 00:00:00');
+        $month = date('Y-m-01 00:00:00');
+
+        $row_today = $this->db->select_sum('amount_paise', 'sum')->where('status', 'paid')->where('created_at >=', $today)->get('payments')->row();
+        $row_month = $this->db->select_sum('amount_paise', 'sum')->where('status', 'paid')->where('created_at >=', $month)->get('payments')->row();
+        $row_total = $this->db->select_sum('amount_paise', 'sum')->where('status', 'paid')->get('payments')->row();
+        $row_count = $this->db->where('status', 'paid')->count_all_results('payments');
+
+        $stats['today'] = round(($row_today->sum ?? 0) / 100, 2);
+        $stats['month'] = round(($row_month->sum ?? 0) / 100, 2);
+        $stats['total'] = round(($row_total->sum ?? 0) / 100, 2);
+        $stats['count'] = $row_count;
+        $stats['avg']   = $row_count > 0 ? round($stats['total'] / $row_count, 2) : 0;
+
+        return $stats;
+    }
 }

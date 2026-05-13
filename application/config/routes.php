@@ -57,6 +57,7 @@ $route['admin/subscriptions']   = 'admin/subscriptions';
 $route['admin/reports']         = 'admin/reports';
 $route['admin/settings']        = 'admin/settings';
 $route['admin/security']        = 'admin/security';
+$route['projects/admin/revenue']     = 'projects/admin/revenue';
 
 // ----- Project Submission Panel (New) -----
 $route['projects/login']             = 'projects/auth/login';

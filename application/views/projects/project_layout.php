@@ -48,6 +48,9 @@
                     <a href="<?= site_url('projects/admin/applications') ?>" title="Internship Applications" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'applications') ? 'sidebar-icon-active text-white' : '' ?>">
                         <i class="fa-solid fa-users-gear text-xl"></i>
                     </a>
+                    <a href="<?= site_url('projects/admin/revenue') ?>" title="Revenue Analytics" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'revenue') ? 'sidebar-icon-active text-white' : '' ?>">
+                        <i class="fa-solid fa-chart-pie text-xl"></i>
+                    </a>
                 <?php else: ?>
                     <!-- Student Sidebar -->
                     <a href="<?= site_url('projects/user') ?>" title="Dashboard" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(2) == 'user' && !$this->uri->segment(3)) ? 'sidebar-icon-active text-white' : '' ?>">
