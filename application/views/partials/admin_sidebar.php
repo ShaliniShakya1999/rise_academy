@@ -95,12 +95,6 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
     </nav>
 
     <div class="shrink-0 space-y-1 border-t border-slate-700/80 p-2">
-        <a href="<?= base_url('dashboard'); ?>" class="flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white">
-            <span class="grid h-9 w-9 place-items-center rounded-lg bg-slate-800">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-            </span>
-            <span class="ra-admin-nav__txt" x-show="!collapsed">User site</span>
-        </a>
         <?php $link('logout', 'Logout', base_url('logout'), $iOut); ?>
     </div>
 </aside>

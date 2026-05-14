@@ -12,6 +12,8 @@ class Admin extends My_Controller
         $this->require_admin();
         $this->load->model('Project_model');
         $this->load->model('Internship_model');
+        $this->load->model('Internship_user_model');
+        $this->load->model('Internship_project_model');
     }
 
     public function index()
@@ -106,6 +108,161 @@ class Admin extends My_Controller
         $this->Project_model->delete($id);
         $this->session->set_flashdata('project_ok', 'Project deleted successfully.');
         redirect('projects/admin');
+    }
+
+    public function users()
+    {
+        $users = $this->db->order_by('id', 'DESC')->get('internship_users')->result();
+        $this->loadview('projects/admin/users', [
+            'page_title' => 'Manage Internship Users',
+            'users'      => $users,
+            'use_admin_shell' => true,
+        ], 'projects/project_layout');
+    }
+
+    public function approve_user($id)
+    {
+        $user = $this->Internship_user_model->get_by_id($id);
+        if (!$user) {
+            $this->session->set_flashdata('project_error', 'User not found.');
+            redirect('projects/admin/users');
+        }
+
+        // Generate a random password
+        $new_password = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 8);
+        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+        // Update user status and password
+        $this->Internship_user_model->update($id, [
+            'status' => 'approved',
+            'password_hash' => $password_hash
+        ]);
+
+        // Send Credentials (Joining Letter)
+        $this->_send_joining_letter($user, $new_password);
+
+        $this->session->set_flashdata('project_ok', 'User approved and Joining Letter (Credentials) sent to ' . $user->email);
+        redirect('projects/admin/users');
+    }
+
+    public function send_offer_letter_action($id)
+    {
+        $user = $this->Internship_user_model->get_by_id($id);
+        if (!$user) {
+            $this->session->set_flashdata('project_error', 'User not found.');
+            redirect('projects/admin/users');
+        }
+
+        $this->_send_offer_letter($user);
+
+        $this->session->set_flashdata('project_ok', 'Professional Offer Letter sent to ' . $user->email);
+        redirect('projects/admin/users');
+    }
+
+    /* ------------------------------------------------------------------
+     | Project Submissions & Certificates
+     * -----------------------------------------------------------------*/
+    
+    public function project_submissions()
+    {
+        $submissions = $this->Internship_project_model->get_all_submissions();
+        $this->loadview('projects/admin/project_submissions', [
+            'page_title' => 'Review Project Submissions',
+            'submissions' => $submissions,
+            'use_admin_shell' => true,
+        ], 'projects/project_layout');
+    }
+
+    public function approve_certificate_project($id)
+    {
+        $this->Internship_project_model->update_status($id, 'approved');
+        $this->session->set_flashdata('project_ok', 'Project approved. Certificate unlocked for the student.');
+        redirect('projects/admin/project_submissions');
+    }
+
+    public function reject_certificate_project($id)
+    {
+        $this->Internship_project_model->update_status($id, 'rejected');
+        $this->session->set_flashdata('project_ok', 'Project rejected. Student can resubmit.');
+        redirect('projects/admin/project_submissions');
+    }
+
+    private function _send_offer_letter($user)
+    {
+        $this->load->library('email');
+
+        $unid = 'RMID' . date('Y') . str_pad($user->id, 4, '0', STR_PAD_LEFT);
+        $duration = 6; // Default 6 months
+        $start_date = date('d/m/Y');
+        $end_date = date('d/m/Y', strtotime("+$duration months"));
+
+        $data = [
+            'name'       => $user->full_name,
+            'role'       => $user->applied_for ?: 'Fullstack Web Development',
+            'unid'       => $unid,
+            'duration'   => $duration,
+            'start_date' => $start_date,
+            'end_date'   => $end_date
+        ];
+
+        $message = $this->load->view('emails/offer_letter', $data, TRUE);
+
+        $this->email->from('shalini.shakya@paymanent.com', 'Rise Academy');
+        $this->email->reply_to('info@riseacademy.co.in', 'Rise Academy');
+        $this->email->to($user->email);
+        $this->email->subject('Internship Offer Letter - Rise Academy');
+        $this->email->set_mailtype('html');
+        $this->email->message($message);
+
+        if ($this->email->send()) {
+            $this->session->set_flashdata('last_letter', [
+                'type' => 'Offer Letter',
+                'name' => $user->full_name,
+                'to' => $user->email,
+                'role' => $data['role'],
+                'unid' => $unid
+            ]);
+            return true;
+        } else {
+            $error = $this->email->print_debugger();
+            $this->session->set_flashdata('project_error', 'Email failed to send. Error: ' . strip_tags($error));
+            return false;
+        }
+    }
+
+    private function _send_joining_letter($user, $password)
+    {
+        $this->load->library('email');
+
+        $data = [
+            'name'     => $user->full_name,
+            'course'   => $user->applied_for ?: 'Internship Program',
+            'email'    => $user->email,
+            'password' => $password
+        ];
+
+        $message = $this->load->view('emails/joining_letter', $data, TRUE);
+
+        $this->email->from('shalini.shakya@paymanent.com', 'Rise Academy');
+        $this->email->reply_to('info@riseacademy.co.in', 'Rise Academy');
+        $this->email->to($user->email);
+        $this->email->subject('Your Joining Letter & Credentials - Rise Academy');
+        $this->email->set_mailtype('html');
+        $this->email->message($message);
+
+        if ($this->email->send()) {
+            $this->session->set_flashdata('last_letter', [
+                'type' => 'Joining Letter',
+                'name' => $user->full_name,
+                'to' => $user->email,
+                'pass' => $password
+            ]);
+            return true;
+        } else {
+            $error = $this->email->print_debugger();
+            $this->session->set_flashdata('project_error', 'Email failed to send. Error: ' . strip_tags($error));
+            return false;
+        }
     }
 
     /* ------------------------------------------------------------------

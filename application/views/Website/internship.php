@@ -142,7 +142,7 @@ $flash_info = $this->session->flashdata('info');
                             <p class="mt-3 text-xs text-slate-500"><span class="font-semibold text-slate-700">Requirements:</span> <?= htmlspecialchars($i->requirements); ?></p>
                         <?php endif; ?>
 
-                        <a href="<?= $this->session->userdata('logged_in') ? base_url('dashboard') : base_url('register'); ?>"
+                        <a href="<?= base_url('projects/register?internship=' . urlencode($i->title)); ?>"
                            class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-800">
                             Apply now
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>

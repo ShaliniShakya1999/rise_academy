@@ -61,16 +61,23 @@ $route['projects/admin/revenue']     = 'projects/admin/revenue';
 
 // ----- Project Submission Panel (New) -----
 $route['projects/login']             = 'projects/auth/login';
+$route['projects/register']          = 'projects/auth/register';
 $route['projects/logout']            = 'projects/auth/logout';
 $route['projects/admin']             = 'projects/admin/index';
 $route['projects/admin/internships'] = 'projects/admin/internships';
 $route['projects/admin/add_internship'] = 'projects/admin/add_internship';
 $route['projects/admin/delete_internship/(:num)'] = 'projects/admin/delete_internship/$1';
 $route['projects/admin/applications'] = 'projects/admin/applications';
+$route['projects/admin/users']        = 'projects/admin/users';
+$route['projects/admin/project_submissions'] = 'projects/admin/project_submissions';
+$route['projects/admin/approve_certificate_project/(:num)'] = 'projects/admin/approve_certificate_project/$1';
+$route['projects/admin/reject_certificate_project/(:num)'] = 'projects/admin/reject_certificate_project/$1';
+$route['projects/admin/approve_user/(:num)'] = 'projects/admin/approve_user/$1';
 $route['projects/admin/update_status/(:num)'] = 'projects/admin/update_status/$1';
 $route['projects/admin/delete/(:num)']        = 'projects/admin/delete/$1';
 $route['projects/user']              = 'projects/user/index';
 $route['projects/user/submit']       = 'projects/user/submit';
+$route['projects/user/submit_certificate_project'] = 'projects/user/submit_certificate_project';
 $route['projects/user/chat']         = 'projects/user/chat';
 $route['projects/user/calendar']     = 'projects/user/calendar';
 $route['projects/user/faq']          = 'projects/user/faq';

@@ -17,6 +17,8 @@ class User extends My_Controller
         }
 
         $this->load->model('Project_model');
+        $this->load->model('Internship_project_model');
+        $this->load->model('Internship_user_model');
         $this->load->library('form_validation');
     }
 
@@ -24,11 +26,37 @@ class User extends My_Controller
     {
         $user_id = $this->session->userdata('user_id');
         $projects = $this->Project_model->get_by_user($user_id);
+        
+        // Fetch internship specific project submission for certificate
+        $internship_project = $this->Internship_project_model->get_by_user($user_id);
+        $user_data = $this->Internship_user_model->get_by_id($user_id);
 
         $this->loadview('projects/user/dashboard', [
-            'page_title' => 'My Projects',
+            'page_title' => 'My Projects & Certificate',
             'projects'   => $projects,
+            'internship_project' => $internship_project,
+            'user_data' => $user_data
         ], 'projects/project_layout');
+    }
+
+    public function submit_certificate_project()
+    {
+        if ($this->input->method() === 'post') {
+            $user_id = $this->session->userdata('user_id');
+            $project_link = $this->input->post('project_link', true);
+
+            if (!empty($project_link)) {
+                $this->Internship_project_model->submit([
+                    'user_id' => $user_id,
+                    'project_link' => $project_link,
+                    'status' => 'pending'
+                ]);
+                $this->session->set_flashdata('project_ok', 'Project submitted! Certificate will unlock after admin approval.');
+            } else {
+                $this->session->set_flashdata('project_error', 'Please provide a valid project link.');
+            }
+            redirect('projects/user');
+        }
     }
 
     public function submit()
@@ -69,10 +97,12 @@ class User extends My_Controller
 
         $user_id = $this->session->userdata('user_id');
         $projects = $this->Project_model->get_by_user($user_id);
+        $user_data = $this->Internship_user_model->get_by_id($user_id);
 
         $this->loadview('projects/user/submit', [
             'page_title' => 'Submit New Project',
             'projects'   => $projects,
+            'user_data'  => $user_data
         ], 'projects/project_layout');
     }
     public function chat()

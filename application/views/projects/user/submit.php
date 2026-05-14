@@ -22,6 +22,15 @@
                 </div>
 
                 <div>
+                    <label class="block text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-4 ml-2">Your Domain</label>
+                    <div class="relative group">
+                        <i class="fa-solid fa-user-tag absolute left-6 top-6 text-gray-300 group-focus-within:text-[#00204a] transition-colors"></i>
+                        <input type="text" readonly value="<?= htmlspecialchars($user_data->applied_for) ?>" 
+                               class="w-full pl-14 pr-6 py-6 bg-gray-50 border border-gray-100 rounded-2xl text-gray-500 font-black outline-none shadow-inner text-sm">
+                    </div>
+                </div>
+
+                <div>
                     <label class="block text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-4 ml-2">Sub Domain</label>
                     <div class="relative group">
                         <i class="fa-solid fa-layer-group absolute left-6 top-6 text-gray-300 group-focus-within:text-[#d4af37] transition-colors"></i>

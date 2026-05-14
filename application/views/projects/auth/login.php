@@ -19,6 +19,13 @@
                 </div>
             <?php endif; ?>
 
+            <?php if ($this->session->flashdata('reg_success')): ?>
+                <div class="mb-6 p-4 bg-emerald-50 border border-emerald-100 text-emerald-700 rounded-2xl text-sm flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check mt-0.5 flex-shrink-0"></i>
+                    <span><?= $this->session->flashdata('reg_success') ?></span>
+                </div>
+            <?php endif; ?>
+
             <form action="<?= site_url('projects/login') ?>" method="post" class="space-y-6">
                 <div>
                     <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2 ml-1">Email Address</label>
@@ -55,7 +62,7 @@
         </div>
 
         <p class="text-center mt-10 text-sm text-slate-500 font-medium">
-            Don't have an account? <a href="<?= site_url('register') ?>" class="text-[#d4af37] font-black hover:underline ml-1">Get started</a>
+            Don't have an account? <a href="<?= site_url('projects/register') ?>" class="text-[#d4af37] font-black hover:underline ml-1">Get started</a>
         </p>
     </div>
 </div>

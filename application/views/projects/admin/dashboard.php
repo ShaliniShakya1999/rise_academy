@@ -51,6 +51,7 @@
                     $color = 'gray';
                     if ($p->status === 'approved') $color = 'emerald';
                     elseif ($p->status === 'rejected') $color = 'rose';
+                    elseif ($p->status === 'assigned') $color = 'purple';
                     elseif ($p->status === 'pending') $color = 'amber';
                     elseif ($p->status === 'requested') $color = 'blue';
                     ?>
@@ -64,12 +65,12 @@
                 <td class="px-6 py-4 text-right">
                     <div class="flex items-center justify-end gap-3">
                         <form action="<?= site_url('projects/admin/update_status/' . $p->id) ?>" method="post">
-                            <select name="status" onchange="this.form.submit()" class="text-xs bg-gray-100 border-none rounded-lg px-3 py-1.5 outline-none focus:ring-2 focus:ring-black">
+                            <select name="status" onchange="this.form.submit()" class="text-xs bg-gray-100 border-none rounded-lg px-3 py-1.5 outline-none focus:ring-2 focus:ring-black font-bold">
                                 <option value="requested" <?= $p->status === 'requested' ? 'selected' : '' ?>>Requested</option>
-                                <option value="pending" <?= $p->status === 'pending' ? 'selected' : '' ?>>Pending (Assign)</option>
-                                <option value="reviewed" <?= $p->status === 'reviewed' ? 'selected' : '' ?>>Reviewed</option>
-                                <option value="approved" <?= $p->status === 'approved' ? 'selected' : '' ?>>Approve</option>
-                                <option value="rejected" <?= $p->status === 'rejected' ? 'selected' : '' ?>>Reject</option>
+                                <option value="assigned" <?= $p->status === 'assigned' ? 'selected' : '' ?>>Assigned (Working)</option>
+                                <option value="pending" <?= $p->status === 'pending' ? 'selected' : '' ?>>Pending Review</option>
+                                <option value="approved" <?= $p->status === 'approved' ? 'selected' : '' ?>>Approved</option>
+                                <option value="rejected" <?= $p->status === 'rejected' ? 'selected' : '' ?>>Rejected</option>
                             </select>
                         </form>
                         <a href="<?= site_url('projects/admin/delete/' . $p->id) ?>" class="text-gray-300 hover:text-rose-500 transition-colors">

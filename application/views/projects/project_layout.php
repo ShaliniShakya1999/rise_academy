@@ -14,74 +14,160 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .sidebar-icon-active {
+
+        html, body { height: 100%; }
+
+        /* Sidebar */
+        #sidebar {
+            width: 80px;
+            min-height: 100vh;
+            height: 100%;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        #sidebar.expanded { width: 240px; }
+
+        /* Main content margin */
+        #main-content {
+            margin-left: 80px;
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 100vh;
+        }
+        #main-content.expanded { margin-left: 240px; }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .sidebar-link:hover { color: white; background: rgba(255,255,255,0.05); }
+        .sidebar-link.active {
             background: rgba(212, 175, 55, 0.15);
             border: 1px solid rgba(212, 175, 55, 0.3);
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
             color: #d4af37 !important;
         }
+        .sidebar-link i { min-width: 20px; text-align: center; font-size: 18px; flex-shrink: 0; }
+
+        .sidebar-label {
+            opacity: 0;
+            transition: opacity 0.2s;
+            overflow: hidden;
+            font-size: 12px;
+            letter-spacing: 0.03em;
+        }
+        #sidebar.expanded .sidebar-label { opacity: 1; }
+
+        .toggle-btn {
+            position: fixed;
+            top: 24px;
+            left: 68px;
+            width: 24px;
+            height: 24px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toggle-btn.expanded { left: 228px; }
+        .toggle-btn i { transition: transform 0.3s; font-size: 10px; }
+        .toggle-btn.expanded i { transform: rotate(180deg); }
+
         .bg-rise-dark { background-color: #00204a; }
         .text-rise-gold { color: #d4af37; }
-        .bg-rise-gold { background-color: #d4af37; }
     </style>
 </head>
 <body class="bg-gray-50">
     <div class="flex min-h-screen">
+
         <!-- Sidebar -->
-        <aside class="w-20 bg-rise-dark flex flex-col items-center py-8 fixed h-full z-50">
+        <aside id="sidebar" class="bg-rise-dark flex flex-col py-8 fixed top-0 left-0 z-50">
+
             <!-- Logo -->
-            <div class="mb-12 px-2">
-                <a href="<?= base_url() ?>" class="block">
-                    <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Rise Logo" class="w-12 h-12 rounded-lg object-contain bg-white p-1 shadow-sm">
+            <div class="mb-10 px-4">
+                <a href="<?= base_url() ?>" class="flex items-center gap-3">
+                    <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Rise Logo" class="w-10 h-10 rounded-lg object-contain bg-white p-1 shadow-sm flex-shrink-0">
+                    <span class="sidebar-label text-white font-black text-sm tracking-tight">Rise Academy</span>
                 </a>
             </div>
 
             <!-- Nav Icons -->
-            <nav class="flex flex-col gap-8 flex-1">
+            <nav class="flex flex-col gap-2 flex-1 px-3">
                 <?php if ($this->session->userdata('role_id') == 1): ?>
-                    <a href="<?= site_url('projects/admin') ?>" title="Project Requests" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(2) == 'admin' && !$this->uri->segment(3)) ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-briefcase text-xl"></i>
+                    <a href="<?= site_url('projects/admin') ?>" class="sidebar-link <?= ($this->uri->segment(2) == 'admin' && !$this->uri->segment(3)) ? 'active' : '' ?>">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span class="sidebar-label">Project Requests</span>
                     </a>
-                    <a href="<?= site_url('projects/admin/internships') ?>" title="Manage Internships" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'internships') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    <a href="<?= site_url('projects/admin/internships') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'internships') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span class="sidebar-label">Manage Internships</span>
                     </a>
-                    <a href="<?= site_url('projects/admin/applications') ?>" title="Internship Applications" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'applications') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-users-gear text-xl"></i>
+                    <a href="<?= site_url('projects/admin/users') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'users') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span class="sidebar-label">Internship Users</span>
                     </a>
-                    <a href="<?= site_url('projects/admin/revenue') ?>" title="Revenue Analytics" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'revenue') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-chart-pie text-xl"></i>
+                    <a href="<?= site_url('projects/admin/project_submissions') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'project_submissions') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-file-code"></i>
+                        <span class="sidebar-label">Project Submissions</span>
+                    </a>
+                    <a href="<?= site_url('projects/admin/revenue') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'revenue') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="sidebar-label">Revenue Analytics</span>
                     </a>
                 <?php else: ?>
                     <!-- Student Sidebar -->
-                    <a href="<?= site_url('projects/user') ?>" title="Dashboard" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(2) == 'user' && !$this->uri->segment(3)) ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-table-cells-large text-xl"></i>
+                    <a href="<?= site_url('projects/user') ?>" class="sidebar-link <?= ($this->uri->segment(2) == 'user' && !$this->uri->segment(3)) ? 'active' : '' ?>">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span class="sidebar-label">Dashboard</span>
                     </a>
-                    <a href="<?= site_url('projects/user/chat') ?>" title="Messages" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'chat') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-comment-dots text-xl"></i>
+                    <a href="<?= site_url('projects/user/chat') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'chat') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-comment-dots"></i>
+                        <span class="sidebar-label">Messages</span>
                     </a>
-                    <a href="<?= site_url('projects/user/calendar') ?>" title="Calendar" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'calendar') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-calendar-days text-xl"></i>
+                    <a href="<?= site_url('projects/user/calendar') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'calendar') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span class="sidebar-label">Calendar</span>
                     </a>
-                    <a href="<?= site_url('projects/user/applications') ?>" title="My Applications" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'applications') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-file-circle-check text-xl"></i>
+                    <a href="<?= site_url('projects/user/submit') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'submit') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span class="sidebar-label">Upload Project</span>
                     </a>
-                    <a href="<?= site_url('projects/user/submit') ?>" title="Upload Project" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'submit') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-cloud-arrow-up text-xl"></i>
-                    </a>
-                    <a href="<?= site_url('projects/user/faq') ?>" title="Support" class="p-3 rounded-xl text-white/50 hover:text-white transition-all <?= ($this->uri->segment(3) == 'faq') ? 'sidebar-icon-active text-white' : '' ?>">
-                        <i class="fa-solid fa-circle-question text-xl"></i>
+                    <a href="<?= site_url('projects/user/faq') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'faq') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span class="sidebar-label">Support & FAQs</span>
                     </a>
                 <?php endif; ?>
             </nav>
 
             <!-- Logout -->
-            <a href="<?= site_url('projects/logout') ?>" title="Logout" class="p-3 rounded-xl text-white/40 hover:text-rose-400 transition-all">
-                <i class="fa-solid fa-right-from-bracket text-xl"></i>
-            </a>
+            <div class="px-3 mt-4">
+                <a href="<?= site_url('projects/logout') ?>" class="sidebar-link hover:!text-rose-400">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="sidebar-label">Logout</span>
+                </a>
+            </div>
         </aside>
 
+        <!-- Toggle Button (outside sidebar to avoid overflow:hidden clip) -->
+        <div id="toggle-btn" class="toggle-btn" onclick="toggleSidebar()">
+            <i id="toggle-icon" class="fa-solid fa-chevron-right text-white"></i>
+        </div>
+
         <!-- Main Content Area -->
-        <div class="flex-1 ml-20">
+        <div id="main-content" class="flex-1">
             <!-- Top Header -->
             <header class="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-40">
                 <div class="flex items-center gap-2">
@@ -136,7 +222,7 @@
                     </div>
 
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-rise-dark rounded-full flex items-center justify-center text-white font-bold ring-2 ring-rise-gold ring-offset-2">
+                        <div class="w-10 h-10 bg-rise-dark rounded-full flex items-center justify-center text-white font-bold ring-2 ring-[#d4af37] ring-offset-2">
                             <?= strtoupper(substr($this->session->userdata('full_name') ?: 'U', 0, 1)) ?>
                         </div>
                         <div class="hidden md:block text-right">
@@ -154,5 +240,27 @@
             </main>
         </div>
     </div>
+
+        <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('main-content');
+            const btn = document.getElementById('toggle-btn');
+            sidebar.classList.toggle('expanded');
+            main.classList.toggle('expanded');
+            btn.classList.toggle('expanded');
+            const isExpanded = sidebar.classList.contains('expanded');
+            localStorage.setItem('sidebar_expanded', isExpanded);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const isExpanded = localStorage.getItem('sidebar_expanded') === 'true';
+            if (isExpanded) {
+                document.getElementById('sidebar').classList.add('expanded');
+                document.getElementById('main-content').classList.add('expanded');
+                document.getElementById('toggle-btn').classList.add('expanded');
+            }
+        });
+        </script>
 </body>
 </html>
