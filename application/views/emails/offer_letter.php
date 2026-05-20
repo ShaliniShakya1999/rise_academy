@@ -5,150 +5,145 @@
     <title>Internship Offer Letter - Rise Academy</title>
     <style>
         body { 
-            font-family: 'Georgia', 'Times New Roman', Times, serif; 
-            line-height: 1.5; 
-            color: #000; 
+            font-family: 'Arial', sans-serif; 
+            background-color: #f0f0f0; 
             margin: 0; 
-            padding: 40px; 
-            background-color: #fff; 
+            padding: 20px; 
         }
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            background: #fff; 
-            padding: 40px;
+        .outer-border {
+            background-color: #fff;
+            border: 15px solid #d4af37; /* Gold Border */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
-        .header { 
-            border-bottom: 2px solid #333;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-        .logo { 
-            float: left;
-            height: 70px; 
-        }
-        .company-info {
-            float: right;
-            text-align: right;
-            font-size: 12px;
-            font-family: Arial, sans-serif;
-            color: #444;
-        }
-        .doc-meta {
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-        .doc-title {
+        .header-title {
+            color: #1a5fb4; /* Blue Header */
             text-align: center;
-            font-size: 20px;
+            font-size: 32px;
             font-weight: bold;
-            text-decoration: underline;
-            margin-bottom: 40px;
-            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-family: 'serif';
+        }
+        .logo-section {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+        .logo-section img {
+            height: 40px;
+        }
+        .logo-section p {
+            font-size: 11px;
+            margin: 2px 0;
+            color: #333;
+        }
+        .meta-info {
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.5;
         }
         .salutation {
             font-weight: bold;
             margin-bottom: 20px;
+            font-size: 15px;
         }
-        p {
-            margin-bottom: 15px;
+        .body-text {
             text-align: justify;
-        }
-        .terms-box {
-            margin: 30px 0;
-            padding: 15px;
-            border: 1px solid #ccc;
-            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
             font-size: 14px;
+            color: #000;
         }
-        .signature-section {
-            margin-top: 60px;
-        }
-        .sign-block {
-            float: left;
-            width: 250px;
-        }
-        .sign-line {
-            border-top: 1px solid #000;
-            margin-top: 50px;
-            padding-top: 5px;
+        .responsibilities-title {
             font-weight: bold;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
-        .footer {
-            margin-top: 80px;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-            text-align: center;
-            font-size: 10px;
-            color: #777;
-            font-family: Arial, sans-serif;
+        .sincerely {
+            margin-top: 40px;
+            font-size: 14px;
+            line-height: 1.6;
         }
-        .clear { clear: both; }
+        .signature-lines {
+            margin-top: 50px;
+        }
+        .sign-row {
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        .line {
+            display: inline-block;
+            border-bottom: 1px solid #000;
+            width: 300px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Logo" class="logo">
-            <div class="company-info">
-                <strong>RISE ACADEMY PVT. LTD.</strong><br>
-                Plot No. 42, Knowledge Park III,<br>
-                Greater Noida, UP - 201310<br>
-                Email: info@riseacademy.co.in | Web: www.riseacademy.co.in
-            </div>
-            <div class="clear"></div>
+    <div class="outer-border">
+        <!-- Header -->
+        <div class="header-title">Offer Letter</div>
+        
+        <div class="logo-section">
+            <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Logo"><br>
+            <p>[Rise Academy Pvt. Ltd.]</p>
         </div>
 
-        <div class="doc-meta">
-            <strong>Ref No:</strong> <?= $unid ?><br>
-            <strong>Date:</strong> <?= date('d F, Y') ?>
+        <div class="meta-info">
+            <strong><?= date('m/d/Y') ?></strong><br><br>
+            <strong><?= $name ?></strong><br>
+            [Candidate Address]<br>
+            [City, State, Zip Code]
         </div>
 
-        <div class="doc-title">Internship Offer Letter</div>
+        <div class="salutation">Dear <?= $name ?>,</div>
 
-        <div class="salutation">To, <?= $name ?>,</div>
-
-        <p>
-            We are pleased to offer you an internship position as a <strong><?= $role ?> Intern</strong> with <strong>Rise Academy Pvt. Ltd.</strong> 
-            This internship is scheduled for a period of <strong><?= $duration ?> months</strong>, effective from 
-            <strong><?= $start_date ?></strong> to <strong><?= $end_date ?></strong>.
+        <!-- Main Paragraph from Snippet -->
+        <p class="body-text">
+            We are pleased to offer you an internship position as a <strong><?= $role ?> Intern</strong> with <strong>Rise Academy Pvt. Ltd.</strong> This internship is scheduled for a period of <strong><?= $duration ?> months</strong>, effective from <strong><?= $start_date ?></strong> to <strong><?= $end_date ?></strong>.
         </p>
 
-        <p>
-            During this period, you will be under the guidance and supervision of our technical team. Your internship will focus on 
-            developing practical skills and gaining industry experience in your chosen field. 
+        <p class="body-text">
+            You will be reporting directly to the Project Manager at our office location. We believe your skills and experience are an excellent match for our company. In this role, you will be required to assist in technical developments and project implementations.
         </p>
 
-        <p>
-            Please note that this is a temporary internship role. It does not constitute an offer of permanent employment, 
-            and successful completion of the program does not guarantee a future position within the company. 
-            You will be expected to follow all company policies and maintain professional conduct throughout your tenure.
+        <!-- Responsibilities -->
+        <div class="responsibilities-title">Roles & Key Responsibilities:</div>
+        <ul style="font-size: 14px; color: #000; margin-left: 20px; margin-bottom: 20px; line-height: 1.6;">
+            <?php 
+            $role_lower = strtolower($role);
+            if (strpos($role_lower, 'web') !== false || strpos($role_lower, 'stack') !== false): ?>
+                <li>Developing and maintaining responsive web applications.</li>
+                <li>Writing clean and efficient code for frontend and backend.</li>
+                <li>Testing and troubleshooting to ensure high-quality deliverables.</li>
+            <?php else: ?>
+                <li>Assisting in technical projects and requirement gathering.</li>
+                <li>Participating in daily team stand-ups and learning sessions.</li>
+                <li>Maintaining project documentation and progress reports.</li>
+            <?php endif; ?>
+        </ul>
+
+        <p class="body-text">
+            The stipend for this position is <strong>Performance Based</strong> to be paid on a monthly basis. Your employment with Rise Academy will be on an at-will basis, which means you and the company are free to terminate the relationship at any time for any reason.
         </p>
 
-        <div class="terms-box">
-            By accepting this offer, you agree to maintain the confidentiality of all company data and intellectual property 
-            that you may access during your internship.
+        <p class="body-text">
+            This letter is not a contract or guarantee of employment for a definitive period of time. As an intern of Rise Academy, you are also eligible for our learning program and orientation package. Please confirm your acceptance of this offer by signing and returning this letter. We are excited to have you join our team!
+        </p>
+
+        <!-- Closing -->
+        <div class="sincerely">
+            Sincerely,<br><br>
+            <strong>[Drishti Madaan]</strong><br>
+            HR Manager<br>
+            Rise Academy Pvt. Ltd.
         </div>
 
-        <p>
-            We are excited to have you join us and look forward to a mutually beneficial association. We wish you a productive 
-            and successful internship experience at Rise Academy.
-        </p>
-
-        <div class="signature-section">
-            <div class="sign-block">
-                <div class="sign-line">
-                    Authorized Signatory<br>
-                    <span style="font-size: 12px; font-weight: normal;">HR Department, Rise Academy</span>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="footer">
-            Regd Office: Rise Academy Pvt. Ltd., Knowledge Park III, Greater Noida, Uttar Pradesh, India.<br>
-            This is a computer-generated document and does not require a physical signature.
+        <!-- Signature -->
+        <div class="signature-lines">
+            <div class="sign-row">Signature: <span class="line"></span></div>
+            <div class="sign-row">Printed Name: <span class="line"></span></div>
         </div>
     </div>
 </body>

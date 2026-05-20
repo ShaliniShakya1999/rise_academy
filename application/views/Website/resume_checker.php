@@ -290,6 +290,40 @@ $bu = base_url();
                         </div>
                     </div>
 
+                    <?php if (!empty($top_jobs)): ?>
+                    <div class="ra-rc-mt ra-rc-reveal">
+                        <h3 class="ra-rc-section-title" style="font-size:1.15rem">Recommended Jobs based on your profile</h3>
+                        <p class="ra-rc-section-sub">These opportunities match your skills and ATS score.</p>
+                        <div class="ra-rc-suggest-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                            <?php foreach ($top_jobs as $job): ?>
+                            <article class="ra-rc-suggest" style="cursor: pointer; display: flex; flex-direction: column;" onclick="window.location.href='<?= $this->session->userdata('logged_in') ? base_url('dashboard') : base_url('register'); ?>'">
+                                <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;">
+                                    <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #085CF0, #092676); color: white; display: grid; place-items: center; font-weight: bold; font-size: 0.8rem;">
+                                        <?= htmlspecialchars($job->logo_text ?: 'JO', ENT_QUOTES, 'UTF-8'); ?>
+                                    </div>
+                                    <h4 style="margin: 0; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;"><?= htmlspecialchars($job->title, ENT_QUOTES, 'UTF-8'); ?></h4>
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--ra-rc-muted); margin: 0 0 1rem 0; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    <?= htmlspecialchars($job->company, ENT_QUOTES, 'UTF-8'); ?> &bull; <?= htmlspecialchars($job->location ?: 'Anywhere', ENT_QUOTES, 'UTF-8'); ?>
+                                </p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <?php if (!empty($job->type)): ?>
+                                        <div class="ra-rc-suggest__pct" style="margin-top:0; align-self: flex-start; background: rgba(34, 211, 238, 0.12); color: #085CF0; border: 1px solid rgba(34, 211, 238, 0.35); padding: 0.2rem 0.6rem;">
+                                            <?= htmlspecialchars($job->type, ENT_QUOTES, 'UTF-8'); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($job->is_remote): ?>
+                                        <div class="ra-rc-suggest__pct" style="margin-top:0; align-self: flex-start; background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.35); padding: 0.2rem 0.6rem;">
+                                            Remote
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </article>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
                     <div class="ra-rc-mt ra-rc-reveal">
                         <h3 class="ra-rc-section-title" style="font-size:1.15rem">Success stories</h3>
                         <div class="ra-rc-stories">
@@ -308,14 +342,270 @@ $bu = base_url();
                         </div>
                     </div>
 
-                    <div class="ra-rc-mt ra-rc-reveal">
-                        <h3 class="ra-rc-section-title" style="font-size:1.15rem">Trusted by students</h3>
-                        <div class="ra-rc-logos">
-                            <span class="ra-rc-logo-pill">IIT clubs</span>
-                            <span class="ra-rc-logo-pill">NID portfolio labs</span>
-                            <span class="ra-rc-logo-pill">Tier-2 placement cells</span>
-                            <span class="ra-rc-logo-pill">Bootcamp cohorts</span>
-                            <span class="ra-rc-logo-pill">Career counselors</span>
+                    <!-- GET EXPERIENCED AND JOB READY FOR 800+ TOP COMPANIES -->
+                    <div class="ra-rc-mt ra-rc-reveal ra-rc-companies-section" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: var(--ra-rc-radius-sm); padding: 2.5rem 0; text-align: center; margin-top: 3rem; box-shadow: var(--ra-rc-shadow-soft); overflow: hidden; position: relative;">
+                        <h3 style="font-family: var(--ra-rc-display); font-size: 1.4rem; font-weight: 800; color: var(--ra-rc-navy); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.25; padding: 0 2rem;">
+                            GET EXPERIENCED AND JOB READY FOR <span style="color: #085CF0;">800+ TOP COMPANIES</span>
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--ra-rc-muted); margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; padding: 0 2rem;">Our placement preparation helps you land roles at top tech companies and fast-growing global brands.</p>
+                        
+                        <style>
+                            .checker-marquee-container {
+                                display: flex;
+                                overflow: hidden;
+                                user-select: none;
+                                gap: 2.5rem;
+                                padding: 0.75rem 0;
+                                width: 100%;
+                            }
+                            .checker-marquee-track {
+                                flex-shrink: 0;
+                                display: flex;
+                                justify-content: space-around;
+                                min-width: 100%;
+                                gap: 2.5rem;
+                                align-items: center;
+                                animation: checker-scroll-left 35s linear infinite;
+                            }
+                            .checker-marquee-track-reverse {
+                                flex-shrink: 0;
+                                display: flex;
+                                justify-content: space-around;
+                                min-width: 100%;
+                                gap: 2.5rem;
+                                align-items: center;
+                                animation: checker-scroll-right 35s linear infinite;
+                            }
+                            .checker-marquee-container:hover .checker-marquee-track,
+                            .checker-marquee-container:hover .checker-marquee-track-reverse {
+                                animation-play-state: paused;
+                            }
+                            @keyframes checker-scroll-left {
+                                from { transform: translateX(0); }
+                                to { transform: translateX(-100%); }
+                            }
+                            @keyframes checker-scroll-right {
+                                from { transform: translateX(-100%); }
+                                to { transform: translateX(0); }
+                            }
+                        </style>
+
+                        <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
+                            <!-- Row 1: Left scrolling -->
+                            <div class="checker-marquee-container">
+                                <div class="checker-marquee-track">
+                                    <!-- PhonePe -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 800; color: #5f259f; font-size: 1.1rem; opacity: 0.85; shrink: 0;">
+                                        <span style="background: #5f259f; color: white; border-radius: 6px; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 900;">Pe</span> PhonePe
+                                    </div>
+                                    <!-- Zomato -->
+                                    <div class="ra-rc-company-logo" style="font-family: sans-serif; font-weight: 800; color: #E23744; font-size: 1.35rem; letter-spacing: -0.04em; opacity: 0.85; shrink: 0;">
+                                        zomato
+                                    </div>
+                                    <!-- Coinbase -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #0052FF; font-size: 1.2rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.35rem; opacity: 0.85; shrink: 0;">
+                                        <span style="background: #0052FF; width: 8px; height: 8px; border-radius: 50%;"></span>coinbase
+                                    </div>
+                                    <!-- Paytm -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; font-size: 1.25rem; opacity: 0.85; shrink: 0;">
+                                        <span style="color: #002970;">pay</span><span style="color: #00baf2;">tm</span>
+                                    </div>
+                                    <!-- Uber -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 700; color: #000000; font-size: 1.35rem; letter-spacing: -0.03em; opacity: 0.85; shrink: 0;">
+                                        Uber
+                                    </div>
+                                    <!-- Amazon -->
+                                    <div class="ra-rc-company-logo" style="display: flex; flex-direction: column; align-items: center; line-height: 1; opacity: 0.85; shrink: 0;">
+                                        <span style="font-weight: 800; color: #000000; font-size: 1.15rem; letter-spacing: -0.02em;">amazon</span>
+                                        <span style="color: #FF9900; font-size: 0.85rem; margin-top: -3px; font-weight: 900; transform: scaleX(1.3);">ツ</span>
+                                    </div>
+                                    <!-- Meta -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: #0668E1; font-size: 1.15rem; opacity: 0.85; shrink: 0;">
+                                        <i class="fa-brands fa-meta" style="font-size: 1.25rem;"></i> Meta
+                                    </div>
+                                    <!-- Google -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 700; font-size: 1.2rem; letter-spacing: -0.03em; opacity: 0.85; shrink: 0;">
+                                        <span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
+                                    </div>
+                                    <!-- Microsoft -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600; color: #737373; font-size: 1.1rem; opacity: 0.85; shrink: 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; width: 16px; height: 16px;">
+                                            <div style="background: #F25022; width: 7px; height: 7px;"></div>
+                                            <div style="background: #7FBA00; width: 7px; height: 7px;"></div>
+                                            <div style="background: #00A4EF; width: 7px; height: 7px;"></div>
+                                            <div style="background: #FFB900; width: 7px; height: 7px;"></div>
+                                        </div>
+                                        Microsoft
+                                    </div>
+                                </div>
+                                <!-- Duplicate Row 1 -->
+                                <div class="checker-marquee-track" aria-hidden="true">
+                                    <!-- PhonePe -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.4rem; font-weight: 800; color: #5f259f; font-size: 1.1rem; opacity: 0.85; shrink: 0;">
+                                        <span style="background: #5f259f; color: white; border-radius: 6px; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 900;">Pe</span> PhonePe
+                                    </div>
+                                    <!-- Zomato -->
+                                    <div class="ra-rc-company-logo" style="font-family: sans-serif; font-weight: 800; color: #E23744; font-size: 1.35rem; letter-spacing: -0.04em; opacity: 0.85; shrink: 0;">
+                                        zomato
+                                    </div>
+                                    <!-- Coinbase -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #0052FF; font-size: 1.2rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.35rem; opacity: 0.85; shrink: 0;">
+                                        <span style="background: #0052FF; width: 8px; height: 8px; border-radius: 50%;"></span>coinbase
+                                    </div>
+                                    <!-- Paytm -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; font-size: 1.25rem; opacity: 0.85; shrink: 0;">
+                                        <span style="color: #002970;">pay</span><span style="color: #00baf2;">tm</span>
+                                    </div>
+                                    <!-- Uber -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 700; color: #000000; font-size: 1.35rem; letter-spacing: -0.03em; opacity: 0.85; shrink: 0;">
+                                        Uber
+                                    </div>
+                                    <!-- Amazon -->
+                                    <div class="ra-rc-company-logo" style="display: flex; flex-direction: column; align-items: center; line-height: 1; opacity: 0.85; shrink: 0;">
+                                        <span style="font-weight: 800; color: #000000; font-size: 1.15rem; letter-spacing: -0.02em;">amazon</span>
+                                        <span style="color: #FF9900; font-size: 0.85rem; margin-top: -3px; font-weight: 900; transform: scaleX(1.3);">ツ</span>
+                                    </div>
+                                    <!-- Meta -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: #0668E1; font-size: 1.15rem; opacity: 0.85; shrink: 0;">
+                                        <i class="fa-brands fa-meta" style="font-size: 1.25rem;"></i> Meta
+                                    </div>
+                                    <!-- Google -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 700; font-size: 1.2rem; letter-spacing: -0.03em; opacity: 0.85; shrink: 0;">
+                                        <span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span>
+                                    </div>
+                                    <!-- Microsoft -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600; color: #737373; font-size: 1.1rem; opacity: 0.85; shrink: 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; width: 16px; height: 16px;">
+                                            <div style="background: #F25022; width: 7px; height: 7px;"></div>
+                                            <div style="background: #7FBA00; width: 7px; height: 7px;"></div>
+                                            <div style="background: #00A4EF; width: 7px; height: 7px;"></div>
+                                            <div style="background: #FFB900; width: 7px; height: 7px;"></div>
+                                        </div>
+                                        Microsoft
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Right scrolling -->
+                            <div class="checker-marquee-container">
+                                <div class="checker-marquee-track-reverse">
+                                    <!-- PayPal -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #003087; font-size: 1.2rem; font-style: italic; opacity: 0.85; display: flex; align-items: center; gap: 0.2rem; shrink: 0;">
+                                        <i class="fa-brands fa-paypal" style="color: #0079C1;"></i> PayPal
+                                    </div>
+                                    <!-- CRED -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #0f172a; font-size: 1.05rem; letter-spacing: 0.15em; opacity: 0.85; border: 1.5px solid #0f172a; padding: 0.15rem 0.65rem; border-radius: 4px; line-height: 1; shrink: 0;">
+                                        CRED
+                                    </div>
+                                    <!-- Stripe -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #635BFF; font-size: 1.25rem; letter-spacing: -0.03em; opacity: 0.85; shrink: 0;">
+                                        stripe
+                                    </div>
+                                    <!-- Netflix -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 900; color: #E50914; font-size: 1.25rem; letter-spacing: -0.02em; opacity: 0.85; shrink: 0;">
+                                        NETFLIX
+                                    </div>
+                                    <!-- Flipkart -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; gap: 0.35rem; color: #2874F0; opacity: 0.85; shrink: 0;">
+                                        <span style="background: #FFE11B; padding: 0.1rem 0.3rem; border-radius: 4px; color: #2874F0; font-size: 0.75rem; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; height: 18px; width: 18px;">f</span> Flipkart
+                                    </div>
+                                    <!-- Razorpay -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 900; color: #0b409c; font-size: 1.2rem; font-style: italic; opacity: 0.85; shrink: 0;">
+                                        Razorpay
+                                    </div>
+                                    <!-- Visa -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #1A1F71; font-size: 1.25rem; font-style: italic; opacity: 0.85; shrink: 0;">
+                                        VISA
+                                    </div>
+                                    <!-- Atlassian -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: #0052CC; font-size: 1.1rem; opacity: 0.85; shrink: 0;">
+                                        <i class="fa-brands fa-atlassian" style="font-size: 1.15rem;"></i> ATLASSIAN
+                                    </div>
+                                    <!-- Cisco -->
+                                    <div class="ra-rc-company-logo" style="display: flex; flex-direction: column; align-items: center; opacity: 0.85; shrink: 0;">
+                                        <div style="display: flex; gap: 2px; align-items: flex-end; height: 10px; margin-bottom: 2px;">
+                                            <div style="background: #1BA0D7; width: 2px; height: 4px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 8px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 6px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 10px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 6px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 8px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 4px;"></div>
+                                        </div>
+                                        <span style="font-weight: 700; color: #1BA0D7; font-size: 1.05rem; line-height: 1;">cisco</span>
+                                    </div>
+                                </div>
+                                <!-- Duplicate Row 2 -->
+                                <div class="checker-marquee-track-reverse" aria-hidden="true">
+                                    <!-- PayPal -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #003087; font-size: 1.2rem; font-style: italic; opacity: 0.85; display: flex; align-items: center; gap: 0.2rem; shrink: 0;">
+                                        <i class="fa-brands fa-paypal" style="color: #0079C1;"></i> PayPal
+                                    </div>
+                                    <!-- CRED -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #0f172a; font-size: 1.05rem; letter-spacing: 0.15em; opacity: 0.85; border: 1.5px solid #0f172a; padding: 0.15rem 0.65rem; border-radius: 4px; line-height: 1; shrink: 0;">
+                                        CRED
+                                    </div>
+                                    <!-- Stripe -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #635BFF; font-size: 1.25rem; letter-spacing: -0.03em; opacity: 0.85; shrink: 0;">
+                                        stripe
+                                    </div>
+                                    <!-- Netflix -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 900; color: #E50914; font-size: 1.25rem; letter-spacing: -0.02em; opacity: 0.85; shrink: 0;">
+                                        NETFLIX
+                                    </div>
+                                    <!-- Flipkart -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; gap: 0.35rem; color: #2874F0; opacity: 0.85; shrink: 0;">
+                                        <span style="background: #FFE11B; padding: 0.1rem 0.3rem; border-radius: 4px; color: #2874F0; font-size: 0.75rem; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; height: 18px; width: 18px;">f</span> Flipkart
+                                    </div>
+                                    <!-- Razorpay -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 900; color: #0b409c; font-size: 1.2rem; font-style: italic; opacity: 0.85; shrink: 0;">
+                                        Razorpay
+                                    </div>
+                                    <!-- Visa -->
+                                    <div class="ra-rc-company-logo" style="font-weight: 800; color: #1A1F71; font-size: 1.25rem; font-style: italic; opacity: 0.85; shrink: 0;">
+                                        VISA
+                                    </div>
+                                    <!-- Atlassian -->
+                                    <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: #0052CC; font-size: 1.1rem; opacity: 0.85; shrink: 0;">
+                                        <i class="fa-brands fa-atlassian" style="font-size: 1.15rem;"></i> ATLASSIAN
+                                    </div>
+                                    <!-- Cisco -->
+                                    <div class="ra-rc-company-logo" style="display: flex; flex-direction: column; align-items: center; opacity: 0.85; shrink: 0;">
+                                        <div style="display: flex; gap: 2px; align-items: flex-end; height: 10px; margin-bottom: 2px;">
+                                            <div style="background: #1BA0D7; width: 2px; height: 4px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 8px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 6px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 10px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 6px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 8px;"></div>
+                                            <div style="background: #1BA0D7; width: 2px; height: 4px;"></div>
+                                        </div>
+                                        <span style="font-weight: 700; color: #1BA0D7; font-size: 1.05rem; line-height: 1;">cisco</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div style="margin-top: 1.5rem; padding: 0 2rem;">
+                            <a href="<?= base_url('jobs'); ?>" class="ra-rc-btn ra-rc-btn--primary" style="display: inline-flex; width: auto; font-size: 0.9rem; padding: 0.75rem 2rem; font-weight: 700; border-radius: 999px; text-transform: none; text-decoration: none; animation: none; background: #085CF0; border: none; color: #fff; cursor: pointer;">
+                                See Placement Report
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Marquee Strip -->
+                    <div class="ra-rc-reveal" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 1.25rem 0; margin-top: 2.5rem; overflow: hidden; width: 100%;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; text-transform: uppercase;">
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--ra-rc-muted); letter-spacing: 0.08em; white-space: nowrap;">MINISTRY OF CORPORATE AFFAIRS</span>
+                            <span style="color: #cbd5e1; font-weight: 300;">&bull;</span>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--ra-rc-muted); letter-spacing: 0.08em; white-space: nowrap;">STARTUP INDIA INITIATIVE</span>
+                            <span style="color: #cbd5e1; font-weight: 300;">&bull;</span>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--ra-rc-muted); letter-spacing: 0.08em; white-space: nowrap;">NASSCOM MEMBERSHIP</span>
+                            <span style="color: #cbd5e1; font-weight: 300;">&bull;</span>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--ra-rc-muted); letter-spacing: 0.08em; white-space: nowrap;">ISO 9001 CERTIFIED</span>
+                            <span style="color: #cbd5e1; font-weight: 300;">&bull;</span>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--ra-rc-muted); letter-spacing: 0.08em; white-space: nowrap;">APPROVED BY MSME</span>
                         </div>
                     </div>
 

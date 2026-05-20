@@ -90,8 +90,10 @@ class Layout extends My_Controller
 
     public function resume_checker()
     {
+        $this->load->model('job_model');
         $this->loadview('Website/resume_checker', [
             'page_title'  => 'AI ATS Resume Checker',
+            'top_jobs'    => $this->job_model->active(4),
             'page_assets' => [
                 'css' => 'assets/website/css/resume-checker.css?v=2',
                 'js'  => 'assets/website/js/resume-checker.js?v=2',
