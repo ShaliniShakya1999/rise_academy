@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -552,3 +552,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	}
 
 }
+
+
+
+

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -286,3 +286,7 @@ if ( ! function_exists('is_countable'))
 		return word_is_countable($word);
 	}
 }
+
+
+
+

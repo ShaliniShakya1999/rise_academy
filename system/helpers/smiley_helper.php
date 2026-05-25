@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -254,3 +254,7 @@ if ( ! function_exists('_get_smiley_array'))
 		return $_smileys;
 	}
 }
+
+
+
+

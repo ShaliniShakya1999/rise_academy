@@ -1,4 +1,4 @@
-<div class="max-w-4xl mx-auto">
+﻿<div class="max-w-4xl mx-auto">
     <div class="bg-white rounded-[3rem] shadow-2xl shadow-blue-900/5 border border-gray-50 overflow-hidden">
         <div class="p-12 border-b border-gray-50 bg-gray-50/30">
             <h2 class="text-4xl font-black text-[#00204a] tracking-tighter mb-2">Submit New Project</h2>
@@ -13,10 +13,10 @@
                         <i class="fa-solid fa-folder-open absolute left-6 top-6 text-gray-300 group-focus-within:text-[#d4af37] transition-colors"></i>
                         <select name="project_title" required class="w-full pl-14 pr-6 py-6 bg-white border border-gray-200 rounded-2xl outline-none focus:ring-8 focus:ring-[#d4af37]/5 focus:border-[#d4af37] transition-all font-black text-gray-700 text-sm shadow-sm appearance-none">
                             <option value="">---Select Project---</option>
-                            <option value="Aatmanirbhar Nari – Home Business Enablement Portal">Aatmanirbhar Nari – Home Business Enablement Portal</option>
+                            <option value="Aatmanirbhar Nari â€“ Home Business Enablement Portal">Aatmanirbhar Nari â€“ Home Business Enablement Portal</option>
                             <option value="Farmer-to-Consumer Agri Marketplace">Farmer-to-Consumer Agri Marketplace</option>
-                            <option value="GreenNest – Online Nursery & Gardening Services Platform">GreenNest – Online Nursery & Gardening Services Platform</option>
-                            <option value="HomeFeast – Homemade Tiffin & Food Service Platform">HomeFeast – Homemade Tiffin & Food Service Platform</option>
+                            <option value="GreenNest â€“ Online Nursery & Gardening Services Platform">GreenNest â€“ Online Nursery & Gardening Services Platform</option>
+                            <option value="HomeFeast â€“ Homemade Tiffin & Food Service Platform">HomeFeast â€“ Homemade Tiffin & Food Service Platform</option>
                         </select>
                     </div>
                 </div>
@@ -61,3 +61,7 @@
         </form>
     </div>
 </div>
+
+
+
+

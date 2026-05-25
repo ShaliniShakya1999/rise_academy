@@ -1,6 +1,6 @@
-/* =========================================================
-   Rise Academy — Resume Editor
-   Vanilla JS · live preview, autosave, drag-drop, zoom
+﻿/* =========================================================
+   Internmo â€” Resume Editor
+   Vanilla JS Â· live preview, autosave, drag-drop, zoom
    ========================================================= */
 (function () {
     'use strict';
@@ -367,7 +367,7 @@
         if (state === 'saving') {
             badge.classList.add('is-saving');
             icon.className = 'fa-solid fa-arrows-rotate';
-            text.textContent = 'Saving…';
+            text.textContent = 'Savingâ€¦';
         } else if (state === 'error') {
             badge.classList.add('is-error');
             icon.className = 'fa-solid fa-triangle-exclamation';
@@ -505,3 +505,7 @@
 
     document.querySelector('.re-card')?.setAttribute('data-open', 'true');
 })();
+
+
+
+

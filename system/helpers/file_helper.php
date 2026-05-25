@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -452,3 +452,7 @@ if ( ! function_exists('octal_permissions'))
 		return substr(sprintf('%o', $perms), -3);
 	}
 }
+
+
+
+

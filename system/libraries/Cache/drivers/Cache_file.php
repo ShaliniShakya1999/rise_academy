@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -285,3 +285,7 @@ class CI_Cache_file extends CI_Driver {
 	}
 
 }
+
+
+
+

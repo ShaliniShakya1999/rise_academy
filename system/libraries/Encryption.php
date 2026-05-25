@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -940,3 +940,7 @@ class CI_Encryption {
 			: substr($str, $start);
 	}
 }
+
+
+
+

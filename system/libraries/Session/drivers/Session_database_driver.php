@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -469,3 +469,7 @@ class CI_Session_database_driver extends CI_Session_driver implements CI_Session
 		return parent::_release_lock();
 	}
 }
+
+
+
+

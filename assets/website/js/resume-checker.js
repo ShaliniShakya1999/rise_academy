@@ -1,5 +1,5 @@
 /**
- * Rise Academy — Resume Checker page interactions (vanilla JS)
+ * Internmo â€” Resume Checker page interactions (vanilla JS)
  */
 (function () {
   'use strict';
@@ -106,11 +106,11 @@
     var overlay = $('#ra-rc-loading');
     var stepEl = $('#ra-rc-loading-step');
     var steps = [
-      'Reading resume…',
-      'Extracting skills…',
-      'Matching keywords…',
-      'Calculating ATS score…',
-      'Generating suggestions…',
+      'Reading resumeâ€¦',
+      'Extracting skillsâ€¦',
+      'Matching keywordsâ€¦',
+      'Calculating ATS scoreâ€¦',
+      'Generating suggestionsâ€¦',
     ];
     var i = 0;
     if (overlay) overlay.classList.add('ra-rc--visible');
@@ -321,10 +321,10 @@
     var btn = $('#ra-rc-btn-download');
     if (!btn) return;
     btn.addEventListener('click', function () {
-      var ats = ($('#ra-rc-ats-num') && $('#ra-rc-ats-num').textContent) || '—';
+      var ats = ($('#ra-rc-ats-num') && $('#ra-rc-ats-num').textContent) || 'â€”';
       var name = state.file ? state.file.name : 'resume';
       var body =
-        'Rise Academy — ATS Resume Report\n' +
+        'Internmo â€” ATS Resume Report\n' +
         '================================\n\n' +
         'File: ' + name + '\n' +
         'ATS score: ' + ats + '\n\n' +
@@ -332,7 +332,7 @@
       var blob = new Blob([body], { type: 'text/plain;charset=utf-8' });
       var a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = 'rise-academy-ats-report.txt';
+      a.download = 'internmo-ats-report.txt';
       a.click();
       URL.revokeObjectURL(a.href);
     });
@@ -440,3 +440,7 @@
     setRingPercent(0);
   });
 })();
+
+
+
+

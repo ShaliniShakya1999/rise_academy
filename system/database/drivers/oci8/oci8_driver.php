@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -710,3 +710,7 @@ class CI_DB_oci8_driver extends CI_DB {
 		parent::_reset_select();
 	}
 }
+
+
+
+

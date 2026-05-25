@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -100,3 +100,7 @@ if ( ! function_exists('directory_map'))
 		return FALSE;
 	}
 }
+
+
+
+

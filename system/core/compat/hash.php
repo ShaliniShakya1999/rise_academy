@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -253,3 +253,7 @@ if ( ! function_exists('hash_pbkdf2'))
 			: substr($hash, 0, $length);
 	}
 }
+
+
+
+

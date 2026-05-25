@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -2807,3 +2807,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	}
 
 }
+
+
+
+

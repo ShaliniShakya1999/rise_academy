@@ -45,7 +45,7 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
         localStorage.setItem('ra_admin_sb', this.collapsed ? '1' : '0');
     }
 }"
-       class="ra-admin-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-slate-700/80 bg-gradient-to-b from-[#050A34] via-[#092676] to-[#050A34] text-white shadow-2xl transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
+       class="ra-admin-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-slate-700/80 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white shadow-2xl transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
        :class="{
            '-translate-x-full': !open,
            'translate-x-0': open,
@@ -62,8 +62,8 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
 
     <div class="flex h-14 shrink-0 items-center justify-between border-b border-slate-700/80 px-3 lg:h-16">
         <a href="<?= base_url('admin'); ?>" class="flex min-w-0 items-center gap-2">
-            <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="Rise Academy Admin" class="h-8 w-auto brightness-0 invert" x-show="!collapsed">
-            <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="A" class="h-8 w-8 object-left overflow-hidden" x-show="collapsed">
+            <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Logo" class="h-8 w-auto object-contain">
+            <span class="font-bold text-lg text-white" x-show="!collapsed">Internmo Admin</span>
         </a>
         <button type="button" class="hidden h-9 w-9 place-items-center rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 lg:grid"
                 @click="toggleCollapse()" title="Collapse sidebar">
@@ -98,3 +98,7 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
         <?php $link('logout', 'Logout', base_url('logout'), $iOut); ?>
     </div>
 </aside>
+
+
+
+

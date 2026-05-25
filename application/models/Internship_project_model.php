@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Internship_project_model extends CI_Model
@@ -34,3 +34,7 @@ class Internship_project_model extends CI_Model
         return $this->db->where('id', $id)->update($this->table, ['status' => $status]);
     }
 }
+
+
+
+

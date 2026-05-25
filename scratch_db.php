@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $mysqli = new mysqli("localhost", "root", "", "jobportal");
 
 if ($mysqli->connect_error) {
@@ -25,3 +25,7 @@ addColumn($mysqli, 'projects', 'email', 'VARCHAR(255) NULL', 'full_name');
 echo "Database check complete.";
 $mysqli->close();
 ?>
+
+
+
+

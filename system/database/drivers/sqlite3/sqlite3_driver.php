@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -343,3 +343,7 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	}
 
 }
+
+
+
+

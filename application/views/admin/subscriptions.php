@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Admin → Subscriptions / Payments
+ * Admin â†’ Subscriptions / Payments
  *
  * @var array $rows
  * @var array $totals  ['count','paid','pending','gross_inr']
@@ -19,7 +19,7 @@
             ['Transactions', (int) $totals['count'],   'from-indigo-500 to-violet-500', ''],
             ['Successful',   (int) $totals['paid'],    'from-emerald-500 to-teal-500', ''],
             ['Pending',      (int) $totals['pending'], 'from-amber-500 to-orange-500', ''],
-            ['Gross revenue', '₹' . number_format((float) $totals['gross_inr'], 2), 'from-pink-500 to-rose-500', ''],
+            ['Gross revenue', 'â‚¹' . number_format((float) $totals['gross_inr'], 2), 'from-pink-500 to-rose-500', ''],
         ];
         foreach ($cards as $c): list($l, $v, $g, $_) = $c; ?>
             <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
@@ -60,7 +60,7 @@
                     <tr class="transition hover:bg-slate-50/70 dark:hover:bg-slate-700/30">
                         <td class="px-4 py-3 font-mono text-xs text-slate-500">#<?= (int) $p->id; ?></td>
                         <td class="px-4 py-3">
-                            <p class="font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($p->full_name ?: '—', ENT_QUOTES, 'UTF-8'); ?></p>
+                            <p class="font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($p->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
                             <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($p->email ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                         </td>
                         <td class="px-4 py-3"><span class="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300"><?= htmlspecialchars($p->purpose, ENT_QUOTES, 'UTF-8'); ?></span></td>
@@ -75,3 +75,7 @@
         </div>
     </div>
 </div>
+
+
+
+

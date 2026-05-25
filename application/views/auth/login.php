@@ -1,4 +1,4 @@
-<div class="space-y-2">
+﻿<div class="space-y-2">
     <h1 class="font-display text-3xl font-extrabold text-slate-900">Welcome back</h1>
     <p class="text-slate-500">Sign in to continue building your resume.</p>
 </div>
@@ -29,7 +29,7 @@
         </div>
         <input id="password" type="password" name="password" required
                class="mt-1.5 block w-full rounded-lg border-slate-300 focus:border-brand-500 focus:ring-brand-500 px-3 py-2.5"
-               placeholder="••••••••">
+               placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
     </div>
 
     <button type="submit"
@@ -40,5 +40,9 @@
 
 <p class="mt-6 text-sm text-center text-slate-500">
     Don't have an account?
-    <a href="<?= base_url('register'); ?>" class="font-semibold text-brand-600 hover:text-brand-700">Create one — free</a>
+    <a href="<?= base_url('register'); ?>" class="font-semibold text-brand-600 hover:text-brand-700">Create one â€” free</a>
 </p>
+
+
+
+

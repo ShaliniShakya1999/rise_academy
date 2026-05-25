@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -295,3 +295,7 @@ class CI_Log {
 			: substr($str, $start);
 	}
 }
+
+
+
+

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -74,3 +74,7 @@ if ( ! function_exists('lang'))
 		return $line;
 	}
 }
+
+
+
+

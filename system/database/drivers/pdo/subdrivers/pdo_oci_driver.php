@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -325,3 +325,7 @@ class CI_DB_pdo_oci_driver extends CI_DB_pdo_driver {
 	}
 
 }
+
+
+
+

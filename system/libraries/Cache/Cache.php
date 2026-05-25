@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -254,3 +254,7 @@ class CI_Cache extends CI_Driver_Library {
 		return $support[$driver];
 	}
 }
+
+
+
+

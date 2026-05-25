@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -680,3 +680,7 @@ class CI_User_agent {
 	}
 
 }
+
+
+
+

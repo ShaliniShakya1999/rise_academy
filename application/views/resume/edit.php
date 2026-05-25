@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /** @var object $resume */
 /** @var array  $sections */
 /** @var array  $templates */
@@ -34,7 +34,7 @@ $sections_nav = [
         <?php endforeach; ?>
     </aside>
 
-    <!-- ============= CENTER — FORM EDITOR ============= -->
+    <!-- ============= CENTER â€” FORM EDITOR ============= -->
     <section class="re-editor">
 
         <!-- Header card -->
@@ -126,7 +126,7 @@ $sections_nav = [
                 <span class="re-card__icon"><i class="fa-solid fa-align-left"></i></span>
                 <div class="re-card__title">
                     <h3>Profile Summary</h3>
-                    <p>A short pitch about who you are (2–4 sentences)</p>
+                    <p>A short pitch about who you are (2â€“4 sentences)</p>
                 </div>
                 <i class="fa-solid fa-chevron-down re-card__chevron"></i>
             </button>
@@ -134,7 +134,7 @@ $sections_nav = [
                 <div class="re-card__body-inner">
                     <div class="re-field">
                         <textarea class="re-textarea" rows="5" data-bind="summary.text"
-                                  placeholder="Results-driven engineer with 5+ years of experience building scalable web applications…"></textarea>
+                                  placeholder="Results-driven engineer with 5+ years of experience building scalable web applicationsâ€¦"></textarea>
                     </div>
                 </div>
             </div>
@@ -177,14 +177,14 @@ $sections_nav = [
                                 <div class="col-md-12">
                                     <div class="re-field">
                                         <label class="re-field__label">Period</label>
-                                        <input type="text" class="re-input" data-field="period" placeholder="Jan 2022 — Present">
+                                        <input type="text" class="re-input" data-field="period" placeholder="Jan 2022 â€” Present">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="re-field">
                                         <label class="re-field__label">Description</label>
                                         <textarea class="re-textarea" rows="3" data-field="description"
-                                                  placeholder="Led a team of 5, shipped X feature…"></textarea>
+                                                  placeholder="Led a team of 5, shipped X featureâ€¦"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -230,14 +230,14 @@ $sections_nav = [
                                 <div class="col-md-12">
                                     <div class="re-field">
                                         <label class="re-field__label">Period</label>
-                                        <input type="text" class="re-input" data-field="period" placeholder="2018 — 2022">
+                                        <input type="text" class="re-input" data-field="period" placeholder="2018 â€” 2022">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="re-field">
                                         <label class="re-field__label">Notes</label>
                                         <textarea class="re-textarea" rows="2" data-field="description"
-                                                  placeholder="GPA 9.2, Activities…"></textarea>
+                                                  placeholder="GPA 9.2, Activitiesâ€¦"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@ $sections_nav = [
                     <div class="re-field">
                         <label class="re-field__label">Add your skills</label>
                         <div class="re-chips" data-chips-key="skills">
-                            <input type="text" class="re-chip-input" placeholder="Type a skill and press Enter…">
+                            <input type="text" class="re-chip-input" placeholder="Type a skill and press Enterâ€¦">
                         </div>
                     </div>
                 </div>
@@ -312,7 +312,7 @@ $sections_nav = [
                                     <div class="re-field">
                                         <label class="re-field__label">Description</label>
                                         <textarea class="re-textarea" rows="3" data-field="description"
-                                                  placeholder="What the project does, your contribution, impact…"></textarea>
+                                                  placeholder="What the project does, your contribution, impactâ€¦"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -365,7 +365,7 @@ $sections_nav = [
                                     <div class="re-field">
                                         <label class="re-field__label">Notes</label>
                                         <textarea class="re-textarea" rows="2" data-field="description"
-                                                  placeholder="Credential ID, skills validated…"></textarea>
+                                                  placeholder="Credential ID, skills validatedâ€¦"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -433,7 +433,7 @@ $sections_nav = [
         <div style="height: 80px;"></div>
     </section>
 
-    <!-- ============= RIGHT — LIVE A4 PREVIEW ============= -->
+    <!-- ============= RIGHT â€” LIVE A4 PREVIEW ============= -->
     <aside class="re-preview-pane" id="previewPane" aria-label="Live preview">
         <div class="re-toolbar">
             <select id="templateSelect" class="re-toolbar__select" title="Switch template">
@@ -473,7 +473,7 @@ $sections_nav = [
 
 <!-- Sticky action footer -->
 <div class="re-action-bar">
-    <span class="re-action-bar__text"><b>Resume #<?= (int) $resume->id; ?></b> · changes save automatically</span>
+    <span class="re-action-bar__text"><b>Resume #<?= (int) $resume->id; ?></b> Â· changes save automatically</span>
     <button type="button" id="btnSave" class="re-btn re-btn--ghost">
         <i class="fa-solid fa-floppy-disk"></i> Save
     </button>
@@ -491,3 +491,7 @@ $sections_nav = [
         sections:   <?= json_encode($sections, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>
     };
 </script>
+
+
+
+

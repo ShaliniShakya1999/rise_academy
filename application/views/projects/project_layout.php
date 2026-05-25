@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $data['page_title'] ?? 'Project Portal' ?> — Rise Academy</title>
+    <title><?= $data['page_title'] ?? 'Project Portal' ?> â€” Internmo</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -99,8 +99,8 @@
             <!-- Logo -->
             <div class="mb-10 px-4">
                 <a href="<?= base_url() ?>" class="flex items-center gap-3">
-                    <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Rise Logo" class="w-10 h-10 rounded-lg object-contain bg-white p-1 shadow-sm flex-shrink-0">
-                    <span class="sidebar-label text-white font-black text-sm tracking-tight">Rise Academy</span>
+                    <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Logo" class="h-10 w-auto object-contain shadow-sm flex-shrink-0">
+                    <span class="sidebar-label text-white font-black text-sm tracking-tight">Internmo</span>
                 </a>
             </div>
 
@@ -227,7 +227,7 @@
                         </div>
                         <div class="hidden md:block text-right">
                             <p class="text-xs font-bold text-gray-900 leading-none"><?= $this->session->userdata('full_name') ?: 'User' ?></p>
-                            <p class="text-[10px] text-gray-500 font-medium"><?= $this->session->userdata('email') ?: 'student@rise.com' ?></p>
+                            <p class="text-[10px] text-gray-500 font-medium"><?= $this->session->userdata('email') ?: 'student@internmo.com' ?></p>
                         </div>
                         <i class="fa-solid fa-chevron-down text-xs text-gray-400"></i>
                     </div>
@@ -264,3 +264,7 @@
         </script>
 </body>
 </html>
+
+
+
+

@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Admin → Settings
+ * Admin â†’ Settings
  *
  * @var array $info
  * @var array $tables
@@ -40,7 +40,7 @@
 
             <div class="mt-6 rounded-xl border border-dashed border-slate-300 bg-slate-50/60 p-4 text-xs text-slate-600 dark:border-slate-600 dark:bg-slate-700/30 dark:text-slate-300">
                 <p class="font-semibold text-slate-800 dark:text-slate-100">Editing settings</p>
-                <p class="mt-1">Edit the underlying config files in <code class="rounded bg-white px-1 py-0.5 dark:bg-slate-800">application/config/</code> — these are not editable from the UI to keep production safe.</p>
+                <p class="mt-1">Edit the underlying config files in <code class="rounded bg-white px-1 py-0.5 dark:bg-slate-800">application/config/</code> â€” these are not editable from the UI to keep production safe.</p>
             </div>
         </div>
 
@@ -58,3 +58,7 @@
         </div>
     </div>
 </div>
+
+
+
+

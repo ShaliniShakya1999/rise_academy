@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -68,3 +68,7 @@ class CI_DB_ibase_utility extends CI_DB_utility {
 	}
 
 }
+
+
+
+

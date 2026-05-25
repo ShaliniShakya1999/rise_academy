@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -250,3 +250,7 @@ if ( ! function_exists('password_verify'))
 		return ($compare === 0);
 	}
 }
+
+
+
+

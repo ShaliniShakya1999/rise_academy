@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Internship Offer Letter - Rise Academy</title>
+    <title>Internship Offer Letter - Internmo</title>
     <style>
         body { 
             font-family: 'Arial', sans-serif; 
@@ -86,8 +86,8 @@
         <div class="header-title">Offer Letter</div>
         
         <div class="logo-section">
-            <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Logo"><br>
-            <p>[Rise Academy Pvt. Ltd.]</p>
+            <a href="http://internmo.com/" class="font-bold text-lg text-white">Internmo</a>" alt="Logo"><br>
+            <p>[Internmo Pvt. Ltd.]</p>
         </div>
 
         <div class="meta-info">
@@ -101,7 +101,7 @@
 
         <!-- Main Paragraph from Snippet -->
         <p class="body-text">
-            We are pleased to offer you an internship position as a <strong><?= $role ?> Intern</strong> with <strong>Rise Academy Pvt. Ltd.</strong> This internship is scheduled for a period of <strong><?= $duration ?> months</strong>, effective from <strong><?= $start_date ?></strong> to <strong><?= $end_date ?></strong>.
+            We are pleased to offer you an internship position as a <strong><?= $role ?> Intern</strong> with <strong>Internmo Pvt. Ltd.</strong> This internship is scheduled for a period of <strong><?= $duration ?> months</strong>, effective from <strong><?= $start_date ?></strong> to <strong><?= $end_date ?></strong>.
         </p>
 
         <p class="body-text">
@@ -125,11 +125,11 @@
         </ul>
 
         <p class="body-text">
-            The stipend for this position is <strong>Performance Based</strong> to be paid on a monthly basis. Your employment with Rise Academy will be on an at-will basis, which means you and the company are free to terminate the relationship at any time for any reason.
+            The stipend for this position is <strong>Performance Based</strong> to be paid on a monthly basis. Your employment with Internmo will be on an at-will basis, which means you and the company are free to terminate the relationship at any time for any reason.
         </p>
 
         <p class="body-text">
-            This letter is not a contract or guarantee of employment for a definitive period of time. As an intern of Rise Academy, you are also eligible for our learning program and orientation package. Please confirm your acceptance of this offer by signing and returning this letter. We are excited to have you join our team!
+            This letter is not a contract or guarantee of employment for a definitive period of time. As an intern of Internmo, you are also eligible for our learning program and orientation package. Please confirm your acceptance of this offer by signing and returning this letter. We are excited to have you join our team!
         </p>
 
         <!-- Closing -->
@@ -137,7 +137,7 @@
             Sincerely,<br><br>
             <strong>[Drishti Madaan]</strong><br>
             HR Manager<br>
-            Rise Academy Pvt. Ltd.
+            Internmo Pvt. Ltd.
         </div>
 
         <!-- Signature -->
@@ -148,3 +148,7 @@
     </div>
 </body>
 </html>
+
+
+
+

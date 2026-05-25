@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -19,3 +19,7 @@ $config['newline']      = "\r\n";
 $config['crlf']         = "\r\n";
 $config['wordwrap']     = TRUE;
 $config['smtp_timeout'] = 30;
+
+
+
+

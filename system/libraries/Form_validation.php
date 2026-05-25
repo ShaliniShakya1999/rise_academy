@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -1597,3 +1597,7 @@ class CI_Form_validation {
 	}
 
 }
+
+
+
+

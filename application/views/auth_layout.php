@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' — Rise Academy' : 'Sign in — Rise Academy'; ?></title>
-    <link rel="icon" type="image/png" href="<?= base_url('assets/website/images/rise_logo.png'); ?>">
+    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' â€” Internmo' : 'Sign in â€” Internmo'; ?></title>
+    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>">
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
@@ -14,7 +14,7 @@
                     sans:    ['Inter','ui-sans-serif','system-ui','sans-serif'],
                     display: ['Plus Jakarta Sans','Inter','sans-serif'],
                 },
-                colors: { brand: { 50:'#f0f9ff',100:'#AFE9FD',500:'#085CF0',600:'#085CF0',700:'#092676',900:'#050A34' } },
+                colors: { brand: { 50:'#fffbeb',100:'#fef3c7',500:'#f59e0b',600:'#d97706',700:'#18181b',900:'#09090b' } },
             } }
         };
     </script>
@@ -26,11 +26,12 @@
 <body class="font-sans min-h-screen bg-slate-50">
 
 <div class="min-h-screen grid lg:grid-cols-2">
-    <!-- LEFT — gradient hero -->
+    <!-- LEFT â€” gradient hero -->
     <aside class="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 text-white p-12 flex-col justify-between">
         <div>
-            <a href="<?= base_url(); ?>" class="inline-flex items-center">
-                <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="Rise Academy" class="h-12 w-auto brightness-0 invert">
+            <a href="<?= base_url(); ?>" class="inline-flex items-center gap-2 text-white">
+                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo" class="h-10 w-auto object-contain brightness-100">
+                <span class="font-bold text-lg text-white">Internmo</span>
             </a>
         </div>
 
@@ -44,18 +45,19 @@
             </ul>
         </div>
 
-        <p class="text-white/70 text-sm">© <?= date('Y'); ?> Rise Academy. Made for jobseekers.</p>
+        <p class="text-white/70 text-sm">Â© <?= date('Y'); ?> Internmo. Made for jobseekers.</p>
 
         <!-- decorative blobs -->
         <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
         <div class="pointer-events-none absolute -bottom-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-brand-500/30 blur-3xl"></div>
     </aside>
 
-    <!-- RIGHT — form -->
+    <!-- RIGHT â€” form -->
     <section class="flex items-center justify-center p-6 sm:p-12">
         <div class="w-full max-w-md">
-            <a href="<?= base_url(); ?>" class="lg:hidden inline-flex items-center gap-2 mb-8">
-                <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="Rise Academy Logo" class="h-10 w-auto">
+            <a href="<?= base_url(); ?>" class="lg:hidden inline-flex items-center gap-2 mb-8 text-brand-900">
+                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo Logo" class="h-8 w-auto object-contain">
+                <span class="font-bold text-lg">Internmo</span>
             </a>
 
             <?php
@@ -71,3 +73,7 @@
 
 </body>
 </html>
+
+
+
+

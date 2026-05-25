@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -112,3 +112,7 @@ if ( ! function_exists('delete_cookie'))
 		set_cookie($name, '', '', $domain, $path, $prefix);
 	}
 }
+
+
+
+

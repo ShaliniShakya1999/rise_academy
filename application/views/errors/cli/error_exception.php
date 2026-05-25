@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+﻿<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 An uncaught Exception was encountered
 
@@ -19,3 +19,7 @@ Backtrace:
 <?php	endforeach ?>
 
 <?php endif ?>
+
+
+
+

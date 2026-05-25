@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class My_Controller extends CI_Controller
@@ -48,3 +48,7 @@ class My_Controller extends CI_Controller
         return (int) $this->session->userdata('user_id');
     }
 }
+
+
+
+

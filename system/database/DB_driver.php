@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -1998,3 +1998,7 @@ abstract class CI_DB_driver {
 	}
 
 }
+
+
+
+

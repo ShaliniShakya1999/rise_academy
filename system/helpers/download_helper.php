@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -157,3 +157,7 @@ if ( ! function_exists('force_download'))
 		exit;
 	}
 }
+
+
+
+

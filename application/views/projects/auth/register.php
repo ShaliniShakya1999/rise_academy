@@ -1,10 +1,13 @@
 <div class="min-h-screen flex items-center justify-center bg-[#f8fafc] px-4 py-12">
     <div class="max-w-md w-full">
         <div class="text-center mb-8">
-            <div class="inline-block p-2 bg-white rounded-2xl shadow-xl shadow-blue-900/5 mb-6 border border-gray-50">
-                <img src="<?= base_url('assets/website/images/rise_logo.png') ?>" alt="Rise Academy" class="w-16 h-16 object-contain">
+            <div class="inline-block mb-6">
+                <a href="<?= base_url() ?>" class="flex items-center gap-3 justify-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-md">I</div>
+                    <span class="text-[#00204a] font-black text-2xl tracking-tight">Internmo</span>
+                </a>
             </div>
-            <h1 class="text-3xl font-black text-[#00204a] mb-2 tracking-tight">Rise <span class="text-[#d4af37]">Academy</span></h1>
+            <h1 class="text-3xl font-black text-[#00204a] mb-2 tracking-tight">Intern<span class="text-[#d4af37]">mo</span></h1>
             <p class="text-slate-500 font-medium">Internship Registration</p>
         </div>
 
@@ -87,3 +90,7 @@
         </p>
     </div>
 </div>
+
+
+
+

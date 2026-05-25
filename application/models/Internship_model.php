@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Internship_model extends CI_Model
@@ -79,3 +79,7 @@ class Internship_model extends CI_Model
         ];
     }
 }
+
+
+
+

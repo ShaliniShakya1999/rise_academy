@@ -1,4 +1,4 @@
-<!-- HERO -->
+﻿<!-- HERO -->
 <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
     <div class="absolute -z-10 inset-x-0 top-0 h-[40rem] bg-[radial-gradient(40rem_20rem_at_50%_-10%,rgba(59,108,255,.15),transparent)]"></div>
@@ -8,19 +8,19 @@
             <div>
                 <span class="inline-flex items-center gap-2 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-                    New • Live A4 preview & instant PDF
+                    New â€¢ Live A4 preview & instant PDF
                 </span>
                 <h1 class="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-slate-900">
                     Build a resume that<br/>
                     <span class="bg-gradient-to-r from-brand-600 to-brand-900 bg-clip-text text-transparent">lands interviews.</span>
                 </h1>
                 <p class="mt-6 text-lg text-slate-600 max-w-xl">
-                    Pick a professional template, fill simple forms, watch your resume update in real-time, and download a pixel-perfect PDF — all in minutes.
+                    Pick a professional template, fill simple forms, watch your resume update in real-time, and download a pixel-perfect PDF â€” all in minutes.
                 </p>
 
                 <div class="mt-8 flex flex-wrap gap-3">
                     <a href="<?= base_url('register'); ?>" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3.5 shadow-soft transition">
-                        Build my resume — Free
+                        Build my resume â€” Free
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                     <a href="<?= base_url('templates'); ?>" class="inline-flex items-center gap-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-semibold px-6 py-3.5 transition">
@@ -93,7 +93,7 @@
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Live preview
                 </div>
                 <div class="absolute -right-2 bottom-10 bg-white rounded-xl shadow-soft border border-slate-200 px-3 py-2 text-xs font-semibold text-brand-700">
-                    A4 • ATS-ready
+                    A4 â€¢ ATS-ready
                 </div>
             </div>
         </div>
@@ -113,9 +113,9 @@
             <?php
             $features = [
                 ['icon' => '<path d="M3 7h18M3 12h18M3 17h18"/>',                    'title' => 'Drag-free editor',  'desc' => 'Simple form-based editor. No fighting with layouts or text boxes.'],
-                ['icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>', 'title' => 'Live A4 preview',   'desc' => 'See exactly what your printed PDF will look like — pixel for pixel.'],
+                ['icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>', 'title' => 'Live A4 preview',   'desc' => 'See exactly what your printed PDF will look like â€” pixel for pixel.'],
                 ['icon' => '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>', 'title' => 'One-click PDF',     'desc' => 'Download high-quality PDF instantly. Unlimited downloads.'],
-                ['icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',  'title' => '10+ templates',     'desc' => 'Modern, classic, minimal, creative — pick what matches your industry.'],
+                ['icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',  'title' => '10+ templates',     'desc' => 'Modern, classic, minimal, creative â€” pick what matches your industry.'],
                 ['icon' => '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>', 'title' => 'ATS-friendly',  'desc' => 'Clean structure that breezes through applicant tracking systems.'],
                 ['icon' => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>', 'title' => 'Secure & private', 'desc' => 'Your data is yours. Encrypted storage, no sharing without consent.'],
             ];
@@ -141,7 +141,7 @@
                 <h2 class="font-display text-3xl sm:text-4xl font-extrabold leading-tight">Ready to build your next resume?</h2>
                 <p class="mt-3 text-white/85 text-lg">Sign up free, no credit card. Build, preview, and download in under 10 minutes.</p>
                 <a href="<?= base_url('register'); ?>" class="mt-7 inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 hover:bg-brand-50 font-semibold px-6 py-3.5 transition">
-                    Get started — it's free
+                    Get started â€” it's free
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
             </div>
@@ -150,3 +150,7 @@
         </div>
     </div>
 </section>
+
+
+
+

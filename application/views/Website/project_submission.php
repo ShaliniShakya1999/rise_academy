@@ -1,4 +1,4 @@
-<div class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 min-h-[70vh]">
+﻿<div class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 min-h-[70vh]">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-24 left-1/4 w-72 h-72 rounded-full bg-brand-300/30 blur-3xl ra-float-slow"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-brand-200/25 blur-3xl"></div>
@@ -33,12 +33,12 @@
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700">Project title *</label>
-                    <input type="text" name="project_title" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="e.g. Resume Builder — MERN stack" value="<?= set_value('project_title'); ?>">
+                    <input type="text" name="project_title" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="e.g. Resume Builder â€” MERN stack" value="<?= set_value('project_title'); ?>">
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700">Description *</label>
-                    <textarea name="description" rows="4" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="Tech stack, your role, challenges solved, results (numbers)…"><?= set_value('description'); ?></textarea>
+                    <textarea name="description" rows="4" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="Tech stack, your role, challenges solved, results (numbers)â€¦"><?= set_value('description'); ?></textarea>
                 </div>
 
                 <div>
@@ -72,7 +72,11 @@
         </div>
 
         <p class="ra-animate-in ra-animate-in-delay-2 mt-8 text-center text-sm text-slate-500">
-            Response time: typically <strong class="text-slate-700">5–7 business days</strong>. Important updates will be sent to your email.
+            Response time: typically <strong class="text-slate-700">5â€“7 business days</strong>. Important updates will be sent to your email.
         </p>
     </div>
 </div>
+
+
+
+

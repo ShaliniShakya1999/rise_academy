@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Job_model extends CI_Model
@@ -45,3 +45,7 @@ class Job_model extends CI_Model
         return $this->db->where('deleted_at', null)->count_all_results($this->table);
     }
 }
+
+
+
+

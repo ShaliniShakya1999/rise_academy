@@ -1,5 +1,5 @@
 -- ============================================================
--- Rise Academy / Resume Builder — Database Schema
+-- Internmo / Resume Builder — Database Schema
 -- DB: jobportal  (configured in application/config/database.php)
 -- ============================================================
 
@@ -127,7 +127,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 --   {base_url}/setup/seed
 -- (one-time route in application/controllers/Setup.php)
 -- Default credentials after seeding:
---   admin: admin@riseacademy.test / Admin@123
---   user:  demo@riseacademy.test  / Demo@123
+--   admin: admin@internmo.com / Admin@123
+--   user:  demo@internmo.com  / Demo@123
 -- DELETE the Setup controller after seeding for security.
 -- ============================================================

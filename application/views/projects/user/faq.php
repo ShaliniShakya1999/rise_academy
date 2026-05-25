@@ -63,7 +63,7 @@
                 <i class="fa-solid fa-chevron-down text-gray-300 transition-transform duration-300" :class="activeQuestion === 3 ? 'rotate-180 text-[#d4af37]' : ''"></i>
             </button>
             <div x-show="activeQuestion === 3" x-collapse class="px-8 pb-8 text-slate-500 leading-loose font-medium">
-                Please raise a ticket through the Chat Support section or email us at support@riseacademy.com with your registered email ID and transaction details. We will resolve it within 4 hours.
+                Please raise a ticket through the Chat Support section or email us at support@internmo.com with your registered email ID and transaction details. We will resolve it within 4 hours.
             </div>
         </div>
 
@@ -93,3 +93,7 @@
         </div>
     </div>
 </div>
+
+
+
+

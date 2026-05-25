@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -568,3 +568,7 @@ if ( ! function_exists('redirect'))
 		exit;
 	}
 }
+
+
+
+

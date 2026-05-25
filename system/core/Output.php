@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -845,3 +845,7 @@ class CI_Output {
 			: substr($str, $start);
 	}
 }
+
+
+
+

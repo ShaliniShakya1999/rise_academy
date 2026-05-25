@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -1841,3 +1841,7 @@ class CI_Image_lib {
 	}
 
 }
+
+
+
+

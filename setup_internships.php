@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $mysqli = new mysqli("localhost", "root", "", "jobportal");
 
 if ($mysqli->connect_error) {
@@ -51,3 +51,7 @@ if (!tableExists($mysqli, 'internship_applications')) {
 echo "Database preparation complete.";
 $mysqli->close();
 ?>
+
+
+
+

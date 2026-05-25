@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -520,3 +520,7 @@ class CI_Encrypt {
 			: substr($str, $start);
 	}
 }
+
+
+
+

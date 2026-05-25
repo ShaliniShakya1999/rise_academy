@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -2489,3 +2489,7 @@ class CI_Email {
 			: substr($str, $start);
 	}
 }
+
+
+
+

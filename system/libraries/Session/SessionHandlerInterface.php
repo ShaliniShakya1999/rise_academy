@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -58,3 +58,7 @@ interface SessionHandlerInterface {
 	public function destroy($session_id);
 	public function gc($maxlifetime);
 }
+
+
+
+

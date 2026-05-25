@@ -1,10 +1,10 @@
-/* Rise Academy — global JS hooks (Alpine.js handles most interactivity) */
+﻿/* Internmo â€” global JS hooks (Alpine.js handles most interactivity) */
 
 (function () {
     'use strict';
 
     /* ------------------------------------------------------------------
-     * Wishlist save buttons — graceful AJAX toggle with fallback
+     * Wishlist save buttons â€” graceful AJAX toggle with fallback
      * Falls back to plain form POST when JS is disabled or unavailable.
      * ------------------------------------------------------------------ */
     document.addEventListener('submit', function (e) {
@@ -60,7 +60,7 @@
         btn.classList.toggle('text-slate-400', !saved);
         btn.classList.toggle('hover:text-rose-500', !saved);
         btn.classList.toggle('hover:border-rose-300', !saved);
-        btn.setAttribute('title', saved ? 'Saved — click to remove' : 'Save to wishlist');
+        btn.setAttribute('title', saved ? 'Saved â€” click to remove' : 'Save to wishlist');
         if (svg) svg.setAttribute('fill', saved ? 'currentColor' : 'none');
         btn.classList.remove('ra-wish-pop'); void btn.offsetWidth; btn.classList.add('ra-wish-pop');
     }
@@ -91,3 +91,7 @@
         }, 2200);
     }
 })();
+
+
+
+

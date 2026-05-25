@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Admin → Security
+ * Admin â†’ Security
  *
  * @var array $logins      login_activity_logs (joined)
  * @var array $admin_logs  admin_activity_logs (joined)
@@ -53,10 +53,10 @@
                     <?php else: foreach ($logins as $l): $ok = (int) $l->success === 1; ?>
                         <tr>
                             <td class="px-4 py-3">
-                                <p class="truncate font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($l->full_name ?: '—', ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p class="truncate font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($l->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
                                 <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($l->email_attempt ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                             </td>
-                            <td class="px-4 py-3 font-mono text-xs text-slate-600 dark:text-slate-300"><?= htmlspecialchars($l->ip_address ?: '—', ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td class="px-4 py-3 font-mono text-xs text-slate-600 dark:text-slate-300"><?= htmlspecialchars($l->ip_address ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></td>
                             <td class="px-4 py-3">
                                 <?php if ($ok): ?>
                                     <span class="rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-bold text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">Success</span>
@@ -93,7 +93,7 @@
                     <?php else: foreach ($admin_logs as $a): ?>
                         <tr>
                             <td class="px-4 py-3">
-                                <p class="truncate font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($a->full_name ?: '—', ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p class="truncate font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($a->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
                                 <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($a->email ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                             </td>
                             <td class="px-4 py-3"><span class="rounded-full bg-indigo-100 px-2 py-1 text-[11px] font-bold text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300"><?= htmlspecialchars($a->action, ENT_QUOTES, 'UTF-8'); ?></span></td>
@@ -101,7 +101,7 @@
                                 <?php if (!empty($a->entity)): ?>
                                     <span class="font-mono"><?= htmlspecialchars($a->entity, ENT_QUOTES, 'UTF-8'); ?><?php if (!empty($a->entity_id)): ?> #<?= htmlspecialchars($a->entity_id, ENT_QUOTES, 'UTF-8'); ?><?php endif; ?></span>
                                 <?php else: ?>
-                                    —
+                                    â€”
                                 <?php endif; ?>
                             </td>
                             <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400"><?= date('d M Y, H:i', strtotime($a->created_at)); ?></td>
@@ -113,3 +113,7 @@
         </div>
     </div>
 </div>
+
+
+
+

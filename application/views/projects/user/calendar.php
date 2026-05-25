@@ -1,4 +1,4 @@
-<div class="bg-white rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden" x-data="calendarApp()">
+﻿<div class="bg-white rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden" x-data="calendarApp()">
     <!-- Tabs Header -->
     <div class="px-10 pt-8 border-b border-gray-50 flex items-center gap-10">
         <button class="pb-5 border-b-4 border-[#00204a] text-[#00204a] font-black text-sm transition-all">Calendar View</button>
@@ -133,3 +133,7 @@ function calendarApp() {
     }
 }
 </script>
+
+
+
+

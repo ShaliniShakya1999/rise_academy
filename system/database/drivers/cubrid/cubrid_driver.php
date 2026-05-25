@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -404,3 +404,7 @@ class CI_DB_cubrid_driver extends CI_DB {
 	}
 
 }
+
+
+
+

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 if (!class_exists('My_Controller')) {
@@ -30,7 +30,7 @@ class Admin extends My_Controller
         ];
 
         $this->loadview('admin/dashboard', [
-            'page_title'      => 'Admin — Overview',
+            'page_title'      => 'Admin â€” Overview',
             'use_admin_shell' => true,
             'sidebar_active'  => 'admin',
             'stats'           => $stats,
@@ -65,7 +65,7 @@ class Admin extends My_Controller
         $top_locations  = $this->_top_locations();
 
         $this->loadview('admin/analytics', [
-            'page_title'      => 'Admin — Analytics',
+            'page_title'      => 'Admin â€” Analytics',
             'use_admin_shell' => true,
             'sidebar_active'  => 'analytics',
             'kpis'            => $kpis,
@@ -100,7 +100,7 @@ class Admin extends My_Controller
         $resume_counts = $this->_user_resume_counts();
 
         $this->loadview('admin/users', [
-            'page_title'      => 'Admin — Users',
+            'page_title'      => 'Admin â€” Users',
             'use_admin_shell' => true,
             'sidebar_active'  => 'users',
             'rows'            => $rows,
@@ -148,7 +148,7 @@ class Admin extends My_Controller
         ];
 
         $this->loadview('admin/resumes', [
-            'page_title'      => 'Admin — Resumes',
+            'page_title'      => 'Admin â€” Resumes',
             'use_admin_shell' => true,
             'sidebar_active'  => 'resumes',
             'rows'            => $rows,
@@ -169,7 +169,7 @@ class Admin extends My_Controller
         $usage = $this->_template_usage_map();
 
         $this->loadview('admin/templates', [
-            'page_title'      => 'Admin — Templates',
+            'page_title'      => 'Admin â€” Templates',
             'use_admin_shell' => true,
             'sidebar_active'  => 'templates',
             'rows'            => $rows,
@@ -183,7 +183,7 @@ class Admin extends My_Controller
     }
 
     /* ------------------------------------------------------------------
-     | Content — Jobs + Internships
+     | Content â€” Jobs + Internships
      * -----------------------------------------------------------------*/
 
     public function content()
@@ -204,7 +204,7 @@ class Admin extends My_Controller
         }
 
         $this->loadview('admin/content', [
-            'page_title'      => 'Admin — Content',
+            'page_title'      => 'Admin â€” Content',
             'use_admin_shell' => true,
             'sidebar_active'  => 'content',
             'jobs'            => $jobs,
@@ -219,7 +219,7 @@ class Admin extends My_Controller
     }
 
     /* ------------------------------------------------------------------
-     | AI Tools — ATS reports + uploads
+     | AI Tools â€” ATS reports + uploads
      * -----------------------------------------------------------------*/
 
     public function ai()
@@ -240,7 +240,7 @@ class Admin extends My_Controller
         $score_buckets = $this->_ats_score_buckets();
 
         $this->loadview('admin/ai', [
-            'page_title'      => 'Admin — AI Tools',
+            'page_title'      => 'Admin â€” AI Tools',
             'use_admin_shell' => true,
             'sidebar_active'  => 'ai',
             'reports'         => $reports,
@@ -280,7 +280,7 @@ class Admin extends My_Controller
         ];
 
         $this->loadview('admin/subscriptions', [
-            'page_title'      => 'Admin — Subscriptions',
+            'page_title'      => 'Admin â€” Subscriptions',
             'use_admin_shell' => true,
             'sidebar_active'  => 'subscriptions',
             'rows'            => $rows,
@@ -319,7 +319,7 @@ class Admin extends My_Controller
         }
 
         $this->loadview('admin/reports', [
-            'page_title'      => 'Admin — Reports',
+            'page_title'      => 'Admin â€” Reports',
             'use_admin_shell' => true,
             'sidebar_active'  => 'reports',
             'downloads'       => $downloads,
@@ -334,7 +334,7 @@ class Admin extends My_Controller
     }
 
     /* ------------------------------------------------------------------
-     | Settings — read-only display of CI config + tables present
+     | Settings â€” read-only display of CI config + tables present
      * -----------------------------------------------------------------*/
 
     public function settings()
@@ -358,7 +358,7 @@ class Admin extends My_Controller
         ];
 
         $this->loadview('admin/settings', [
-            'page_title'      => 'Admin — Settings',
+            'page_title'      => 'Admin â€” Settings',
             'use_admin_shell' => true,
             'sidebar_active'  => 'settings',
             'info'            => $info,
@@ -367,7 +367,7 @@ class Admin extends My_Controller
     }
 
     /* ------------------------------------------------------------------
-     | Security — login + admin activity logs
+     | Security â€” login + admin activity logs
      * -----------------------------------------------------------------*/
 
     public function security()
@@ -402,7 +402,7 @@ class Admin extends My_Controller
         ];
 
         $this->loadview('admin/security', [
-            'page_title'      => 'Admin — Security',
+            'page_title'      => 'Admin â€” Security',
             'use_admin_shell' => true,
             'sidebar_active'  => 'security',
             'logins'          => $logins,
@@ -577,3 +577,7 @@ class Admin extends My_Controller
         return $buckets;
     }
 }
+
+
+
+

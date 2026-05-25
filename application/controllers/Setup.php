@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Setup.php — ONE-TIME password-reset helper for the imported `jobportal` dump.
+ * Setup.php â€” ONE-TIME password-reset helper for the imported `jobportal` dump.
  *
  * The dump already contains these users (id 1 admin, id 2 user, id 4 user):
  *   admin@example.com
@@ -48,7 +48,7 @@ class Setup extends CI_Controller
                     'deleted_at'        => null,
                     'updated_at'        => $now,
                 ]);
-                $log[] = $a['email'] . ' → password reset (id ' . $existing->id . ')';
+                $log[] = $a['email'] . ' â†’ password reset (id ' . $existing->id . ')';
             } else {
                 $this->db->insert('users', [
                     'role_id'           => $a['role_id'],
@@ -59,7 +59,7 @@ class Setup extends CI_Controller
                     'created_at'        => $now,
                     'updated_at'        => $now,
                 ]);
-                $log[] = $a['email'] . ' → created (id ' . $this->db->insert_id() . ')';
+                $log[] = $a['email'] . ' â†’ created (id ' . $this->db->insert_id() . ')';
             }
         }
 
@@ -67,7 +67,7 @@ class Setup extends CI_Controller
         echo '<!doctype html><meta charset="utf-8"><title>Setup complete</title>';
         echo '<body style="font-family: ui-sans-serif, system-ui; max-width:680px; margin:40px auto; padding:24px; background:#f8fafc; color:#0f172a;">';
         echo '<div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px;">';
-        echo '<h1 style="margin-top:0;">✅ Passwords reset</h1>';
+        echo '<h1 style="margin-top:0;">âœ… Passwords reset</h1>';
         echo '<ul>';
         foreach ($log as $l) echo '<li>' . htmlspecialchars($l) . '</li>';
         echo '</ul>';
@@ -84,3 +84,7 @@ class Setup extends CI_Controller
         echo '</div></body>';
     }
 }
+
+
+
+

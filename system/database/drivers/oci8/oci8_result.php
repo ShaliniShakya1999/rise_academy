@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -228,3 +228,7 @@ class CI_DB_oci8_result extends CI_DB_result {
 	}
 
 }
+
+
+
+

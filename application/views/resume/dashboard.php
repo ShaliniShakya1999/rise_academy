@@ -10,7 +10,7 @@
     <div id="ra-stats" class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
             <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Welcome back,</p>
-            <h1 class="font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl"><?= htmlspecialchars(isset($full_name) ? $full_name : 'there', ENT_QUOTES, 'UTF-8'); ?> <span class="inline-block origin-bottom-right animate-[ra-wave_1.2s_ease-in-out_infinite]">👋</span></h1>
+            <h1 class="font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl"><?= htmlspecialchars(isset($full_name) ? $full_name : 'there', ENT_QUOTES, 'UTF-8'); ?> <span class="inline-block origin-bottom-right animate-[ra-wave_1.2s_ease-in-out_infinite]">ðŸ‘‹</span></h1>
             <p class="mt-2 max-w-xl text-slate-600 dark:text-slate-400">Pick up where you left off, or start something new.</p>
         </div>
         <div class="flex flex-wrap gap-3">
@@ -27,12 +27,12 @@
     <!-- Stats -->
     <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <div class="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800">
-            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-blue-200/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-blue-600/20"></div>
+            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-brand-500/20 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-brand-500/20"></div>
             <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Total resumes</p>
             <p class="mt-2 font-display text-3xl font-extrabold text-slate-900 dark:text-white"><?= count($resumes); ?></p>
         </div>
         <div class="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800">
-            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-sky-200/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-sky-600/20"></div>
+            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-amber-200/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-amber-500/20"></div>
             <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Templates</p>
             <p class="mt-2 font-display text-3xl font-extrabold text-slate-900 dark:text-white"><?= count($templates); ?></p>
         </div>
@@ -87,7 +87,7 @@
                         <div class="flex flex-1 flex-col border-t border-slate-100 p-5 dark:border-slate-800">
                             <div class="min-w-0 flex-1">
                                 <h3 class="truncate font-display text-lg font-bold text-slate-900 dark:text-white"><?= htmlspecialchars($r->title, ENT_QUOTES, 'UTF-8'); ?></h3>
-                                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($r->template_name ?: 'Template', ENT_QUOTES, 'UTF-8'); ?> · <?= date('M j, Y', strtotime($r->updated_at)); ?></p>
+                                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($r->template_name ?: 'Template', ENT_QUOTES, 'UTF-8'); ?> Â· <?= date('M j, Y', strtotime($r->updated_at)); ?></p>
                                 <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
                                     <div class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-brand-600 transition-all duration-500" style="width: <?= $bar; ?>%"></div>
                                 </div>
@@ -112,7 +112,7 @@
     <section id="templates-strip" class="mt-16 scroll-mt-28">
         <div class="mb-6 flex items-center justify-between gap-4">
             <h2 class="font-display text-xl font-extrabold text-slate-900 dark:text-white sm:text-2xl">Start from a template</h2>
-            <a href="<?= base_url('templates'); ?>" class="text-sm font-semibold text-brand-600 transition hover:text-brand-700 dark:text-brand-400">View all →</a>
+            <a href="<?= base_url('templates'); ?>" class="text-sm font-semibold text-brand-600 transition hover:text-brand-700 dark:text-brand-400">View all â†’</a>
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <?php foreach ($templates as $t): ?>
@@ -137,3 +137,7 @@
     <?php endif; ?>
 
 </div>
+
+
+
+

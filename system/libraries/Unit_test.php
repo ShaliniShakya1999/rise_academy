@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -405,3 +405,7 @@ function is_false($test)
 {
 	return ($test === FALSE);
 }
+
+
+
+

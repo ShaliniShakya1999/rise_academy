@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * `wishlist_items` — id, user_id, item_type ENUM('job','internship'), item_id,
+ * `wishlist_items` â€” id, user_id, item_type ENUM('job','internship'), item_id,
  *                    snapshot_json, created_at
  * Unique key: (user_id, item_type, item_id)
  */
@@ -53,7 +53,7 @@ class Wishlist_model extends CI_Model
     }
 
     /**
-     * Toggle: if saved → remove; else → add. Returns new saved state (bool).
+     * Toggle: if saved â†’ remove; else â†’ add. Returns new saved state (bool).
      */
     public function toggle($user_id, $type, $item_id, $snapshot = [])
     {
@@ -79,3 +79,7 @@ class Wishlist_model extends CI_Model
         return $this->db->where('user_id', (int) $user_id)->count_all_results($this->table);
     }
 }
+
+
+
+

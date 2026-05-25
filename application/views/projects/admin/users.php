@@ -1,4 +1,4 @@
-<!-- Page Header -->
+﻿<!-- Page Header -->
 <div class="mb-12 flex items-center justify-between">
     <div>
         <h2 class="text-3xl font-black text-gray-900 tracking-tight">Internship Management</h2>
@@ -33,12 +33,12 @@
         </div>
         <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 font-serif text-gray-800 leading-relaxed relative overflow-hidden">
             <p class="mb-4"><strong>To:</strong> <?= $letter['to'] ?></p>
-            <p class="mb-4"><strong>Subject:</strong> <?= $letter['type'] ?> - Rise Academy</p>
+            <p class="mb-4"><strong>Subject:</strong> <?= $letter['type'] ?> - Internmo</p>
             
             <?php if ($letter['type'] === 'Offer Letter'): ?>
                 <p class="mb-2"><strong>UNID:</strong> <span class="text-blue-600 font-bold"><?= $letter['unid'] ?></span></p>
                 <p class="mb-4">Dear <?= $letter['name'] ?>,</p>
-                <p class="mb-4">We are pleased to offer you the <strong><?= $letter['role'] ?></strong> internship at Rise Academy.</p>
+                <p class="mb-4">We are pleased to offer you the <strong><?= $letter['role'] ?></strong> internship at Internmo.</p>
                 <p class="mb-4 text-sm text-gray-500">The formal offer letter document was rendered and sent via HTML email.</p>
             <?php else: ?>
                 <p class="mb-4">Dear <?= $letter['name'] ?>,</p>
@@ -49,7 +49,7 @@
                 </p>
             <?php endif; ?>
             
-            <p>Best Regards,<br><strong>HR Department, Rise Academy</strong></p>
+            <p>Best Regards,<br><strong>HR Department, Internmo</strong></p>
         </div>
     </div>
 <?php endif; ?>
@@ -126,3 +126,7 @@
         </tbody>
     </table>
 </div>
+
+
+
+

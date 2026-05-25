@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -197,3 +197,7 @@ class CI_DB_pdo_result extends CI_DB_result {
 	}
 
 }
+
+
+
+

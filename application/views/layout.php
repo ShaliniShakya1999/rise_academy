@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' — Rise Academy' : 'Rise Academy — Resume Builder'; ?></title>
+    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' Ã¢â‚¬â€ Internmo' : 'Internmo Ã¢â‚¬â€ Resume Builder'; ?></title>
     <meta name="description" content="Create ATS-friendly, professional resumes in minutes. Modern templates, live preview, instant PDF download.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?= base_url('assets/website/images/rise_logo.png'); ?>">
+    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>">
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
@@ -20,17 +20,21 @@
                         display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                     },
                     colors: {
+                        primary: '#F59E0B',
+                        'primary-dark': '#D97706',
+                        dark: '#0B1120',
                         brand: {
-                            50:  '#f0f9ff',
-                            100: '#AFE9FD',
-                            500: '#085CF0',
-                            600: '#085CF0',
-                            700: '#092676',
-                            900: '#050A34',
+                            50:  '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#18181b',
+                            900: '#09090b',
                         }
                     },
                     boxShadow: {
                         soft: '0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.06)',
+                        glow: '0 0 30px -5px rgba(245,158,11,0.3)',
                     }
                 }
             }
@@ -40,6 +44,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/website/css/site.css?v=4'); ?>">
     <?php if (!empty($data['page_assets']) && is_array($data['page_assets'])): ?>
         <?php if (!empty($data['page_assets']['css'])): ?>
@@ -49,7 +55,7 @@
 </head>
 <body class="font-sans bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col dark:bg-slate-950 dark:text-slate-100" x-data x-init="if (localStorage.getItem('ra_dark') === '1') document.documentElement.classList.add('dark')">
 
-<?php $this->load->view('partials/navbar'); ?>
+<?php $this->load->view('partials/navbar_site'); ?>
 
 <?php
 $content_view = isset($view) ? $view : '';
@@ -130,3 +136,7 @@ if ($content_view !== '') {
 <script src="<?= base_url('assets/website/js/site.js?v=3'); ?>"></script>
 </body>
 </html>
+
+
+
+

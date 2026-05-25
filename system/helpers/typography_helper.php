@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -103,3 +103,7 @@ if ( ! function_exists('entity_decode'))
 		return get_instance()->security->entity_decode($str, $charset);
 	}
 }
+
+
+
+

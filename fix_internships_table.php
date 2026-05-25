@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $mysqli = new mysqli("localhost", "root", "", "jobportal");
 
 if ($mysqli->connect_error) {
@@ -33,3 +33,7 @@ addColumn($mysqli, 'internship_applications', 'status', 'ENUM("pending","reviewe
 echo "Database fix complete.";
 $mysqli->close();
 ?>
+
+
+
+

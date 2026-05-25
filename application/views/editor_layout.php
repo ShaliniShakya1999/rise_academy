@@ -9,7 +9,7 @@ $page_title   = isset($data['page_title']) ? $data['page_title'] : 'Editor';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($page_title); ?> — Rise Academy</title>
+    <title><?= htmlspecialchars($page_title); ?> â€” Internmo</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@ $page_title   = isset($data['page_title']) ? $data['page_title'] : 'Editor';
     <div class="re-topnav__inner">
         <a class="re-topnav__brand" href="<?= base_url(); ?>">
             <span class="re-topnav__logo"><i class="fa-solid fa-file-lines"></i></span>
-            <span class="re-topnav__title">Rise<span class="text-gradient">Academy</span></span>
+            <span class="re-topnav__title">Intern<span class="text-gradient">mo</span></span>
         </a>
 
         <ul class="re-topnav__menu d-none d-lg-flex">
@@ -82,3 +82,7 @@ $page_title   = isset($data['page_title']) ? $data['page_title'] : 'Editor';
 <script src="<?= base_url('assets/website/js/editor.js?v=1'); ?>"></script>
 </body>
 </html>
+
+
+
+

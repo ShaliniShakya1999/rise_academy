@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -1415,3 +1415,7 @@ class CI_Loader {
 		return $CI->$component;
 	}
 }
+
+
+
+

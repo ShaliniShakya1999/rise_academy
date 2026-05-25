@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $q          = isset($filters['q']) ? $filters['q'] : '';
 $cat_active = isset($filters['category']) ? $filters['category'] : '';
 $type_active= isset($filters['employment_type']) ? $filters['employment_type'] : '';
@@ -57,7 +57,7 @@ $flash_info = $this->session->flashdata('info');
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 </span>
                 <input type="search" name="q" value="<?= htmlspecialchars($q); ?>"
-                       placeholder="Search jobs by title, company or skill…"
+                       placeholder="Search jobs by title, company or skillâ€¦"
                        class="w-full pl-10 pr-3 py-2.5 rounded-xl border-slate-300 focus:border-brand-500 focus:ring-brand-500">
             </div>
             <select name="category" class="rounded-xl border-slate-300 focus:border-brand-500 focus:ring-brand-500 py-2.5">
@@ -81,7 +81,7 @@ $flash_info = $this->session->flashdata('info');
                 </div>
                 <h3 class="mt-4 font-bold text-slate-900">No jobs match your filters</h3>
                 <p class="mt-1 text-sm text-slate-500">Try clearing the search or selecting a different category.</p>
-                <a href="<?= base_url('jobs'); ?>" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">Clear filters →</a>
+                <a href="<?= base_url('jobs'); ?>" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">Clear filters â†’</a>
             </div>
         <?php else: ?>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -98,7 +98,7 @@ $flash_info = $this->session->flashdata('info');
                             <button type="submit"
                                     class="ra-wish-btn inline-flex items-center justify-center w-9 h-9 rounded-full border transition <?= $is_saved ? 'bg-rose-50 border-rose-200 text-rose-600 ra-wish-saved' : 'bg-white border-slate-200 text-slate-400 hover:text-rose-500 hover:border-rose-300'; ?>"
                                     aria-label="<?= $is_saved ? 'Remove from wishlist' : 'Save to wishlist'; ?>"
-                                    title="<?= $is_saved ? 'Saved — click to remove' : 'Save to wishlist'; ?>">
+                                    title="<?= $is_saved ? 'Saved â€” click to remove' : 'Save to wishlist'; ?>">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="<?= $is_saved ? 'currentColor' : 'none'; ?>" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                                 </svg>
@@ -144,3 +144,7 @@ $flash_info = $this->session->flashdata('info');
         <?php endif; ?>
 
 </div>
+
+
+
+

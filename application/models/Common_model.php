@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 
 class Common_Model extends CI_Model
@@ -91,3 +91,7 @@ class Common_Model extends CI_Model
         return $res->result_array();
     }
 }
+
+
+
+

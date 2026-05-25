@@ -1,9 +1,9 @@
-<section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+﻿<section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center">
         <p class="text-brand-600 text-sm font-semibold uppercase tracking-wider">About us</p>
         <h1 class="mt-3 font-display text-4xl sm:text-5xl font-extrabold text-slate-900">We help people land interviews.</h1>
         <p class="mt-5 text-lg text-slate-600 max-w-2xl mx-auto">
-            Rise Academy is a modern resume builder designed for the way today's hiring works. Beautiful templates, ATS-friendly output, and a workflow that takes minutes — not hours.
+            Internmo is a modern resume builder designed for the way today's hiring works. Beautiful templates, ATS-friendly output, and a workflow that takes minutes â€” not hours.
         </p>
     </div>
 
@@ -22,3 +22,7 @@
         </div>
     </div>
 </section>
+
+
+
+

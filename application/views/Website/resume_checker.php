@@ -12,7 +12,7 @@ $bu = base_url();
 
     <div class="ra-rc-inner">
         <header class="ra-rc-hero">
-            <span class="ra-rc-badge">Rise Academy · AI</span>
+            <span class="ra-rc-badge">Internmo Â· AI</span>
             <h1>AI Powered ATS Resume Checker</h1>
             <p>Upload your resume and get instant ATS score, keyword analysis, and AI improvement suggestions.</p>
             <div class="ra-rc-hero__cta">
@@ -33,7 +33,7 @@ $bu = base_url();
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                         </div>
                         <h3>Drag &amp; drop your resume</h3>
-                        <p id="ra-rc-drop-help">or click to browse — PDF, DOC, DOCX up to 10&nbsp;MB</p>
+                        <p id="ra-rc-drop-help">or click to browse â€” PDF, DOC, DOCX up to 10&nbsp;MB</p>
                         <div class="ra-rc-dropzone__formats">
                             <span class="ra-rc-format-pill">PDF</span>
                             <span class="ra-rc-format-pill">DOC</span>
@@ -47,8 +47,8 @@ $bu = base_url();
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                             </div>
                             <div class="ra-rc-file-preview__meta">
-                                <div class="ra-rc-file-preview__name" id="ra-rc-preview-filename">—</div>
-                                <div class="ra-rc-file-preview__size" id="ra-rc-preview-filesize">—</div>
+                                <div class="ra-rc-file-preview__name" id="ra-rc-preview-filename">â€”</div>
+                                <div class="ra-rc-file-preview__size" id="ra-rc-preview-filesize">â€”</div>
                             </div>
                         </div>
                         <p class="ra-rc-note"><strong>ATS tip:</strong> Use standard section headings (Experience, Education, Skills) and avoid text boxes that parsers cannot read.</p>
@@ -59,7 +59,7 @@ $bu = base_url();
                             <label class="ra-rc-label" for="ra-rc-jobdesc">Job description</label>
                             <span class="ra-rc-ai-badge">AI job match</span>
                         </div>
-                        <textarea id="ra-rc-jobdesc" class="ra-rc-textarea" maxlength="5000" placeholder="Paste job description here for better ATS matching…" rows="5"></textarea>
+                        <textarea id="ra-rc-jobdesc" class="ra-rc-textarea" maxlength="5000" placeholder="Paste job description here for better ATS matchingâ€¦" rows="5"></textarea>
                         <div class="ra-rc-counter" id="ra-rc-jd-count">0 / 5000</div>
                         <div class="ra-rc-tips">
                             <h4>Smart tips</h4>
@@ -80,7 +80,7 @@ $bu = base_url();
 
                 <section class="ra-rc-results ra-rc-mt" id="ra-rc-results" aria-live="polite">
                     <h2 class="ra-rc-section-title">AI analysis dashboard</h2>
-                    <p class="ra-rc-section-sub">Simulated scores for UI preview — connect your backend to pipe real NLP and ATS engines.</p>
+                    <p class="ra-rc-section-sub">Simulated scores for UI preview â€” connect your backend to pipe real NLP and ATS engines.</p>
 
                     <div class="ra-rc-dashboard">
                         <div class="ra-rc-dash-card ra-rc-score-wrap">
@@ -229,7 +229,7 @@ $bu = base_url();
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Contact information visible in header block</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Dedicated skills section present</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Experience with reverse-chronological entries</span></div>
-                            <div class="ra-rc-check-item ra-rc-check-item--bad"><span class="ra-rc-check-item__dot"></span><span>Education section — add expected graduation or GPA if early career</span></div>
+                            <div class="ra-rc-check-item ra-rc-check-item--bad"><span class="ra-rc-check-item__dot"></span><span>Education section â€” add expected graduation or GPA if early career</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Proper formatting (single column, no text boxes)</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>ATS readable structure (standard headings)</span></div>
                         </div>
@@ -298,7 +298,7 @@ $bu = base_url();
                             <?php foreach ($top_jobs as $job): ?>
                             <article class="ra-rc-suggest" style="cursor: pointer; display: flex; flex-direction: column;" onclick="window.location.href='<?= $this->session->userdata('logged_in') ? base_url('dashboard') : base_url('register'); ?>'">
                                 <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;">
-                                    <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #085CF0, #092676); color: white; display: grid; place-items: center; font-weight: bold; font-size: 0.8rem;">
+                                    <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; display: grid; place-items: center; font-weight: bold; font-size: 0.8rem;">
                                         <?= htmlspecialchars($job->logo_text ?: 'JO', ENT_QUOTES, 'UTF-8'); ?>
                                     </div>
                                     <h4 style="margin: 0; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;"><?= htmlspecialchars($job->title, ENT_QUOTES, 'UTF-8'); ?></h4>
@@ -308,7 +308,7 @@ $bu = base_url();
                                 </p>
                                 <div style="display: flex; gap: 0.5rem;">
                                     <?php if (!empty($job->type)): ?>
-                                        <div class="ra-rc-suggest__pct" style="margin-top:0; align-self: flex-start; background: rgba(34, 211, 238, 0.12); color: #085CF0; border: 1px solid rgba(34, 211, 238, 0.35); padding: 0.2rem 0.6rem;">
+                                        <div class="ra-rc-suggest__pct" style="margin-top:0; align-self: flex-start; background: rgba(245, 158, 11, 0.12); color: #d97706; border: 1px solid rgba(245, 158, 11, 0.35); padding: 0.2rem 0.6rem;">
                                             <?= htmlspecialchars($job->type, ENT_QUOTES, 'UTF-8'); ?>
                                         </div>
                                     <?php endif; ?>
@@ -329,15 +329,15 @@ $bu = base_url();
                         <div class="ra-rc-stories">
                             <figure class="ra-rc-story">
                                 <blockquote>&ldquo;I raised my ATS score in one evening and started getting recruiter replies within a week.&rdquo;</blockquote>
-                                <cite>— Ananya, Product intern</cite>
+                                <cite>â€” Ananya, Product intern</cite>
                             </figure>
                             <figure class="ra-rc-story">
                                 <blockquote>&ldquo;The keyword section showed exactly what our campus placement cell never explained.&rdquo;</blockquote>
-                                <cite>— Rohan, CS graduate</cite>
+                                <cite>â€” Rohan, CS graduate</cite>
                             </figure>
                             <figure class="ra-rc-story">
-                                <blockquote>&ldquo;Feels like Rezi and Resume.io had a baby — gorgeous UI, actually useful tips.&rdquo;</blockquote>
-                                <cite>— Meera, career switcher</cite>
+                                <blockquote>&ldquo;Feels like Rezi and Resume.io had a baby â€” gorgeous UI, actually useful tips.&rdquo;</blockquote>
+                                <cite>â€” Meera, career switcher</cite>
                             </figure>
                         </div>
                     </div>
@@ -345,7 +345,7 @@ $bu = base_url();
                     <!-- GET EXPERIENCED AND JOB READY FOR 800+ TOP COMPANIES -->
                     <div class="ra-rc-mt ra-rc-reveal ra-rc-companies-section" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: var(--ra-rc-radius-sm); padding: 2.5rem 0; text-align: center; margin-top: 3rem; box-shadow: var(--ra-rc-shadow-soft); overflow: hidden; position: relative;">
                         <h3 style="font-family: var(--ra-rc-display); font-size: 1.4rem; font-weight: 800; color: var(--ra-rc-navy); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.25; padding: 0 2rem;">
-                            GET EXPERIENCED AND JOB READY FOR <span style="color: #085CF0;">800+ TOP COMPANIES</span>
+                            GET EXPERIENCED AND JOB READY FOR <span style="color: #f59e0b;">800+ TOP COMPANIES</span>
                         </h3>
                         <p style="font-size: 0.9rem; color: var(--ra-rc-muted); margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; padding: 0 2rem;">Our placement preparation helps you land roles at top tech companies and fast-growing global brands.</p>
                         
@@ -417,7 +417,7 @@ $bu = base_url();
                                     <!-- Amazon -->
                                     <div class="ra-rc-company-logo" style="display: flex; flex-direction: column; align-items: center; line-height: 1; opacity: 0.85; shrink: 0;">
                                         <span style="font-weight: 800; color: #000000; font-size: 1.15rem; letter-spacing: -0.02em;">amazon</span>
-                                        <span style="color: #FF9900; font-size: 0.85rem; margin-top: -3px; font-weight: 900; transform: scaleX(1.3);">ツ</span>
+                                        <span style="color: #FF9900; font-size: 0.85rem; margin-top: -3px; font-weight: 900; transform: scaleX(1.3);">ãƒ„</span>
                                     </div>
                                     <!-- Meta -->
                                     <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: #0668E1; font-size: 1.15rem; opacity: 0.85; shrink: 0;">
@@ -463,7 +463,7 @@ $bu = base_url();
                                     <!-- Amazon -->
                                     <div class="ra-rc-company-logo" style="display: flex; flex-direction: column; align-items: center; line-height: 1; opacity: 0.85; shrink: 0;">
                                         <span style="font-weight: 800; color: #000000; font-size: 1.15rem; letter-spacing: -0.02em;">amazon</span>
-                                        <span style="color: #FF9900; font-size: 0.85rem; margin-top: -3px; font-weight: 900; transform: scaleX(1.3);">ツ</span>
+                                        <span style="color: #FF9900; font-size: 0.85rem; margin-top: -3px; font-weight: 900; transform: scaleX(1.3);">ãƒ„</span>
                                     </div>
                                     <!-- Meta -->
                                     <div class="ra-rc-company-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: #0668E1; font-size: 1.15rem; opacity: 0.85; shrink: 0;">
@@ -588,7 +588,7 @@ $bu = base_url();
 
                         <!-- CTA Button -->
                         <div style="margin-top: 1.5rem; padding: 0 2rem;">
-                            <a href="<?= base_url('jobs'); ?>" class="ra-rc-btn ra-rc-btn--primary" style="display: inline-flex; width: auto; font-size: 0.9rem; padding: 0.75rem 2rem; font-weight: 700; border-radius: 999px; text-transform: none; text-decoration: none; animation: none; background: #085CF0; border: none; color: #fff; cursor: pointer;">
+                            <a href="<?= base_url('jobs'); ?>" class="ra-rc-btn ra-rc-btn--primary" style="display: inline-flex; width: auto; font-size: 0.9rem; padding: 0.75rem 2rem; font-weight: 700; border-radius: 999px; text-transform: none; text-decoration: none; animation: none; background: #f59e0b; border: none; color: #fff; cursor: pointer;">
                                 See Placement Report
                             </a>
                         </div>
@@ -615,7 +615,7 @@ $bu = base_url();
                             <div class="ra-rc-tip-card"><strong>Mirror the JD</strong> Echo important nouns and phrases naturally in your summary and skills.</div>
                             <div class="ra-rc-tip-card"><strong>Quantify everything</strong> Even estimated impact beats no numbers for ATS and humans.</div>
                             <div class="ra-rc-tip-card"><strong>File naming</strong> Use FirstName_LastName_Resume.pdf for cleaner recruiter workflows.</div>
-                            <div class="ra-rc-tip-card"><strong>Plain layout wins</strong> Creative columns often break parsers — keep it simple for first screens.</div>
+                            <div class="ra-rc-tip-card"><strong>Plain layout wins</strong> Creative columns often break parsers â€” keep it simple for first screens.</div>
                         </div>
                     </div>
 
@@ -636,7 +636,7 @@ $bu = base_url();
                             </details>
                             <details>
                                 <summary>Can I download a report?</summary>
-                                <div>Yes — use Download ATS Report after analysis for a text summary (extend to PDF on the server).</div>
+                                <div>Yes â€” use Download ATS Report after analysis for a text summary (extend to PDF on the server).</div>
                             </details>
                         </div>
                     </div>
@@ -651,8 +651,8 @@ $bu = base_url();
                     </div>
                     <div class="ra-rc-preview__meta">
                         <p><strong>File</strong><br><span id="ra-rc-aside-filename">No file yet</span></p>
-                        <p><strong>Size</strong><br><span id="ra-rc-aside-size">—</span></p>
-                        <p><strong>Uploaded</strong><br><span id="ra-rc-aside-date">—</span></p>
+                        <p><strong>Size</strong><br><span id="ra-rc-aside-size">â€”</span></p>
+                        <p><strong>Uploaded</strong><br><span id="ra-rc-aside-date">â€”</span></p>
                     </div>
                     <div class="ra-rc-preview__actions">
                         <button type="button" class="ra-rc-btn ra-rc-btn--primary ra-rc-btn--sm" id="ra-rc-btn-download">Download ATS Report</button>
@@ -668,8 +668,12 @@ $bu = base_url();
         <div class="ra-rc-loading__card">
             <div class="ra-rc-loading__spinner" aria-hidden="true"></div>
             <h3 id="ra-rc-loading-title">AI is scanning your resume</h3>
-            <p class="ra-rc-loading__step" id="ra-rc-loading-step">Preparing…</p>
+            <p class="ra-rc-loading__step" id="ra-rc-loading-step">Preparingâ€¦</p>
             <div class="ra-rc-loading__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
         </div>
     </div>
 </div>
+
+
+
+

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -267,3 +267,7 @@ if ( ! function_exists('odbc_fetch_object'))
 		return $rs_object;
 	}
 }
+
+
+
+

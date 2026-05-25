@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -60,3 +60,7 @@ class CI_DB_sqlite_utility extends CI_DB_utility {
 	}
 
 }
+
+
+
+

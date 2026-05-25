@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -532,3 +532,7 @@ class CI_Zip {
 			: substr($str, $start);
 	}
 }
+
+
+
+

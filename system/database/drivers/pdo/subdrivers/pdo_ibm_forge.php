@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -153,3 +153,7 @@ class CI_DB_pdo_ibm_forge extends CI_DB_pdo_forge {
 	}
 
 }
+
+
+
+

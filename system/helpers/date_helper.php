@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -741,3 +741,7 @@ if ( ! function_exists('date_range'))
 		return $range;
 	}
 }
+
+
+
+

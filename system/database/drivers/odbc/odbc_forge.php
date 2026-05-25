@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -85,3 +85,7 @@ class CI_DB_odbc_forge extends CI_DB_forge {
 	}
 
 }
+
+
+
+

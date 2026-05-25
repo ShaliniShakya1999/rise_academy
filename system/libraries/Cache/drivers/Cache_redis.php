@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -346,3 +346,7 @@ class CI_Cache_redis extends CI_Driver
 		}
 	}
 }
+
+
+
+

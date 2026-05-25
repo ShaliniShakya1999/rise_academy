@@ -21,6 +21,9 @@ $route['jobs']                 = 'layout/jobs';
 $route['internship']           = 'layout/internship';
 $route['resume-checker']      = 'layout/resume_checker';
 $route['project-submission']   = 'layout/project_submission';
+$route['courses']              = 'layout/courses';
+$route['courses/(:any)']       = 'layout/courses/$1';
+$route['contact']              = 'layout/contact';
 
 // ----- Auth -----
 $route['register'] = 'auth/register';
@@ -85,3 +88,7 @@ $route['projects/user/applications'] = 'projects/user/applications';
 
 // ----- Setup (one-time, delete after seeding) -----
 $route['setup/seed']            = 'setup/seed';
+
+
+
+

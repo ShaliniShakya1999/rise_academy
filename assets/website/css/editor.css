@@ -1,6 +1,6 @@
-/* =========================================================
-   Rise Academy — Resume Editor
-   Premium SaaS UI · Bootstrap 5 + Custom CSS
+﻿/* =========================================================
+   Internmo â€” Resume Editor
+   Premium SaaS UI Â· Bootstrap 5 + Custom CSS
    ========================================================= */
 
 :root {
@@ -201,7 +201,7 @@ html { scroll-behavior: smooth; }
 .re-main { display: block; }
 
 /* =========================================================
-   Editor shell — 3 columns: sidebar | form | preview
+   Editor shell â€” 3 columns: sidebar | form | preview
    ========================================================= */
 .re-app {
     display: grid;
@@ -214,7 +214,7 @@ html { scroll-behavior: smooth; }
     min-height: calc(100vh - var(--re-nav-h));
 }
 
-/* ---------- Left sidebar — section navigation ---------- */
+/* ---------- Left sidebar â€” section navigation ---------- */
 .re-sidebar {
     position: sticky;
     top: calc(var(--re-nav-h) + 18px);
@@ -267,7 +267,7 @@ html { scroll-behavior: smooth; }
     border-color: transparent;
 }
 
-/* ---------- Center column — form editor ---------- */
+/* ---------- Center column â€” form editor ---------- */
 .re-editor {
     display: flex; flex-direction: column;
     gap: 16px;
@@ -576,7 +576,7 @@ html { scroll-behavior: smooth; }
 .re-btn--icon:hover { color: var(--re-indigo); border-color: var(--re-indigo); }
 
 /* =========================================================
-   Right column — preview pane
+   Right column â€” preview pane
    ========================================================= */
 .re-preview-pane {
     position: sticky;
@@ -651,7 +651,7 @@ html { scroll-behavior: smooth; }
     display: flex; justify-content: center; align-items: flex-start;
 }
 
-/* ----- A4 sheet — 210mm × 297mm scaled ----- */
+/* ----- A4 sheet â€” 210mm Ã— 297mm scaled ----- */
 .re-a4-wrap { transform-origin: top center; transition: transform .25s ease; }
 .re-a4 {
     width: 210mm;
@@ -1140,3 +1140,7 @@ html { scroll-behavior: smooth; }
     .rp-section h2 { border-bottom-color: #000 !important; color: #000 !important; }
     .rp-contact i { color: #000 !important; }
 }
+
+
+
+

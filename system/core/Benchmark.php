@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -132,3 +132,7 @@ class CI_Benchmark {
 	}
 
 }
+
+
+
+

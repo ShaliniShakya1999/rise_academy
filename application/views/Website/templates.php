@@ -1,6 +1,6 @@
 <?php
 /**
- * Preview mockups — must be defined before first use (PHP executes top-to-bottom).
+ * Preview mockups â€” must be defined before first use (PHP executes top-to-bottom).
  */
 if (!function_exists('_render_template_preview')) {
     function _render_template_preview($slug)
@@ -26,7 +26,7 @@ if (!function_exists('_render_template_preview')) {
 }
 
 /**
- * `resume_templates` in jobportal has no `category` column — derive filter bucket from slug.
+ * `resume_templates` in jobportal has no `category` column â€” derive filter bucket from slug.
  *
  * @param object $t Template row
  * @param array  $category_label map key => display label
@@ -72,19 +72,19 @@ $category_label = [
 <!-- HERO -->
 <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
-    <div class="absolute -z-10 inset-x-0 top-0 h-[28rem] bg-[radial-gradient(36rem_18rem_at_50%_-10%,rgba(59,108,255,.15),transparent)]"></div>
+    <div class="absolute -z-10 inset-x-0 top-0 h-[28rem] bg-[radial-gradient(36rem_18rem_at_50%_-10%,rgba(245,158,11,.15),transparent)]"></div>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-10 text-center">
         <span class="inline-flex items-center gap-2 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-            <?= count($templates); ?> professional templates • Free forever
+            <?= count($templates); ?> professional templates â€¢ Free forever
         </span>
         <h1 class="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-slate-900">
             Resume templates that<br/>
             <span class="bg-gradient-to-r from-brand-600 to-brand-900 bg-clip-text text-transparent">recruiters love.</span>
         </h1>
         <p class="mt-5 text-lg text-slate-600 max-w-2xl mx-auto">
-            Every template is ATS-friendly, hand-crafted, and fully customizable. Switch designs anytime — your content stays put.
+            Every template is ATS-friendly, hand-crafted, and fully customizable. Switch designs anytime â€” your content stays put.
         </p>
 
         <!-- quick stats -->
@@ -147,7 +147,7 @@ $category_label = [
                      x-transition.opacity
                      class="group relative rounded-2xl bg-white border border-slate-200 hover:border-brand-200 hover:shadow-soft transition overflow-hidden">
 
-                <!-- Preview area (1/√2 = A4 ratio) -->
+                <!-- Preview area (1/âˆš2 = A4 ratio) -->
                 <div class="relative aspect-[1/1.414] bg-gradient-to-br from-slate-50 to-slate-100 border-b border-slate-200 overflow-hidden">
                     <div class="absolute inset-4 bg-white rounded shadow-sm overflow-hidden">
                         <?= _render_template_preview($slug); ?>
@@ -179,7 +179,7 @@ $category_label = [
                     <div class="mt-4 flex items-center justify-between">
                         <div class="flex items-center gap-1">
                             <?php
-                            $swatches = ['#085CF0', '#092676', '#10b981', '#f59e0b', '#ef4444'];
+                            $swatches = ['#f59e0b', '#d97706', '#10b981', '#ef4444', '#6366f1'];
                             foreach ($swatches as $sw):
                             ?>
                                 <span class="w-3.5 h-3.5 rounded-full ring-2 ring-white" style="background:<?= htmlspecialchars($sw, ENT_QUOTES, 'UTF-8'); ?>"></span>
@@ -214,7 +214,7 @@ $category_label = [
                 <p class="mt-3 text-white/85">Pick any template and start filling. You can switch designs anytime without losing data.</p>
                 <a href="<?= $is_logged_in ? base_url('dashboard') : base_url('register'); ?>"
                    class="mt-7 inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 hover:bg-brand-50 font-semibold px-6 py-3.5 transition">
-                    <?= $is_logged_in ? 'Go to dashboard' : 'Get started — free'; ?>
+                    <?= $is_logged_in ? 'Go to dashboard' : 'Get started â€” free'; ?>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
             </div>
@@ -225,3 +225,7 @@ $category_label = [
 </section>
 
 <?php endif; ?>
+
+
+
+

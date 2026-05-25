@@ -1,40 +1,62 @@
-<footer class="bg-slate-950 text-slate-300 <?= (isset($compact_top) && $compact_top) ? 'mt-6' : 'mt-16'; ?>">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid gap-8 md:grid-cols-4">
-            <div class="md:col-span-2">
-                <a href="<?= base_url(); ?>" class="flex items-center gap-2">
-                    <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="Rise Academy Logo" class="h-10 w-auto">
-                </a>
-                <p class="mt-4 text-sm text-slate-400 max-w-md">
-                    Build a professional, ATS-friendly resume in minutes. Modern templates, live preview, instant PDF download.
-                </p>
-            </div>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-            <div>
-                <h4 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Explore</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="<?= base_url('jobs'); ?>" class="hover:text-white">Jobs</a></li>
-                    <li><a href="<?= base_url('internship'); ?>" class="hover:text-white">Internship</a></li>
-                    <li><a href="<?= base_url('resume-checker'); ?>" class="hover:text-white">Resume Checker</a></li>
-                    <li><a href="<?= base_url('project-submission'); ?>" class="hover:text-white">Project Submission</a></li>
-                    <li><a href="<?= base_url('templates'); ?>" class="hover:text-white">Templates</a></li>
-                </ul>
-            </div>
+<!-- SITE FOOTER — Rich Dark Footer matching Landing Page -->
+<footer class="bg-[#0a0f1a] relative">
+    <div class="max-w-[1400px] mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
-            <div>
-                <h4 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Company</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="<?= base_url('register'); ?>" class="hover:text-white">Get started</a></li>
-                    <li><a href="<?= base_url('about'); ?>" class="hover:text-white">About</a></li>
-                    <li><a href="mailto:hello@riseacademy.test" class="hover:text-white">Contact</a></li>
-                    <li><a href="<?= base_url('privacy'); ?>" class="hover:text-white">Privacy</a></li>
-                </ul>
+        <!-- Brand -->
+        <div class="lg:col-span-2 space-y-5 pr-10">
+            <a href="<?= base_url(); ?>" class="flex items-center gap-2 mb-2 group">
+                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo Logo" class="h-10 w-auto object-contain group-hover:opacity-90 transition-all">
+            </a>
+            <p class="text-slate-400 text-[12px] leading-relaxed max-w-xs">We help students build in-demand skills, work on real projects and get placed at top tech companies. Transform your career with us.</p>
+            <div class="flex gap-3 pt-2">
+                <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-all text-sm"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-red-500 hover:border-red-500 hover:text-white transition-all text-sm"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:border-pink-600 hover:text-white transition-all text-sm"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-sky-500 hover:border-sky-500 hover:text-white transition-all text-sm"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>
 
-        <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
-            <p>© <?= date('Y'); ?> Rise Academy. All rights reserved.</p>
-            <p>Made for jobseekers worldwide.</p>
+        <!-- Courses -->
+        <div>
+            <h4 class="font-bold text-white text-[11px] mb-5 uppercase tracking-widest border-l-2 border-amber-500 pl-2">Courses</h4>
+            <ul class="space-y-3.5 text-[12px] text-slate-400">
+                <li><a href="<?= base_url('courses/full-stack-development'); ?>" class="hover:text-amber-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Full Stack Dev</a></li>
+                <li><a href="<?= base_url('courses/data-science'); ?>" class="hover:text-amber-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Data Science &amp; AI</a></li>
+                <li><a href="<?= base_url('courses/artificial-intelligence'); ?>" class="hover:text-amber-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Artificial Intelligence</a></li>
+                <li><a href="<?= base_url('courses/digital-marketing'); ?>" class="hover:text-amber-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Digital Marketing</a></li>
+            </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+            <h4 class="font-bold text-white text-[11px] mb-5 uppercase tracking-widest border-l-2 border-emerald-500 pl-2">Resources</h4>
+            <ul class="space-y-3.5 text-[12px] text-slate-400">
+                <li><a href="#" class="hover:text-emerald-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Blogs &amp; Articles</a></li>
+                <li><a href="#" class="hover:text-emerald-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Placement Report</a></li>
+                <li><a href="#" class="hover:text-emerald-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Free AI Tools</a></li>
+                <li><a href="#" class="hover:text-emerald-500 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Interview Guides</a></li>
+            </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+            <h4 class="font-bold text-white text-[11px] mb-5 uppercase tracking-widest border-l-2 border-purple-500 pl-2">Company</h4>
+            <ul class="space-y-3.5 text-[12px] text-slate-400">
+                <li><a href="<?= base_url('about'); ?>" class="hover:text-purple-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> About Us</a></li>
+                <li><a href="#" class="hover:text-purple-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Careers</a></li>
+                <li><a href="<?= base_url('contact'); ?>" class="hover:text-purple-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Contact Support</a></li>
+                <li><a href="<?= base_url('privacy'); ?>" class="hover:text-purple-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] text-slate-600"></i> Privacy Policy</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="border-t border-slate-800/50 py-6">
+        <div class="max-w-[1400px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+            <span>&copy; <?= date('Y') ?> Internmo. All rights reserved.</span>
+            <span>Learn &bull; Build &bull; Get Hired</span>
         </div>
     </div>
 </footer>

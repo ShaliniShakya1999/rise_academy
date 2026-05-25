@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -181,3 +181,7 @@ if ( ! function_exists('hex2bin'))
 		return pack('H*', $data);
 	}
 }
+
+
+
+

@@ -1,5 +1,5 @@
-/* ============================================================
-   Rise Academy — base styles
+﻿/* ============================================================
+   Internmo â€” base styles
    Tailwind handles the bulk; this file = global resets,
    A4 paper styles, and print rules for resume PDF export.
    ============================================================ */
@@ -139,3 +139,7 @@ aside.ra-admin-sidebar.is-collapsed a.flex.items-center.gap-3 {
         margin: 0;
     }
 }
+
+
+
+

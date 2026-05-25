@@ -7,8 +7,8 @@ $bu = base_url();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise Academy — Practical Learning Platform</title>
-    <link rel="icon" type="image/png" href="<?= base_url('assets/website/images/rise_logo.png'); ?>">
+    <title>Internmo — Practical Learning Platform</title>
+    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>">
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +34,8 @@ $bu = base_url();
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#1665F5',
-                        'primary-dark': '#0f4ebf',
+                        primary: '#F59E0B',
+                        'primary-dark': '#D97706',
                         dark: '#0B1120',
                         light: '#F8FAFC',
                         cta: '#10B981',
@@ -44,12 +44,15 @@ $bu = base_url();
                     boxShadow: {
                         'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
                         'card': '0 20px 40px -5px rgba(0, 0, 0, 0.08)',
-                        'glow': '0 0 30px -5px rgba(22, 101, 245, 0.3)',
+                        'glow': '0 0 30px -5px rgba(245, 158, 11, 0.3)',
                     }
                 }
             }
         }
     </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <style>
         body {
@@ -72,13 +75,13 @@ $bu = base_url();
             font-size: 14px;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #1665F5, #3B82F6);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             color: white;
-            box-shadow: 0 4px 15px rgba(22, 101, 245, 0.3);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(22, 101, 245, 0.4);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
         .btn-outline {
             background-color: transparent;
@@ -86,8 +89,8 @@ $bu = base_url();
             border: 1px solid #CBD5E1;
         }
         .btn-outline:hover {
-            border-color: #1665F5;
-            color: #1665F5;
+            border-color: #f59e0b;
+            color: #f59e0b;
             background-color: #F8FAFC;
             transform: translateY(-2px);
         }
@@ -183,21 +186,143 @@ $bu = base_url();
         <div class="max-w-[1400px] mx-auto px-4 h-16 flex items-center justify-between">
             <!-- Left Side -->
             <a href="<?= base_url(); ?>" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 bg-gradient-to-br from-primary to-blue-400 rounded-full flex items-center justify-center text-white font-black text-xl group-hover:shadow-glow transition-all">R</div>
-                <div class="leading-tight">
-                    <div class="font-bold text-lg text-dark tracking-tight leading-none group-hover:text-primary transition-colors">Rise Academy</div>
-                    <div class="text-[8px] uppercase font-bold text-slate-500 tracking-wider">Learn • Build • Get Hired</div>
-                </div>
+                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo Logo" class="h-11 w-auto object-contain group-hover:shadow-glow transition-all">
             </a>
 
             <!-- Center Menu -->
             <div class="hidden lg:flex items-center gap-6">
-                <a href="#" class="text-sm font-semibold text-primary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary">Home</a>
-                <a href="#courses" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">Courses</a>
+                <a href="<?= base_url(); ?>" class="text-sm font-semibold text-primary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary">Home</a>
+                
+                <!-- Courses Dropdown Menu -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <button @click="open = !open" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors py-2 flex items-center gap-1">
+                        Courses <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-200" :class="open ? 'rotate-180 text-primary' : ''"></i>
+                    </button>
+                    <!-- Mega Menu Dropdown -->
+                    <div x-show="open" 
+                         x-transition:enter="transition ease-out duration-200"
+                         x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave="transition ease-in duration-150"
+                         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                         class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[600px] bg-white border border-slate-100 shadow-2xl rounded-2xl p-6 grid grid-cols-2 gap-4 z-50"
+                         x-cloak>
+                        
+                        <!-- Col 1 -->
+                        <div class="space-y-1">
+                            <a href="<?= base_url('courses/full-stack-development'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-laptop-code text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-primary transition-colors">Full Stack Dev</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Frontend & Backend</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/app-development'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-indigo-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-mobile-screen-button text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-indigo-600 transition-colors">App Development</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">iOS & Android Apps</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/cyber-security'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-emerald-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-shield-halved text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-emerald-600 transition-colors">Cyber Security</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Hacking & InfoSec</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/devops'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-sky-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-server text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-sky-600 transition-colors">DevOps</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Cloud Infrastructure</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/artificial-intelligence'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-purple-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-brain text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-purple-600 transition-colors">Artificial Intelligence</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">ML & Generative AI</div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Col 2 -->
+                        <div class="space-y-1">
+                            <a href="<?= base_url('courses/java-developer'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-red-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-java text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-red-600 transition-colors">Java Developer</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Enterprise Java APIs</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/ui-ux'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-pink-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-palette text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-pink-600 transition-colors">UI/UX Design</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Product & Figma UI</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/data-science'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-violet-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-chart-line text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-violet-600 transition-colors">Data Science</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Modeling & Big Data</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/data-analyst'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-teal-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-magnifying-glass-chart text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-teal-600 transition-colors">Data Analyst</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Power BI & Dashboards</div>
+                                </div>
+                            </a>
+
+                            <a href="<?= base_url('courses/digital-marketing'); ?>" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/50 transition-colors group">
+                                <div class="w-9 h-9 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-bullhorn text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-xs text-dark group-hover:text-orange-600 transition-colors">Digital Marketing</div>
+                                    <div class="text-[10px] text-slate-500 font-medium">Growth & Search Ads</div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <a href="#internships" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">Internships</a>
                 <a href="#placements" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">Placements</a>
                 <a href="#ai-tools" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">AI Tools</a>
                 <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">Projects</a>
-                <a href="#success" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">Success Stories</a>
+                <a href="<?= base_url('contact'); ?>" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full">Contact Us</a>
             </div>
 
             <!-- Right Side Buttons -->
@@ -211,14 +336,14 @@ $bu = base_url();
     <!-- 2. HERO SECTION -->
     <section class="pt-16 pb-12 overflow-hidden bg-white relative">
         <!-- Abstract Background Elements -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-blue-50/50 to-transparent -z-10"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-amber-50/50 to-transparent -z-10"></div>
         <div class="glow-bg top-20 right-40 w-[400px] h-[400px]"></div>
 
         <div class="max-w-[1400px] mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
             
             <!-- Left Side -->
             <div class="space-y-6 lg:pr-10" data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-primary px-4 py-1.5 rounded-full text-xs font-bold shadow-sm" data-aos="fade-down" data-aos-delay="100">
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-100 text-primary px-4 py-1.5 rounded-full text-xs font-bold shadow-sm" data-aos="fade-down" data-aos-delay="100">
                     <span class="text-orange-500 animate-pulse">🔥</span> India's Most Practical Tech Program
                 </div>
                 
@@ -291,8 +416,8 @@ $bu = base_url();
                             <div class="text-xs font-bold text-slate-800 ml-2">Your Learning Dashboard</div>
                         </div>
                         <div class="flex justify-between gap-3">
-                            <div class="bg-blue-50/80 p-3 rounded-xl flex-1 group hover:bg-primary transition-colors">
-                                <div class="text-[10px] text-slate-500 mb-1 group-hover:text-blue-100 transition-colors">Courses</div>
+                            <div class="bg-amber-50/80 p-3 rounded-xl flex-1 group hover:bg-primary transition-colors">
+                                <div class="text-[10px] text-slate-500 mb-1 group-hover:text-amber-100 transition-colors">Courses</div>
                                 <div class="font-black text-xl group-hover:text-white transition-colors">4</div>
                             </div>
                             <div class="bg-emerald-50/80 p-3 rounded-xl flex-1 group hover:bg-emerald-500 transition-colors">
@@ -427,7 +552,7 @@ $bu = base_url();
                 </div>
             </div>
 
-            <a href="#placements" class="btn bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 shadow-glow inline-block text-[15px] rounded-lg">See Placement Report</a>
+            <a href="#placements" class="btn bg-primary hover:bg-primary-dark text-white px-8 py-3.5 shadow-glow inline-block text-[15px] rounded-lg">See Placement Report</a>
         </div>
     </section>
 
@@ -436,13 +561,13 @@ $bu = base_url();
         <div class="max-w-[1400px] mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-black text-dark mb-6">What we have for you</h2>
-                <p class="text-slate-500 text-[15px] leading-relaxed">At Rise Academy, we focus on delivering career-focused courses that help you gain practical skills and land real jobs quickly. Learn the skills employers are looking for and accelerate your career growth today.</p>
+                <p class="text-slate-500 text-[15px] leading-relaxed">At Internmo, we focus on delivering career-focused courses that help you gain practical skills and land real jobs quickly. Learn the skills employers are looking for and accelerate your career growth today.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(22,101,245,0.15)] hover:border-blue-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-50 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.15)] hover:border-amber-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-amber-50 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all"><i class="fa-solid fa-users-gear"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Fellowship</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Get dedicated career guidance and mentoring from our mentors to enhance your resume using our builder.</p>
                     <a href="#" class="text-primary font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
@@ -482,7 +607,9 @@ $bu = base_url();
 
                 <!-- Card 6 -->
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:border-sky-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div class="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-dark mb-3">Know your CTC</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Optimize your resume with our AI-powered Resume Checker to meet industry standards.</p>
                     <a href="#" class="text-sky-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
@@ -494,11 +621,11 @@ $bu = base_url();
     <!-- 4. WHY CHOOSE US (6 Cards Grid) -->
     <section class="py-20 bg-gradient-to-b from-slate-50 to-white relative">
         <div class="max-w-[1400px] mx-auto px-4 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-black text-center text-dark mb-12" data-aos="fade-up">Why Choose <span class="text-primary">Rise Academy?</span></h2>
+            <h2 class="text-3xl md:text-4xl font-black text-center text-dark mb-12" data-aos="fade-up">Why Choose <span class="text-primary">Internmo?</span></h2>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
                 <div class="bg-white border border-slate-100/60 rounded-2xl p-6 text-center shadow-soft card-hover-fx" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-full flex items-center justify-center mx-auto mb-5 text-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="w-12 h-12 bg-amber-50 text-primary rounded-full flex items-center justify-center mx-auto mb-5 text-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-graduation-cap"></i></div>
                     <h4 class="font-bold text-[13px] text-dark mb-2 leading-tight">Industry-tailored Learning</h4>
                     <p class="text-[11px] text-slate-500 leading-relaxed">Industry-oriented curriculum designed by top tech experts.</p>
                 </div>
@@ -522,7 +649,7 @@ $bu = base_url();
                 </div>
 
                 <div class="bg-white border border-slate-100/60 rounded-2xl p-6 text-center shadow-soft card-hover-fx" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-5 text-lg"><i class="fa-solid fa-microphone"></i></div>
+                    <div class="w-12 h-12 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-5 text-lg"><i class="fa-solid fa-microphone"></i></div>
                     <h4 class="font-bold text-[13px] text-dark mb-2 leading-tight">1000+ Mock Interviews</h4>
                     <p class="text-[11px] text-slate-500 leading-relaxed">Unlimited mock interviews with AI feedback.</p>
                 </div>
@@ -547,16 +674,16 @@ $bu = base_url();
                 <a href="#" class="text-sm font-semibold text-primary hover:text-primary-dark transition-colors group flex items-center gap-1">View all courses <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i></a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 (Blue) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Card 1: Full Stack Development -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-500 to-orange-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
                     
-                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Data Science &<br>Artificial Intelligence</h3>
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Full Stack<br>Development</h3>
                     <div class="flex gap-2 mb-6 relative z-10">
-                        <span class="bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
-                        <span class="bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded">14 MONTHS</span>
+                        <span class="bg-amber-50 text-amber-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE / HYBRID</span>
+                        <span class="bg-amber-50 text-amber-600 text-[10px] font-bold px-2 py-1 rounded">6 MONTHS</span>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
@@ -566,61 +693,61 @@ $bu = base_url();
                         </div>
                         <div>
                             <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
-                            <div class="text-xs font-bold text-primary">₹2,950 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                            <div class="text-xs font-bold text-primary">₹3,500 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
                         </div>
                     </div>
                     
                     <div class="space-y-3 mb-8 flex-1 relative z-10">
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Professional certificate</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Unlimited mock interviews</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 10,000+ coding questions</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 100% Placement Assistance</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-slate-300 mt-0.5 text-sm"></i> No coding experience required</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> HTML, CSS, JS & React</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Node.js & Express API</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> SQL & MongoDB Databases</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 10+ Real-world Projects</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 100% Placement Support</div>
                     </div>
                     
                     <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
                         <div class="flex -space-x-2">
                             <img src="https://i.pravatar.cc/100?img=1" class="w-6 h-6 rounded-full border border-white">
                             <img src="https://i.pravatar.cc/100?img=2" class="w-6 h-6 rounded-full border border-white">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                            <div class="w-6 h-6 rounded-full bg-amber-100 text-amber-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
                         </div>
-                        <div class="text-[11px] text-slate-600 font-semibold">1,200+ Enrolled</div>
+                        <div class="text-[11px] text-slate-600 font-semibold">2,500+ Enrolled</div>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-2 relative z-10">
-                        <button class="btn bg-blue-600 hover:bg-blue-700 text-white w-full py-2.5 text-xs shadow-md shadow-blue-500/20">Explore</button>
+                        <a href="<?= base_url('courses/full-stack-development'); ?>" class="btn bg-primary hover:bg-primary-dark text-white w-full py-2.5 text-xs shadow-md shadow-amber-500/20">Explore</a>
                         <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
                     </div>
                 </div>
 
-                <!-- Card 2 (Green) -->
+                <!-- Card 2: App Development -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-teal-400"></div>
                     <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
                     
-                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Advanced Full Stack<br>Development</h3>
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">App<br>Development</h3>
                     <div class="flex gap-2 mb-6 relative z-10">
                         <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
-                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">5-8 MONTHS</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">4 MONTHS</span>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
                         <div>
                             <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
-                            <div class="text-xs font-bold text-dark">Jun 4, 2026</div>
+                            <div class="text-xs font-bold text-dark">Jun 10, 2026</div>
                         </div>
                         <div>
                             <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
-                            <div class="text-xs font-bold text-emerald-600">₹12,300 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                            <div class="text-xs font-bold text-emerald-600">₹3,000 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
                         </div>
                     </div>
                     
                     <div class="space-y-3 mb-8 flex-1 relative z-10">
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Professional certificate</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Unlimited mock interviews</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 10,000+ coding questions</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 100% Placement Assistance</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-slate-300 mt-0.5 text-sm"></i> No coding experience required</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Flutter & Dart Core</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> React Native Architecture</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> iOS & Android Ecosystems</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> App Store Deployment</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Live Client App projects</div>
                     </div>
                     
                     <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
@@ -629,24 +756,249 @@ $bu = base_url();
                             <img src="https://i.pravatar.cc/100?img=4" class="w-6 h-6 rounded-full border border-white">
                             <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
                         </div>
-                        <div class="text-[11px] text-slate-600 font-semibold">8,300+ Enrolled</div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,800+ Enrolled</div>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-2 relative z-10">
-                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Explore</button>
+                        <a href="<?= base_url('courses/app-development'); ?>" class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Explore</a>
                         <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
                     </div>
                 </div>
 
-                <!-- Card 3 (Orange) -->
+                <!-- Card 3: Cyber Security -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-orange-500 to-amber-400"></div>
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-rose-500 to-red-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
                     
-                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Applied Agentic &<br>GenAI Systems</h3>
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Cyber<br>Security</h3>
                     <div class="flex gap-2 mb-6 relative z-10">
-                        <span class="bg-orange-50 text-orange-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
-                        <span class="bg-orange-50 text-orange-600 text-[10px] font-bold px-2 py-1 rounded">4 MONTHS</span>
+                        <span class="bg-rose-50 text-rose-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-rose-50 text-rose-600 text-[10px] font-bold px-2 py-1 rounded">6 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 15, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-rose-600">₹4,000 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Ethical Hacking & Security</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Penetration Testing Labs</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Network Defense Principles</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Cryptographic Protocols</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> OWASP & CEH Training</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=5" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=6" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-rose-100 text-rose-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,200+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/cyber-security'); ?>" class="btn bg-rose-600 hover:bg-rose-700 text-white w-full py-2.5 text-xs shadow-md shadow-rose-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 4: DevOps -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-indigo-500 to-indigo-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">DevOps<br>Engineering</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-indigo-50 text-indigo-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-indigo-50 text-indigo-600 text-[10px] font-bold px-2 py-1 rounded">5 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 12, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-indigo-600">₹3,800 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Docker & Containers</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Kubernetes Orchestration</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> CI/CD Pipelines</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> AWS Cloud & Terraform</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Infrastructure as Code</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=7" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=8" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,400+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/devops'); ?>" class="btn bg-indigo-600 hover:bg-indigo-700 text-white w-full py-2.5 text-xs shadow-md shadow-indigo-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Artificial Intelligence -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-violet-500 to-purple-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-violet-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Artificial<br>Intelligence (AI)</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-violet-50 text-violet-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-violet-50 text-violet-600 text-[10px] font-bold px-2 py-1 rounded">8 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 8, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-violet-600">₹5,000 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Python, Numpy & Pandas</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Deep Learning & NLP</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Computer Vision (CNNs)</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Large Language Models (LLMs)</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> PyTorch & TensorFlow frameworks</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=9" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=10" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-violet-100 text-violet-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">3,200+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/artificial-intelligence'); ?>" class="btn bg-violet-600 hover:bg-violet-700 text-white w-full py-2.5 text-xs shadow-md shadow-violet-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 6: Java Developer -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-500 to-orange-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Java<br>Developer</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-amber-50 text-amber-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-amber-50 text-amber-600 text-[10px] font-bold px-2 py-1 rounded">5 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 5, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-amber-600">₹2,800 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Core Java & Object Oriented design</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Spring Boot & Microservices</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Hibernate & Database Relational mapping</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Data Structures & Algorithms</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Scalable Backend System Design</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=11" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=12" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-amber-100 text-amber-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">2,100+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/java-developer'); ?>" class="btn bg-amber-600 hover:bg-amber-700 text-white w-full py-2.5 text-xs shadow-md shadow-amber-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 7: UI/UX -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-pink-500 to-rose-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">UI/UX<br>Design</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-pink-50 text-pink-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-pink-50 text-pink-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 18, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-pink-600">₹2,500 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> User Research & Personas</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Figma Prototyping & Layouts</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Color Theory & Layout Grids</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Comprehensive Design Systems</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Usability Testing & Portfolios</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=13" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=14" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-pink-100 text-pink-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,500+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/ui-ux'); ?>" class="btn bg-pink-600 hover:bg-pink-700 text-white w-full py-2.5 text-xs shadow-md shadow-pink-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 8: Data Science -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-sky-500 to-cyan-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Data<br>Science</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-sky-50 text-sky-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-sky-50 text-sky-600 text-[10px] font-bold px-2 py-1 rounded">7 MONTHS</span>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
@@ -656,75 +1008,575 @@ $bu = base_url();
                         </div>
                         <div>
                             <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
-                            <div class="text-xs font-bold text-orange-600">₹5,000 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                            <div class="text-xs font-bold text-sky-600">₹4,500 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
                         </div>
                     </div>
                     
                     <div class="space-y-3 mb-8 flex-1 relative z-10">
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Professional certificate</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 80+ Hours of intensive learning</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 10+ real-world AI projects</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Learn from MAANG AI experts</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Live + self-paced learning</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Python Programming & SQL Queries</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Probability & Applied Statistics</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Predictive Machine Learning Models</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Interactive Data Visualizations</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Feature Engineering & Hypertuning</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=15" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=16" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-sky-100 text-sky-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">2,800+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/data-science'); ?>" class="btn bg-sky-600 hover:bg-sky-700 text-white w-full py-2.5 text-xs shadow-md shadow-sky-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 9: Data Analyst -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-teal-500 to-emerald-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Data<br>Analyst</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-teal-50 text-teal-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-teal-50 text-teal-600 text-[10px] font-bold px-2 py-1 rounded">4 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 14, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-teal-600">₹2,700 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Advanced Excel Data Analysis</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Relational Database SQL queries</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Power BI & Tableau Dashboards</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Business Metrics & Reporting</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Data Cleaning & ETL Pipelines</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=17" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=18" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,900+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/data-analyst'); ?>" class="btn bg-teal-600 hover:bg-teal-700 text-white w-full py-2.5 text-xs shadow-md shadow-teal-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 10: Digital Marketing -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-fuchsia-500 to-purple-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-fuchsia-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Digital<br>Marketing</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-fuchsia-50 text-fuchsia-600 text-[10px] font-bold px-2 py-1 rounded">ONLINE</span>
+                        <span class="bg-fuchsia-50 text-fuchsia-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Batch Starts</div>
+                            <div class="text-xs font-bold text-dark">Jun 20, 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">EMI from</div>
+                            <div class="text-xs font-bold text-fuchsia-600">₹1,800 <span class="text-[9px] text-slate-400 font-normal">/month*</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Search Engine Optimization (SEO)</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Google Ads & Paid Search (SEM)</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Social Media Marketing & Ads</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Analytics & Campaign Auditing</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Email Marketing & Strategies</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=19" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=20" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-fuchsia-100 text-fuchsia-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">2,400+ Enrolled</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <a href="<?= base_url('courses/digital-marketing'); ?>" class="btn bg-fuchsia-600 hover:bg-fuchsia-700 text-white w-full py-2.5 text-xs shadow-md shadow-fuchsia-500/20">Explore</a>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.5 INTERNSHIP PROGRAMS -->
+    <section id="internships" class="py-20 bg-slate-50/50 border-t border-slate-100">
+        <div class="max-w-[1400px] mx-auto px-4">
+            <div class="flex items-end justify-between mb-10" data-aos="fade-up">
+                <div>
+                    <div class="text-[10px] font-bold text-emerald-600 uppercase tracking-widest mb-2 flex items-center gap-2"><div class="w-8 h-px bg-emerald-500"></div> INTERNSHIPS</div>
+                    <h2 class="text-3xl md:text-4xl font-black text-dark">Internship Opportunities</h2>
+                </div>
+                <a href="#" class="text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors group flex items-center gap-1">View all internships <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Internship Card 1: Full Stack Development -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Full Stack<br>Development</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE / HYBRID</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">6 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹15,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">15 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Live Client React & Node.js work</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Collaborative Git workflow & PRs</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Agile standups & Sprint tasks</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Expert technical mentor guidance</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=1" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=2" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,200+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 2: App Development -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">App<br>Development</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹12,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">8 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Custom Flutter UI components</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Rest API integrations & testing</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> App & Play Store deployments</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Active code review cycles</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=3" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=4" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">950+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 3: Cyber Security -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Cyber<br>Security</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">6 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹18,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">5 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Assist on vulnerability scanning</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Validate system security patches</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Firewall & log monitoring tasks</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Threat intelligence reviews</div>
                     </div>
                     
                     <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
                         <div class="flex -space-x-2">
                             <img src="https://i.pravatar.cc/100?img=5" class="w-6 h-6 rounded-full border border-white">
                             <img src="https://i.pravatar.cc/100?img=6" class="w-6 h-6 rounded-full border border-white">
-                            <div class="w-6 h-6 rounded-full bg-orange-100 text-orange-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
                         </div>
-                        <div class="text-[11px] text-slate-600 font-semibold">500+ Enrolled</div>
+                        <div class="text-[11px] text-slate-600 font-semibold">600+ Applied</div>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-2 relative z-10">
-                        <button class="btn bg-orange-500 hover:bg-orange-600 text-white w-full py-2.5 text-xs shadow-md shadow-orange-500/20">Explore</button>
-                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
                     </div>
                 </div>
 
-                <!-- Card 4 (Purple) -->
+                <!-- Internship Card 4: DevOps -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="400">
-                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-fuchsia-400"></div>
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
                     
-                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Newton School<br>of Technology</h3>
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">DevOps<br>Engineering</h3>
                     <div class="flex gap-2 mb-6 relative z-10">
-                        <span class="bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded">ON CAMPUS</span>
-                        <span class="bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded">4 YEARS</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE / HYBRID</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
                         <div>
-                            <div class="text-[10px] text-slate-500 mb-1">Exam Date</div>
-                            <div class="text-xs font-bold text-dark">23rd & 31st May</div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹15,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
                         </div>
                         <div>
-                            <div class="text-[10px] text-slate-500 mb-1">Deadline</div>
-                            <div class="text-xs font-bold text-purple-600">22nd May, 2026</div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">6 Positions</div>
                         </div>
                     </div>
                     
                     <div class="space-y-3 mb-8 flex-1 relative z-10">
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Approved by UGC & AICTE</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Ranked #23, ICPC Asia West</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Smart India Hackathon qual.</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> Up to 100% Scholarship</div>
-                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-sm"></i> 100% Placement Assistance</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> AWS sandbox infrastructure tasks</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Continuous integration script writes</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Optimize Docker image dimensions</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Kubernetes sandbox tests</div>
                     </div>
                     
                     <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
                         <div class="flex -space-x-2">
                             <img src="https://i.pravatar.cc/100?img=7" class="w-6 h-6 rounded-full border border-white">
                             <img src="https://i.pravatar.cc/100?img=8" class="w-6 h-6 rounded-full border border-white">
-                            <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
                         </div>
-                        <div class="text-[11px] text-slate-600 font-semibold">15,000+ Enrolled</div>
+                        <div class="text-[11px] text-slate-600 font-semibold">820+ Applied</div>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-2 relative z-10">
-                        <button class="btn bg-purple-600 hover:bg-purple-700 text-white w-full py-2.5 text-xs shadow-md shadow-purple-500/20">Explore</button>
-                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Brochure <i class="fa-solid fa-download ml-1 text-slate-400"></i></button>
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 5: Artificial Intelligence -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Artificial<br>Intelligence (AI)</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">6 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹20,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">4 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Large Language Model fine tuning</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Embeddings & RAG architectures</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Dataset cleaning and filtering</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Model training validations</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=9" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=10" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,500+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 6: Java Developer -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Java<br>Developer</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">3-6 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹12,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">10 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Spring Boot REST API updates</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Database migrations & schema updates</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Write unit & integration JUnit tests</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Debugging server trace logs</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=11" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=12" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,100+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 7: UI/UX -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">UI/UX<br>Design</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹12,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">7 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Prepare Figma design handoffs</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Assist on user interview schedules</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Run interactive prototyping checks</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Design system component audits</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=13" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=14" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">780+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 8: Data Science -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Data<br>Science</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">6 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹15,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">5 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Validate predictive algorithms</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Run exploratory feature engineering</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Organize Jupyter workflows & charts</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Clean raw inputs & handle outliers</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=15" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=16" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,150+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 9: Data Analyst -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Data<br>Analyst</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹10,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">8 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Construct Power BI visual cards</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Run clean-up SQL query routines</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Assist on weekly reporting summaries</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Build custom pivot tables in Excel</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=17" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=18" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">900+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
+                    </div>
+                </div>
+
+                <!-- Internship Card 10: Digital Marketing -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-7 flex flex-col relative overflow-hidden card-hover-fx" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -mr-10 -mt-10 opacity-50"></div>
+                    
+                    <h3 class="font-bold text-xl text-dark mb-4 leading-tight mt-2 h-14 relative z-10">Digital<br>Marketing</h3>
+                    <div class="flex gap-2 mb-6 relative z-10">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">REMOTE</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-1 rounded">3 MONTHS</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-100 relative z-10">
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Stipend up to</div>
+                            <div class="text-xs font-bold text-emerald-600">₹8,000 <span class="text-[9px] text-slate-400 font-normal">/month</span></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 mb-1">Openings</div>
+                            <div class="text-xs font-bold text-dark">12 Positions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8 flex-1 relative z-10">
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Help manage social media buffers</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> SEO audits & keyword analysis</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Draft copy & newsletter newsletters</div>
+                        <div class="flex gap-3 text-[12px] text-slate-600 font-medium items-start"><i class="fa-solid fa-circle-check text-emerald-500 mt-0.5 text-sm"></i> Track metrics using Analytics suite</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mb-5 relative z-10 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?img=19" class="w-6 h-6 rounded-full border border-white">
+                            <img src="https://i.pravatar.cc/100?img=20" class="w-6 h-6 rounded-full border border-white">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 border border-white flex items-center justify-center text-[8px] font-bold">+</div>
+                        </div>
+                        <div class="text-[11px] text-slate-600 font-semibold">1,050+ Applied</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 relative z-10">
+                        <button class="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full py-2.5 text-xs shadow-md shadow-emerald-500/20">Apply Now</button>
+                        <button class="btn btn-outline border-slate-200 w-full py-2.5 text-xs text-dark hover:bg-slate-50">Details <i class="fa-solid fa-circle-info ml-1 text-slate-400"></i></button>
                     </div>
                 </div>
             </div>
@@ -745,7 +1597,7 @@ $bu = base_url();
                 <div class="grid grid-cols-7 gap-4 relative z-10">
                     <!-- Step 1 -->
                     <div class="flex flex-col items-center text-center group" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4 shadow-md border-4 border-white group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-book-open"></i></div>
+                        <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4 shadow-md border-4 border-white group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-book-open"></i></div>
                         <div class="text-[13px] font-bold text-dark group-hover:text-primary transition-colors">Learn<br>Fundamentals</div>
                     </div>
                     <!-- Step 2 -->
@@ -793,11 +1645,11 @@ $bu = base_url();
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1 -->
                 <div class="bg-white border border-slate-100 rounded-2xl p-6 flex flex-col shadow-sm card-hover-fx relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500"></div>
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-5 relative z-10 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500"></div>
+                    <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-2xl mb-5 relative z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300"><i class="fa-solid fa-user-tie"></i></div>
                     <h4 class="font-bold text-dark text-lg mb-2 relative z-10">AI Mock Interviews</h4>
                     <p class="text-[13px] text-slate-500 mb-6 leading-relaxed relative z-10 flex-1">Real-time AI interviews with smart feedback on communication and technical skills.</p>
-                    <a href="#" class="text-[13px] font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 group-hover:gap-2 transition-all relative z-10">Try Now <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                    <a href="#" class="text-[13px] font-bold text-primary hover:text-primary-dark flex items-center gap-1 group-hover:gap-2 transition-all relative z-10">Try Now <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                 </div>
                 <!-- Card 2 -->
                 <div class="bg-white border border-slate-100 rounded-2xl p-6 flex flex-col shadow-sm card-hover-fx relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
@@ -866,7 +1718,7 @@ $bu = base_url();
                     <div class="p-5">
                         <h4 class="font-bold text-dark text-[15px] mb-3 leading-tight group-hover:text-primary transition-colors">E-commerce Platform</h4>
                         <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="px-2 py-0.5 bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-bold rounded">Next.js</span>
+                            <span class="px-2 py-0.5 bg-amber-50 border border-amber-100 text-amber-700 text-[10px] font-bold rounded">Next.js</span>
                             <span class="px-2 py-0.5 bg-green-50 border border-green-100 text-green-700 text-[10px] font-bold rounded">MongoDB</span>
                             <span class="px-2 py-0.5 bg-purple-50 border border-purple-100 text-purple-700 text-[10px] font-bold rounded">Stripe</span>
                         </div>
@@ -889,7 +1741,7 @@ $bu = base_url();
                         <h4 class="font-bold text-dark text-[15px] mb-3 leading-tight group-hover:text-primary transition-colors">AI Chat Application</h4>
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span class="px-2 py-0.5 bg-yellow-50 border border-yellow-100 text-yellow-700 text-[10px] font-bold rounded">Python</span>
-                            <span class="px-2 py-0.5 bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-bold rounded">Langchain</span>
+                            <span class="px-2 py-0.5 bg-amber-50 border border-amber-100 text-amber-700 text-[10px] font-bold rounded">Langchain</span>
                             <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-bold rounded">OpenAI</span>
                         </div>
                         <div class="flex items-center justify-between border-t border-slate-100 pt-3">
@@ -910,7 +1762,7 @@ $bu = base_url();
                     <div class="p-5">
                         <h4 class="font-bold text-dark text-[15px] mb-3 leading-tight group-hover:text-primary transition-colors">Travel Booking App</h4>
                         <div class="flex flex-wrap gap-1.5 mb-5">
-                            <span class="px-2 py-0.5 bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-bold rounded">React</span>
+                            <span class="px-2 py-0.5 bg-amber-50 border border-amber-100 text-amber-700 text-[10px] font-bold rounded">React</span>
                             <span class="px-2 py-0.5 bg-green-50 border border-green-100 text-green-700 text-[10px] font-bold rounded">Node.js</span>
                             <span class="px-2 py-0.5 bg-orange-50 border border-orange-100 text-orange-700 text-[10px] font-bold rounded">MySQL</span>
                         </div>
@@ -934,7 +1786,7 @@ $bu = base_url();
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-bold rounded">MERN</span>
                             <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-bold rounded">JWT</span>
-                            <span class="px-2 py-0.5 bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-bold rounded">Cloudinary</span>
+                            <span class="px-2 py-0.5 bg-amber-50 border border-amber-100 text-amber-700 text-[10px] font-bold rounded">Cloudinary</span>
                         </div>
                         <div class="flex items-center justify-between border-t border-slate-100 pt-3">
                             <a href="#" class="text-[11px] font-bold text-primary hover:text-primary-dark transition-colors"><i class="fa-solid fa-link mr-1"></i> Live Demo</a>
@@ -956,7 +1808,7 @@ $bu = base_url();
 
                 <!-- Left Content -->
                 <div class="w-full lg:w-1/3 text-left relative z-10">
-                    <div class="inline-block bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest"><i class="fa-solid fa-star text-amber-400 mr-1"></i> Verified Outcomes</div>
+                    <div class="inline-block bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest"><i class="fa-solid fa-star text-amber-400 mr-1"></i> Verified Outcomes</div>
                     <h2 class="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">Our Placement<br>Report</h2>
                     <p class="text-[13px] text-slate-400 mb-8 leading-relaxed max-w-sm">Transparent statistics of our learners' success, backed by real hiring data and verified offers.</p>
                     <button class="btn bg-white text-dark hover:bg-slate-100 text-[13px] px-8 py-3 group shadow-lg shadow-white/10">
@@ -970,8 +1822,8 @@ $bu = base_url();
                     <div class="absolute bottom-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent hidden lg:block translate-y-4"></div>
                     
                     <div class="group cursor-pointer">
-                        <div class="text-3xl font-black text-blue-400 mb-1 group-hover:scale-110 transition-transform origin-left">4,500+</div>
-                        <div class="text-[11px] text-slate-400 font-medium">Job Offers <span class="text-blue-400 ml-1 bg-blue-400/10 px-1 rounded">+</span></div>
+                        <div class="text-3xl font-black text-primary mb-1 group-hover:scale-110 transition-transform origin-left">4,500+</div>
+                        <div class="text-[11px] text-slate-400 font-medium">Job Offers <span class="text-primary ml-1 bg-primary/10 px-1 rounded">+</span></div>
                     </div>
                     <div class="group cursor-pointer">
                         <div class="text-3xl font-black text-white mb-1 group-hover:scale-110 transition-transform origin-left">₹1.5 Cr</div>
@@ -997,25 +1849,25 @@ $bu = base_url();
                         <!-- Bar 1 -->
                         <div class="relative flex flex-col items-center flex-1 h-full justify-end cursor-pointer group/bar">
                             <span class="absolute -top-6 text-[10px] text-white opacity-0 group-hover/bar:opacity-100 transition-opacity font-bold bg-slate-800 px-2 py-0.5 rounded shadow">34%</span>
-                            <div class="w-full bg-gradient-to-t from-blue-700 to-blue-500 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col" style="height: 0%;" data-height="85%"></div>
+                            <div class="w-full bg-gradient-to-t from-amber-700 to-amber-500 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col" style="height: 0%;" data-height="85%"></div>
                             <span class="absolute -bottom-6 text-[9px] text-slate-400 font-medium">0-4</span>
                         </div>
                         <!-- Bar 2 -->
                         <div class="relative flex flex-col items-center flex-1 h-full justify-end cursor-pointer group/bar">
                             <span class="absolute -top-6 text-[10px] text-white opacity-0 group-hover/bar:opacity-100 transition-opacity font-bold bg-slate-800 px-2 py-0.5 rounded shadow">38%</span>
-                            <div class="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col shadow-[0_0_15px_rgba(59,130,246,0.3)]" style="height: 0%;" data-height="95%"></div>
+                            <div class="w-full bg-gradient-to-t from-amber-600 to-amber-400 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col shadow-[0_0_15px_rgba(245,158,11,0.3)]" style="height: 0%;" data-height="95%"></div>
                             <span class="absolute -bottom-6 text-[9px] text-slate-400 font-medium">4-8</span>
                         </div>
                         <!-- Bar 3 -->
                         <div class="relative flex flex-col items-center flex-1 h-full justify-end cursor-pointer group/bar">
                             <span class="absolute -top-6 text-[10px] text-white opacity-0 group-hover/bar:opacity-100 transition-opacity font-bold bg-slate-800 px-2 py-0.5 rounded shadow">16%</span>
-                            <div class="w-full bg-gradient-to-t from-blue-800 to-blue-600 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col" style="height: 0%;" data-height="40%"></div>
+                            <div class="w-full bg-gradient-to-t from-amber-800 to-amber-600 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col" style="height: 0%;" data-height="40%"></div>
                             <span class="absolute -bottom-6 text-[9px] text-slate-400 font-medium">8-12</span>
                         </div>
                         <!-- Bar 4 -->
                         <div class="relative flex flex-col items-center flex-1 h-full justify-end cursor-pointer group/bar">
                             <span class="absolute -top-6 text-[10px] text-white opacity-0 group-hover/bar:opacity-100 transition-opacity font-bold bg-slate-800 px-2 py-0.5 rounded shadow">12%</span>
-                            <div class="w-full bg-gradient-to-t from-slate-700 to-blue-800 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col" style="height: 0%;" data-height="30%"></div>
+                            <div class="w-full bg-gradient-to-t from-slate-700 to-amber-800 rounded-t-sm group-hover/bar:brightness-125 transition-all bar-chart-col" style="height: 0%;" data-height="30%"></div>
                             <span class="absolute -bottom-6 text-[9px] text-slate-400 font-medium">12-20</span>
                         </div>
                         <!-- Bar 5 -->
@@ -1031,115 +1883,7 @@ $bu = base_url();
         </div>
     </section>
 
-    <!-- 10. SUCCESS STORIES (Swiper Carousel) -->
-    <section id="success" class="py-20 bg-slate-50 relative overflow-hidden">
-        <div class="max-w-[1400px] mx-auto px-4 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-black text-center text-dark mb-12" data-aos="fade-up">Success Stories from <span class="text-primary">Our Alumni</span></h2>
-            
-            <div class="swiper swiperAlumni pb-12 px-2" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper">
-                    <!-- Card 1 -->
-                    <div class="swiper-slide bg-white border border-slate-200/60 rounded-2xl p-6 shadow-soft hover:shadow-card transition-shadow cursor-grab active:cursor-grabbing">
-                        <div class="flex gap-4 mb-5 pb-5 border-b border-slate-100">
-                            <img src="https://i.pravatar.cc/150?img=11" class="w-16 h-16 rounded-xl object-cover bg-slate-100 shadow-sm">
-                            <div>
-                                <h4 class="font-bold text-base text-dark">Shubham Rane</h4>
-                                <div class="text-[11px] text-blue-600 font-bold mb-1.5 bg-blue-50 w-max px-2 py-0.5 rounded">Product Analyst</div>
-                                <div class="flex items-center gap-1.5 text-slate-600 text-[12px] font-semibold"><i class="fa-brands fa-microsoft text-[#00a4ef] text-sm"></i> Microsoft</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center mb-5 text-[13px] px-2 bg-slate-50 py-3 rounded-xl border border-slate-100">
-                            <div>
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">Before</div>
-                                <div class="font-semibold text-slate-600">Fresher</div>
-                            </div>
-                            <div class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-100"><i class="fa-solid fa-arrow-right text-primary text-[10px]"></i></div>
-                            <div class="text-right">
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">After</div>
-                                <div class="font-bold text-dark">Product Analyst</div>
-                            </div>
-                        </div>
-                        <a href="#" class="text-[12px] font-bold text-blue-600 hover:text-white flex items-center justify-center w-full bg-blue-50/50 hover:bg-primary py-2.5 rounded-lg transition-colors group">Connect on LinkedIn <i class="fa-brands fa-linkedin ml-1.5 group-hover:scale-110 transition-transform"></i></a>
-                    </div>
 
-                    <!-- Card 2 -->
-                    <div class="swiper-slide bg-white border border-slate-200/60 rounded-2xl p-6 shadow-soft hover:shadow-card transition-shadow cursor-grab active:cursor-grabbing">
-                        <div class="flex gap-4 mb-5 pb-5 border-b border-slate-100">
-                            <img src="https://i.pravatar.cc/150?img=5" class="w-16 h-16 rounded-xl object-cover bg-slate-100 shadow-sm">
-                            <div>
-                                <h4 class="font-bold text-base text-dark">Megha Chauhan</h4>
-                                <div class="text-[11px] text-emerald-600 font-bold mb-1.5 bg-emerald-50 w-max px-2 py-0.5 rounded">Data Analyst</div>
-                                <div class="font-black text-slate-800 text-[12px] tracking-tight uppercase flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px] text-green-500"></i> Deloitte</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center mb-5 text-[13px] px-2 bg-slate-50 py-3 rounded-xl border border-slate-100">
-                            <div>
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">Before</div>
-                                <div class="font-semibold text-slate-600">Research An.</div>
-                            </div>
-                            <div class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-100"><i class="fa-solid fa-arrow-right text-primary text-[10px]"></i></div>
-                            <div class="text-right">
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">After</div>
-                                <div class="font-bold text-dark">Data Analyst</div>
-                            </div>
-                        </div>
-                        <a href="#" class="text-[12px] font-bold text-blue-600 hover:text-white flex items-center justify-center w-full bg-blue-50/50 hover:bg-primary py-2.5 rounded-lg transition-colors group">Connect on LinkedIn <i class="fa-brands fa-linkedin ml-1.5 group-hover:scale-110 transition-transform"></i></a>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="swiper-slide bg-white border border-slate-200/60 rounded-2xl p-6 shadow-soft hover:shadow-card transition-shadow cursor-grab active:cursor-grabbing">
-                        <div class="flex gap-4 mb-5 pb-5 border-b border-slate-100">
-                            <img src="https://i.pravatar.cc/150?img=8" class="w-16 h-16 rounded-xl object-cover bg-slate-100 shadow-sm">
-                            <div>
-                                <h4 class="font-bold text-base text-dark">Vasudev</h4>
-                                <div class="text-[11px] text-orange-600 font-bold mb-1.5 bg-orange-50 w-max px-2 py-0.5 rounded">Trading Analyst</div>
-                                <div class="font-black text-slate-800 text-[12px] tracking-tight">accenture</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center mb-5 text-[13px] px-2 bg-slate-50 py-3 rounded-xl border border-slate-100">
-                            <div>
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">Before</div>
-                                <div class="font-semibold text-slate-600">Fresher</div>
-                            </div>
-                            <div class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-100"><i class="fa-solid fa-arrow-right text-primary text-[10px]"></i></div>
-                            <div class="text-right">
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">After</div>
-                                <div class="font-bold text-dark">Trading Analyst</div>
-                            </div>
-                        </div>
-                        <a href="#" class="text-[12px] font-bold text-blue-600 hover:text-white flex items-center justify-center w-full bg-blue-50/50 hover:bg-primary py-2.5 rounded-lg transition-colors group">Connect on LinkedIn <i class="fa-brands fa-linkedin ml-1.5 group-hover:scale-110 transition-transform"></i></a>
-                    </div>
-                    
-                    <!-- Card 4 (For scrolling) -->
-                    <div class="swiper-slide bg-white border border-slate-200/60 rounded-2xl p-6 shadow-soft hover:shadow-card transition-shadow cursor-grab active:cursor-grabbing">
-                        <div class="flex gap-4 mb-5 pb-5 border-b border-slate-100">
-                            <img src="https://i.pravatar.cc/150?img=9" class="w-16 h-16 rounded-xl object-cover bg-slate-100 shadow-sm">
-                            <div>
-                                <h4 class="font-bold text-base text-dark">Niharika Nidu</h4>
-                                <div class="text-[11px] text-purple-600 font-bold mb-1.5 bg-purple-50 w-max px-2 py-0.5 rounded">SDE Intern</div>
-                                <div class="font-black text-slate-800 text-[12px] tracking-tight flex items-center gap-1.5"><i class="fa-solid fa-laptop-code text-purple-500"></i> TCS</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center mb-5 text-[13px] px-2 bg-slate-50 py-3 rounded-xl border border-slate-100">
-                            <div>
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">Before</div>
-                                <div class="font-semibold text-slate-600">Student</div>
-                            </div>
-                            <div class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-100"><i class="fa-solid fa-arrow-right text-primary text-[10px]"></i></div>
-                            <div class="text-right">
-                                <div class="text-[9px] text-slate-400 uppercase font-bold mb-1 tracking-wider">After</div>
-                                <div class="font-bold text-dark">SDE Intern</div>
-                            </div>
-                        </div>
-                        <a href="#" class="text-[12px] font-bold text-blue-600 hover:text-white flex items-center justify-center w-full bg-blue-50/50 hover:bg-primary py-2.5 rounded-lg transition-colors group">Connect on LinkedIn <i class="fa-brands fa-linkedin ml-1.5 group-hover:scale-110 transition-transform"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Swiper Pagination -->
-                <div class="swiper-pagination !bottom-0"></div>
-            </div>
-        </div>
-    </section>
 
     <!-- 11. INDUSTRY EXPERTS -->
     <section class="py-20 bg-white border-t border-slate-100">
@@ -1243,27 +1987,27 @@ $bu = base_url();
             </div>
 
             <!-- Right: Blue CTA Card -->
-            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[2rem] p-8 lg:p-12 text-white relative overflow-hidden shadow-[0_20px_50px_rgba(22,101,245,0.3)] transform transition-transform hover:-translate-y-2 duration-500" data-aos="zoom-in-left">
+            <div class="bg-gradient-to-br from-primary via-orange-600 to-primary-dark rounded-[2rem] p-8 lg:p-12 text-white relative overflow-hidden shadow-[0_20px_50px_rgba(245,158,11,0.3)] transform transition-transform hover:-translate-y-2 duration-500" data-aos="zoom-in-left">
                 <!-- Decorative Circles -->
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
                 
                 <h3 class="text-3xl md:text-4xl font-black mb-4 relative z-10 leading-tight">Start Your Tech<br>Career Today!</h3>
-                <p class="text-blue-100 text-[13px] mb-10 max-w-[280px] relative z-10 leading-relaxed">Join thousands of learners and become job ready with real projects, AI tools and expert mentorship.</p>
+                <p class="text-amber-50 text-[13px] mb-10 max-w-[280px] relative z-10 leading-relaxed">Join thousands of learners and become job ready with real projects, AI tools and expert mentorship.</p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 mb-8 relative z-10">
                     <button class="btn bg-white text-dark py-3.5 px-6 text-[13px] hover:bg-slate-50 hover:shadow-lg font-black w-full sm:w-auto transition-all shadow-md">Book Free Demo</button>
-                    <button class="btn bg-transparent border border-blue-400 text-white hover:bg-white/10 hover:border-white py-3.5 px-6 text-[13px] w-full sm:w-auto transition-all flex items-center justify-center gap-2">Apply Now <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    <button class="btn bg-transparent border border-amber-400 text-white hover:bg-white/10 hover:border-white py-3.5 px-6 text-[13px] w-full sm:w-auto transition-all flex items-center justify-center gap-2">Apply Now <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
                 </div>
 
-                <div class="flex items-center gap-4 relative z-10 pt-6 border-t border-blue-500/50">
+                <div class="flex items-center gap-4 relative z-10 pt-6 border-t border-amber-500/30">
                     <div class="flex -space-x-3">
                         <img src="https://i.pravatar.cc/100?img=1" class="w-10 h-10 rounded-full border-2 border-indigo-700 shadow-sm">
                         <img src="https://i.pravatar.cc/100?img=2" class="w-10 h-10 rounded-full border-2 border-indigo-700 shadow-sm">
                         <img src="https://i.pravatar.cc/100?img=3" class="w-10 h-10 rounded-full border-2 border-indigo-700 shadow-sm">
                         <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border-2 border-indigo-700 shadow-sm flex items-center justify-center text-xs font-bold">+</div>
                     </div>
-                    <span class="text-xs text-blue-100 font-medium">Join <span class="font-bold text-white">2,00,000+</span> learners</span>
+                    <span class="text-xs text-amber-50 font-medium">Join <span class="font-bold text-white">2,00,000+</span> learners</span>
                 </div>
             </div>
 
@@ -1276,9 +2020,9 @@ $bu = base_url();
             <!-- Brand -->
             <div class="lg:col-span-2 space-y-5 pr-10">
                 <a href="<?= base_url(); ?>" class="flex items-center gap-2 mb-2 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-blue-400 rounded-full flex items-center justify-center text-white font-black text-2xl group-hover:shadow-glow transition-all">R</div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-orange-400 rounded-full flex items-center justify-center text-white font-black text-2xl group-hover:shadow-glow transition-all">I</div>
                     <div class="leading-tight">
-                        <div class="font-bold text-xl text-white tracking-tight leading-none">Rise Academy</div>
+                        <div class="font-bold text-xl text-white tracking-tight leading-none">Internmo</div>
                         <div class="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Learn • Build • Get Hired</div>
                     </div>
                 </a>
@@ -1325,13 +2069,13 @@ $bu = base_url();
         
         <div class="border-t border-slate-800/50 py-6">
             <div class="max-w-[1400px] mx-auto px-4 text-center text-[11px] text-slate-500">
-                &copy; <?= date('Y') ?> Rise Academy. All rights reserved.
+                &copy; <?= date('Y') ?> Internmo. All rights reserved.
             </div>
         </div>
     </footer>
 
     <!-- Fixed Bottom Sticky CTA Bar -->
-    <div class="fixed bottom-0 left-0 w-full bg-blue-600 text-white text-center py-3.5 px-4 flex flex-wrap items-center justify-center gap-4 shadow-[0_-10px_30px_rgba(22,101,245,0.3)] z-[100]">
+    <div class="fixed bottom-0 left-0 w-full bg-primary text-white text-center py-3.5 px-4 flex flex-wrap items-center justify-center gap-4 shadow-[0_-10px_30px_rgba(245,158,11,0.3)] z-[100]">
         <span class="text-[13px] sm:text-[15px] font-bold tracking-wider flex items-center gap-2">
             🚀 GET EXPERIENCED AND JOB READY FOR 800+ TOP COMPANIES
         </span>

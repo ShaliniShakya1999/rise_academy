@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * resume_templates  (id, slug, name, description, is_active, created_at)
  *
- * Matches the canonical `jobportal` dump — no `sort_order`, `category`,
+ * Matches the canonical `jobportal` dump â€” no `sort_order`, `category`,
  * or `preview_image` columns. We order by id.
  */
 class Template_model extends CI_Model
@@ -55,3 +55,7 @@ class Template_model extends CI_Model
         return $this->db->where('id', $id)->delete($this->table);
     }
 }
+
+
+
+

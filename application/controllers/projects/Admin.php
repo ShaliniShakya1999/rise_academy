@@ -23,7 +23,7 @@ class Admin extends My_Controller
         $projects = $this->Project_model->get_all(50);
 
         $this->loadview('projects/admin/dashboard', [
-            'page_title' => 'Project Admin — Dashboard',
+            'page_title' => 'Project Admin â€” Dashboard',
             'stats'      => $stats,
             'intern_stats' => $internship_stats,
             'projects'   => $projects,
@@ -207,10 +207,10 @@ class Admin extends My_Controller
 
         $message = $this->load->view('emails/offer_letter', $data, TRUE);
 
-        $this->email->from('shalini.shakya@paymanent.com', 'Rise Academy');
-        $this->email->reply_to('info@riseacademy.co.in', 'Rise Academy');
+        $this->email->from('shalini.shakya@paymanent.com', 'Internmo');
+        $this->email->reply_to('info@internmo.com', 'Internmo');
         $this->email->to($user->email);
-        $this->email->subject('Internship Offer Letter - Rise Academy');
+        $this->email->subject('Internship Offer Letter - Internmo');
         $this->email->set_mailtype('html');
         $this->email->message($message);
 
@@ -243,10 +243,10 @@ class Admin extends My_Controller
 
         $message = $this->load->view('emails/joining_letter', $data, TRUE);
 
-        $this->email->from('shalini.shakya@paymanent.com', 'Rise Academy');
-        $this->email->reply_to('info@riseacademy.co.in', 'Rise Academy');
+        $this->email->from('shalini.shakya@paymanent.com', 'Internmo');
+        $this->email->reply_to('info@internmo.com', 'Internmo');
         $this->email->to($user->email);
-        $this->email->subject('Your Joining Letter & Credentials - Rise Academy');
+        $this->email->subject('Your Joining Letter & Credentials - Internmo');
         $this->email->set_mailtype('html');
         $this->email->message($message);
 
@@ -368,3 +368,7 @@ class Admin extends My_Controller
         return $stats;
     }
 }
+
+
+
+

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -341,3 +341,7 @@ class CI_Driver {
 	}
 
 }
+
+
+
+

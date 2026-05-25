@@ -1,4 +1,4 @@
-<div class="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+﻿<div class="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
     <div class="rounded-3xl border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/50 ring-1 ring-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800">
         <div class="flex items-center gap-4">
             <div class="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-2xl font-display font-extrabold text-white shadow-lg shadow-violet-500/30">
@@ -24,3 +24,7 @@
         </p>
     </div>
 </div>
+
+
+
+

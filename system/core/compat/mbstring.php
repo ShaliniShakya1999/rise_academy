@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -148,3 +148,7 @@ if ( ! function_exists('mb_substr'))
 			: substr($str, $start);
 	}
 }
+
+
+
+

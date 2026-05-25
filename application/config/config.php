@@ -23,7 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = "http://localhost/pro/peyug_project/rise_academy/";
+if (isset($_SERVER['HTTP_HOST'])) {
+    $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+    $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
+    $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+} else {
+    $config['base_url'] = "http://localhost/pro/peyug_project/rise_academy/";
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -530,3 +536,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+
+

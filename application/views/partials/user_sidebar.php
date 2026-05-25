@@ -1,24 +1,25 @@
 <?php
 /**
- * User app sidebar — glass / gradient, collapsible (desktop), drawer (mobile).
+ * User app sidebar Ã¢â‚¬â€ glass / gradient, collapsible (desktop), drawer (mobile).
  *
  * @var string $active                 e.g. dashboard, wishlist, profile
- * @var int|null $shell_avg_completion optional 0–100 for widget (dashboard)
+ * @var int|null $shell_avg_completion optional 0Ã¢â‚¬â€œ100 for widget (dashboard)
  * @var int $wishlist_count             total saved wishlist items (from layout)
  */
 $wishlist_count = isset($wishlist_count) ? (int) $wishlist_count : 0;
 $active = isset($active) ? $active : 'dashboard';
 $is_admin = (int) $this->session->userdata('role_id') === 1;
 
+<?php
 $nav = function ($key, $label, $href, $icon_svg, $badge = null) use ($active) {
     $is = ($active === $key);
     $cls = $is
-        ? 'bg-white/15 text-white shadow-lg shadow-blue-900/20 ring-1 ring-white/20'
-        : 'text-white/75 hover:text-white hover:bg-white/10';
-    ?>
+        ? 'bg-white/20 backdrop-blur-sm text-white rounded-xl shadow-lg ring-2 ring-white/30'
+        : 'text-white/75 hover:text-white hover:bg-white/5 rounded-lg transition-colors';
+?>
     <a href="<?= $href; ?>"
        class="ra-dash-nav group flex w-full min-w-0 items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition duration-200 <?= $cls; ?>">
-        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg <?= $is ? 'bg-gradient-to-br from-[#085CF0] to-[#092676] text-white' : 'bg-white/10 text-white/90'; ?>">
+        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg <?= $is ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-white' : 'bg-white/10 text-white/90'; ?>">
             <?= $icon_svg; ?>
         </span>
         <span class="ra-dash-nav__text min-w-0 flex-1 truncate"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></span>
@@ -42,7 +43,7 @@ $divider = function () {
         localStorage.setItem('ra_sidebar_collapsed', this.collapsed ? '1' : '0');
     }
 }"
-       class="ra-user-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-white/10 bg-gradient-to-b from-[#050A34] via-[#092676] to-[#050A34] text-white shadow-2xl shadow-black/40 transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
+       class="ra-user-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-white/10 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white shadow-2xl shadow-black/40 transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
        :class="{
            '-translate-x-full': !open,
            'translate-x-0': open,
@@ -61,8 +62,8 @@ $divider = function () {
 
     <div class="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-white/10 px-3 lg:h-16">
         <a href="<?= base_url('dashboard'); ?>" class="flex min-w-0 items-center gap-2 ra-dash-nav__text">
-            <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="Rise Academy" class="h-8 w-auto brightness-0 invert" x-show="!collapsed">
-            <img src="<?= base_url('assets/website/images/rise_logo.png'); ?>" alt="R" class="h-8 w-8 object-left overflow-hidden" x-show="collapsed">
+            <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Logo" class="h-8 w-auto object-contain">
+            <span class="font-bold text-lg text-white">Internmo</span>
         </a>
         <button type="button" @click="toggleCollapse()" class="hidden lg:grid h-9 w-9 place-items-center rounded-lg bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition" title="Collapse sidebar">
             <svg class="w-5 h-5 transition" :class="collapsed ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -122,7 +123,7 @@ $divider = function () {
                 <p class="mt-1.5 text-lg font-display font-extrabold text-white"><?= (int) $shell_avg_completion; ?>%</p>
             <?php else: ?>
                 <p class="text-[10px] font-bold uppercase tracking-wider text-white/45">Quick tip</p>
-                <p class="mt-1 text-xs leading-relaxed text-white/70">Use the ATS Checker before you apply — it helps catch formatting issues early.</p>
+                <p class="mt-1 text-xs leading-relaxed text-white/70">Use the ATS Checker before you apply Ã¢â‚¬â€ it helps catch formatting issues early.</p>
             <?php endif; ?>
         </div>
     </nav>
@@ -158,3 +159,7 @@ $divider = function () {
 </aside>
 
 <!-- Mobile sidebar open button (injected placement via layout) -->
+
+
+
+

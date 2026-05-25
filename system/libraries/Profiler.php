@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -573,3 +573,7 @@ class CI_Profiler {
 	}
 
 }
+
+
+
+

@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Admin → Templates
+ * Admin â†’ Templates
  *
  * @var array $rows  resume_templates rows
  * @var array $usage template_id => count
@@ -65,3 +65,7 @@ $accents = ['from-violet-500 to-fuchsia-500', 'from-cyan-500 to-blue-500', 'from
         <?php endforeach; endif; ?>
     </div>
 </div>
+
+
+
+

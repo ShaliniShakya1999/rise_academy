@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -220,3 +220,7 @@ $robots = array(
 	'Uptimebot'		=> 'Uptimebot',
 	'UptimeRobot'		=> 'UptimeRobot'
 );
+
+
+
+

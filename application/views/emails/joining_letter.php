@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Joining Letter - Rise Academy</title>
+    <title>Joining Letter - Internmo</title>
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #334155; margin: 0; padding: 0; background-color: #f8fafc; }
         .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0; }
@@ -22,11 +22,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Rise Academy</h1>
+            <h1>Internmo</h1>
         </div>
         <div class="content">
             <div class="greeting">Congratulations, <?= htmlspecialchars($name) ?>!</div>
-            <p>We are delighted to welcome you to the Rise Academy family. This letter confirms your selection for the <span class="highlight"><?= htmlspecialchars($course) ?></span> internship program.</p>
+            <p>We are delighted to welcome you to the Internmo family. This letter confirms your selection for the <span class="highlight"><?= htmlspecialchars($course) ?></span> internship program.</p>
             
             <p>Your application has been reviewed and approved by our management team. You can now access your personalized learning dashboard using the credentials provided below:</p>
 
@@ -44,9 +44,13 @@
             </div>
         </div>
         <div class="footer">
-            <p>&copy; <?= date('Y') ?> Rise Academy. All rights reserved.</p>
+            <p>&copy; <?= date('Y') ?> Internmo. All rights reserved.</p>
             <p>This is an automated message, please do not reply directly to this email.</p>
         </div>
     </div>
 </body>
 </html>
+
+
+
+

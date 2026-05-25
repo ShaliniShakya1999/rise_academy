@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -136,3 +136,7 @@ if ( ! function_exists('encode_php_tags'))
 		return str_replace(array('<?', '?>'), array('&lt;?', '?&gt;'), $str);
 	}
 }
+
+
+
+

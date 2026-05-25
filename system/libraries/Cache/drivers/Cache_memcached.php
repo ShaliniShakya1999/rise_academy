@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -312,3 +312,7 @@ class CI_Cache_memcached extends CI_Driver {
 		}
 	}
 }
+
+
+
+

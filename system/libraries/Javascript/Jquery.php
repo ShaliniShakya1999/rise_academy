@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -1075,3 +1075,7 @@ class CI_Jquery extends CI_Javascript {
 	}
 
 }
+
+
+
+

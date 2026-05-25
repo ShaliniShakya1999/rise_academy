@@ -1,11 +1,11 @@
-<!-- Alert Note -->
+﻿<!-- Alert Note -->
 <div class="mb-8 p-6 bg-amber-50 border border-amber-100 rounded-[2rem] flex items-start gap-5 shadow-sm">
     <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
         <i class="fa-solid fa-circle-info text-amber-600"></i>
     </div>
     <p class="text-sm text-amber-900 leading-relaxed font-medium">
         <span class="font-black text-amber-600 uppercase tracking-wider text-xs block mb-1">Important Note</span>
-        Projects can be deleted from the Submitted Projects section after submission, but only if the project status is marked as “Evaluation in Progress”. Once a project has been evaluated, it becomes locked and cannot be deleted.
+        Projects can be deleted from the Submitted Projects section after submission, but only if the project status is marked as â€œEvaluation in Progressâ€. Once a project has been evaluated, it becomes locked and cannot be deleted.
     </p>
 </div>
 
@@ -282,7 +282,7 @@
                         <div class="text-center">
                             <div class="border-b border-gray-400 w-24 mb-1"></div>
                             <p class="text-[9px] font-bold text-gray-500 uppercase">Director</p>
-                            <p class="text-[10px] font-black text-gray-800">Rise Academy</p>
+                            <p class="text-[10px] font-black text-gray-800">Internmo</p>
                         </div>
                     </div>
                 </div>
@@ -345,10 +345,10 @@
                     <i class="fa-solid fa-folder-open absolute left-6 top-6 text-gray-300 group-focus-within:text-[#d4af37] transition-colors"></i>
                     <select name="project_title" class="w-full pl-14 pr-6 py-6 bg-white border border-gray-200 rounded-2xl outline-none focus:ring-8 focus:ring-[#d4af37]/5 focus:border-[#d4af37] transition-all font-black text-gray-700 text-sm shadow-sm appearance-none">
                         <option value="">---Select Project---</option>
-                        <option value="Aatmanirbhar Nari – Home Business Enablement Portal">Aatmanirbhar Nari – Home Business Enablement Portal</option>
+                        <option value="Aatmanirbhar Nari â€“ Home Business Enablement Portal">Aatmanirbhar Nari â€“ Home Business Enablement Portal</option>
                         <option value="Farmer-to-Consumer Agri Marketplace">Farmer-to-Consumer Agri Marketplace</option>
-                        <option value="GreenNest – Online Nursery & Gardening Services Platform">GreenNest – Online Nursery & Gardening Services Platform</option>
-                        <option value="HomeFeast – Homemade Tiffin & Food Service Platform">HomeFeast – Homemade Tiffin & Food Service Platform</option>
+                        <option value="GreenNest â€“ Online Nursery & Gardening Services Platform">GreenNest â€“ Online Nursery & Gardening Services Platform</option>
+                        <option value="HomeFeast â€“ Homemade Tiffin & Food Service Platform">HomeFeast â€“ Homemade Tiffin & Food Service Platform</option>
                     </select>
                 </div>
             </div>
@@ -368,3 +368,7 @@
         </form>
     </div>
 </div>
+
+
+
+

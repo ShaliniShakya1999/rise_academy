@@ -1,4 +1,4 @@
-<div class="space-y-8">
+﻿<div class="space-y-8">
     <!-- Header -->
     <div class="flex items-center justify-between">
         <div>
@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Today's Revenue</p>
-                    <p class="text-2xl font-black text-gray-900">₹<?= number_format($kpis['today']) ?></p>
+                    <p class="text-2xl font-black text-gray-900">â‚¹<?= number_format($kpis['today']) ?></p>
                 </div>
             </div>
             <div class="flex items-center gap-2 text-xs font-bold text-emerald-600">
@@ -40,7 +40,7 @@
                 </div>
                 <div>
                     <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Monthly Target</p>
-                    <p class="text-2xl font-black text-gray-900">₹<?= number_format($kpis['month']) ?></p>
+                    <p class="text-2xl font-black text-gray-900">â‚¹<?= number_format($kpis['month']) ?></p>
                 </div>
             </div>
             <div class="flex items-center gap-2 text-xs font-bold text-blue-600">
@@ -56,7 +56,7 @@
                 </div>
                 <div>
                     <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Total Earnings</p>
-                    <p class="text-2xl font-black text-gray-900">₹<?= number_format($kpis['total']) ?></p>
+                    <p class="text-2xl font-black text-gray-900">â‚¹<?= number_format($kpis['total']) ?></p>
                 </div>
             </div>
             <div class="flex items-center gap-2 text-xs font-bold text-purple-600">
@@ -72,7 +72,7 @@
                 </div>
                 <div>
                     <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Avg. Transaction</p>
-                    <p class="text-2xl font-black text-gray-900">₹<?= number_format($kpis['avg']) ?></p>
+                    <p class="text-2xl font-black text-gray-900">â‚¹<?= number_format($kpis['avg']) ?></p>
                 </div>
             </div>
             <div class="flex items-center gap-2 text-xs font-bold text-rose-600">
@@ -167,7 +167,7 @@
                                     <p class="text-[10px] text-gray-400 mt-1"><?= date('h:i A', strtotime($r->created_at)) ?></p>
                                 </td>
                                 <td class="px-8 py-5 text-right">
-                                    <span class="text-sm font-black text-emerald-600">₹<?= number_format($r->amount_paise / 100) ?></span>
+                                    <span class="text-sm font-black text-emerald-600">â‚¹<?= number_format($r->amount_paise / 100) ?></span>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -195,7 +195,7 @@
         // Hourly Pulse Chart (Line)
         const hourlyOptions = {
             series: [{
-                name: 'Revenue (₹)',
+                name: 'Revenue (â‚¹)',
                 data: hourlyValues
             }],
             chart: {
@@ -227,7 +227,7 @@
             },
             yaxis: {
                 labels: {
-                    formatter: function (val) { return "₹" + val.toLocaleString(); },
+                    formatter: function (val) { return "â‚¹" + val.toLocaleString(); },
                     style: { colors: '#94a3b8', fontWeight: 600 }
                 }
             },
@@ -238,7 +238,7 @@
             tooltip: {
                 theme: 'dark',
                 y: {
-                    formatter: function (val) { return "₹" + val.toLocaleString(); }
+                    formatter: function (val) { return "â‚¹" + val.toLocaleString(); }
                 }
             }
         };
@@ -249,7 +249,7 @@
         // Daily Growth Chart (Bar)
         const dailyOptions = {
             series: [{
-                name: 'Revenue (₹)',
+                name: 'Revenue (â‚¹)',
                 data: dailyValues
             }],
             chart: {
@@ -269,7 +269,7 @@
             },
             dataLabels: {
                 enabled: true,
-                formatter: function (val) { return val > 0 ? "₹" + val : ""; },
+                formatter: function (val) { return val > 0 ? "â‚¹" + val : ""; },
                 offsetY: -20,
                 style: {
                     fontSize: '10px',
@@ -291,7 +291,7 @@
             },
             yaxis: {
                 labels: {
-                    formatter: function (val) { return "₹" + val.toLocaleString(); },
+                    formatter: function (val) { return "â‚¹" + val.toLocaleString(); },
                     style: { colors: '#94a3b8', fontWeight: 600 }
                 }
             },
@@ -313,3 +313,7 @@
         dailyChart.render();
     });
 </script>
+
+
+
+

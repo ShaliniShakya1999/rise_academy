@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -566,3 +566,7 @@ class CI_Cart {
 	}
 
 }
+
+
+
+

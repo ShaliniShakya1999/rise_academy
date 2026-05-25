@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /** @var array $stats */
 $s = $stats + ['users' => 0, 'resumes' => 0, 'templates' => 0, 'jobs' => 0];
 ?>
@@ -74,3 +74,7 @@ $s = $stats + ['users' => 0, 'resumes' => 0, 'templates' => 0, 'jobs' => 0];
         </div>
     </div>
 </div>
+
+
+
+

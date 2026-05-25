@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * CodeIgniter
  *
@@ -89,3 +89,7 @@ if ( ! function_exists('xml_convert'))
 		return $str;
 	}
 }
+
+
+
+
