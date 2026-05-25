@@ -23,7 +23,7 @@ class Admin extends My_Controller
         $projects = $this->Project_model->get_all(50);
 
         $this->loadview('projects/admin/dashboard', [
-            'page_title' => 'Project Admin â€” Dashboard',
+            'page_title' => 'Project Admin  -  Dashboard',
             'stats'      => $stats,
             'intern_stats' => $internship_stats,
             'projects'   => $projects,

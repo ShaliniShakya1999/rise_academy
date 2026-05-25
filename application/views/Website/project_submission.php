@@ -33,7 +33,7 @@
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700">Project title *</label>
-                    <input type="text" name="project_title" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="e.g. Resume Builder â€” MERN stack" value="<?= set_value('project_title'); ?>">
+                    <input type="text" name="project_title" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="e.g. Resume Builder  -  MERN stack" value="<?= set_value('project_title'); ?>">
                 </div>
 
                 <div>
@@ -72,7 +72,7 @@
         </div>
 
         <p class="ra-animate-in ra-animate-in-delay-2 mt-8 text-center text-sm text-slate-500">
-            Response time: typically <strong class="text-slate-700">5â€“7 business days</strong>. Important updates will be sent to your email.
+            Response time: typically <strong class="text-slate-700">5 - 7 business days</strong>. Important updates will be sent to your email.
         </p>
     </div>
 </div>

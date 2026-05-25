@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>All Courses â€” Internmo</title>
+    <title>All Courses  -  Internmo</title>
     <?php echo $this->load->view('partials/head'); ?>
 </head>
 <body>

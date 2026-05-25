@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * `resumes`         â€” id, user_id, template_id, title, completion_score, ...
- * `resume_sections` â€” id, resume_id, section_key, section_json, sort_order
+ * `resumes`          -  id, user_id, template_id, title, completion_score, ...
+ * `resume_sections`  -  id, resume_id, section_key, section_json, sort_order
  *
  * Sections keys used by the official dump:
  *   header, summary, education, experience, skills, clubs, projects,

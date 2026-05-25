@@ -49,7 +49,7 @@ $initial = function ($name) {
                         <div class="flex min-w-0 items-center gap-3">
                             <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-xs font-bold text-white"><?= $initial($u->full_name ?: $u->email); ?></span>
                             <div class="min-w-0">
-                                <p class="truncate text-sm font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($u->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p class="truncate text-sm font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($u->full_name ?: '-', ENT_QUOTES, 'UTF-8'); ?></p>
                                 <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($u->email ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ $initial = function ($name) {
                     <?php else: foreach ($downloads as $d): ?>
                         <tr>
                             <td class="px-5 py-3">
-                                <p class="font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($d->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p class="font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($d->full_name ?: '-', ENT_QUOTES, 'UTF-8'); ?></p>
                                 <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($d->email ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                             </td>
                             <td class="px-5 py-3 text-slate-700 dark:text-slate-200"><?= htmlspecialchars($d->title ?: 'Resume #' . $d->id, ENT_QUOTES, 'UTF-8'); ?></td>

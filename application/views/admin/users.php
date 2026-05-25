@@ -22,7 +22,7 @@ $initial = function ($name) {
     <?php $this->load->view('admin/_header', [
         'eyebrow' => 'Admin',
         'title'   => 'Users',
-        'desc'    => 'Manage everyone who has signed up â€” search by name, email, or mobile.',
+        'desc'    => 'Manage everyone who has signed up  -  search by name, email, or mobile.',
     ]); ?>
 
     <!-- summary tiles -->
@@ -88,7 +88,7 @@ $initial = function ($name) {
                             <div class="flex items-center gap-3">
                                 <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-xs font-bold text-white"><?= $initial($u->full_name ?: $u->email); ?></span>
                                 <div class="min-w-0">
-                                    <p class="truncate font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($u->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
+                                    <p class="truncate font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($u->full_name ?: '-', ENT_QUOTES, 'UTF-8'); ?></p>
                                     <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($u->email, ENT_QUOTES, 'UTF-8'); ?></p>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@ $initial = function ($name) {
                                 <span class="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300">User</span>
                             <?php endif; ?>
                         </td>
-                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= htmlspecialchars($u->mobile ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></td>
+                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= htmlspecialchars($u->mobile ?: '-', ENT_QUOTES, 'UTF-8'); ?></td>
                         <td class="px-4 py-3 font-semibold text-slate-700 dark:text-slate-200"><?= (int) $resumes; ?></td>
                         <td class="px-4 py-3">
                             <?php if (!empty($u->email_verified_at)): ?>
@@ -112,7 +112,7 @@ $initial = function ($name) {
                                 <span class="rounded-full bg-rose-100 px-2 py-1 text-[11px] font-bold text-rose-800 dark:bg-rose-900/40 dark:text-rose-300">Pending</span>
                             <?php endif; ?>
                         </td>
-                        <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400"><?= $u->last_login_at ? date('d M Y, H:i', strtotime($u->last_login_at)) : 'â€”'; ?></td>
+                        <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400"><?= $u->last_login_at ? date('d M Y, H:i', strtotime($u->last_login_at)) : ' - '; ?></td>
                         <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400"><?= date('d M Y', strtotime($u->created_at)); ?></td>
                     </tr>
                 <?php endforeach; endif; ?>

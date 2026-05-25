@@ -1,6 +1,6 @@
 <?php
 /**
- * Preview mockups â€” must be defined before first use (PHP executes top-to-bottom).
+ * Preview mockups  -  must be defined before first use (PHP executes top-to-bottom).
  */
 if (!function_exists('_render_template_preview')) {
     function _render_template_preview($slug)
@@ -26,7 +26,7 @@ if (!function_exists('_render_template_preview')) {
 }
 
 /**
- * `resume_templates` in jobportal has no `category` column â€” derive filter bucket from slug.
+ * `resume_templates` in jobportal has no `category` column  -  derive filter bucket from slug.
  *
  * @param object $t Template row
  * @param array  $category_label map key => display label
@@ -77,14 +77,14 @@ $category_label = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-10 text-center">
         <span class="inline-flex items-center gap-2 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-            <?= count($templates); ?> professional templates â€¢ Free forever
+            <?= count($templates); ?> professional templates • Free forever
         </span>
         <h1 class="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-slate-900">
             Resume templates that<br/>
             <span class="bg-gradient-to-r from-brand-600 to-brand-900 bg-clip-text text-transparent">recruiters love.</span>
         </h1>
         <p class="mt-5 text-lg text-slate-600 max-w-2xl mx-auto">
-            Every template is ATS-friendly, hand-crafted, and fully customizable. Switch designs anytime â€” your content stays put.
+            Every template is ATS-friendly, hand-crafted, and fully customizable. Switch designs anytime  -  your content stays put.
         </p>
 
         <!-- quick stats -->
@@ -214,7 +214,7 @@ $category_label = [
                 <p class="mt-3 text-white/85">Pick any template and start filling. You can switch designs anytime without losing data.</p>
                 <a href="<?= $is_logged_in ? base_url('dashboard') : base_url('register'); ?>"
                    class="mt-7 inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 hover:bg-brand-50 font-semibold px-6 py-3.5 transition">
-                    <?= $is_logged_in ? 'Go to dashboard' : 'Get started â€” free'; ?>
+                    <?= $is_logged_in ? 'Go to dashboard' : 'Get started  -  free'; ?>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
             </div>

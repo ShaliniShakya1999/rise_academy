@@ -60,14 +60,14 @@
                             </div>
                         </td>
                         <td class="px-4 py-3">
-                            <p class="truncate text-slate-700 dark:text-slate-200"><?= htmlspecialchars($r->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
+                            <p class="truncate text-slate-700 dark:text-slate-200"><?= htmlspecialchars($r->full_name ?: '-', ENT_QUOTES, 'UTF-8'); ?></p>
                             <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($r->email ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                         </td>
                         <td class="px-4 py-3">
                             <?php if (!empty($r->template_name)): ?>
                                 <span class="rounded-full bg-indigo-100 px-2 py-1 text-[11px] font-bold text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300"><?= htmlspecialchars($r->template_name, ENT_QUOTES, 'UTF-8'); ?></span>
                             <?php else: ?>
-                                <span class="text-xs text-slate-400">â€”</span>
+                                <span class="text-xs text-slate-400">-</span>
                             <?php endif; ?>
                         </td>
                         <td class="px-4 py-3">

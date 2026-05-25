@@ -88,7 +88,7 @@ class Resume extends My_Controller
         }
 
         $this->loadview('resume/edit', [
-            'page_title' => 'Editing â€” ' . $resume->title,
+            'page_title' => 'Editing  -  ' . $resume->title,
             'resume'     => $resume,
             'sections'   => $this->resume_model->get_sections((int) $resume->id),
             'templates'  => $this->template_model->all_active(),
@@ -96,7 +96,7 @@ class Resume extends My_Controller
     }
 
     /**
-     * AJAX endpoint â€” persists title, template and the full sections payload.
+     * AJAX endpoint  -  persists title, template and the full sections payload.
      */
     public function save($id)
     {
@@ -151,7 +151,7 @@ class Resume extends My_Controller
     }
 
     /**
-     * Completion score 0â€“100 based on filled sections.
+     * Completion score 0 - 100 based on filled sections.
      */
     private function _completion_score(array $sections)
     {

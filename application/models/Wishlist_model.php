@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * `wishlist_items` â€” id, user_id, item_type ENUM('job','internship'), item_id,
+ * `wishlist_items`  -  id, user_id, item_type ENUM('job','internship'), item_id,
  *                    snapshot_json, created_at
  * Unique key: (user_id, item_type, item_id)
  */

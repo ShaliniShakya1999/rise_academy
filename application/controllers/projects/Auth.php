@@ -21,7 +21,7 @@ class Auth extends My_Controller
         }
 
         $data = [
-            'page_title' => 'Project Portal â€” Login',
+            'page_title' => 'Project Portal  -  Login',
             'error'      => null,
             'old_email'  => '',
         ];
@@ -58,7 +58,7 @@ class Auth extends My_Controller
         }
 
         $data = [
-            'page_title' => 'Project Portal â€” Register',
+            'page_title' => 'Project Portal  -  Register',
             'error'      => null,
             'old_data'   => [],
         ];
@@ -87,7 +87,7 @@ class Auth extends My_Controller
                 ]);
 
                 if ($userId) {
-                    // Show success message â€” do NOT auto-login
+                    // Show success message  -  do NOT auto-login
                     $this->session->set_flashdata('reg_success', 'Application submitted! You will receive your login credentials via email once admin approves your account.');
                     redirect('projects/login');
                     return;

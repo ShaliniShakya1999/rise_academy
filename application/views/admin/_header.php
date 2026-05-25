@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Reusable admin page header â€” eyebrow, title, optional description + actions.
+ * Reusable admin page header  -  eyebrow, title, optional description + actions.
  *
  * @var string $eyebrow  small uppercase label above title
  * @var string $title    big page title

@@ -359,7 +359,7 @@ $color_theme = htmlspecialchars($course['color_theme']);
                 <div class="cd-enroll-header">
                     <div class="text-white/80 text-xs font-bold uppercase tracking-widest mb-1">Next Batch: June 4, 2026</div>
                     <h3 class="text-xl font-black text-white mb-1">Apply for Admission</h3>
-                    <p class="text-white/75 text-xs">Reserve your seat — only 12 spots remaining!</p>
+                    <p class="text-white/75 text-xs">Reserve your seat  -  only 12 spots remaining!</p>
                 </div>
 
                 <!-- Card Body -->
@@ -424,7 +424,7 @@ $color_theme = htmlspecialchars($course['color_theme']);
 <!-- ─── Fixed Bottom Sticky CTA Bar ───────────────── -->
 <div class="cd-sticky-bar">
     <span class="text-white text-[13px] font-bold flex items-center gap-2">
-        🚀 <span class="hidden sm:inline"><?= $title; ?> — </span>Next Batch: <span class="text-amber-400">June 4, 2026</span>
+        🚀 <span class="hidden sm:inline"><?= $title; ?>  -  </span>Next Batch: <span class="text-amber-400">June 4, 2026</span>
     </span>
     <a href="<?= base_url('register'); ?>" class="bg-gradient-to-r from-amber-400 to-orange-400 text-white px-6 py-2 rounded-lg text-[13px] font-black hover:from-amber-500 hover:to-orange-500 transition-all shadow-md">
         Apply Now

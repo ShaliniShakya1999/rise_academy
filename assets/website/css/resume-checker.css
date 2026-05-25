@@ -1,5 +1,5 @@
 /**
- * Internmo â€” AI ATS Resume Checker
+ * Internmo  -  AI ATS Resume Checker
  * Pure CSS3 (no Tailwind). Scoped under .ra-rc-page
  */
 
@@ -248,7 +248,7 @@
 
 .ra-rc-btn--primary {
   color: #fff;
-  background: linear-gradient(135deg, #AFE9FD 0%, #085CF0 40%, #092676 100%);
+  background: linear-gradient(135deg, #f5c965 0%, #f59e0b 100%);
   animation: ra-rc-pulse-glow 3s ease-in-out infinite;
 }
 

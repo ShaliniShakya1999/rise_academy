@@ -52,7 +52,7 @@
                         </span>
                         <input type="password" name="password" required
                                class="w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-[#00204a]/5 focus:border-[#00204a] outline-none transition-all font-semibold"
-                               placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
+                               placeholder="••••••••">
                     </div>
                 </div>
 

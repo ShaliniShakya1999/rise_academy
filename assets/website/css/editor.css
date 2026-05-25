@@ -1,5 +1,5 @@
 ﻿/* =========================================================
-   Internmo â€” Resume Editor
+   Internmo  -  Resume Editor
    Premium SaaS UI Â· Bootstrap 5 + Custom CSS
    ========================================================= */
 
@@ -201,7 +201,7 @@ html { scroll-behavior: smooth; }
 .re-main { display: block; }
 
 /* =========================================================
-   Editor shell â€” 3 columns: sidebar | form | preview
+   Editor shell  -  3 columns: sidebar | form | preview
    ========================================================= */
 .re-app {
     display: grid;
@@ -214,7 +214,7 @@ html { scroll-behavior: smooth; }
     min-height: calc(100vh - var(--re-nav-h));
 }
 
-/* ---------- Left sidebar â€” section navigation ---------- */
+/* ---------- Left sidebar  -  section navigation ---------- */
 .re-sidebar {
     position: sticky;
     top: calc(var(--re-nav-h) + 18px);
@@ -267,7 +267,7 @@ html { scroll-behavior: smooth; }
     border-color: transparent;
 }
 
-/* ---------- Center column â€” form editor ---------- */
+/* ---------- Center column  -  form editor ---------- */
 .re-editor {
     display: flex; flex-direction: column;
     gap: 16px;
@@ -576,7 +576,7 @@ html { scroll-behavior: smooth; }
 .re-btn--icon:hover { color: var(--re-indigo); border-color: var(--re-indigo); }
 
 /* =========================================================
-   Right column â€” preview pane
+   Right column  -  preview pane
    ========================================================= */
 .re-preview-pane {
     position: sticky;
@@ -651,7 +651,7 @@ html { scroll-behavior: smooth; }
     display: flex; justify-content: center; align-items: flex-start;
 }
 
-/* ----- A4 sheet â€” 210mm Ã— 297mm scaled ----- */
+/* ----- A4 sheet  -  210mm Ã -  297mm scaled ----- */
 .re-a4-wrap { transform-origin: top center; transition: transform .25s ease; }
 .re-a4 {
     width: 210mm;

@@ -64,13 +64,13 @@
                         </td>
                         <td class="px-4 py-3 text-slate-700 dark:text-slate-200"><?= htmlspecialchars($j->company, ENT_QUOTES, 'UTF-8'); ?></td>
                         <td class="px-4 py-3 text-slate-600 dark:text-slate-300">
-                            <?= htmlspecialchars($j->location ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?>
+                            <?= htmlspecialchars($j->location ?: '-', ENT_QUOTES, 'UTF-8'); ?>
                             <?php if ((int) $j->is_remote === 1): ?>
                                 <span class="ml-1 rounded-full bg-cyan-100 px-1.5 py-0.5 text-[10px] font-bold text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-300">Remote</span>
                             <?php endif; ?>
                         </td>
                         <td class="px-4 py-3"><span class="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300"><?= htmlspecialchars($j->employment_type, ENT_QUOTES, 'UTF-8'); ?></span></td>
-                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= htmlspecialchars($j->salary_label ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></td>
+                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= htmlspecialchars($j->salary_label ?: '-', ENT_QUOTES, 'UTF-8'); ?></td>
                         <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400"><?= date('d M Y', strtotime($j->created_at)); ?></td>
                     </tr>
                 <?php endforeach; endif; ?>
@@ -106,13 +106,13 @@
                         </td>
                         <td class="px-4 py-3 text-slate-700 dark:text-slate-200"><?= htmlspecialchars($iN->company, ENT_QUOTES, 'UTF-8'); ?></td>
                         <td class="px-4 py-3 text-slate-600 dark:text-slate-300">
-                            <?= htmlspecialchars($iN->location ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?>
+                            <?= htmlspecialchars($iN->location ?: '-', ENT_QUOTES, 'UTF-8'); ?>
                             <?php if ((int) $iN->is_remote === 1): ?>
                                 <span class="ml-1 rounded-full bg-cyan-100 px-1.5 py-0.5 text-[10px] font-bold text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-300">Remote</span>
                             <?php endif; ?>
                         </td>
-                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= htmlspecialchars($iN->stipend_label ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></td>
-                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= $iN->duration_weeks ? ((int) $iN->duration_weeks . ' wks') : 'â€”'; ?></td>
+                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= htmlspecialchars($iN->stipend_label ?: '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                        <td class="px-4 py-3 text-slate-600 dark:text-slate-300"><?= $iN->duration_weeks ? ((int) $iN->duration_weeks . ' wks') : ' - '; ?></td>
                         <td class="px-4 py-3 text-xs text-slate-500 dark:text-slate-400"><?= date('d M Y', strtotime($iN->created_at)); ?></td>
                     </tr>
                 <?php endforeach; endif; ?>

@@ -1,5 +1,5 @@
 /**
- * Internmo â€” Resume Checker page interactions (vanilla JS)
+ * Internmo  -  Resume Checker page interactions (vanilla JS)
  */
 (function () {
   'use strict';
@@ -321,10 +321,10 @@
     var btn = $('#ra-rc-btn-download');
     if (!btn) return;
     btn.addEventListener('click', function () {
-      var ats = ($('#ra-rc-ats-num') && $('#ra-rc-ats-num').textContent) || 'â€”';
+      var ats = ($('#ra-rc-ats-num') && $('#ra-rc-ats-num').textContent) || ' - ';
       var name = state.file ? state.file.name : 'resume';
       var body =
-        'Internmo â€” ATS Resume Report\n' +
+        'Internmo  -  ATS Resume Report\n' +
         '================================\n\n' +
         'File: ' + name + '\n' +
         'ATS score: ' + ats + '\n\n' +

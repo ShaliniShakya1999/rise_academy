@@ -1,9 +1,9 @@
 <?php
 /**
- * User app sidebar Ã¢â‚¬â€ glass / gradient, collapsible (desktop), drawer (mobile).
+ * User app sidebar " glass / gradient, collapsible (desktop), drawer (mobile).
  *
  * @var string $active                 e.g. dashboard, wishlist, profile
- * @var int|null $shell_avg_completion optional 0Ã¢â‚¬â€œ100 for widget (dashboard)
+ * @var int|null $shell_avg_completion optional 0 - 100 for widget (dashboard)
  * @var int $wishlist_count             total saved wishlist items (from layout)
  */
 $wishlist_count = isset($wishlist_count) ? (int) $wishlist_count : 0;
@@ -123,7 +123,7 @@ $divider = function () {
                 <p class="mt-1.5 text-lg font-display font-extrabold text-white"><?= (int) $shell_avg_completion; ?>%</p>
             <?php else: ?>
                 <p class="text-[10px] font-bold uppercase tracking-wider text-white/45">Quick tip</p>
-                <p class="mt-1 text-xs leading-relaxed text-white/70">Use the ATS Checker before you apply Ã¢â‚¬â€ it helps catch formatting issues early.</p>
+                <p class="mt-1 text-xs leading-relaxed text-white/70">Use the ATS Checker before you apply " it helps catch formatting issues early.</p>
             <?php endif; ?>
         </div>
     </nav>

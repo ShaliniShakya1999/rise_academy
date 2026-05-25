@@ -1,5 +1,5 @@
 ﻿/* =========================================================
-   Internmo â€” Resume Editor
+   Internmo  -  Resume Editor
    Vanilla JS Â· live preview, autosave, drag-drop, zoom
    ========================================================= */
 (function () {

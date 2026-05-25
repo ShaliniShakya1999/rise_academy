@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<!-- SITE FOOTER — Rich Dark Footer matching Landing Page -->
+<!-- SITE FOOTER  -  Rich Dark Footer matching Landing Page -->
 <footer class="bg-[#0a0f1a] relative">
     <div class="max-w-[1400px] mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 

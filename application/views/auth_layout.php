@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' â€” Internmo' : 'Sign in â€” Internmo'; ?></title>
+    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).'  -  Internmo' : 'Sign in  -  Internmo'; ?></title>
     <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/logo.png'); ?>">
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
@@ -26,7 +26,7 @@
 <body class="font-sans min-h-screen bg-slate-50">
 
 <div class="min-h-screen grid lg:grid-cols-2">
-    <!-- LEFT â€” gradient hero -->
+    <!-- LEFT  -  gradient hero -->
     <aside class="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 text-white p-12 flex-col justify-between">
         <div>
             <a href="<?= base_url(); ?>" class="inline-flex items-center gap-2 text-white">
@@ -52,7 +52,7 @@
         <div class="pointer-events-none absolute -bottom-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-brand-500/30 blur-3xl"></div>
     </aside>
 
-    <!-- RIGHT â€” form -->
+    <!-- RIGHT  -  form -->
     <section class="flex items-center justify-center p-6 sm:p-12">
         <div class="w-full max-w-md">
             <a href="<?= base_url(); ?>" class="lg:hidden inline-flex items-center gap-2 mb-8 text-brand-900">

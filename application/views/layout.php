@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' Ã¢â‚¬â€  Internmo' : 'Internmo Ã¢â‚¬â€  Resume Builder'; ?></title>
+    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).'  -  Internmo' : 'Internmo  -  Resume Builder'; ?></title>
     <meta name="description" content="Create ATS-friendly, professional resumes in minutes. Modern templates, live preview, instant PDF download.">
     
     <!-- Favicon -->

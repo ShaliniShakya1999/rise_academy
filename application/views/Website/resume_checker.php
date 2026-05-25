@@ -33,7 +33,7 @@ $bu = base_url();
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                         </div>
                         <h3>Drag &amp; drop your resume</h3>
-                        <p id="ra-rc-drop-help">or click to browse â€” PDF, DOC, DOCX up to 10&nbsp;MB</p>
+                        <p id="ra-rc-drop-help">or click to browse  -  PDF, DOC, DOCX up to 10&nbsp;MB</p>
                         <div class="ra-rc-dropzone__formats">
                             <span class="ra-rc-format-pill">PDF</span>
                             <span class="ra-rc-format-pill">DOC</span>
@@ -47,8 +47,8 @@ $bu = base_url();
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                             </div>
                             <div class="ra-rc-file-preview__meta">
-                                <div class="ra-rc-file-preview__name" id="ra-rc-preview-filename">â€”</div>
-                                <div class="ra-rc-file-preview__size" id="ra-rc-preview-filesize">â€”</div>
+                                <div class="ra-rc-file-preview__name" id="ra-rc-preview-filename">-</div>
+                                <div class="ra-rc-file-preview__size" id="ra-rc-preview-filesize">-</div>
                             </div>
                         </div>
                         <p class="ra-rc-note"><strong>ATS tip:</strong> Use standard section headings (Experience, Education, Skills) and avoid text boxes that parsers cannot read.</p>
@@ -80,7 +80,7 @@ $bu = base_url();
 
                 <section class="ra-rc-results ra-rc-mt" id="ra-rc-results" aria-live="polite">
                     <h2 class="ra-rc-section-title">AI analysis dashboard</h2>
-                    <p class="ra-rc-section-sub">Simulated scores for UI preview â€” connect your backend to pipe real NLP and ATS engines.</p>
+                    <p class="ra-rc-section-sub">Simulated scores for UI preview  -  connect your backend to pipe real NLP and ATS engines.</p>
 
                     <div class="ra-rc-dashboard">
                         <div class="ra-rc-dash-card ra-rc-score-wrap">
@@ -229,7 +229,7 @@ $bu = base_url();
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Contact information visible in header block</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Dedicated skills section present</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Experience with reverse-chronological entries</span></div>
-                            <div class="ra-rc-check-item ra-rc-check-item--bad"><span class="ra-rc-check-item__dot"></span><span>Education section â€” add expected graduation or GPA if early career</span></div>
+                            <div class="ra-rc-check-item ra-rc-check-item--bad"><span class="ra-rc-check-item__dot"></span><span>Education section  -  add expected graduation or GPA if early career</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>Proper formatting (single column, no text boxes)</span></div>
                             <div class="ra-rc-check-item ra-rc-check-item--ok"><span class="ra-rc-check-item__dot"></span><span>ATS readable structure (standard headings)</span></div>
                         </div>
@@ -329,15 +329,15 @@ $bu = base_url();
                         <div class="ra-rc-stories">
                             <figure class="ra-rc-story">
                                 <blockquote>&ldquo;I raised my ATS score in one evening and started getting recruiter replies within a week.&rdquo;</blockquote>
-                                <cite>â€” Ananya, Product intern</cite>
+                                <cite> -  Ananya, Product intern</cite>
                             </figure>
                             <figure class="ra-rc-story">
                                 <blockquote>&ldquo;The keyword section showed exactly what our campus placement cell never explained.&rdquo;</blockquote>
-                                <cite>â€” Rohan, CS graduate</cite>
+                                <cite> -  Rohan, CS graduate</cite>
                             </figure>
                             <figure class="ra-rc-story">
-                                <blockquote>&ldquo;Feels like Rezi and Resume.io had a baby â€” gorgeous UI, actually useful tips.&rdquo;</blockquote>
-                                <cite>â€” Meera, career switcher</cite>
+                                <blockquote>&ldquo;Feels like Rezi and Resume.io had a baby  -  gorgeous UI, actually useful tips.&rdquo;</blockquote>
+                                <cite> -  Meera, career switcher</cite>
                             </figure>
                         </div>
                     </div>
@@ -615,7 +615,7 @@ $bu = base_url();
                             <div class="ra-rc-tip-card"><strong>Mirror the JD</strong> Echo important nouns and phrases naturally in your summary and skills.</div>
                             <div class="ra-rc-tip-card"><strong>Quantify everything</strong> Even estimated impact beats no numbers for ATS and humans.</div>
                             <div class="ra-rc-tip-card"><strong>File naming</strong> Use FirstName_LastName_Resume.pdf for cleaner recruiter workflows.</div>
-                            <div class="ra-rc-tip-card"><strong>Plain layout wins</strong> Creative columns often break parsers â€” keep it simple for first screens.</div>
+                            <div class="ra-rc-tip-card"><strong>Plain layout wins</strong> Creative columns often break parsers  -  keep it simple for first screens.</div>
                         </div>
                     </div>
 
@@ -636,7 +636,7 @@ $bu = base_url();
                             </details>
                             <details>
                                 <summary>Can I download a report?</summary>
-                                <div>Yes â€” use Download ATS Report after analysis for a text summary (extend to PDF on the server).</div>
+                                <div>Yes  -  use Download ATS Report after analysis for a text summary (extend to PDF on the server).</div>
                             </details>
                         </div>
                     </div>
@@ -651,8 +651,8 @@ $bu = base_url();
                     </div>
                     <div class="ra-rc-preview__meta">
                         <p><strong>File</strong><br><span id="ra-rc-aside-filename">No file yet</span></p>
-                        <p><strong>Size</strong><br><span id="ra-rc-aside-size">â€”</span></p>
-                        <p><strong>Uploaded</strong><br><span id="ra-rc-aside-date">â€”</span></p>
+                        <p><strong>Size</strong><br><span id="ra-rc-aside-size">-</span></p>
+                        <p><strong>Uploaded</strong><br><span id="ra-rc-aside-date">-</span></p>
                     </div>
                     <div class="ra-rc-preview__actions">
                         <button type="button" class="ra-rc-btn ra-rc-btn--primary ra-rc-btn--sm" id="ra-rc-btn-download">Download ATS Report</button>

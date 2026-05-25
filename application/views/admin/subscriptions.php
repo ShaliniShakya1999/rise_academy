@@ -60,7 +60,7 @@
                     <tr class="transition hover:bg-slate-50/70 dark:hover:bg-slate-700/30">
                         <td class="px-4 py-3 font-mono text-xs text-slate-500">#<?= (int) $p->id; ?></td>
                         <td class="px-4 py-3">
-                            <p class="font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($p->full_name ?: 'â€”', ENT_QUOTES, 'UTF-8'); ?></p>
+                            <p class="font-semibold text-slate-900 dark:text-white"><?= htmlspecialchars($p->full_name ?: '-', ENT_QUOTES, 'UTF-8'); ?></p>
                             <p class="truncate text-xs text-slate-500 dark:text-slate-400"><?= htmlspecialchars($p->email ?: '', ENT_QUOTES, 'UTF-8'); ?></p>
                         </td>
                         <td class="px-4 py-3"><span class="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-700 dark:bg-slate-700 dark:text-slate-300"><?= htmlspecialchars($p->purpose, ENT_QUOTES, 'UTF-8'); ?></span></td>

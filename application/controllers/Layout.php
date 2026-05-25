@@ -5,7 +5,7 @@ if (!class_exists("My_Controller"))
     include_once APPPATH . 'core/My_Controller.php';
 
 /**
- * Layout â€” public website pages (landing, about, templates, etc).
+ * Layout  -  public website pages (landing, about, templates, etc).
  * Auth is in Auth.php controller. Resume CRUD is in Resume.php.
  */
 class Layout extends My_Controller
@@ -13,7 +13,7 @@ class Layout extends My_Controller
     public function index()
     {
         // Standalone landing page with its own header/footer
-        $this->load->view('Website/landing_standalone', ['page_title' => 'Internmo â€” Welcome']);
+        $this->load->view('Website/landing_standalone', ['page_title' => 'Internmo  -  Welcome']);
     }
 
     public function home()
@@ -380,7 +380,7 @@ class Layout extends My_Controller
     }
 
     /**
-     * Form validation callback — empty OK, else must be valid URL.
+     * Form validation callback  -  empty OK, else must be valid URL.
      */
     public function _optional_url($str)
     {

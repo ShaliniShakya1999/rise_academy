@@ -29,7 +29,7 @@
         </div>
         <input id="password" type="password" name="password" required
                class="mt-1.5 block w-full rounded-lg border-slate-300 focus:border-brand-500 focus:ring-brand-500 px-3 py-2.5"
-               placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
+               placeholder="••••••••">
     </div>
 
     <button type="submit"
@@ -40,7 +40,7 @@
 
 <p class="mt-6 text-sm text-center text-slate-500">
     Don't have an account?
-    <a href="<?= base_url('register'); ?>" class="font-semibold text-brand-600 hover:text-brand-700">Create one â€” free</a>
+    <a href="<?= base_url('register'); ?>" class="font-semibold text-brand-600 hover:text-brand-700">Create one  -  free</a>
 </p>
 
 

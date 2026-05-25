@@ -34,7 +34,7 @@ $sections_nav = [
         <?php endforeach; ?>
     </aside>
 
-    <!-- ============= CENTER â€” FORM EDITOR ============= -->
+    <!-- ============= CENTER  -  FORM EDITOR ============= -->
     <section class="re-editor">
 
         <!-- Header card -->
@@ -126,7 +126,7 @@ $sections_nav = [
                 <span class="re-card__icon"><i class="fa-solid fa-align-left"></i></span>
                 <div class="re-card__title">
                     <h3>Profile Summary</h3>
-                    <p>A short pitch about who you are (2â€“4 sentences)</p>
+                    <p>A short pitch about who you are (2 - 4 sentences)</p>
                 </div>
                 <i class="fa-solid fa-chevron-down re-card__chevron"></i>
             </button>
@@ -177,7 +177,7 @@ $sections_nav = [
                                 <div class="col-md-12">
                                     <div class="re-field">
                                         <label class="re-field__label">Period</label>
-                                        <input type="text" class="re-input" data-field="period" placeholder="Jan 2022 â€” Present">
+                                        <input type="text" class="re-input" data-field="period" placeholder="Jan 2022  -  Present">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -230,7 +230,7 @@ $sections_nav = [
                                 <div class="col-md-12">
                                     <div class="re-field">
                                         <label class="re-field__label">Period</label>
-                                        <input type="text" class="re-input" data-field="period" placeholder="2018 â€” 2022">
+                                        <input type="text" class="re-input" data-field="period" placeholder="2018  -  2022">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -433,7 +433,7 @@ $sections_nav = [
         <div style="height: 80px;"></div>
     </section>
 
-    <!-- ============= RIGHT â€” LIVE A4 PREVIEW ============= -->
+    <!-- ============= RIGHT  -  LIVE A4 PREVIEW ============= -->
     <aside class="re-preview-pane" id="previewPane" aria-label="Live preview">
         <div class="re-toolbar">
             <select id="templateSelect" class="re-toolbar__select" title="Switch template">

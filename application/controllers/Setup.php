@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Setup.php â€” ONE-TIME password-reset helper for the imported `jobportal` dump.
+ * Setup.php  -  ONE-TIME password-reset helper for the imported `jobportal` dump.
  *
  * The dump already contains these users (id 1 admin, id 2 user, id 4 user):
  *   admin@example.com
