@@ -10,7 +10,6 @@ $wishlist_count = isset($wishlist_count) ? (int) $wishlist_count : 0;
 $active = isset($active) ? $active : 'dashboard';
 $is_admin = (int) $this->session->userdata('role_id') === 1;
 
-<?php
 $nav = function ($key, $label, $href, $icon_svg, $badge = null) use ($active) {
     $is = ($active === $key);
     $cls = $is

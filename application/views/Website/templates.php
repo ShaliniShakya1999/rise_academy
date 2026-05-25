@@ -147,7 +147,7 @@ $category_label = [
                      x-transition.opacity
                      class="group relative rounded-2xl bg-white border border-slate-200 hover:border-brand-200 hover:shadow-soft transition overflow-hidden">
 
-                <!-- Preview area (1/âˆš2 = A4 ratio) -->
+                <!-- Preview area (1/√2 = A4 ratio) -->
                 <div class="relative aspect-[1/1.414] bg-gradient-to-br from-slate-50 to-slate-100 border-b border-slate-200 overflow-hidden">
                     <div class="absolute inset-4 bg-white rounded shadow-sm overflow-hidden">
                         <?= _render_template_preview($slug); ?>

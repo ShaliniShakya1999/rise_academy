@@ -57,7 +57,7 @@ $flash_info = $this->session->flashdata('info');
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 </span>
                 <input type="search" name="q" value="<?= htmlspecialchars($q); ?>"
-                       placeholder="Search jobs by title, company or skillâ€¦"
+                       placeholder="Search jobs by title, company or skill..."
                        class="w-full pl-10 pr-3 py-2.5 rounded-xl border-slate-300 focus:border-brand-500 focus:ring-brand-500">
             </div>
             <select name="category" class="rounded-xl border-slate-300 focus:border-brand-500 focus:ring-brand-500 py-2.5">
@@ -81,7 +81,7 @@ $flash_info = $this->session->flashdata('info');
                 </div>
                 <h3 class="mt-4 font-bold text-slate-900">No jobs match your filters</h3>
                 <p class="mt-1 text-sm text-slate-500">Try clearing the search or selecting a different category.</p>
-                <a href="<?= base_url('jobs'); ?>" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">Clear filters â†’</a>
+                <a href="<?= base_url('jobs'); ?>" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900">Clear filters  → </a>
             </div>
         <?php else: ?>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -134,7 +134,7 @@ $sections_nav = [
                 <div class="re-card__body-inner">
                     <div class="re-field">
                         <textarea class="re-textarea" rows="5" data-bind="summary.text"
-                                  placeholder="Results-driven engineer with 5+ years of experience building scalable web applicationsâ€¦"></textarea>
+                                  placeholder="Results-driven engineer with 5+ years of experience building scalable web applications..."></textarea>
                     </div>
                 </div>
             </div>
@@ -184,7 +184,7 @@ $sections_nav = [
                                     <div class="re-field">
                                         <label class="re-field__label">Description</label>
                                         <textarea class="re-textarea" rows="3" data-field="description"
-                                                  placeholder="Led a team of 5, shipped X featureâ€¦"></textarea>
+                                                  placeholder="Led a team of 5, shipped X feature..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +237,7 @@ $sections_nav = [
                                     <div class="re-field">
                                         <label class="re-field__label">Notes</label>
                                         <textarea class="re-textarea" rows="2" data-field="description"
-                                                  placeholder="GPA 9.2, Activitiesâ€¦"></textarea>
+                                                  placeholder="GPA 9.2, Activities..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@ $sections_nav = [
                     <div class="re-field">
                         <label class="re-field__label">Add your skills</label>
                         <div class="re-chips" data-chips-key="skills">
-                            <input type="text" class="re-chip-input" placeholder="Type a skill and press Enterâ€¦">
+                            <input type="text" class="re-chip-input" placeholder="Type a skill and press Enter...">
                         </div>
                     </div>
                 </div>
@@ -312,7 +312,7 @@ $sections_nav = [
                                     <div class="re-field">
                                         <label class="re-field__label">Description</label>
                                         <textarea class="re-textarea" rows="3" data-field="description"
-                                                  placeholder="What the project does, your contribution, impactâ€¦"></textarea>
+                                                  placeholder="What the project does, your contribution, impact..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -365,7 +365,7 @@ $sections_nav = [
                                     <div class="re-field">
                                         <label class="re-field__label">Notes</label>
                                         <textarea class="re-textarea" rows="2" data-field="description"
-                                                  placeholder="Credential ID, skills validatedâ€¦"></textarea>
+                                                  placeholder="Credential ID, skills validated..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -473,7 +473,7 @@ $sections_nav = [
 
 <!-- Sticky action footer -->
 <div class="re-action-bar">
-    <span class="re-action-bar__text"><b>Resume #<?= (int) $resume->id; ?></b> Â· changes save automatically</span>
+    <span class="re-action-bar__text"><b>Resume #<?= (int) $resume->id; ?></b> · changes save automatically</span>
     <button type="button" id="btnSave" class="re-btn re-btn--ghost">
         <i class="fa-solid fa-floppy-disk"></i> Save
     </button>

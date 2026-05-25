@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Content (Jobs + Internships)
+ * Admin → Content (Jobs + Internships)
  *
  * @var array $jobs
  * @var array $internships

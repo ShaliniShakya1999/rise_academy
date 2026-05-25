@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Analytics
+ * Admin → Analytics
  *
  * @var array $kpis
  * @var array $series        ['signups'=>[...], 'resumes'=>[...], 'downloads'=>[...], 'logins'=>[...]]
@@ -22,7 +22,7 @@ $spark = function (array $data, $accent = 'from-indigo-400 to-violet-500') {
     $i = 0;
     foreach ($data as $date => $count) {
         $h = max(4, (int) round(($count / $max) * 96));
-        $title = htmlspecialchars($date . ' Â· ' . $count, ENT_QUOTES, 'UTF-8');
+        $title = htmlspecialchars($date . ' · ' . $count, ENT_QUOTES, 'UTF-8');
         echo '<div title="' . $title . '" class="flex-1 rounded-t bg-gradient-to-t ' . $accent . ' opacity-90 transition hover:opacity-100" style="height:' . $h . 'px"></div>';
         $i++;
     }
@@ -76,7 +76,7 @@ $spark = function (array $data, $accent = 'from-indigo-400 to-violet-500') {
         <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400"><?= $lab; ?> Â· last 30 days</p>
+                    <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400"><?= $lab; ?> · last 30 days</p>
                     <p class="mt-1 font-display text-2xl font-extrabold text-slate-900 dark:text-white"><?= number_format($tot); ?></p>
                 </div>
                 <span class="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-bold text-slate-600 dark:bg-slate-700 dark:text-slate-300">30d</span>

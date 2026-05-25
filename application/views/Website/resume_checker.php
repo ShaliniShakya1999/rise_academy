@@ -12,7 +12,7 @@ $bu = base_url();
 
     <div class="ra-rc-inner">
         <header class="ra-rc-hero">
-            <span class="ra-rc-badge">Internmo Â· AI</span>
+            <span class="ra-rc-badge">Internmo · AI</span>
             <h1>AI Powered ATS Resume Checker</h1>
             <p>Upload your resume and get instant ATS score, keyword analysis, and AI improvement suggestions.</p>
             <div class="ra-rc-hero__cta">
@@ -59,7 +59,7 @@ $bu = base_url();
                             <label class="ra-rc-label" for="ra-rc-jobdesc">Job description</label>
                             <span class="ra-rc-ai-badge">AI job match</span>
                         </div>
-                        <textarea id="ra-rc-jobdesc" class="ra-rc-textarea" maxlength="5000" placeholder="Paste job description here for better ATS matchingâ€¦" rows="5"></textarea>
+                        <textarea id="ra-rc-jobdesc" class="ra-rc-textarea" maxlength="5000" placeholder="Paste job description here for better ATS matching..." rows="5"></textarea>
                         <div class="ra-rc-counter" id="ra-rc-jd-count">0 / 5000</div>
                         <div class="ra-rc-tips">
                             <h4>Smart tips</h4>
@@ -668,7 +668,7 @@ $bu = base_url();
         <div class="ra-rc-loading__card">
             <div class="ra-rc-loading__spinner" aria-hidden="true"></div>
             <h3 id="ra-rc-loading-title">AI is scanning your resume</h3>
-            <p class="ra-rc-loading__step" id="ra-rc-loading-step">Preparingâ€¦</p>
+            <p class="ra-rc-loading__step" id="ra-rc-loading-step">Preparing...</p>
             <div class="ra-rc-loading__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
         </div>
     </div>

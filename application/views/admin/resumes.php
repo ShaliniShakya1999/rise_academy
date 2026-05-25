@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Resumes
+ * Admin → Resumes
  *
  * @var array $rows   joined rows of resumes + user + template
  * @var array $stats

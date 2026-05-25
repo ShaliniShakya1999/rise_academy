@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Users
+ * Admin → Users
  *
  * @var array  $rows
  * @var int    $total

@@ -5,7 +5,7 @@
     </div>
     <p class="text-sm text-amber-900 leading-relaxed font-medium">
         <span class="font-black text-amber-600 uppercase tracking-wider text-xs block mb-1">Important Note</span>
-        Projects can be deleted from the Submitted Projects section after submission, but only if the project status is marked as â€œEvaluation in Progressâ€. Once a project has been evaluated, it becomes locked and cannot be deleted.
+        Projects can be deleted from the Submitted Projects section after submission, but only if the project status is marked as "Evaluation in Progress". Once a project has been evaluated, it becomes locked and cannot be deleted.
     </p>
 </div>
 

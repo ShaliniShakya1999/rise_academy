@@ -56,7 +56,6 @@ $is_logged_in = $this->session->has_userdata('user_id');
     <a href="<?= base_url(); ?>" class="flex items-center gap-2 group">
         <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo"
              class="h-10 w-auto object-contain group-hover:opacity-90 transition">
-        <span class="text-2xl font-bold text-amber-600">Internmo</span>
     </a>
 
     <!-- Center: Desktop Menu -->
@@ -73,9 +72,9 @@ $is_logged_in = $this->session->has_userdata('user_id');
     <!-- Right: Actions -->
 <?php if (isset($is_logged_in) && $is_logged_in): ?>
     <!-- Wishlist (visible after login) -->
-    <button aria-label="Wishlist" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-amber-100 transition">
+    <a href="<?= base_url('wishlist'); ?>" aria-label="Wishlist" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-amber-100 transition">
         <i class="fas fa-heart"></i>
-    </button>
+    </a>
     <!-- Dashboard link -->
     <a href="<?= base_url('dashboard'); ?>" class="text-sm font-medium text-gray-800 hover:text-amber-600 transition">Dashboard</a>
     <!-- Profile dropdown -->
@@ -87,7 +86,7 @@ $is_logged_in = $this->session->has_userdata('user_id');
             <i class="fas fa-chevron-down text-xs"></i>
         </button>
         <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
-            <a href="<?= base_url('my-resume'); ?>" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-gray-50"><i class="fas fa-file-alt"></i> My Resume</a>
+            <a href="<?= base_url('dashboard'); ?>" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-gray-50"><i class="fas fa-file-alt"></i> My Resume</a>
             <a href="<?= base_url('logout'); ?>" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </div>
@@ -111,7 +110,7 @@ $is_logged_in = $this->session->has_userdata('user_id');
         <a href="<?= base_url('project-submission'); ?>" class="block py-2 px-2 rounded hover:bg-amber-100">Project Submission</a>
         <a href="<?= base_url('templates'); ?>" class="block py-2 px-2 rounded hover:bg-amber-100">Templates</a>
         <div class="border-t border-amber-100 mt-3 pt-3 space-y-2">
-            <button class="w-full flex items-center gap-2 py-2 px-2 rounded hover:bg-amber-100"><i class="fas fa-heart"></i> Wishlist</button>
+            <a href="<?= base_url('wishlist'); ?>" class="w-full flex items-center gap-2 py-2 px-2 rounded hover:bg-amber-100"><i class="fas fa-heart"></i> Wishlist</a>
             <a href="<?= base_url('dashboard'); ?>" class="block w-full text-left py-2 px-2 rounded hover:bg-amber-100">Dashboard</a>
             <div class="relative">
                 <button id="mobile-profile-toggle" class="flex w-full items-center gap-2 py-2 px-2 rounded hover:bg-amber-100">

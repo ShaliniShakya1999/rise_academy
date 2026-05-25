@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Templates
+ * Admin → Templates
  *
  * @var array $rows  resume_templates rows
  * @var array $usage template_id => count

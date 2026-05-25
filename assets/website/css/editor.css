@@ -1,6 +1,6 @@
-﻿/* =========================================================
+/* =========================================================
    Internmo  -  Resume Editor
-   Premium SaaS UI Â· Bootstrap 5 + Custom CSS
+   Premium SaaS UI · Bootstrap 5 + Custom CSS
    ========================================================= */
 
 :root {
@@ -651,7 +651,7 @@ html { scroll-behavior: smooth; }
     display: flex; justify-content: center; align-items: flex-start;
 }
 
-/* ----- A4 sheet  -  210mm Ã -  297mm scaled ----- */
+/* ----- A4 sheet  -  210mm x 297mm scaled ----- */
 .re-a4-wrap { transform-origin: top center; transition: transform .25s ease; }
 .re-a4 {
     width: 210mm;

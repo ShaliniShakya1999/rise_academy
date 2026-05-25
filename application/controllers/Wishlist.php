@@ -45,8 +45,8 @@ class Wishlist extends My_Controller
 
     /**
      * Toggle save / unsave. Works as both:
-     *   - AJAX (X-Requested-With: XMLHttpRequest)  â†’ returns JSON
-     *   - Plain POST                                â†’ redirects back
+     *   - AJAX (X-Requested-With: XMLHttpRequest)  → returns JSON
+     *   - Plain POST                                → redirects back
      *
      * If user is NOT logged in: stash the intent in session and redirect to /login.
      * After successful login, Auth controller processes the pending intent.

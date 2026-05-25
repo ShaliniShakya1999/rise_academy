@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ AI Tools
+ * Admin → AI Tools
  *
  * @var array $reports
  * @var array $buckets   ['0-25'=>n,'26-50'=>n,'51-75'=>n,'76-100'=>n]
@@ -49,7 +49,7 @@ $total_in_buckets = array_sum(array_values($buckets)) ?: 1;
                 <div>
                     <div class="flex items-center justify-between text-xs font-semibold">
                         <span class="text-slate-600 dark:text-slate-300"><?= htmlspecialchars($k, ENT_QUOTES, 'UTF-8'); ?></span>
-                        <span class="text-slate-500 dark:text-slate-400"><?= (int) $v; ?> Â· <?= $pct; ?>%</span>
+                        <span class="text-slate-500 dark:text-slate-400"><?= (int) $v; ?> · <?= $pct; ?>%</span>
                     </div>
                     <div class="mt-1 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
                         <div class="h-full rounded-full bg-gradient-to-r <?= $colors[$k]; ?>" style="width:<?= $pct; ?>%"></div>

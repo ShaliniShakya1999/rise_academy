@@ -12,7 +12,7 @@
                 <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">Soon</span>
             </li>
             <li class="flex items-center justify-between py-4">
-                <a href="<?= base_url('privacy'); ?>" class="text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400">Privacy policy â†’</a>
+                <a href="<?= base_url('privacy'); ?>" class="text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400">Privacy policy  → </a>
             </li>
         </ul>
     </div>

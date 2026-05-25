@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Settings
+ * Admin → Settings
  *
  * @var array $info
  * @var array $tables

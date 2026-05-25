@@ -38,7 +38,7 @@
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700">Description *</label>
-                    <textarea name="description" rows="4" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="Tech stack, your role, challenges solved, results (numbers)â€¦"><?= set_value('description'); ?></textarea>
+                    <textarea name="description" rows="4" required class="mt-1.5 w-full rounded-xl border-slate-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 px-4 py-2.5" placeholder="Tech stack, your role, challenges solved, results (numbers)..."><?= set_value('description'); ?></textarea>
                 </div>
 
                 <div>

@@ -46,7 +46,7 @@ $flash_ok = $this->session->flashdata('wish_ok');
                 </p>
                 <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
                     <a href="<?= base_url('jobs'); ?>" class="inline-flex items-center gap-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-semibold px-5 py-2.5 transition">
-                        Browse jobs â†’
+                        Browse jobs  → 
                     </a>
                     <a href="<?= base_url('internship'); ?>" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 hover:border-violet-400 hover:text-violet-700 text-slate-700 font-semibold px-5 py-2.5 transition">
                         Browse internships
@@ -64,7 +64,7 @@ $flash_ok = $this->session->flashdata('wish_ok');
                             Saved Jobs
                             <span class="text-sm font-medium text-slate-500 ml-1">(<?= count($jobs); ?>)</span>
                         </h2>
-                        <a href="<?= base_url('jobs'); ?>" class="text-sm font-semibold text-violet-700 hover:text-violet-900">Browse more â†’</a>
+                        <a href="<?= base_url('jobs'); ?>" class="text-sm font-semibold text-violet-700 hover:text-violet-900">Browse more  → </a>
                     </div>
                     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         <?php foreach ($jobs as $idx => $j): ?>
@@ -99,7 +99,7 @@ $flash_ok = $this->session->flashdata('wish_ok');
                                 </div>
                                 <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
                                     <span class="text-slate-400">Saved <?= htmlspecialchars($j['savedDate'] ?? ''); ?></span>
-                                    <a href="<?= base_url('jobs'); ?>" class="font-semibold text-violet-700 hover:text-violet-900">Apply â†’</a>
+                                    <a href="<?= base_url('jobs'); ?>" class="font-semibold text-violet-700 hover:text-violet-900">Apply  → </a>
                                 </div>
                             </article>
                         <?php endforeach; ?>
@@ -116,7 +116,7 @@ $flash_ok = $this->session->flashdata('wish_ok');
                             Saved Internships
                             <span class="text-sm font-medium text-slate-500 ml-1">(<?= count($internships); ?>)</span>
                         </h2>
-                        <a href="<?= base_url('internship'); ?>" class="text-sm font-semibold text-indigo-700 hover:text-indigo-900">Browse more â†’</a>
+                        <a href="<?= base_url('internship'); ?>" class="text-sm font-semibold text-indigo-700 hover:text-indigo-900">Browse more  → </a>
                     </div>
                     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         <?php foreach ($internships as $idx => $i): ?>
@@ -151,7 +151,7 @@ $flash_ok = $this->session->flashdata('wish_ok');
                                 </div>
                                 <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs">
                                     <span class="text-slate-400">Saved <?= htmlspecialchars($i['savedDate'] ?? ''); ?></span>
-                                    <a href="<?= base_url('internship'); ?>" class="font-semibold text-indigo-700 hover:text-indigo-900">Apply â†’</a>
+                                    <a href="<?= base_url('internship'); ?>" class="font-semibold text-indigo-700 hover:text-indigo-900">Apply  → </a>
                                 </div>
                             </article>
                         <?php endforeach; ?>

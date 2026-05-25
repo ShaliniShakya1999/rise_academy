@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Security
+ * Admin → Security
  *
  * @var array $logins      login_activity_logs (joined)
  * @var array $admin_logs  admin_activity_logs (joined)

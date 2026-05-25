@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Subscriptions / Payments
+ * Admin → Subscriptions / Payments
  *
  * @var array $rows
  * @var array $totals  ['count','paid','pending','gross_inr']
@@ -19,7 +19,7 @@
             ['Transactions', (int) $totals['count'],   'from-indigo-500 to-violet-500', ''],
             ['Successful',   (int) $totals['paid'],    'from-emerald-500 to-teal-500', ''],
             ['Pending',      (int) $totals['pending'], 'from-amber-500 to-orange-500', ''],
-            ['Gross revenue', 'â‚¹' . number_format((float) $totals['gross_inr'], 2), 'from-pink-500 to-rose-500', ''],
+            ['Gross revenue', '₹' . number_format((float) $totals['gross_inr'], 2), 'from-pink-500 to-rose-500', ''],
         ];
         foreach ($cards as $c): list($l, $v, $g, $_) = $c; ?>
             <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">

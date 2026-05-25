@@ -53,7 +53,7 @@ class Wishlist_model extends CI_Model
     }
 
     /**
-     * Toggle: if saved â†’ remove; else â†’ add. Returns new saved state (bool).
+     * Toggle: if saved → remove; else → add. Returns new saved state (bool).
      */
     public function toggle($user_id, $type, $item_id, $snapshot = [])
     {

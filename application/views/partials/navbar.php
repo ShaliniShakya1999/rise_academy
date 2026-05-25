@@ -19,8 +19,8 @@ $nav_active = function ($segment) use ($s1, $is_home) {
 
                 <!-- Logo -->
                 <a href="<?= base_url(); ?>" class="flex shrink-0 items-center gap-2 group">
-                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-11 w-auto object-contain">
-                    <span class="font-bold text-xl text-white">Internmo</span>
+                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="" class="h-11 w-auto object-contain">
+                    <!-- <span class="font-bold text-xl text-white">Internmo</span> -->
                 </a>
 
                 <!-- Desktop main menu -->

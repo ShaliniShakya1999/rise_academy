@@ -1,6 +1,6 @@
 ﻿/* =========================================================
    Internmo  -  Resume Editor
-   Vanilla JS Â· live preview, autosave, drag-drop, zoom
+   Vanilla JS · live preview, autosave, drag-drop, zoom
    ========================================================= */
 (function () {
     'use strict';
@@ -367,7 +367,7 @@
         if (state === 'saving') {
             badge.classList.add('is-saving');
             icon.className = 'fa-solid fa-arrows-rotate';
-            text.textContent = 'Savingâ€¦';
+            text.textContent = 'Saving...';
         } else if (state === 'error') {
             badge.classList.add('is-error');
             icon.className = 'fa-solid fa-triangle-exclamation';

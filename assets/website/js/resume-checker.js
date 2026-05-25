@@ -106,11 +106,11 @@
     var overlay = $('#ra-rc-loading');
     var stepEl = $('#ra-rc-loading-step');
     var steps = [
-      'Reading resumeâ€¦',
-      'Extracting skillsâ€¦',
-      'Matching keywordsâ€¦',
-      'Calculating ATS scoreâ€¦',
-      'Generating suggestionsâ€¦',
+      'Reading resume...',
+      'Extracting skills...',
+      'Matching keywords...',
+      'Calculating ATS score...',
+      'Generating suggestions...',
     ];
     var i = 0;
     if (overlay) overlay.classList.add('ra-rc--visible');

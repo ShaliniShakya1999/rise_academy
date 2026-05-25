@@ -1,6 +1,6 @@
 ﻿<?php
 /**
- * Admin â†’ Reports
+ * Admin → Reports
  *
  * @var array $downloads
  * @var array $top_users
