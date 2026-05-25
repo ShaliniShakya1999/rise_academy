@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Internmo â€” AI ATS Resume Checker
  * Pure CSS3 (no Tailwind). Scoped under .ra-rc-page
  */
@@ -96,23 +96,28 @@
 }
 
 @keyframes ra-rc-float {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(30px, -20px) scale(1.05);
   }
+
   66% {
     transform: translate(-20px, 15px) scale(0.95);
   }
 }
 
 @keyframes ra-rc-pulse-glow {
+
   0%,
   100% {
     box-shadow: 0 0 20px var(--ra-rc-glow), 0 0 40px rgba(124, 58, 237, 0.2);
   }
+
   50% {
     box-shadow: 0 0 32px var(--ra-rc-glow), 0 0 64px rgba(124, 58, 237, 0.35);
   }
@@ -123,12 +128,15 @@
     transform: translateY(-100%);
     opacity: 0;
   }
+
   15% {
     opacity: 0.6;
   }
+
   85% {
     opacity: 0.6;
   }
+
   100% {
     transform: translateY(100%);
     opacity: 0;
@@ -136,10 +144,12 @@
 }
 
 @keyframes ra-rc-icon-bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }
@@ -606,6 +616,7 @@
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1248,22 +1259,27 @@
 .ra-rc-loading__dots span:nth-child(2) {
   animation-delay: 0.15s;
 }
+
 .ra-rc-loading__dots span:nth-child(3) {
   animation-delay: 0.3s;
 }
+
 .ra-rc-loading__dots span:nth-child(4) {
   animation-delay: 0.45s;
 }
+
 .ra-rc-loading__dots span:nth-child(5) {
   animation-delay: 0.6s;
 }
 
 @keyframes ra-rc-dot {
+
   0%,
   100% {
     opacity: 0.3;
     transform: scale(0.85);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.1);
@@ -1361,6 +1377,7 @@
 .ra-rc-mt {
   margin-top: 2.5rem;
 }
+
 .ra-rc-mt-sm {
   margin-top: 1.25rem;
 }
@@ -1379,7 +1396,3 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
-
-
-
