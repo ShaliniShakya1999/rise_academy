@@ -10,7 +10,7 @@
     <div id="ra-stats" class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
             <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Welcome back,</p>
-            <h1 class="font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl"><?= htmlspecialchars(isset($full_name) ? $full_name : 'there', ENT_QUOTES, 'UTF-8'); ?> <span class="inline-block origin-bottom-right animate-[ra-wave_1.2s_ease-in-out_infinite]">ðŸ‘‹</span></h1>
+            <h1 class="font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl"><?= htmlspecialchars(isset($full_name) ? $full_name : 'there', ENT_QUOTES, 'UTF-8'); ?> <span class="inline-block origin-bottom-right animate-[ra-wave_1.2s_ease-in-out_infinite]">👋</span></h1>
             <p class="mt-2 max-w-xl text-slate-600 dark:text-slate-400">Pick up where you left off, or start something new.</p>
         </div>
         <div class="flex flex-wrap gap-3">

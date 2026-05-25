@@ -85,7 +85,7 @@ $is_logged_in = $this->session->has_userdata('user_id');
 </span>
             <i class="fas fa-chevron-down text-xs"></i>
         </button>
-        <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+        <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:content-[''] before:absolute before:-top-2 before:left-0 before:right-0 before:h-2">
             <a href="<?= base_url('dashboard'); ?>" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-gray-50"><i class="fas fa-file-alt"></i> My Resume</a>
             <a href="<?= base_url('logout'); ?>" class="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-600"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>

@@ -127,8 +127,9 @@ if ($content_view !== '') {
 ?>
 </main>
 <?php endif; ?>
-
-<?php $this->load->view('partials/footer', ['compact_top' => ($user_shell || $admin_shell)]); ?>
+<?php if (!$user_shell && !$admin_shell): ?>
+    <?php $this->load->view('partials/footer'); ?>
+<?php endif; ?>
 
 <?php if (!empty($data['page_assets']) && is_array($data['page_assets']) && !empty($data['page_assets']['js'])): ?>
     <script src="<?= base_url($data['page_assets']['js']); ?>"></script>
