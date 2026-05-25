@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' â€” Internmo' : 'Sign in â€” Internmo'; ?></title>
-    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>">
+    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/logo.png'); ?>">
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
@@ -30,7 +30,7 @@
     <aside class="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 text-white p-12 flex-col justify-between">
         <div>
             <a href="<?= base_url(); ?>" class="inline-flex items-center gap-2 text-white">
-                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo" class="h-10 w-auto object-contain brightness-100">
+                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo" class="h-10 w-auto object-contain brightness-100">
                 <span class="font-bold text-lg text-white">Internmo</span>
             </a>
         </div>
@@ -56,7 +56,7 @@
     <section class="flex items-center justify-center p-6 sm:p-12">
         <div class="w-full max-w-md">
             <a href="<?= base_url(); ?>" class="lg:hidden inline-flex items-center gap-2 mb-8 text-brand-900">
-                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo Logo" class="h-8 w-auto object-contain">
+                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-8 w-auto object-contain">
                 <span class="font-bold text-lg">Internmo</span>
             </a>
 

@@ -7,7 +7,7 @@
         <!-- Brand -->
         <div class="lg:col-span-2 space-y-5 pr-10">
             <a href="<?= base_url(); ?>" class="flex items-center gap-2 mb-2 group">
-                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo Logo" class="h-10 w-auto object-contain group-hover:opacity-90 transition-all">
+                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-10 w-auto object-contain group-hover:opacity-90 transition-all">
             </a>
             <p class="text-slate-400 text-[12px] leading-relaxed max-w-xs">We help students build in-demand skills, work on real projects and get placed at top tech companies. Transform your career with us.</p>
             <div class="flex gap-3 pt-2">

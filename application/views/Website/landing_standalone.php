@@ -8,7 +8,7 @@ $bu = base_url();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internmo — Practical Learning Platform</title>
-    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>">
+    <link rel="icon" type="image/png" href="<?= base_url('assets/website/images/logo.png'); ?>">
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,7 +186,7 @@ $bu = base_url();
         <div class="max-w-[1400px] mx-auto px-4 h-16 flex items-center justify-between">
             <!-- Left Side -->
             <a href="<?= base_url(); ?>" class="flex items-center gap-2 group">
-                <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Internmo Logo" class="h-11 w-auto object-contain group-hover:shadow-glow transition-all">
+                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-11 w-auto object-contain group-hover:shadow-glow transition-all">
             </a>
 
             <!-- Center Menu -->

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' Ã¢â‚¬â€ Internmo' : 'Internmo Ã¢â‚¬â€ Resume Builder'; ?></title>
+    <title><?= isset($data['page_title']) ? htmlspecialchars($data['page_title']).' Ã¢â‚¬â€  Internmo' : 'Internmo Ã¢â‚¬â€  Resume Builder'; ?></title>
     <meta name="description" content="Create ATS-friendly, professional resumes in minutes. Modern templates, live preview, instant PDF download.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>">
+    <link rel="icon" type="image/png" href="<?= base_url('assets/website/images/logo.png'); ?>">
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
@@ -98,7 +98,7 @@ $page_title  = isset($data['page_title']) ? $data['page_title'] : '';
 
 <?php elseif ($admin_shell): ?>
     <div class="flex min-h-0 flex-1 flex-col">
-        <div class="sticky top-14 z-30 flex items-center gap-3 border-b border-slate-700/80 bg-slate-900/95 px-4 py-2.5 text-white backdrop-blur-md lg:hidden">
+        <div class="sticky top-14 z-30 flex items-center gap-3 border-b border-slate-700/80 bg-white/90 px-4 py-2.5 text-slate-900 backdrop-blur-md lg:hidden">
             <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-600 bg-slate-800 active:scale-95" @click="$dispatch('ra-open-admin-sidebar')" aria-label="Open admin menu">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
             </button>

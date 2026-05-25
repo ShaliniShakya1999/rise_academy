@@ -62,7 +62,7 @@ $divider = function () {
 
     <div class="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-white/10 px-3 lg:h-16">
         <a href="<?= base_url('dashboard'); ?>" class="flex min-w-0 items-center gap-2 ra-dash-nav__text">
-            <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Logo" class="h-8 w-auto object-contain">
+            <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-8 w-auto object-contain">
             <span class="font-bold text-lg text-white">Internmo</span>
         </a>
         <button type="button" @click="toggleCollapse()" class="hidden lg:grid h-9 w-9 place-items-center rounded-lg bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition" title="Collapse sidebar">

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div class="relative overflow-hidden bg-slate-900 text-white min-h-[calc(100vh-4rem)] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+<div class="relative overflow-hidden bg-white text-slate-900 min-h-[calc(100vh-4rem)] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
     <!-- Abstract Glowing Blurs -->
     <div class="absolute top-1/4 left-1/10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
     <div class="absolute bottom-1/4 right-1/10 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10"></div>

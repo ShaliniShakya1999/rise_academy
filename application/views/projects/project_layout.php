@@ -99,7 +99,7 @@
             <!-- Logo -->
             <div class="mb-10 px-4">
                 <a href="<?= base_url() ?>" class="flex items-center gap-3">
-                    <img src="<?= base_url('assets/website/images/previews/internmo.jpeg'); ?>" alt="Logo" class="h-10 w-auto object-contain shadow-sm flex-shrink-0">
+                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-10 w-auto object-contain shadow-sm flex-shrink-0">
                     <span class="sidebar-label text-white font-black text-sm tracking-tight">Internmo</span>
                 </a>
             </div>
