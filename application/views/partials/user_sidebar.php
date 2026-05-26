@@ -61,8 +61,8 @@ $divider = function () {
 
     <div class="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-white/10 px-3 lg:h-16">
         <a href="<?= base_url('dashboard'); ?>" class="flex min-w-0 items-center gap-2 ra-dash-nav__text">
-            <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-8 w-auto object-contain">
-            <span class="font-bold text-lg text-white">Internmo</span>
+            <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-8 w-auto object-contain" style="filter: invert(1) hue-rotate(180deg) saturate(2.5) brightness(1.2);" onerror="this.style.display='none'; this.nextElementSibling.removeAttribute('style');">
+            <span class="font-bold text-lg text-white" style="display: none;">Internmo</span>
         </a>
         <button type="button" @click="toggleCollapse()" class="hidden lg:grid h-9 w-9 place-items-center rounded-lg bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition" title="Collapse sidebar">
             <svg class="w-5 h-5 transition" :class="collapsed ? 'rotate-180' : ''" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>

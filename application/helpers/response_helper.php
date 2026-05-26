@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 function successResponse($message, $data = [])
 {

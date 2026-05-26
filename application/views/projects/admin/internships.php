@@ -1,4 +1,4 @@
-﻿<!-- Page Header -->
+<!-- Page Header -->
 <div class="flex items-center justify-between mb-12">
     <div>
         <h2 class="text-3xl font-black text-gray-900 tracking-tight">Manage Internships</h2>

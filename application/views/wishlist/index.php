@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** @var array $jobs */
 /** @var array $internships */
 /** @var int   $total */

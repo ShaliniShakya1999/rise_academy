@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Admin → Content (Jobs + Internships)
  *

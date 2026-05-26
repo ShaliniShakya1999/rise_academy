@@ -1,4 +1,4 @@
-﻿<!-- Page Header -->
+<!-- Page Header -->
 <div class="mb-12">
     <h2 class="text-3xl font-black text-gray-900 tracking-tight">Internship Applications</h2>
     <p class="text-sm text-gray-400 font-bold uppercase tracking-widest">Review student applications for posted internships</p>

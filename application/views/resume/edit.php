@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** @var object $resume */
 /** @var array  $sections */
 /** @var array  $templates */

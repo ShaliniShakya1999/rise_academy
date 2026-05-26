@@ -1,4 +1,4 @@
-﻿<!-- HERO -->
+<!-- HERO -->
 <section class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
     <div class="absolute -z-10 inset-x-0 top-0 h-[40rem] bg-[radial-gradient(40rem_20rem_at_50%_-10%,rgba(59,108,255,.15),transparent)]"></div>

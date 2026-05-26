@@ -1,4 +1,4 @@
-﻿<div class="max-w-4xl mx-auto">
+<div class="max-w-4xl mx-auto">
     <div class="bg-white rounded-[3rem] shadow-2xl shadow-blue-900/5 border border-gray-50 overflow-hidden">
         <div class="p-12 border-b border-gray-50 bg-gray-50/30">
             <h2 class="text-4xl font-black text-[#00204a] tracking-tighter mb-2">Submit New Project</h2>

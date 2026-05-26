@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Reusable admin page header  -  eyebrow, title, optional description + actions.
  *

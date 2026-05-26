@@ -62,8 +62,8 @@ $iOut = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="cur
 
     <div class="flex h-14 shrink-0 items-center justify-between border-b border-slate-700/80 px-3 lg:h-16">
         <a href="<?= base_url('admin'); ?>" class="flex min-w-0 items-center gap-2">
-            <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-8 w-auto object-contain">
-            <span class="font-bold text-lg text-white" x-show="!collapsed">Internmo Admin</span>
+            <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-8 w-auto object-contain" style="filter: invert(1) hue-rotate(180deg) saturate(2.5) brightness(1.2);" onerror="this.style.display='none'; this.nextElementSibling.style.setProperty('display', 'inline', 'important');">
+            <span class="font-bold text-lg text-white" style="display: none;" x-show="!collapsed">Internmo Admin</span>
         </a>
         <button type="button" class="hidden h-9 w-9 place-items-center rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 lg:grid"
                 @click="toggleCollapse()" title="Collapse sidebar">

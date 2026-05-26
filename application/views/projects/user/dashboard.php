@@ -1,4 +1,4 @@
-﻿<!-- Alert Note -->
+<!-- Alert Note -->
 <div class="mb-8 p-6 bg-amber-50 border border-amber-100 rounded-[2rem] flex items-start gap-5 shadow-sm">
     <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
         <i class="fa-solid fa-circle-info text-amber-600"></i>

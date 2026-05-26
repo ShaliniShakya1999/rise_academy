@@ -1,4 +1,4 @@
-﻿<div class="h-[calc(100vh-120px)] bg-white rounded-3xl border border-gray-100 shadow-sm flex overflow-hidden">
+<div class="h-[calc(100vh-120px)] bg-white rounded-3xl border border-gray-100 shadow-sm flex overflow-hidden">
     <!-- Chat Sidebar -->
     <div class="w-80 border-r border-gray-50 flex flex-col">
         <div class="p-6 border-b border-gray-50">

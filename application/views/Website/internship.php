@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $q          = isset($filters['q']) ? $filters['q'] : '';
 $cat_active = isset($filters['category']) ? $filters['category'] : '';
 $remote     = !empty($filters['is_remote']);

@@ -30,8 +30,8 @@
     <aside class="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 text-white p-12 flex-col justify-between">
         <div>
             <a href="<?= base_url(); ?>" class="inline-flex items-center gap-2 text-white">
-                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo" class="h-10 w-auto object-contain brightness-100">
-                <span class="font-bold text-lg text-white">Internmo</span>
+                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo" class="h-10 w-auto object-contain brightness-100" style="filter: invert(1) hue-rotate(180deg) saturate(2.5) brightness(1.2);" onerror="this.style.display='none'; this.nextElementSibling.removeAttribute('style');">
+                <span class="font-bold text-lg text-white" style="display: none;">Internmo</span>
             </a>
         </div>
 
@@ -45,7 +45,7 @@
             </ul>
         </div>
 
-        <p class="text-white/70 text-sm">Â© <?= date('Y'); ?> Internmo. Made for jobseekers.</p>
+        <p class="text-white/70 text-sm">&copy; <?= date('Y'); ?> Internmo. Made for jobseekers.</p>
 
         <!-- decorative blobs -->
         <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
@@ -56,8 +56,8 @@
     <section class="flex items-center justify-center p-6 sm:p-12">
         <div class="w-full max-w-md">
             <a href="<?= base_url(); ?>" class="lg:hidden inline-flex items-center gap-2 mb-8 text-brand-900">
-                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-8 w-auto object-contain">
-                <span class="font-bold text-lg">Internmo</span>
+                <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-8 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.removeAttribute('style');">
+                <span class="font-bold text-lg" style="display: none;">Internmo</span>
             </a>
 
             <?php

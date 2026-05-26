@@ -1,4 +1,4 @@
-﻿<div class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 min-h-[70vh]">
+<div class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 min-h-[70vh]">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-24 left-1/4 w-72 h-72 rounded-full bg-brand-300/30 blur-3xl ra-float-slow"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-brand-200/25 blur-3xl"></div>

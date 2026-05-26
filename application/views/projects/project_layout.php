@@ -99,8 +99,8 @@
             <!-- Logo -->
             <div class="mb-10 px-4">
                 <a href="<?= base_url() ?>" class="flex items-center gap-3">
-                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-10 w-auto object-contain shadow-sm flex-shrink-0">
-                    <span class="sidebar-label text-white font-black text-sm tracking-tight">Internmo</span>
+                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="h-10 w-auto object-contain shadow-sm flex-shrink-0" style="filter: invert(1) hue-rotate(180deg) saturate(2.5) brightness(1.2);" onerror="this.style.display='none'; this.nextElementSibling.removeAttribute('style');">
+                    <span class="sidebar-label text-white font-black text-sm tracking-tight" style="display: none;">Internmo</span>
                 </a>
             </div>
 

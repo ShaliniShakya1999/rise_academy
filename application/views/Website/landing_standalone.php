@@ -608,7 +608,7 @@ $bu = base_url();
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.15)] hover:border-amber-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-14 h-14 bg-amber-50 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all"><i class="fa-solid fa-users-gear"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Fellowship</h3>
-                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Get dedicated career guidance and mentoring from our mentors to enhance your resume using our builder.</p>
+                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Join an exclusive community of learners. Get direct mentorship, weekly group discussions, and workspace collaborations with industry veterans.</p>
                     <a href="#" class="text-primary font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
@@ -616,7 +616,7 @@ $bu = base_url();
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)] hover:border-emerald-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all"><i class="fa-solid fa-laptop-code"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Courses</h3>
-                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Get dedicated career guidance and mentoring from our mentors to enhance your resume using our builder.</p>
+                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Learn modern stack concepts (React, Flutter, Devops, Data Science) from comprehensive, step-by-step video courses and live cohort bootcamps.</p>
                     <a href="#courses" class="text-emerald-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
@@ -624,7 +624,7 @@ $bu = base_url();
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(249,115,22,0.15)] hover:border-orange-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-14 h-14 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">ATS</h3>
-                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Get dedicated career guidance and mentoring from our mentors to enhance your resume using our builder.</p>
+                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Analyze your resume keywords against our industry-standard ATS parsing engine. Optimize formatting and structure for modern recruiters.</p>
                     <a href="#" class="text-orange-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
@@ -632,7 +632,7 @@ $bu = base_url();
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(168,85,247,0.15)] hover:border-purple-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-14 h-14 bg-purple-50 text-purple-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all"><i class="fa-solid fa-file-signature"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Resume Builder</h3>
-                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Get dedicated career guidance and mentoring from our mentors to enhance your resume using our builder.</p>
+                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Build and customize premium, ATS-friendly resumes in minutes. Choose from professional layout templates and download instant PDFs.</p>
                     <a href="#" class="text-purple-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
@@ -640,7 +640,7 @@ $bu = base_url();
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.15)] hover:border-pink-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
                     <div class="w-14 h-14 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all"><i class="fa-solid fa-briefcase"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Job Portal</h3>
-                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Get dedicated career guidance and mentoring from our mentors to improve your job prospects on our portal.</p>
+                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Browse and apply to verified full-time developer, designer, and marketing jobs at top corporate and startup hiring partners.</p>
                     <a href="#" class="text-pink-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
@@ -650,7 +650,7 @@ $bu = base_url();
                         <i class="fa-solid fa-sack-dollar"></i>
                     </div>
                     <h3 class="text-xl font-bold text-dark mb-3">Know your CTC</h3>
-                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Optimize your resume with our AI-powered Resume Checker to meet industry standards.</p>
+                    <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Analyze market trends and benchmark your profile to calculate your estimated salary package based on your current technical skillset.</p>
                     <a href="#" class="text-sky-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
             </div>
@@ -2059,11 +2059,7 @@ $bu = base_url();
             <!-- Brand -->
             <div class="lg:col-span-2 space-y-5 pr-10">
                 <a href="<?= base_url(); ?>" class="flex items-center gap-2 mb-2 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-orange-400 rounded-full flex items-center justify-center text-white font-black text-2xl group-hover:shadow-glow transition-all">I</div>
-                    <div class="leading-tight">
-                        <div class="font-bold text-xl text-white tracking-tight leading-none">Internmo</div>
-                        <div class="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Learn • Build • Get Hired</div>
-                    </div>
+                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-10 w-auto object-contain group-hover:opacity-90 transition-all" style="filter: invert(1) hue-rotate(180deg) saturate(2.5) brightness(1.2);">
                 </a>
                 <p class="text-slate-400 text-[12px] leading-relaxed max-w-xs">We help students build in-demand skills, work on real projects and get placed at top tech companies. Transform your career with us.</p>
                 <div class="flex gap-3 pt-2">

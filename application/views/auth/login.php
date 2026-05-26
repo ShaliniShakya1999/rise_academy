@@ -1,4 +1,4 @@
-﻿<div class="space-y-2">
+<div class="space-y-2">
     <h1 class="font-display text-3xl font-extrabold text-slate-900">Welcome back</h1>
     <p class="text-slate-500">Sign in to continue building your resume.</p>
 </div>

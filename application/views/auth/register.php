@@ -1,4 +1,4 @@
-﻿<div class="space-y-2">
+<div class="space-y-2">
     <h1 class="font-display text-3xl font-extrabold text-slate-900">Create your account</h1>
     <p class="text-slate-500">Build unlimited resumes. Free forever.</p>
 </div>

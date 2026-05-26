@@ -1,4 +1,4 @@
-﻿<!-- Page Header -->
+<!-- Page Header -->
 <div class="mb-12 flex items-center justify-between">
     <div>
         <h2 class="text-3xl font-black text-gray-900 tracking-tight">Project Submissions</h2>
