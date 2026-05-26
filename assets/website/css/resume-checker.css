@@ -4,14 +4,14 @@
  */
 
 .ra-rc-page {
-  --ra-rc-navy: #050A34;
-  --ra-rc-navy-mid: #092676;
+  --ra-rc-navy: #111827;
+  --ra-rc-navy-mid: #1f2937;
   --ra-rc-navy-light: #f1f5f9;
-  --ra-rc-purple: #085CF0;
-  --ra-rc-violet: #085CF0;
-  --ra-rc-cyan: #085CF0;
-  --ra-rc-neon: #AFE9FD;
-  --ra-rc-glow: rgba(8, 92, 240, 0.15);
+  --ra-rc-purple: #F4B400;
+  --ra-rc-violet: #FB923C;
+  --ra-rc-cyan: #d97706;
+  --ra-rc-neon: #ffedd5;
+  --ra-rc-glow: rgba(244, 180, 0, 0.15);
   --ra-rc-card: #ffffff;
   --ra-rc-card-solid: #ffffff;
   --ra-rc-text: #334155;
@@ -247,8 +247,8 @@
 }
 
 .ra-rc-btn--primary {
-  color: #fff;
-  background: linear-gradient(135deg, #f5c965 0%, #f59e0b 100%);
+  color: #111827;
+  background: linear-gradient(135deg, #FFD700 0%, #F4B400 100%);
   animation: ra-rc-pulse-glow 3s ease-in-out infinite;
 }
 
@@ -269,13 +269,14 @@
 }
 
 .ra-rc-btn--outline {
-  color: #e2e8f0;
+  color: #111827;
   background: transparent;
-  border: 2px solid rgba(167, 139, 250, 0.6);
+  border: 2px solid #F4B400;
 }
 
 .ra-rc-btn--outline:hover {
-  background: rgba(124, 58, 237, 0.2);
+  background: rgba(244, 180, 0, 0.1);
+  border-color: #d97706;
 }
 
 .ra-rc-btn--sm {

@@ -182,7 +182,7 @@ $bu = base_url();
 <body class="antialiased">
 
     <!-- 1. TOP NAVBAR -->
-    <nav class="sticky top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
+    <nav x-data="{ mobileMenuOpen: false }" class="sticky top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div class="max-w-[1400px] mx-auto px-4 h-16 flex items-center justify-between">
             <!-- Left Side -->
             <a href="<?= base_url(); ?>" class="flex items-center gap-2 group">
@@ -327,8 +327,47 @@ $bu = base_url();
 
             <!-- Right Side Buttons -->
             <div class="flex items-center gap-3">
-                <a href="<?= base_url('login'); ?>" class="btn btn-outline py-2 px-5 text-xs">Login</a>
-                <a href="<?= base_url('register'); ?>" class="btn btn-primary py-2 px-5 text-xs group">Apply Now <i class="fa-solid fa-arrow-right text-[10px] opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all"></i></a>
+                <a href="<?= base_url('login'); ?>" class="btn btn-outline py-2 px-5 text-xs hidden sm:inline-flex">Login</a>
+                <a href="<?= base_url('register'); ?>" class="btn btn-primary py-2 px-5 text-xs group hidden sm:inline-flex">Apply Now <i class="fa-solid fa-arrow-right text-[10px] opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all"></i></a>
+                
+                <!-- Mobile hamburger toggle -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="lg:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-2 shadow-inner"
+             x-cloak>
+            <a href="<?= base_url(); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Home</a>
+            <div class="py-1 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider mt-2">Courses</div>
+            <a href="<?= base_url('courses/full-stack-development'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Full Stack Dev</a>
+            <a href="<?= base_url('courses/app-development'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">App Development</a>
+            <a href="<?= base_url('courses/cyber-security'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">Cyber Security</a>
+            <a href="<?= base_url('courses/devops'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-sky-50 hover:text-sky-600 transition-colors">DevOps</a>
+            <a href="<?= base_url('courses/artificial-intelligence'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-purple-50 hover:text-purple-600 transition-colors">Artificial Intelligence</a>
+            <a href="<?= base_url('courses/java-developer'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-red-50 hover:text-red-600 transition-colors">Java Developer</a>
+            <a href="<?= base_url('courses/ui-ux'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-pink-50 hover:text-pink-600 transition-colors">UI/UX Design</a>
+            <a href="<?= base_url('courses/data-science'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">Data Science</a>
+            <a href="<?= base_url('courses/data-analyst'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">Data Analyst</a>
+            <a href="<?= base_url('courses/digital-marketing'); ?>" class="block py-2 px-4 rounded-lg text-sm text-slate-600 hover:bg-orange-50 hover:text-orange-600 transition-colors">Digital Marketing</a>
+            <div class="border-t border-slate-100 pt-3 mt-2 space-y-2">
+                <a href="#internships" @click="mobileMenuOpen = false" class="block py-2 px-3 rounded-lg text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Internships</a>
+                <a href="#placements" @click="mobileMenuOpen = false" class="block py-2 px-3 rounded-lg text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Placements</a>
+                <a href="#ai-tools" @click="mobileMenuOpen = false" class="block py-2 px-3 rounded-lg text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">AI Tools</a>
+                <a href="<?= base_url('contact'); ?>" class="block py-2 px-3 rounded-lg text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Contact Us</a>
+            </div>
+            <div class="flex gap-2 pt-3 border-t border-slate-100">
+                <a href="<?= base_url('login'); ?>" class="flex-1 btn btn-outline py-2 text-xs text-center">Login</a>
+                <a href="<?= base_url('register'); ?>" class="flex-1 btn btn-primary py-2 text-xs text-center">Apply Now</a>
             </div>
         </div>
     </nav>
@@ -2015,7 +2054,7 @@ $bu = base_url();
     </section>
 
     <!-- 13. FOOTER -->
-    <footer class="bg-[#0a0f1a] relative pb-20">
+    <footer class="bg-[#0a0f1a] relative pb-32">
         <div class="max-w-[1400px] mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
             <!-- Brand -->
             <div class="lg:col-span-2 space-y-5 pr-10">

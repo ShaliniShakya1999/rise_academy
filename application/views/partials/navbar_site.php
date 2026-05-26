@@ -19,23 +19,23 @@ $is_logged_in = $this->session->has_userdata('user_id');
         font-size: 14px;
     }
     .site-btn-primary {
-        background: linear-gradient(135deg, #f59e0b, #f97316);
-        color: white;
-        box-shadow: 0 4px 15px rgba(245,158,11,0.3);
+        background: linear-gradient(135deg, #F4B400, #FB923C);
+        color: #111827;
+        box-shadow: 0 4px 15px rgba(244,180,0,0.25);
     }
     .site-btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(245,158,11,0.4);
+        box-shadow: 0 6px 20px rgba(244,180,0,0.35);
     }
     .site-btn-outline {
         background-color: transparent;
-        color: #0F172A;
+        color: #111827;
         border: 1px solid #CBD5E1;
     }
     .site-btn-outline:hover {
-        border-color: #f59e0b;
-        color: #f59e0b;
-        background-color: #F8FAFC;
+        border-color: #F4B400;
+        color: #F4B400;
+        background-color: #F9FAFB;
         transform: translateY(-2px);
     }
     /* Mobile nav overlay */
@@ -43,10 +43,28 @@ $is_logged_in = $this->session->has_userdata('user_id');
         display: none;
     }
     #site-mobile-menu.open {
-  .nav-link { @apply relative text-gray-800 font-medium transition-colors; }
-  .nav-link::after { content:""; @apply absolute left-0 bottom-0 h-[2px] w-0 bg-amber-500 transition-all duration-300; }
-  .nav-link:hover::after,
-  .nav-link.active::after { @apply w-full; }
+        display: block !important;
+    }
+    .nav-link {
+        position: relative;
+        color: #1F2937;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        height: 2px;
+        width: 0;
+        background-color: #F4B400;
+        transition: all 0.3s;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
 </style>
 
 <nav class="sticky top-0 z-50 bg-[#fffdf8] backdrop-blur-sm border-b border-amber-100 shadow-sm">
