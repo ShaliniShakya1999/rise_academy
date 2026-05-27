@@ -273,8 +273,8 @@ $is_logged_in = $this->session->has_userdata('user_id');
             </div>
         <?php else: ?>
             <!-- Guest buttons -->
-            <a href="<?= base_url('login'); ?>" class="site-btn site-btn-outline hidden sm:inline-flex">Login</a>
-            <a href="<?= base_url('register'); ?>" class="site-btn site-btn-primary group hidden sm:inline-flex">
+            <a href="<?= base_url('login'); ?>" class="site-btn site-btn-outline !hidden sm:!inline-flex">Login</a>
+            <a href="<?= base_url('register'); ?>" class="site-btn site-btn-primary group !hidden sm:!inline-flex">
                 Apply Now 
                 <i class="fa-solid fa-arrow-right text-[10px] opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
             </a>
@@ -295,7 +295,7 @@ $is_logged_in = $this->session->has_userdata('user_id');
        x-transition:leave="transition ease-in duration-150"
        x-transition:leave-start="opacity-100 translate-y-0"
        x-transition:leave-end="opacity-0 -translate-y-4"
-       class="lg:hidden bg-[#fffdf8] border-t border-amber-100 px-4 py-4 space-y-2 shadow-inner"
+       class="lg:hidden bg-[#fffdf8] border-t border-amber-100 px-4 py-4 space-y-2 shadow-inner max-h-[calc(100vh-4.5rem)] overflow-y-auto"
        x-cloak>
       
       <a href="<?= base_url(); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Home</a>

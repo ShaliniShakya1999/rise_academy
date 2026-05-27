@@ -1,14 +1,13 @@
 <div class="min-h-screen flex items-center justify-center bg-[#f8fafc] px-4">
     <div class="max-w-md w-full">
         <div class="text-center mb-8">
-            <div class="inline-block mb-6">
-                <a href="<?= base_url() ?>" class="flex items-center gap-3 justify-center">
-                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-md">I</div>
-                    <span class="text-[#00204a] font-black text-2xl tracking-tight">Internmo</span>
+            <div class="inline-block mb-4">
+                <a href="<?= base_url() ?>" class="flex items-center justify-center">
+                    <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Internmo Logo" class="h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.removeAttribute('style');">
+                    <span class="text-3xl font-black text-[#00204a] tracking-tight" style="display: none;">Intern<span class="text-[#d4af37]">mo</span></span>
                 </a>
             </div>
-            <h1 class="text-3xl font-black text-[#00204a] mb-2 tracking-tight">Intern<span class="text-[#d4af37]">mo</span></h1>
-            <p class="text-slate-500 font-medium">Project Portal Access</p>
+            <p class="text-slate-500 font-medium mt-1">Project Portal Access</p>
         </div>
 
         <div class="bg-white p-8 rounded-3xl shadow-2xl shadow-blue-900/10 border border-gray-50 relative overflow-hidden">

@@ -327,8 +327,8 @@ $bu = base_url();
 
             <!-- Right Side Buttons -->
             <div class="flex items-center gap-3">
-                <a href="<?= base_url('login'); ?>" class="btn btn-outline py-2 px-5 text-xs hidden sm:inline-flex">Login</a>
-                <a href="<?= base_url('register'); ?>" class="btn btn-primary py-2 px-5 text-xs group hidden sm:inline-flex">Apply Now <i class="fa-solid fa-arrow-right text-[10px] opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all"></i></a>
+                <a href="<?= base_url('login'); ?>" class="btn btn-outline py-2 px-5 text-xs !hidden sm:!inline-flex">Login</a>
+                <a href="<?= base_url('register'); ?>" class="btn btn-primary py-2 px-5 text-xs group !hidden sm:!inline-flex">Apply Now <i class="fa-solid fa-arrow-right text-[10px] opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all"></i></a>
                 
                 <!-- Mobile hamburger toggle -->
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors" aria-label="Toggle menu">
@@ -345,7 +345,7 @@ $bu = base_url();
              x-transition:leave="transition ease-in duration-150"
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-4"
-             class="lg:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-2 shadow-inner"
+             class="lg:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-2 shadow-inner max-h-[calc(100vh-4.5rem)] overflow-y-auto"
              x-cloak>
             <a href="<?= base_url(); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Home</a>
             <div class="py-1 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider mt-2">Courses</div>
@@ -386,7 +386,7 @@ $bu = base_url();
                     <span class="text-orange-500 animate-pulse">🔥</span> India's Most Practical Tech Program
                 </div>
                 
-                <h1 class="text-4xl lg:text-[54px] font-black text-dark leading-[1.1] tracking-tight" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="text-4xl lg:text-[54px] font-black text-slate-900 leading-[1.1] tracking-tight" data-aos="fade-up" data-aos-delay="200">
                     Become Job Ready with <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">Real Projects & AI Learning</span>
                 </h1>
@@ -400,28 +400,28 @@ $bu = base_url();
                     <div class="flex items-start gap-2 group cursor-pointer">
                         <div class="mt-1 text-primary text-sm group-hover:scale-125 transition-transform"><i class="fa-solid fa-rocket"></i></div>
                         <div>
-                            <div class="font-black text-dark text-sm group-hover:text-primary transition-colors">4500+</div>
+                            <div class="font-black text-slate-900 text-sm group-hover:text-primary transition-colors">4500+</div>
                             <div class="text-[10px] text-slate-500 font-medium uppercase">Placements</div>
                         </div>
                     </div>
                     <div class="flex items-start gap-2 group cursor-pointer">
                         <div class="mt-1 text-emerald-500 text-sm group-hover:scale-125 transition-transform"><i class="fa-solid fa-building"></i></div>
                         <div>
-                            <div class="font-black text-dark text-sm group-hover:text-emerald-500 transition-colors">800+</div>
+                            <div class="font-black text-slate-900 text-sm group-hover:text-emerald-500 transition-colors">800+</div>
                             <div class="text-[10px] text-slate-500 font-medium uppercase">Hiring Companies</div>
                         </div>
                     </div>
                     <div class="flex items-start gap-2 group cursor-pointer">
                         <div class="mt-1 text-green-500 text-sm group-hover:scale-125 transition-transform"><i class="fa-solid fa-chart-line"></i></div>
                         <div>
-                            <div class="font-black text-dark text-sm group-hover:text-green-500 transition-colors">₹1.5 Cr</div>
+                            <div class="font-black text-slate-900 text-sm group-hover:text-green-500 transition-colors">₹1.5 Cr</div>
                             <div class="text-[10px] text-slate-500 font-medium uppercase">Highest Package</div>
                         </div>
                     </div>
                     <div class="flex items-start gap-2 group cursor-pointer">
                         <div class="mt-1 text-purple-500 text-sm group-hover:scale-125 transition-transform"><i class="fa-solid fa-users"></i></div>
                         <div>
-                            <div class="font-black text-dark text-sm group-hover:text-purple-500 transition-colors">2L+</div>
+                            <div class="font-black text-slate-900 text-sm group-hover:text-purple-500 transition-colors">2L+</div>
                             <div class="text-[10px] text-slate-500 font-medium uppercase">Students Trained</div>
                         </div>
                     </div>
@@ -609,7 +609,7 @@ $bu = base_url();
                     <div class="w-14 h-14 bg-amber-50 text-primary rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all"><i class="fa-solid fa-users-gear"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Fellowship</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Join an exclusive community of learners. Get direct mentorship, weekly group discussions, and workspace collaborations with industry veterans.</p>
-                    <a href="#" class="text-primary font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                    <a href="<?= base_url('register'); ?>" class="text-primary font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
                 <!-- Card 2 -->
@@ -617,7 +617,7 @@ $bu = base_url();
                     <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all"><i class="fa-solid fa-laptop-code"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Courses</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Learn modern stack concepts (React, Flutter, Devops, Data Science) from comprehensive, step-by-step video courses and live cohort bootcamps.</p>
-                    <a href="#courses" class="text-emerald-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                    <a href="<?= base_url('#courses'); ?>" class="text-emerald-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
                 <!-- Card 3 -->
@@ -625,7 +625,7 @@ $bu = base_url();
                     <div class="w-14 h-14 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">ATS</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Analyze your resume keywords against our industry-standard ATS parsing engine. Optimize formatting and structure for modern recruiters.</p>
-                    <a href="#" class="text-orange-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                    <a href="<?= base_url('resume-checker'); ?>" class="text-orange-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
                 <!-- Card 4 -->
@@ -633,7 +633,7 @@ $bu = base_url();
                     <div class="w-14 h-14 bg-purple-50 text-purple-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all"><i class="fa-solid fa-file-signature"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Resume Builder</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Build and customize premium, ATS-friendly resumes in minutes. Choose from professional layout templates and download instant PDFs.</p>
-                    <a href="#" class="text-purple-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                    <a href="<?= base_url('resume-builder'); ?>" class="text-purple-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
                 <!-- Card 5 -->
@@ -641,17 +641,15 @@ $bu = base_url();
                     <div class="w-14 h-14 bg-pink-50 text-pink-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all"><i class="fa-solid fa-briefcase"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Job Portal</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Browse and apply to verified full-time developer, designer, and marketing jobs at top corporate and startup hiring partners.</p>
-                    <a href="#" class="text-pink-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                    <a href="<?= base_url('jobs'); ?>" class="text-pink-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
 
                 <!-- Card 6 -->
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:border-sky-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-sack-dollar"></i>
-                    </div>
+                    <div class="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-sack-dollar"></i></div>
                     <h3 class="text-xl font-bold text-dark mb-3">Know your CTC</h3>
                     <p class="text-slate-500 text-[14px] leading-relaxed mb-8">Analyze market trends and benchmark your profile to calculate your estimated salary package based on your current technical skillset.</p>
-                    <a href="#" class="text-sky-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
+                    <a href="<?= base_url('resume-checker'); ?>" class="text-sky-500 font-bold text-[14px] flex items-center gap-2 group-hover:gap-3 transition-all">Explore <i class="fa-solid fa-arrow-right text-[12px]"></i></a>
                 </div>
             </div>
         </div>
@@ -2118,9 +2116,11 @@ $bu = base_url();
     </div>
 
     <!-- Whatsapp Chat Button (Floating Pulse) -->
-    <a href="https://wa.me/9108645322947" target="_blank" class="fixed bottom-20 right-6 bg-[#10B981] text-white rounded-full flex items-center gap-2 pr-4 pl-1.5 py-1.5 shadow-[0_8px_30px_rgba(16,185,129,0.4)] hover:scale-105 hover:-translate-y-1 transition-all z-50 group">
+    <a href="https://wa.me/9108645322947" target="_blank" class="fixed bottom-32 sm:bottom-24 right-6 bg-[#10B981] text-white rounded-full flex items-center gap-2 pr-4 pl-1.5 py-1.5 shadow-[0_8px_30px_rgba(16,185,129,0.4)] hover:scale-105 hover:-translate-y-1 transition-all z-[110] group">
         <div class="w-9 h-9 flex items-center justify-center bg-white/20 rounded-full relative">
-            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.588 1.45 5.621 1.451 5.398 0 9.794-4.394 9.798-9.792.002-2.615-1.012-5.074-2.857-6.92C17.317 2.047 14.86 1.03 12.245 1.03c-5.398 0-9.793 4.393-9.797 9.791-.001 2.07.543 4.09 1.573 5.883L3.082 20.77l4.565-1.196zm11.387-5.464c-.31-.156-1.834-.905-2.11-.1-.277.104-.476.516-.584.641-.108.124-.216.186-.526.03-1.293-.647-2.14-1.161-2.986-2.613-.223-.383-.021-.592.134-.746.14-.139.31-.361.464-.541.154-.18.206-.305.31-.51.103-.206.052-.386-.026-.541-.077-.156-.688-1.66-.943-2.274-.249-.597-.502-.516-.688-.526-.178-.009-.382-.01-.587-.01-.205 0-.539.077-.82.386-.282.309-1.077 1.051-1.077 2.562 0 1.511 1.098 2.978 1.253 3.184.154.206 2.16 3.298 5.232 4.622.73.315 1.3.504 1.743.645.736.23 1.406.199 1.935.12.589-.088 1.834-.751 2.09-1.477.256-.725.256-1.346.18-1.477-.077-.13-.282-.206-.592-.361z"/>
+            </svg>
             <div class="absolute inset-0 rounded-full border border-white animate-ping opacity-50"></div>
         </div>
         <span class="font-bold text-[11px] leading-tight pr-1">Need help choosing<br><span class="font-medium opacity-90">a course?</span></span>

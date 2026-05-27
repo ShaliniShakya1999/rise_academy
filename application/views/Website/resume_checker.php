@@ -44,7 +44,7 @@ $bu = base_url();
                         </div>
                         <div class="ra-rc-file-preview" id="ra-rc-file-preview">
                             <div class="ra-rc-file-preview__thumb" aria-hidden="true">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                             </div>
                             <div class="ra-rc-file-preview__meta">
                                 <div class="ra-rc-file-preview__name" id="ra-rc-preview-filename">-</div>
@@ -90,8 +90,8 @@ $bu = base_url();
                                     <svg width="140" height="140" viewBox="0 0 120 120">
                                         <defs>
                                             <linearGradient id="ra-rc-ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" stop-color="#a78bfa"/>
-                                                <stop offset="100%" stop-color="#22d3ee"/>
+                                                <stop offset="0%" stop-color="#f59e0b"/>
+                                                <stop offset="100%" stop-color="#d97706"/>
                                             </linearGradient>
                                         </defs>
                                         <circle class="ra-rc-ring__bg" cx="60" cy="60" r="54"/>
@@ -113,7 +113,7 @@ $bu = base_url();
 
                         <div class="ra-rc-dash-card">
                             <div class="ra-rc-dash-card__label">Weakness analysis</div>
-                            <p class="ra-rc-dash-card__value" style="font-size:0.95rem;font-weight:500;line-height:1.45;color:#cbd5e1" id="ra-rc-weakness">Run an analysis to see personalized gaps.</p>
+                            <p class="ra-rc-dash-card__value" style="font-size:0.95rem;font-weight:500;line-height:1.45;color:#475569" id="ra-rc-weakness">Run an analysis to see personalized gaps.</p>
                         </div>
 
                         <div class="ra-rc-dash-card">
