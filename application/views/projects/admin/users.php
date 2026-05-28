@@ -1,4 +1,5 @@
 <!-- Page Header -->
+<div x-data="{ openResetModal: false, resetUserId: '', resetUserName: '' }">
 <div class="mb-12 flex items-center justify-between">
     <div>
         <h2 class="text-3xl font-black text-gray-900 tracking-tight">Internship Management</h2>
@@ -100,6 +101,12 @@
                 </td>
                 <td class="px-8 py-6 text-right">
                     <div class="flex items-center justify-end gap-2">
+                        <button @click="openResetModal = true; resetUserId = '<?= $u->id ?>'; resetUserName = '<?= addslashes(htmlspecialchars($u->full_name)) ?>'"
+                                class="inline-flex items-center gap-1 px-3 py-2 bg-amber-50 text-[#d4af37] rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-[#d4af37] hover:text-white transition-all border border-amber-200"
+                                title="Reset Student Password">
+                            <i class="fa-solid fa-key"></i>
+                            Reset Password
+                        </button>
                         <a href="<?= site_url('projects/admin/send_offer_letter_action/' . $u->id) ?>" 
                            class="inline-flex items-center gap-1 px-3 py-2 bg-rise-dark text-white rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-[#003a8c] transition-all border border-blue-900/10"
                            title="Send Selection/Offer Letter">
@@ -125,6 +132,67 @@
             <?php endif; ?>
         </tbody>
     </table>
+</div>
+
+    <!-- Reset Password Modal -->
+    <div x-show="openResetModal" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+         style="display: none;">
+        
+        <div @click.outside="openResetModal = false" 
+             class="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden flex flex-col border border-gray-100">
+            <!-- Header -->
+            <div class="bg-[#00204a] text-white p-6 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#d4af37] flex items-center justify-center text-white">
+                        <i class="fa-solid fa-key text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-black text-sm tracking-tight">Reset Password</h4>
+                        <p class="text-[9px] text-gray-300 font-bold uppercase tracking-wider mt-0.5">Changing password for <span class="text-[#d4af37] font-extrabold" x-text="resetUserName"></span></p>
+                    </div>
+                </div>
+                <button @click="openResetModal = false" class="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form action="<?= site_url('projects/admin/change_password') ?>" method="post" class="p-6 space-y-6">
+                <input type="hidden" name="user_id" :value="resetUserId">
+                
+                <div>
+                    <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2 ml-1">New Password</label>
+                    <div class="relative group">
+                        <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 group-focus-within:text-[#00204a] transition-colors">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <input type="text" name="new_password" required minlength="6"
+                               class="w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-[#00204a]/5 focus:border-[#00204a] outline-none transition-all font-semibold text-sm text-[#00204a]"
+                               placeholder="Enter new password">
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-2 font-bold ml-1">Must be at least 6 characters.</p>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-2">
+                    <button type="button" @click="openResetModal = false" 
+                            class="px-5 py-3 border border-slate-200 text-slate-500 rounded-xl text-xs font-black hover:bg-slate-50 active:scale-95 transition-all">
+                        Cancel
+                    </button>
+                    <button type="submit" 
+                            class="bg-[#00204a] hover:bg-[#d4af37] text-white py-3 px-6 rounded-xl text-xs font-black shadow-md transition-all active:scale-95">
+                        Save Password
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 

@@ -100,6 +100,115 @@ class Auth extends My_Controller
         $this->loadview('projects/auth/register', $data, 'auth_layout');
     }
 
+    public function forgot_password()
+    {
+        if ($this->session->userdata('logged_in')) {
+            $this->_redirect_by_role();
+            return;
+        }
+
+        $data = [
+            'page_title' => 'Project Portal - Forgot Password',
+            'error'      => null,
+            'success'    => null,
+            'reset_link' => null,
+            'old_email'  => '',
+        ];
+
+        if ($this->input->method() === 'post') {
+            $email = trim((string) $this->input->post('email', true));
+            $data['old_email'] = $email;
+
+            if ($email === '') {
+                $data['error'] = 'Email address is required.';
+            } else {
+                $user = $this->Internship_user_model->get_by_email($email);
+                if (!$user) {
+                    $data['error'] = 'No account found with this email address.';
+                } else {
+                    // Generate a token
+                    $token = bin2hex(random_bytes(16));
+                    $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+                    // Update user's token
+                    $this->Internship_user_model->update($user->id, [
+                        'reset_token'            => $token,
+                        'reset_token_expires_at' => $expiry,
+                    ]);
+
+                    $data['success'] = 'Reset request successful!';
+                    $data['reset_link'] = site_url('projects/reset_password?token=' . $token);
+                }
+            }
+        }
+
+        $this->loadview('projects/auth/forgot_password', $data, 'auth_layout');
+    }
+
+    public function reset_password()
+    {
+        if ($this->session->userdata('logged_in')) {
+            $this->_redirect_by_role();
+            return;
+        }
+
+        $token = $this->input->get('token', true);
+        if (!$token) {
+            $token = $this->input->post('token', true);
+        }
+
+        if (!$token) {
+            $this->session->set_flashdata('project_error', 'Invalid password reset token.');
+            redirect('projects/login');
+            return;
+        }
+
+        // Verify token
+        $user = $this->db->get_where('internship_users', [
+            'reset_token'            => $token,
+            'reset_token_expires_at >=' => date('Y-m-d H:i:s'),
+            'deleted_at'             => null
+        ])->row();
+
+        if (!$user) {
+            $this->session->set_flashdata('project_error', 'Your password reset token has expired or is invalid.');
+            redirect('projects/forgot_password');
+            return;
+        }
+
+        $data = [
+            'page_title' => 'Project Portal - Reset Password',
+            'error'      => null,
+            'token'      => $token
+        ];
+
+        if ($this->input->method() === 'post') {
+            $password = $this->input->post('password');
+            $confirm_password = $this->input->post('confirm_password');
+
+            if (empty($password)) {
+                $data['error'] = 'Password is required.';
+            } elseif (strlen($password) < 6) {
+                $data['error'] = 'Password must be at least 6 characters long.';
+            } elseif ($password !== $confirm_password) {
+                $data['error'] = 'Passwords do not match.';
+            } else {
+                // Update password hash and clear token
+                $this->Internship_user_model->update($user->id, [
+                    'password_hash'          => password_hash($password, PASSWORD_DEFAULT),
+                    'reset_token'            => null,
+                    'reset_token_expires_at' => null,
+                ]);
+
+                $this->session->set_flashdata('reg_success', 'Your password has been successfully updated! You can now log in.');
+                redirect('projects/login');
+                return;
+            }
+        }
+
+        $this->loadview('projects/auth/reset_password', $data, 'auth_layout');
+    }
+
     public function logout()
     {
         $this->session->sess_destroy();

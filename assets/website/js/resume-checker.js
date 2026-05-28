@@ -77,6 +77,26 @@
     hideProgress();
   }
 
+  function updateButtonStates(enabled) {
+    $$('[data-scroll-improve]').forEach(function (b) {
+      b.disabled = !enabled;
+    });
+    var recheck = $('#ra-rc-btn-recheck');
+    if (recheck) recheck.disabled = !enabled;
+    var download = $('#ra-rc-btn-download');
+    if (download) download.disabled = !enabled;
+    var recheckApp = $('#ra-rc-btn-recheck-app');
+    if (recheckApp) {
+      if (enabled) {
+        recheckApp.classList.remove('disabled');
+        recheckApp.removeAttribute('disabled');
+      } else {
+        recheckApp.classList.add('disabled');
+        recheckApp.setAttribute('disabled', 'true');
+      }
+    }
+  }
+
   function animateValue(el, end, duration, suffix) {
     suffix = suffix || '';
     if (!el) return;
@@ -184,6 +204,7 @@
     $$('.ra-rc-reveal').forEach(function (el) {
       el.classList.add('ra-rc-reveal--visible');
     });
+    updateButtonStates(true);
   }
 
   function simulateUpload(cb) {
@@ -257,6 +278,8 @@
     showFilePreview(file);
     var btnAnalyze = $('#ra-rc-btn-analyze');
     if (btnAnalyze) btnAnalyze.disabled = false;
+    var btnReupload = $('#ra-rc-btn-reupload');
+    if (btnReupload) btnReupload.disabled = false;
     simulateUpload(function () {});
   }
 
@@ -291,8 +314,8 @@
         state.analyzing = false;
         btn.disabled = false;
         applyDemoResults();
-        var aside = document.querySelector('.ra-rc-preview');
-        if (aside) aside.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        var results = document.getElementById('ra-rc-results');
+        if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   }
@@ -350,11 +373,13 @@
       if (res) res.classList.remove('ra-rc--visible');
       var analyze = $('#ra-rc-btn-analyze');
       if (analyze) analyze.disabled = true;
+      btn.disabled = true;
+      updateButtonStates(false);
       setRingPercent(0);
       if ($('#ra-rc-ats-num')) $('#ra-rc-ats-num').textContent = '0%';
       ['ra-rc-val-grammar', 'ra-rc-val-skills', 'ra-rc-val-exp', 'ra-rc-val-format'].forEach(function (id) {
         var el = document.getElementById(id);
-        if (el) el.textContent = '0';
+        if (el) el.textContent = '0%';
       });
       if ($('#ra-rc-stat-1')) $('#ra-rc-stat-1').textContent = '0';
       if ($('#ra-rc-stat-2')) $('#ra-rc-stat-2').textContent = '0%';
@@ -438,6 +463,7 @@
     bindRecheck();
     initScrollReveal();
     setRingPercent(0);
+    updateButtonStates(false);
   });
 })();
 

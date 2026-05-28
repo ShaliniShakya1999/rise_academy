@@ -73,8 +73,8 @@ $bu = base_url();
 
                     <div class="ra-rc-actions">
                         <button type="button" class="ra-rc-btn ra-rc-btn--primary" id="ra-rc-btn-analyze" disabled>Analyze Resume</button>
-                        <button type="button" class="ra-rc-btn ra-rc-btn--outline" data-scroll-improve>Improve Resume</button>
-                        <button type="button" class="ra-rc-btn ra-rc-btn--ghost" id="ra-rc-btn-recheck">Recheck Resume</button>
+                        <button type="button" class="ra-rc-btn ra-rc-btn--outline" data-scroll-improve disabled>Improve Resume</button>
+                        <button type="button" class="ra-rc-btn ra-rc-btn--ghost" id="ra-rc-btn-recheck" disabled>Recheck Resume</button>
                     </div>
                 </section>
 
@@ -127,22 +127,22 @@ $bu = base_url();
 
                         <div class="ra-rc-dash-card">
                             <div class="ra-rc-dash-card__label">Formatting check</div>
-                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-format">0</span><span>%</span></div>
+                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-format">0%</span></div>
                         </div>
 
                         <div class="ra-rc-dash-card">
                             <div class="ra-rc-dash-card__label">Grammar score</div>
-                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-grammar">0</span><span>%</span></div>
+                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-grammar">0%</span></div>
                         </div>
 
                         <div class="ra-rc-dash-card">
                             <div class="ra-rc-dash-card__label">Skills match</div>
-                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-skills">0</span><span>%</span></div>
+                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-skills">0%</span></div>
                         </div>
 
                         <div class="ra-rc-dash-card">
                             <div class="ra-rc-dash-card__label">Experience analysis</div>
-                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-exp">0</span><span>%</span></div>
+                            <div class="ra-rc-dash-card__value"><span id="ra-rc-val-exp">0%</span></div>
                         </div>
                     </div>
 
@@ -655,9 +655,9 @@ $bu = base_url();
                         <p><strong>Uploaded</strong><br><span id="ra-rc-aside-date">-</span></p>
                     </div>
                     <div class="ra-rc-preview__actions">
-                        <button type="button" class="ra-rc-btn ra-rc-btn--primary ra-rc-btn--sm" id="ra-rc-btn-download">Download ATS Report</button>
-                        <button type="button" class="ra-rc-btn ra-rc-btn--ghost ra-rc-btn--sm" id="ra-rc-btn-reupload">Re-upload</button>
-                        <a href="<?= htmlspecialchars($bu . 'dashboard', ENT_QUOTES, 'UTF-8'); ?>" class="ra-rc-btn ra-rc-btn--outline ra-rc-btn--sm" style="text-align:center">Recheck in app</a>
+                        <button type="button" class="ra-rc-btn ra-rc-btn--primary ra-rc-btn--sm" id="ra-rc-btn-download" disabled>Download ATS Report</button>
+                        <button type="button" class="ra-rc-btn ra-rc-btn--ghost ra-rc-btn--sm" id="ra-rc-btn-reupload" disabled>Re-upload</button>
+                        <a href="<?= htmlspecialchars($bu . 'dashboard', ENT_QUOTES, 'UTF-8'); ?>" class="ra-rc-btn ra-rc-btn--outline ra-rc-btn--sm disabled" id="ra-rc-btn-recheck-app" style="text-align:center" disabled>Recheck in app</a>
                     </div>
                 </div>
             </aside>

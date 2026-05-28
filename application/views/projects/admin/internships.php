@@ -37,6 +37,11 @@
                 <td class="px-8 py-6 text-sm font-bold text-gray-500"><?= htmlspecialchars($i->location ?? 'Remote') ?></td>
                 <td class="px-8 py-6 text-right">
                     <div class="flex items-center justify-end gap-2">
+                        <a href="<?= site_url('projects/admin/internship_videos/' . $i->id) ?>"
+                           class="w-10 h-10 inline-flex items-center justify-center rounded-xl bg-amber-50 text-[#d4af37] hover:bg-[#d4af37] hover:text-white transition-all shadow-sm"
+                           title="Manage Videos">
+                            <i class="fa-solid fa-video text-sm"></i>
+                        </a>
                         <button onclick='openEditModal(<?= json_encode($i) ?>)'
                                 class="w-10 h-10 inline-flex items-center justify-center rounded-xl bg-blue-50 text-blue-500 hover:bg-blue-500 hover:text-white transition-all shadow-sm">
                             <i class="fa-solid fa-pen-to-square text-sm"></i>

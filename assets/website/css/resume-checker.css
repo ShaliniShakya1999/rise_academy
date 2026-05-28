@@ -285,14 +285,16 @@
 }
 
 .ra-rc-btn:disabled,
+.ra-rc-btn.disabled,
 .ra-rc-btn--primary:disabled {
   background: #f1f5f9 !important;
   color: #94a3b8 !important;
   border: 1px solid #e2e8f0 !important;
   opacity: 0.8 !important;
-  cursor: not-allowed;
-  transform: none;
-  animation: none;
+  cursor: not-allowed !important;
+  transform: none !important;
+  animation: none !important;
+  pointer-events: none !important;
 }
 
 /* ---------- two column ---------- */
@@ -636,13 +638,13 @@
 
 @media (min-width: 640px) {
   .ra-rc-dashboard {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 900px) {
   .ra-rc-dashboard {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

@@ -88,6 +88,14 @@
 
         .bg-rise-dark { background-color: #00204a; }
         .text-rise-gold { color: #d4af37; }
+
+        /* Hide submenu when sidebar is collapsed */
+        #sidebar:not(.expanded) .submenu-container {
+            display: none !important;
+        }
+        #sidebar:not(.expanded) .chevron-icon {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -115,6 +123,10 @@
                         <i class="fa-solid fa-layer-group"></i>
                         <span class="sidebar-label">Manage Internships</span>
                     </a>
+                    <a href="<?= site_url('projects/admin/manage_videos') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'manage_videos' || $this->uri->segment(3) == 'internship_videos') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-video"></i>
+                        <span class="sidebar-label">Manage Course Videos</span>
+                    </a>
                     <a href="<?= site_url('projects/admin/users') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'users') ? 'active' : '' ?>">
                         <i class="fa-solid fa-user-graduate"></i>
                         <span class="sidebar-label">Internship Users</span>
@@ -133,6 +145,34 @@
                         <i class="fa-solid fa-table-cells-large"></i>
                         <span class="sidebar-label">Dashboard</span>
                     </a>
+
+                    <!-- Library Collapsible Section -->
+                    <div x-data="{ openLibrary: <?= (in_array($this->uri->segment(3), ['learning', 'webinars'])) ? 'true' : 'false' ?> }">
+                        <button @click="openLibrary = !openLibrary" 
+                                class="sidebar-link w-full text-left flex items-center justify-between <?= (in_array($this->uri->segment(3), ['learning', 'webinars'])) ? 'active' : '' ?>">
+                            <div class="flex items-center gap-[14px]">
+                                <i class="fa-regular fa-book"></i>
+                                <span class="sidebar-label">Library</span>
+                            </div>
+                            <!-- Chevron Icon (only visible when sidebar is expanded) -->
+                            <i class="fa-solid chevron-icon text-[10px] transition-transform duration-200" 
+                               :class="openLibrary ? 'fa-chevron-up' : 'fa-chevron-down'"
+                               style="font-size: 10px; margin-left: auto;"></i>
+                        </button>
+                        
+                        <!-- Submenu container -->
+                        <div x-show="openLibrary" x-collapse class="submenu-container pl-9 mt-1 space-y-1">
+                            <a href="<?= site_url('projects/user/learning') ?>" 
+                               class="block py-2 text-xs font-bold transition-colors <?= ($this->uri->segment(3) == 'learning') ? 'text-[#d4af37]' : 'text-gray-400 hover:text-white' ?>">
+                                Courses
+                            </a>
+                            <a href="<?= site_url('projects/user/webinars') ?>" 
+                               class="block py-2 text-xs font-bold transition-colors <?= ($this->uri->segment(3) == 'webinars') ? 'text-[#d4af37]' : 'text-gray-400 hover:text-white' ?>">
+                                Webinars
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="<?= site_url('projects/user/chat') ?>" class="sidebar-link <?= ($this->uri->segment(3) == 'chat') ? 'active' : '' ?>">
                         <i class="fa-solid fa-comment-dots"></i>
                         <span class="sidebar-label">Messages</span>

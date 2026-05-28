@@ -12,8 +12,12 @@ class Layout extends My_Controller
 {
     public function index()
     {
+        $this->load->model('internship_model');
         // Standalone landing page with its own header/footer
-        $this->load->view('Website/landing_standalone', ['page_title' => 'Internmo  -  Welcome']);
+        $this->load->view('Website/landing_standalone', [
+            'page_title' => 'Internmo  -  Welcome',
+            'internships' => $this->internship_model->active(4)
+        ]);
     }
 
     public function home()
