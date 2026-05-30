@@ -87,10 +87,13 @@ $page_title  = isset($data['page_title']) ? $data['page_title'] : '';
                 'wishlist_count'       => $sidebar_wishlist_count,
             ]); ?>
             <div class="flex min-h-0 min-w-0 flex-1 flex-col bg-slate-50 transition-colors dark:bg-slate-950">
-                <main class="min-h-0 flex-1 overflow-y-auto">
-                    <?php if ($content_view !== '') {
-                        $this->load->view($content_view, $content_data);
-                    } ?>
+                <main class="min-h-0 flex-1 overflow-y-auto flex flex-col justify-between">
+                    <div>
+                        <?php if ($content_view !== '') {
+                            $this->load->view($content_view, $content_data);
+                        } ?>
+                    </div>
+                    <?php $this->load->view('partials/footer'); ?>
                 </main>
             </div>
         </div>
@@ -109,10 +112,13 @@ $page_title  = isset($data['page_title']) ? $data['page_title'] : '';
                 'active' => isset($data['sidebar_active']) ? $data['sidebar_active'] : 'admin',
             ]); ?>
             <div class="flex min-h-0 min-w-0 flex-1 flex-col bg-slate-100 transition-colors dark:bg-slate-900">
-                <main class="min-h-0 flex-1 overflow-x-auto overflow-y-auto">
-                    <?php if ($content_view !== '') {
-                        $this->load->view($content_view, $content_data);
-                    } ?>
+                <main class="min-h-0 flex-1 overflow-x-auto overflow-y-auto flex flex-col justify-between">
+                    <div>
+                        <?php if ($content_view !== '') {
+                            $this->load->view($content_view, $content_data);
+                        } ?>
+                    </div>
+                    <?php $this->load->view('partials/footer'); ?>
                 </main>
             </div>
         </div>

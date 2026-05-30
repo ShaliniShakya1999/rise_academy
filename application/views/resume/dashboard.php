@@ -26,26 +26,28 @@
 
     <!-- Stats -->
     <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <div class="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800">
-            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-brand-500/20 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-brand-500/20"></div>
-            <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Total resumes</p>
-            <p class="mt-2 font-display text-3xl font-extrabold text-slate-900 dark:text-white"><?= count($resumes); ?></p>
+        <!-- Resumes Card -->
+        <div class="bg-white p-6 rounded-2xl border border-gray-200/90 shadow-sm">
+            <p class="text-xs font-bold text-gray-500 uppercase mb-2">Total Resumes</p>
+            <p class="text-3xl font-black text-gray-900"><?= count($resumes) ?></p>
         </div>
-        <div class="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800">
-            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-amber-200/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-amber-500/20"></div>
-            <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Templates</p>
-            <p class="mt-2 font-display text-3xl font-extrabold text-slate-900 dark:text-white"><?= count($templates); ?></p>
+
+        <!-- Templates Card -->
+        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+            <p class="text-xs font-bold text-blue-600 uppercase mb-2">Templates</p>
+            <p class="text-3xl font-black text-blue-700"><?= count($templates) ?></p>
         </div>
-        <div id="downloads" class="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 ring-1 ring-slate-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800">
-            <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-amber-200/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-amber-600/20"></div>
-            <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Downloads</p>
-            <p class="mt-2 font-display text-3xl font-extrabold text-slate-900 dark:text-white">0</p>
-            <p class="mt-1 text-[11px] text-slate-400 dark:text-slate-500">PDF exports appear here soon.</p>
+
+        <!-- Downloads Card -->
+        <div id="downloads" class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 shadow-sm">
+            <p class="text-xs font-bold text-emerald-600 uppercase mb-2">Downloads</p>
+            <p class="text-3xl font-black text-emerald-700">0</p>
         </div>
-        <div class="group relative overflow-hidden rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50 to-teal-50 p-5 shadow-lg shadow-emerald-200/50 ring-1 ring-emerald-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-emerald-900/50 dark:from-emerald-950/40 dark:to-teal-950/30 dark:ring-emerald-900/40">
-            <p class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Plan</p>
-            <p class="mt-2 font-display text-3xl font-extrabold text-emerald-700 dark:text-emerald-300">Free</p>
-            <p class="mt-1 text-[11px] font-medium text-emerald-800/80 dark:text-emerald-400/90">Upgrade paths coming later.</p>
+
+        <!-- Plan Card -->
+        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100 shadow-sm">
+            <p class="text-xs font-bold text-amber-600 uppercase mb-2">Plan</p>
+            <p class="text-3xl font-black text-amber-700">Free</p>
         </div>
     </div>
 

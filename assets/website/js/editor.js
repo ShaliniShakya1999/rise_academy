@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    Internmo  -  Resume Editor
    Vanilla JS · live preview, autosave, drag-drop, zoom
    ========================================================= */
@@ -17,7 +17,8 @@
         title:    BOOT.title || 'Untitled Resume',
         templateId: BOOT.templateId || 1,
         sections: BOOT.sections || {},
-        zoom: 0.62
+        zoom: 0.62,
+        color: (BOOT.sections && BOOT.sections.theme && BOOT.sections.theme.color) || '#00204a'
     };
 
     // ============================================================
@@ -222,6 +223,12 @@
         const summary = (s.summary && s.summary.text) || '';
         const templateId = parseInt(state.templateId, 10);
         
+        // Set theme colors on preview canvas container
+        if (state.color) {
+            preview.style.setProperty('--rp-theme-color', state.color);
+            preview.style.setProperty('--rp-theme-color-light', state.color + '15'); // 8% opacity tint
+        }
+        
         // Clear previous state
         preview.className = '';
         
@@ -293,6 +300,11 @@
         if (layoutClass === 'rp--modern') {
             // Modern Two-Column
             html += '<div class="rp-sidebar">';
+            if (h.logo_url) {
+                html += '<div class="rp-logo-container" style="margin-bottom: 18px; text-align: center; width: 100%;">';
+                html +=   '<img src="' + escapeHtml(h.logo_url) + '" style="max-height: 70px; max-width: 100%; object-fit: contain; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.15); padding: 4px; background: rgba(255,255,255,0.05);">';
+                html += '</div>';
+            }
             html +=   '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
             if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
             html +=   '<div class="rp-contact">' + getContactHtml() + '</div>';
@@ -307,11 +319,24 @@
             html += '</div>';
         } else {
             // Classic or Minimal (Single Column)
-            html += '<div class="rp-head">';
-            html +=   '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
-            if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
-            html +=   '<div class="rp-contact">' + getContactHtml() + '</div>';
-            html += '</div>';
+            if (h.logo_url) {
+                html += '<div class="rp-head" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">';
+                html +=   '<div style="flex: 1; text-align: left;">';
+                html +=     '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
+                if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
+                html +=     '<div class="rp-contact">' + getContactHtml() + '</div>';
+                html +=   '</div>';
+                html +=   '<div class="rp-logo-container" style="flex-shrink: 0;">';
+                html +=     '<img src="' + escapeHtml(h.logo_url) + '" style="max-height: 55px; max-width: 120px; object-fit: contain; border-radius: 6px;">';
+                html +=   '</div>';
+                html += '</div>';
+            } else {
+                html += '<div class="rp-head">';
+                html +=   '<h1 class="rp-name">' + escapeHtml(h.name || 'Your Name') + '</h1>';
+                if (h.role) html += '<div class="rp-role">' + escapeHtml(h.role) + '</div>';
+                html +=   '<div class="rp-contact">' + getContactHtml() + '</div>';
+                html += '</div>';
+            }
             html += getSummaryHtml();
             html += getListHtml('experience', 'Experience');
             html += getListHtml('education', 'Education');
@@ -497,8 +522,140 @@
     });
 
     // ============================================================
+    // Theme Customizer & Custom Logo Upload Handling
+    // ============================================================
+    function initCustomizers() {
+        // --- Color Customizer ---
+        const dots = $$('.re-theme-dot');
+        const picker = $('#customColorPicker');
+
+        function updateColor(colorHex) {
+            state.color = colorHex;
+            if (!state.sections.theme) state.sections.theme = {};
+            state.sections.theme.color = colorHex;
+            
+            // Set active class on color dots
+            dots.forEach(dot => {
+                const isActive = dot.dataset.color.toLowerCase() === colorHex.toLowerCase();
+                dot.classList.toggle('is-active', isActive);
+            });
+
+            // Set preview variables and re-render
+            renderPreview();
+            scheduleSave();
+        }
+
+        // Add dot click handlers
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                updateColor(dot.dataset.color);
+            });
+        });
+
+        // Add custom color picker input handler
+        picker?.addEventListener('input', e => {
+            updateColor(e.target.value);
+        });
+
+        // Initialize active dot on load
+        if (state.color) {
+            dots.forEach(dot => {
+                const isActive = dot.dataset.color.toLowerCase() === state.color.toLowerCase();
+                dot.classList.toggle('is-active', isActive);
+            });
+            if (picker) picker.value = state.color;
+        }
+
+        // --- Custom Logo Upload ---
+        const fileInput   = $('#logoFileInput');
+        const removeBtn   = $('#btnRemoveLogo');
+        const previewImg  = $('#logoPreviewImg');
+        const placeholder = $('#logoPreviewPlaceholder');
+
+        function updateLogoUI(url) {
+            if (url) {
+                previewImg.src = url;
+                previewImg.style.display = 'block';
+                placeholder.style.display = 'none';
+                removeBtn.style.display = 'block';
+            } else {
+                previewImg.src = '';
+                previewImg.style.display = 'none';
+                placeholder.style.display = 'block';
+                removeBtn.style.display = 'none';
+                fileInput.value = '';
+            }
+        }
+
+        // Init UI on load
+        const initialLogo = state.sections.header && state.sections.header.logo_url;
+        updateLogoUI(initialLogo);
+
+        // Upload handler
+        fileInput?.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            // Validate type and size (2MB)
+            if (!file.type.startsWith('image/')) {
+                alert('Please upload an image file (PNG/JPG/GIF).');
+                fileInput.value = '';
+                return;
+            }
+            if (file.size > 2 * 1024 * 1024) {
+                alert('File is too large. Max size allowed is 2MB.');
+                fileInput.value = '';
+                return;
+            }
+
+            setBadge('saving');
+
+            const formData = new FormData();
+            formData.append('logo', file);
+
+            fetch(window.RE_BASE_URL + 'index.php/resume/upload_logo', {
+                method: 'POST',
+                body: formData,
+                credentials: 'same-origin'
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data && data.ok) {
+                    if (!state.sections.header) state.sections.header = {};
+                    state.sections.header.logo_url = data.url;
+                    
+                    updateLogoUI(data.url);
+                    renderPreview();
+                    scheduleSave();
+                } else {
+                    setBadge('error');
+                    alert(data.error || 'Upload failed.');
+                    updateLogoUI(null);
+                }
+            })
+            .catch(() => {
+                setBadge('error');
+                alert('An error occurred during upload.');
+                updateLogoUI(null);
+            });
+        });
+
+        // Remove handler
+        removeBtn?.addEventListener('click', () => {
+            if (!confirm('Are you sure you want to remove this logo?')) return;
+            if (state.sections.header) {
+                state.sections.header.logo_url = '';
+            }
+            updateLogoUI(null);
+            renderPreview();
+            scheduleSave();
+        });
+    }
+
+    // ============================================================
     // Initial render
     // ============================================================
+    initCustomizers();
     renderPreview();
     autoFitZoom();
     setBadge('saved');

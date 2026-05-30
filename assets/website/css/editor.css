@@ -678,7 +678,7 @@ html { scroll-behavior: smooth; }
     background: #fff;
 }
 .rp--modern .rp-sidebar {
-    background: linear-gradient(180deg, var(--re-navy) 0%, var(--re-royal) 100%);
+    background: var(--rp-theme-color, linear-gradient(180deg, var(--re-navy) 0%, var(--re-royal) 100%)) !important;
     color: #fff;
     padding: 20mm 10mm;
     display: flex;
@@ -745,9 +745,10 @@ html { scroll-behavior: smooth; }
 }
 .rp--classic .rp-section h2 {
     text-align: center;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 0; border-right: 0;
+    background: var(--rp-theme-color-light, #f8fafc) !important;
+    border: 1px solid var(--rp-theme-color-light, #e2e8f0) !important;
+    border-left: 0 !important; border-right: 0 !important;
+    color: var(--rp-theme-color, #0f172a) !important;
     padding: 6px 0;
     margin: 20px 0 15px;
 }
@@ -764,7 +765,7 @@ html { scroll-behavior: smooth; }
 }
 .rp--minimal .rp-section h2 {
     font-size: 10pt;
-    color: #6366f1;
+    color: var(--rp-theme-color, #6366f1) !important;
     border: 0;
     margin-bottom: 8px;
     text-transform: uppercase;
@@ -780,7 +781,7 @@ html { scroll-behavior: smooth; }
 /* Common Components */
 .rp-summary { font-size: 10.5pt; color: #475569; line-height: 1.6; margin-bottom: 10px; }
 .rp-item__title { font-weight: 700; color: #0f172a; font-size: 11pt; }
-.rp-item__sub { color: #4f46e5; font-weight: 600; font-size: 10pt; margin-top: 1px; }
+.rp-item__sub { color: var(--rp-theme-color, #4f46e5) !important; font-weight: 600; font-size: 10pt; margin-top: 1px; }
 .rp-item__date { font-weight: 600; color: #64748b; font-size: 9.5pt; }
 .rp-item__desc { color: #334155; font-size: 10pt; margin-top: 5px; line-height: 1.5; }
 .rp-skills { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -797,13 +798,13 @@ html { scroll-behavior: smooth; }
     margin: 0;
     letter-spacing: -.5px;
 }
-.rp-role { font-size: 12pt; color: var(--re-indigo-600); font-weight: 600; margin: 4px 0 8px; }
+.rp-role { font-size: 12pt; color: var(--rp-theme-color, var(--re-indigo-600)) !important; font-weight: 600; margin: 4px 0 8px; }
 .rp-contact {
     display: flex; flex-wrap: wrap; gap: 6px 18px;
     font-size: 9.5pt; color: #475569;
 }
 .rp-contact span { display: inline-flex; align-items: center; gap: 5px; }
-.rp-contact i { color: var(--re-indigo); }
+.rp-contact i { color: var(--rp-theme-color, var(--re-indigo)) !important; }
 
 .rp-section { margin-top: 14px; }
 .rp-section h2 {
@@ -824,15 +825,15 @@ html { scroll-behavior: smooth; }
     gap: 10px;
 }
 .rp-item__title { font-size: 10.5pt; font-weight: 700; color: #0f172a; margin: 0; }
-.rp-item__sub { font-size: 10pt; color: var(--re-indigo-600); font-weight: 600; margin: 1px 0 0; }
+.rp-item__sub { font-size: 10pt; color: var(--rp-theme-color, var(--re-indigo-600)) !important; font-weight: 600; margin: 1px 0 0; }
 .rp-item__date { font-size: 9.5pt; color: #64748b; font-weight: 500; white-space: nowrap; }
 .rp-item__desc { font-size: 10pt; color: #334155; margin: 4px 0 0; line-height: 1.5; }
 
 .rp-skills { display: flex; flex-wrap: wrap; gap: 6px; }
 .rp-skill {
     font-size: 9.5pt; font-weight: 600;
-    background: var(--re-violet-100);
-    color: var(--re-indigo-600);
+    background: var(--rp-theme-color-light, var(--re-violet-100)) !important;
+    color: var(--rp-theme-color, var(--re-indigo-600)) !important;
     padding: 3px 10px;
     border-radius: 999px;
 }
@@ -947,7 +948,7 @@ html { scroll-behavior: smooth; }
         min-height: 297mm !important;
     }
     .rp--modern .rp-sidebar {
-        background: #1e293b !important;
+        background: var(--rp-theme-color, #1e293b) !important;
         color: #fff !important;
         -webkit-print-color-adjust: exact !important;
     }
@@ -1135,10 +1136,20 @@ html { scroll-behavior: smooth; }
 
     /* Ensure text colors are visible in print */
     .rp-name { color: #000 !important; }
-    .rp-role { color: #333 !important; }
+    .rp-role { color: var(--rp-theme-color, #333) !important; }
     .rp-item__title { color: #000 !important; }
-    .rp-section h2 { border-bottom-color: #000 !important; color: #000 !important; }
-    .rp-contact i { color: #000 !important; }
+    .rp-section h2 { border-bottom-color: var(--rp-theme-color, #cbd5e1) !important; color: var(--rp-theme-color, #000) !important; }
+    .rp-contact i { color: var(--rp-theme-color, #000) !important; }
+}
+
+/* Color customizer dot overrides */
+.re-theme-dot.is-active {
+    border-color: #fff !important;
+    box-shadow: 0 0 0 2px var(--re-bright);
+    transform: scale(1.15);
+}
+.re-theme-dot:hover {
+    transform: scale(1.1);
 }
 
 

@@ -115,6 +115,24 @@ $sections_nav = [
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="re-field">
+                                <label class="re-field__label">Profile Photo / Custom Logo</label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="re-logo-preview-box" style="width: 54px; height: 54px; border-radius: 10px; border: 1.5px dashed var(--re-slate-300); display: grid; place-items: center; background: var(--re-slate-50); overflow: hidden; flex-shrink: 0;">
+                                        <img id="logoPreviewImg" src="" style="width: 100%; height: 100%; object-fit: contain; display: none;">
+                                        <i id="logoPreviewPlaceholder" class="fa-regular fa-image" style="font-size: 18px; color: var(--re-slate-400);"></i>
+                                    </div>
+                                    <div class="flex-grow-1" style="min-width: 0;">
+                                        <div class="input-group">
+                                            <input type="file" id="logoFileInput" class="form-control form-control-sm" accept="image/*" style="border-radius: 8px 0 0 8px; font-size: 13px;">
+                                            <button type="button" id="btnRemoveLogo" class="btn btn-outline-danger btn-sm" style="border-radius: 0 8px 8px 0; display: none;" title="Remove logo"><i class="fa-solid fa-trash-can"></i></button>
+                                        </div>
+                                        <div style="font-size: 11px; color: var(--re-slate-400); margin-top: 4px;">Recommended: Square format, PNG/JPG, max 2MB.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -436,13 +454,35 @@ $sections_nav = [
     <!-- ============= RIGHT  -  LIVE A4 PREVIEW ============= -->
     <aside class="re-preview-pane" id="previewPane" aria-label="Live preview">
         <div class="re-toolbar">
-            <select id="templateSelect" class="re-toolbar__select" title="Switch template">
+            <select id="templateSelect" class="re-toolbar__select" title="Switch template" style="margin-right: 12px;">
                 <?php foreach ($templates as $t): ?>
                     <option value="<?= (int) $t->id; ?>" <?= ((int) $t->id === (int) $resume->template_id) ? 'selected' : ''; ?>>
                         <?= htmlspecialchars($t->name); ?>
                     </option>
                 <?php endforeach; ?>
             </select>
+
+            <!-- Color customizer options -->
+            <div class="re-theme-colors d-none d-sm-flex" style="display: flex; align-items: center; gap: 8px;">
+                <span class="re-theme-label" style="font-size: 11px; font-weight: 700; color: var(--re-slate-500); text-transform: uppercase; letter-spacing: 0.05em;">Theme Color:</span>
+                <div class="re-theme-dots" style="display: flex; gap: 6px; align-items: center;">
+                    <!-- Navy Blue -->
+                    <button type="button" class="re-theme-dot" data-color="#00204a" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid transparent; background-color: #00204a; padding: 0; cursor: pointer; transition: all 0.2s;" title="Navy Blue"></button>
+                    <!-- Gold -->
+                    <button type="button" class="re-theme-dot" data-color="#d4af37" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid transparent; background-color: #d4af37; padding: 0; cursor: pointer; transition: all 0.2s;" title="Gold"></button>
+                    <!-- Indigo -->
+                    <button type="button" class="re-theme-dot" data-color="#7c3aed" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid transparent; background-color: #7c3aed; padding: 0; cursor: pointer; transition: all 0.2s;" title="Purple"></button>
+                    <!-- Royal Blue -->
+                    <button type="button" class="re-theme-dot" data-color="#085cf0" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid transparent; background-color: #085cf0; padding: 0; cursor: pointer; transition: all 0.2s;" title="Royal Blue"></button>
+                    <!-- Emerald -->
+                    <button type="button" class="re-theme-dot" data-color="#10b981" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid transparent; background-color: #10b981; padding: 0; cursor: pointer; transition: all 0.2s;" title="Emerald"></button>
+                    
+                    <!-- Custom color picker icon/input -->
+                    <label class="re-theme-custom" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid #e2e8f0; background: linear-gradient(135deg, red, orange, yellow, green, blue, purple); cursor: pointer; position: relative; margin: 0; display: inline-block;" title="Custom Color">
+                        <input type="color" id="customColorPicker" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; top: 0; left: 0; padding: 0; border: 0;">
+                    </label>
+                </div>
+            </div>
 
             <div class="re-toolbar__spacer"></div>
 

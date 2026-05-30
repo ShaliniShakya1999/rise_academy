@@ -188,6 +188,42 @@ class Resume extends My_Controller
         return false;
     }
 
+    /**
+     * AJAX endpoint  -  uploads a custom logo image for the resume.
+     */
+    public function upload_logo()
+    {
+        $this->require_login();
+
+        if (!is_dir('uploads/resumes')) {
+            mkdir('uploads/resumes', 0777, true);
+        }
+
+        $config['upload_path']   = './uploads/resumes/';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size']      = 2048; // 2MB
+        $config['encrypt_name']  = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('logo')) {
+            return $this->output->set_content_type('application/json')
+                ->set_output(json_encode([
+                    'ok'    => false,
+                    'error' => $this->upload->display_errors('', '')
+                ]));
+        }
+
+        $data = $this->upload->data();
+        $file_url = base_url('uploads/resumes/' . $data['file_name']);
+
+        return $this->output->set_content_type('application/json')
+            ->set_output(json_encode([
+                'ok'  => true,
+                'url' => $file_url
+            ]));
+    }
+
     public function delete($id)
     {
         $this->require_login();

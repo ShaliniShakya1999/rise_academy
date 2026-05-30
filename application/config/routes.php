@@ -42,6 +42,8 @@ $route['resume/edit']          = 'resume/edit';
 $route['resume/edit/(:num)']   = 'resume/edit/$1';
 $route['resume/save/(:num)']   = 'resume/save/$1';
 $route['resume/delete/(:num)'] = 'resume/delete/$1';
+$route['resume/upload_logo']   = 'resume/upload_logo';
+
 
 // ----- User account (dashboard shell) -----
 $route['profile']          = 'user/profile';

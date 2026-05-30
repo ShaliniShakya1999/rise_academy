@@ -25,8 +25,8 @@ $page_title   = isset($data['page_title']) ? $data['page_title'] : 'Editor';
 <nav class="re-topnav">
     <div class="re-topnav__inner">
         <a class="re-topnav__brand" href="<?= base_url(); ?>">
-            <span class="re-topnav__logo"><i class="fa-solid fa-file-lines"></i></span>
-            <span class="re-topnav__title">Intern<span class="text-gradient">mo</span></span>
+            <img src="<?= base_url('assets/website/images/logo.png'); ?>" alt="Logo" class="re-topnav__logo-img" style="height: 32px; width: auto; object-fit: contain; margin-right: 6px;" onerror="this.style.display='none'; this.nextElementSibling.removeAttribute('style');">
+
         </a>
 
         <ul class="re-topnav__menu d-none d-lg-flex">

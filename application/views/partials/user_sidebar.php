@@ -13,12 +13,12 @@ $is_admin = (int) $this->session->userdata('role_id') === 1;
 $nav = function ($key, $label, $href, $icon_svg, $badge = null) use ($active) {
     $is = ($active === $key);
     $cls = $is
-        ? 'bg-white/20 backdrop-blur-sm text-white rounded-xl shadow-lg ring-2 ring-white/30'
-        : 'text-white/75 hover:text-white hover:bg-white/5 rounded-lg transition-colors';
+        ? 'bg-[#d4af37]/15 text-[#d4af37] ring-1 ring-[#d4af37]/30 shadow-lg shadow-[#d4af37]/10'
+        : 'text-white/70 hover:bg-white/5 hover:text-white';
 ?>
     <a href="<?= $href; ?>"
        class="ra-dash-nav group flex w-full min-w-0 items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition duration-200 <?= $cls; ?>">
-        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg <?= $is ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-white' : 'bg-white/10 text-white/90'; ?>">
+        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg <?= $is ? 'bg-gradient-to-br from-amber-400 to-[#d4af37] text-white shadow-md' : 'bg-white/10 text-white/90'; ?>">
             <?= $icon_svg; ?>
         </span>
         <span class="ra-dash-nav__text min-w-0 flex-1 truncate"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></span>
@@ -42,7 +42,7 @@ $divider = function () {
         localStorage.setItem('ra_sidebar_collapsed', this.collapsed ? '1' : '0');
     }
 }"
-       class="ra-user-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-white/10 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white shadow-2xl shadow-black/40 transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
+       class="ra-user-sidebar fixed inset-y-0 left-0 z-[60] flex flex-col border-r border-white/10 bg-[#00204a] text-white shadow-2xl shadow-black/40 transition-all duration-300 lg:static lg:z-0 lg:translate-x-0"
        :class="{
            '-translate-x-full': !open,
            'translate-x-0': open,
@@ -128,30 +128,7 @@ $divider = function () {
     </nav>
 
     <div class="shrink-0 border-t border-white/10 p-2 space-y-1">
-        <button type="button"
-                @click="
-                    document.documentElement.classList.toggle('dark');
-                    localStorage.setItem('ra_dark', document.documentElement.classList.contains('dark') ? '1' : '0');
-                "
-                class="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium text-white/75 transition hover:bg-white/10 hover:text-white ra-dash-nav__text"
-                x-show="!collapsed">
-            <span class="grid h-9 w-9 place-items-center rounded-lg bg-white/10">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </span>
-            <span>Dark mode</span>
-        </button>
-        <button type="button"
-                @click="
-                    document.documentElement.classList.toggle('dark');
-                    localStorage.setItem('ra_dark', document.documentElement.classList.contains('dark') ? '1' : '0');
-                "
-                class="w-full items-center justify-center rounded-xl py-2 text-white/75 transition hover:bg-white/10 hidden"
-                :class="collapsed ? 'flex' : 'hidden'"
-                title="Dark mode">
-            <span class="grid h-9 w-9 place-items-center rounded-lg bg-white/10">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </span>
-        </button>
+       
 
         <?php $nav('logout', 'Logout', base_url('logout'), $icoOut); ?>
     </div>

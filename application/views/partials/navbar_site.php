@@ -204,49 +204,59 @@ $is_logged_in = $this->session->has_userdata('user_id');
             </div>
         </div>
 
-        <a href="<?= base_url('jobs'); ?>" class="nav-link <?= ($s1 === 'jobs') ? 'active' : '' ?>">Jobs</a>
-        <a href="<?= base_url('internship'); ?>" class="nav-link <?= ($s1 === 'internship') ? 'active' : '' ?>">Internship</a>
-        
-        <!-- Resume Tools Dropdown -->
-        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-            <button @click="open = !open" class="text-sm font-medium text-slate-600 hover:text-[#f59e0b] transition-colors py-2 flex items-center gap-1">
-                Resume Tools <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-200" :class="open ? 'rotate-180 text-[#f59e0b]' : ''"></i>
-            </button>
-            <div x-show="open" 
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 translate-y-2 scale-95"
-                 x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                 x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-                 class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[260px] bg-white border border-slate-100 shadow-2xl rounded-2xl p-3 z-50 flex flex-col gap-1"
-                 x-cloak>
-                 <a href="<?= base_url('resume-builder'); ?>" class="flex items-start gap-3 p-2 rounded-xl hover:bg-amber-50/50 group">
-                     <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-invoice text-sm"></i></div>
-                     <div>
-                         <div class="font-bold text-xs text-slate-800 group-hover:text-[#f59e0b] transition-colors">Resume Builder</div>
-                         <div class="text-[9px] text-slate-500 font-medium">Create ATS-friendly resumes</div>
-                     </div>
-                 </a>
-                 <a href="<?= base_url('resume-checker'); ?>" class="flex items-start gap-3 p-2 rounded-xl hover:bg-emerald-50/50 group">
-                     <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-circle-check text-sm"></i></div>
-                     <div>
-                         <div class="font-bold text-xs text-slate-800 group-hover:text-emerald-600 transition-colors">Resume Checker</div>
-                         <div class="text-[9px] text-slate-500 font-medium">Get instant AI ATS review</div>
-                     </div>
-                 </a>
-                 <a href="<?= base_url('templates'); ?>" class="flex items-start gap-3 p-2 rounded-xl hover:bg-indigo-50/50 group">
-                     <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-cubes text-sm"></i></div>
-                     <div>
-                         <div class="font-bold text-xs text-slate-800 group-hover:text-indigo-600 transition-colors">Templates</div>
-                         <div class="text-[9px] text-slate-500 font-medium">Explore modern layout styles</div>
-                     </div>
-                 </a>
+        <?php if ($is_home): ?>
+            <!-- Menu 1 (Home Page) -->
+            <a href="<?= base_url('internship'); ?>" class="nav-link <?= ($s1 === 'internship') ? 'active' : '' ?>">Internships</a>
+            <a href="<?= base_url('#placements'); ?>" class="nav-link">Placements</a>
+            <a href="<?= base_url('#ai-tools'); ?>" class="nav-link <?= ($s1 === 'resume-checker') ? 'active' : '' ?>">AI Tools</a>
+            <a href="<?= base_url('#projects'); ?>" class="nav-link <?= ($s1 === 'project-submission' || $s1 === 'projects') ? 'active' : '' ?>">Projects</a>
+            <a href="<?= base_url('contact'); ?>" class="nav-link <?= ($s1 === 'contact') ? 'active' : '' ?>">Contact Us</a>
+        <?php else: ?>
+            <!-- Menu 2 (Jobs/Resume/Subpages) -->
+            <a href="<?= base_url('jobs'); ?>" class="nav-link <?= ($s1 === 'jobs') ? 'active' : '' ?>">Jobs</a>
+            <a href="<?= base_url('internship'); ?>" class="nav-link <?= ($s1 === 'internship') ? 'active' : '' ?>">Internship</a>
+            
+            <!-- Resume Tools Dropdown -->
+            <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                <button @click="open = !open" class="text-sm font-medium text-slate-600 hover:text-[#f59e0b] transition-colors py-2 flex items-center gap-1">
+                    Resume Tools <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-200" :class="open ? 'rotate-180 text-[#f59e0b]' : ''"></i>
+                </button>
+                <div x-show="open" 
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                     x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                     x-transition:leave="transition ease-in duration-150"
+                     x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                     x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                     class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[260px] bg-white border border-slate-100 shadow-2xl rounded-2xl p-3 z-50 flex flex-col gap-1"
+                     x-cloak>
+                     <a href="<?= base_url('resume-builder'); ?>" class="flex items-start gap-3 p-2 rounded-xl hover:bg-amber-50/50 group">
+                         <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-file-invoice text-sm"></i></div>
+                         <div>
+                             <div class="font-bold text-xs text-slate-800 group-hover:text-[#f59e0b] transition-colors">Resume Builder</div>
+                             <div class="text-[9px] text-slate-500 font-medium">Create ATS-friendly resumes</div>
+                         </div>
+                     </a>
+                     <a href="<?= base_url('resume-checker'); ?>" class="flex items-start gap-3 p-2 rounded-xl hover:bg-emerald-50/50 group">
+                         <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-circle-check text-sm"></i></div>
+                         <div>
+                             <div class="font-bold text-xs text-slate-800 group-hover:text-emerald-600 transition-colors">Resume Checker</div>
+                             <div class="text-[9px] text-slate-500 font-medium">Get instant AI ATS review</div>
+                         </div>
+                     </a>
+                     <a href="<?= base_url('templates'); ?>" class="flex items-start gap-3 p-2 rounded-xl hover:bg-indigo-50/50 group">
+                         <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-cubes text-sm"></i></div>
+                         <div>
+                             <div class="font-bold text-xs text-slate-800 group-hover:text-indigo-600 transition-colors">Templates</div>
+                             <div class="text-[9px] text-slate-500 font-medium">Explore modern layout styles</div>
+                         </div>
+                     </a>
+                </div>
             </div>
-        </div>
 
-        <a href="<?= base_url('project-submission'); ?>" class="nav-link <?= ($s1 === 'project-submission') ? 'active' : '' ?>">Project Submission</a>
-        <a href="<?= base_url('contact'); ?>" class="nav-link <?= ($s1 === 'contact') ? 'active' : '' ?>">Contact Us</a>
+            <a href="<?= base_url('project-submission'); ?>" class="nav-link <?= ($s1 === 'project-submission') ? 'active' : '' ?>">Project Submission</a>
+            <a href="<?= base_url('contact'); ?>" class="nav-link <?= ($s1 === 'contact') ? 'active' : '' ?>">Contact Us</a>
+        <?php endif; ?>
     </div>
 
     <!-- Right Side Actions -->
@@ -320,23 +330,33 @@ $is_logged_in = $this->session->has_userdata('user_id');
           </div>
       </div>
 
-      <!-- Resume Tools Collapsible -->
-      <div x-data="{ toolsOpen: false }">
-          <button @click="toolsOpen = !toolsOpen" class="w-full flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">
-              <span>Resume Tools</span>
-              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" :class="toolsOpen ? 'rotate-180' : ''"></i>
-          </button>
-          <div x-show="toolsOpen" class="pl-4 space-y-1 mt-1" x-cloak>
-              <a href="<?= base_url('resume-builder'); ?>" class="block py-1.5 px-3 rounded text-xs text-slate-600 hover:bg-slate-50">Resume Builder</a>
-              <a href="<?= base_url('resume-checker'); ?>" class="block py-1.5 px-3 rounded text-xs text-slate-600 hover:bg-slate-50">Resume Checker</a>
-              <a href="<?= base_url('templates'); ?>" class="block py-1.5 px-3 rounded text-xs text-slate-600 hover:bg-slate-50">Templates</a>
+      <?php if ($is_home): ?>
+          <!-- Menu 1 (Home Page) Mobile -->
+          <a href="<?= base_url('internship'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Internships</a>
+          <a href="<?= base_url('#placements'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Placements</a>
+          <a href="<?= base_url('#ai-tools'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">AI Tools</a>
+          <a href="<?= base_url('#projects'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Projects</a>
+          <a href="<?= base_url('contact'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Contact Us</a>
+      <?php else: ?>
+          <!-- Menu 2 (Jobs/Resume/Subpages) Mobile -->
+          <!-- Resume Tools Collapsible -->
+          <div x-data="{ toolsOpen: false }">
+              <button @click="toolsOpen = !toolsOpen" class="w-full flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">
+                  <span>Resume Tools</span>
+                  <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" :class="toolsOpen ? 'rotate-180' : ''"></i>
+              </button>
+              <div x-show="toolsOpen" class="pl-4 space-y-1 mt-1" x-cloak>
+                  <a href="<?= base_url('resume-builder'); ?>" class="block py-1.5 px-3 rounded text-xs text-slate-600 hover:bg-slate-50">Resume Builder</a>
+                  <a href="<?= base_url('resume-checker'); ?>" class="block py-1.5 px-3 rounded text-xs text-slate-600 hover:bg-slate-50">Resume Checker</a>
+                  <a href="<?= base_url('templates'); ?>" class="block py-1.5 px-3 rounded text-xs text-slate-600 hover:bg-slate-50">Templates</a>
+              </div>
           </div>
-      </div>
 
-      <a href="<?= base_url('jobs'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Jobs</a>
-      <a href="<?= base_url('internship'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Internship</a>
-      <a href="<?= base_url('project-submission'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Project Submission</a>
-      <a href="<?= base_url('contact'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Contact Us</a>
+          <a href="<?= base_url('jobs'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Jobs</a>
+          <a href="<?= base_url('internship'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Internship</a>
+          <a href="<?= base_url('project-submission'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Project Submission</a>
+          <a href="<?= base_url('contact'); ?>" class="block py-2 px-3 rounded-lg text-sm font-semibold text-slate-800 hover:bg-amber-50 hover:text-amber-600 transition-colors">Contact Us</a>
+      <?php endif; ?>
 
       <!-- Logged-in / Logged-out specific options for mobile -->
       <div class="border-t border-slate-100 pt-3 mt-2">
