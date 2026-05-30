@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if (!class_exists("My_Controller"))
     include_once APPPATH . 'core/My_Controller.php';
 
-class Resume extends My_Controller
+class Builder extends My_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('resume_model');
-        $this->load->model('template_model');
+        $this->load->model('resume/Resume_model');
+        $this->load->model('resume/Template_model');
     }
 
     public function dashboard()

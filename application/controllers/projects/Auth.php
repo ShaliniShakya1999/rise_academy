@@ -9,7 +9,7 @@ class Auth extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Internship_user_model');
+        $this->load->model('projects/Internship_user_model');
         $this->load->library('form_validation');
     }
 

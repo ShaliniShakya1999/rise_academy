@@ -87,7 +87,7 @@ class Admin extends My_Controller
     public function users()
     {
         $this->require_admin();
-        $this->load->model('user_model');
+        $this->load->model('core/User_model');
 
         $q       = trim((string) $this->input->get('q'));
         $page    = max(1, (int) $this->input->get('page'));
@@ -163,7 +163,7 @@ class Admin extends My_Controller
     public function templates()
     {
         $this->require_admin();
-        $this->load->model('template_model');
+        $this->load->model('resume/Template_model');
 
         $rows  = $this->template_model->all();
         $usage = $this->_template_usage_map();

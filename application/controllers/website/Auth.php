@@ -9,7 +9,7 @@ class Auth extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('user_model');
+        $this->load->model('core/User_model');
         $this->load->library('form_validation');
     }
 
@@ -162,7 +162,7 @@ class Auth extends My_Controller
         }
         $this->session->unset_userdata('pending_wishlist');
 
-        $this->load->model('wishlist_model');
+        $this->load->model('website/Wishlist_model');
 
         $type    = $pending['type'];
         $item_id = (int) $pending['item_id'];
@@ -170,7 +170,7 @@ class Auth extends My_Controller
 
         $snapshot = [];
         if ($type === 'job') {
-            $this->load->model('job_model');
+            $this->load->model('website/Job_model');
             $row = $this->job_model->find($item_id);
             if ($row) {
                 $snapshot = [
@@ -183,7 +183,7 @@ class Auth extends My_Controller
                 ];
             }
         } else if ($type === 'internship') {
-            $this->load->model('internship_model');
+            $this->load->model('learning/Internship_model');
             $row = $this->internship_model->find($item_id);
             if ($row) {
                 $snapshot = [

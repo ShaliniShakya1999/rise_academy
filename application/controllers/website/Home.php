@@ -8,13 +8,13 @@ if (!class_exists("My_Controller"))
  * Layout  -  public website pages (landing, about, templates, etc).
  * Auth is in Auth.php controller. Resume CRUD is in Resume.php.
  */
-class Layout extends My_Controller
+class Home extends My_Controller
 {
     public function index()
     {
-        $this->load->model('internship_model');
+        $this->load->model('learning/Internship_model');
         // Standalone landing page with its own header/footer
-        $this->load->view('Website/landing_standalone', [
+        $this->load->view('website/landing_standalone', [
             'page_title' => 'Internmo  -  Welcome',
             'internships' => $this->internship_model->active(4)
         ]);
@@ -22,18 +22,18 @@ class Layout extends My_Controller
 
     public function home()
     {
-        $this->loadview('Website/index', ['page_title' => 'Build resumes that get you hired']);
+        $this->loadview('website/index', ['page_title' => 'Build resumes that get you hired']);
     }
 
     public function about()
     {
-        $this->loadview('Website/about', ['page_title' => 'About']);
+        $this->loadview('website/about', ['page_title' => 'About']);
     }
 
     public function templates()
     {
-        $this->load->model('template_model');
-        $this->loadview('Website/templates', [
+        $this->load->model('resume/Template_model');
+        $this->loadview('website/templates', [
             'page_title' => 'Templates',
             'templates'  => $this->template_model->all_active(),
         ]);
@@ -41,12 +41,12 @@ class Layout extends My_Controller
 
     public function privacy()
     {
-        $this->loadview('Website/privacy', ['page_title' => 'Privacy']);
+        $this->loadview('website/privacy', ['page_title' => 'Privacy']);
     }
 
     public function jobs()
     {
-        $this->load->model('job_model');
+        $this->load->model('website/Job_model');
         $filters = [
             'q'               => trim((string) $this->input->get('q', true)),
             'category'        => trim((string) $this->input->get('category', true)),
@@ -54,11 +54,11 @@ class Layout extends My_Controller
         ];
         $saved_job_ids = [];
         if ($this->session->userdata('logged_in')) {
-            $this->load->model('wishlist_model');
+            $this->load->model('website/Wishlist_model');
             $saved_job_ids = $this->wishlist_model->ids_for_user((int) $this->session->userdata('user_id'), 'job');
         }
 
-        $this->loadview('Website/jobs', [
+        $this->loadview('website/jobs', [
             'page_title'     => 'Jobs',
             'jobs'           => $this->job_model->active(50, $filters),
             'categories'     => $this->job_model->categories(),
@@ -70,7 +70,7 @@ class Layout extends My_Controller
 
     public function internship()
     {
-        $this->load->model('internship_model');
+        $this->load->model('learning/Internship_model');
         $filters = [
             'q'         => trim((string) $this->input->get('q', true)),
             'category'  => trim((string) $this->input->get('category', true)),
@@ -78,11 +78,11 @@ class Layout extends My_Controller
         ];
         $saved_internship_ids = [];
         if ($this->session->userdata('logged_in')) {
-            $this->load->model('wishlist_model');
+            $this->load->model('website/Wishlist_model');
             $saved_internship_ids = $this->wishlist_model->ids_for_user((int) $this->session->userdata('user_id'), 'internship');
         }
 
-        $this->loadview('Website/internship', [
+        $this->loadview('website/internship', [
             'page_title'            => 'Internship',
             'internships'           => $this->internship_model->active(50, $filters),
             'categories'            => $this->internship_model->categories(),
@@ -94,8 +94,8 @@ class Layout extends My_Controller
 
     public function resume_checker()
     {
-        $this->load->model('job_model');
-        $this->loadview('Website/resume_checker', [
+        $this->load->model('website/Job_model');
+        $this->loadview('website/resume_checker', [
             'page_title'  => 'AI ATS Resume Checker',
             'top_jobs'    => $this->job_model->active(4),
             'page_assets' => [
@@ -112,7 +112,7 @@ class Layout extends My_Controller
 
     public function contact()
     {
-        $this->loadview('Website/contact', ['page_title' => 'Contact Us']);
+        $this->loadview('website/contact', ['page_title' => 'Contact Us']);
     }
 
     public function courses($slug = '')
@@ -362,7 +362,7 @@ class Layout extends My_Controller
 
         // If no slug is specified, render the generic courses list or redirect to home page
         if (empty($slug)) {
-            $this->loadview('Website/courses', [
+            $this->loadview('website/courses', [
                 'page_title' => 'Our Courses',
                 'courses' => $courses
             ]);
@@ -376,7 +376,7 @@ class Layout extends My_Controller
         }
 
         // Render the beautiful dynamic course details page
-        $this->loadview('Website/course_details', [
+        $this->loadview('website/course_details', [
             'page_title' => $courses[$slug]['title'],
             'course' => $courses[$slug],
             'all_courses' => $courses // helpful for a sidebar or fast selector

@@ -1,8 +1,8 @@
 <!-- Breadcrumb -->
 <div class="mb-8">
-    <a href="<?= site_url('projects/admin/internships') ?>" class="inline-flex items-center gap-2 text-sm text-[#00204a] hover:text-[#d4af37] font-bold transition-colors">
+    <a href="<?= site_url('learning/admin/manage_videos') ?>" class="inline-flex items-center gap-2 text-sm text-[#00204a] hover:text-[#d4af37] font-bold transition-colors">
         <i class="fa-solid fa-arrow-left-long"></i>
-        Back to Manage Internships
+        Back to Manage Videos
     </a>
 </div>
 
@@ -66,7 +66,7 @@
                         
                         <!-- Delete Action -->
                         <div class="flex-shrink-0">
-                            <a href="<?= site_url('projects/admin/delete_internship_video/' . $internship->id . '/' . $v->id) ?>" 
+                            <a href="<?= site_url('learning/admin/delete_internship_video/' . $internship->id . '/' . $v->id) ?>" 
                                onclick="return confirm('Are you sure you want to delete this video?')"
                                class="w-10 h-10 inline-flex items-center justify-center rounded-xl bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-all shadow-sm">
                                 <i class="fa-solid fa-trash-can text-sm"></i>
@@ -93,7 +93,7 @@
         <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 overflow-hidden p-8">
             <h3 class="font-black text-[#00204a] text-xl mb-6">Add New Video</h3>
             
-            <form action="<?= site_url('projects/admin/add_internship_video/' . $internship->id) ?>" method="post" enctype="multipart/form-data" class="space-y-6">
+            <form action="<?= site_url('learning/admin/add_internship_video/' . $internship->id) ?>" method="post" enctype="multipart/form-data" class="space-y-6">
                 <!-- Title -->
                 <div>
                     <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 ml-1">Video Title</label>

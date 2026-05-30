@@ -53,7 +53,7 @@
 
                 <!-- Footer Action -->
                 <div class="border-t border-gray-50 pt-4 mt-auto">
-                    <a href="<?= site_url('projects/admin/internship_videos/' . $i->id) ?>" 
+                    <a href="<?= site_url('learning/admin/internship_videos/' . $i->id) ?>" 
                        class="w-full flex items-center justify-center gap-2 bg-[#00204a] hover:bg-[#d4af37] text-white py-3 px-4 rounded-xl text-xs font-black transition-all shadow-lg active:scale-95">
                         <i class="fa-solid fa-video-camera text-sm"></i>
                         Manage Videos

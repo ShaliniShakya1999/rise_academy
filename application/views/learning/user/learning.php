@@ -87,7 +87,7 @@
                     <!-- Navigation Action Buttons -->
                     <div class="flex items-center gap-2">
                         <?php if ($prev_video): ?>
-                            <a href="<?= site_url('projects/user/learning/' . $prev_video->id) ?>" class="text-[11px] font-black text-[#00204a] border border-slate-200 hover:bg-slate-50 px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
+                            <a href="<?= site_url('learning/user/learning/' . $prev_video->id) ?>" class="text-[11px] font-black text-[#00204a] border border-slate-200 hover:bg-slate-50 px-4 py-2.5 rounded-xl transition-all flex items-center gap-1.5">
                                 <i class="fa-solid fa-chevron-left text-[9px]"></i> Previous
                             </a>
                         <?php else: ?>
@@ -97,7 +97,7 @@
                         <?php endif; ?>
 
                         <?php if ($next_video): ?>
-                            <a href="<?= site_url('projects/user/learning/' . $next_video->id) ?>" class="text-[11px] font-black bg-[#00204a] hover:bg-[#d4af37] text-white px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-1.5">
+                            <a href="<?= site_url('learning/user/learning/' . $next_video->id) ?>" class="text-[11px] font-black bg-[#00204a] hover:bg-[#d4af37] text-white px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-1.5">
                                 Complete and Continue <i class="fa-solid fa-chevron-right text-[9px]"></i>
                             </a>
                         <?php else: ?>
@@ -149,7 +149,7 @@
                             <div x-show="expanded" class="bg-slate-50/20 py-2">
                                 <?php foreach ($videos as $idx => $v): ?>
                                     <?php $is_active = ($v->id == $selected_video->id); ?>
-                                    <a href="<?= site_url('projects/user/learning/' . $v->id) ?>" 
+                                    <a href="<?= site_url('learning/user/learning/' . $v->id) ?>" 
                                        class="flex items-start gap-3 px-6 py-3 hover:bg-slate-50/80 transition-colors border-l-4 <?= $is_active ? 'border-[#d4af37] bg-amber-50/20' : 'border-transparent' ?>">
                                         <div class="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 <?= $is_active ? 'bg-[#d4af37] text-white' : 'bg-slate-100 text-gray-400' ?>">
                                             <?php if ($is_active): ?>
@@ -251,7 +251,7 @@
                             </div>
 
                             <!-- Comment Input Form -->
-                            <form action="<?= site_url('projects/user/add_comment') ?>" method="post" class="space-y-4">
+                            <form action="<?= site_url('learning/user/add_comment') ?>" method="post" class="space-y-4">
                                 <input type="hidden" name="video_id" value="<?= $selected_video->id ?>">
                                 <textarea name="comment" required placeholder="Add to the discussion or ask a question about this module..." 
                                           class="w-full border border-slate-200 rounded-2xl p-4 text-xs font-medium focus:ring-2 focus:ring-[#00204a]/10 focus:border-[#00204a] transition-all outline-none resize-none h-24"
