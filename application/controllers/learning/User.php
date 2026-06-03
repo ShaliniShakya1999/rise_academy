@@ -9,14 +9,14 @@ class User extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->require_login();
+        $this->require_login('projects');
         
         // If Admin tries to access user dashboard, redirect to admin panel
         if ($this->session->userdata('role_id') == 1) {
             redirect('projects/admin');
         }
 
-        $this->load->model('projects/Internship_user_model');
+        $this->load->model('projects/Internship_user_model', 'internship_user_model');
     }
 
     public function learning($selected_video_id = NULL)

@@ -69,7 +69,7 @@ $page_title  = isset($data['page_title']) ? $data['page_title'] : '';
     $CI = &get_instance();
     $sidebar_wishlist_count = 0;
     if ($CI->session->userdata('logged_in')) {
-        $CI->load->model('wishlist_model');
+        $CI->load->model('website/Wishlist_model', 'wishlist_model');
         $sidebar_wishlist_count = $CI->wishlist_model->count_for_user((int) $CI->session->userdata('user_id'));
     }
 ?>

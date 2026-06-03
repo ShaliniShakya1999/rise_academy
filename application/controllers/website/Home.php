@@ -12,7 +12,7 @@ class Home extends My_Controller
 {
     public function index()
     {
-        $this->load->model('learning/Internship_model');
+        $this->load->model('learning/Internship_model', 'internship_model');
         // Standalone landing page with its own header/footer
         $this->load->view('website/landing_standalone', [
             'page_title' => 'Internmo  -  Welcome',
@@ -32,7 +32,7 @@ class Home extends My_Controller
 
     public function templates()
     {
-        $this->load->model('resume/Template_model');
+        $this->load->model('resume/Template_model', 'template_model');
         $this->loadview('website/templates', [
             'page_title' => 'Templates',
             'templates'  => $this->template_model->all_active(),
@@ -46,7 +46,7 @@ class Home extends My_Controller
 
     public function jobs()
     {
-        $this->load->model('website/Job_model');
+        $this->load->model('website/Job_model', 'job_model');
         $filters = [
             'q'               => trim((string) $this->input->get('q', true)),
             'category'        => trim((string) $this->input->get('category', true)),
@@ -54,7 +54,7 @@ class Home extends My_Controller
         ];
         $saved_job_ids = [];
         if ($this->session->userdata('logged_in')) {
-            $this->load->model('website/Wishlist_model');
+            $this->load->model('website/Wishlist_model', 'wishlist_model');
             $saved_job_ids = $this->wishlist_model->ids_for_user((int) $this->session->userdata('user_id'), 'job');
         }
 
@@ -70,7 +70,7 @@ class Home extends My_Controller
 
     public function internship()
     {
-        $this->load->model('learning/Internship_model');
+        $this->load->model('learning/Internship_model', 'internship_model');
         $filters = [
             'q'         => trim((string) $this->input->get('q', true)),
             'category'  => trim((string) $this->input->get('category', true)),
@@ -78,7 +78,7 @@ class Home extends My_Controller
         ];
         $saved_internship_ids = [];
         if ($this->session->userdata('logged_in')) {
-            $this->load->model('website/Wishlist_model');
+            $this->load->model('website/Wishlist_model', 'wishlist_model');
             $saved_internship_ids = $this->wishlist_model->ids_for_user((int) $this->session->userdata('user_id'), 'internship');
         }
 
@@ -94,7 +94,7 @@ class Home extends My_Controller
 
     public function resume_checker()
     {
-        $this->load->model('website/Job_model');
+        $this->load->model('website/Job_model', 'job_model');
         $this->loadview('website/resume_checker', [
             'page_title'  => 'AI ATS Resume Checker',
             'top_jobs'    => $this->job_model->active(4),

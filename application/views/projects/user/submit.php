@@ -44,6 +44,16 @@
                         </select>
                     </div>
                 </div>
+
+                <div>
+                    <label class="block text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-4 ml-2">Project File (PDF, ZIP, RAR, DOC, DOCX)</label>
+                    <div class="relative group">
+                        <i class="fa-solid fa-cloud-arrow-up absolute left-6 top-6 text-gray-300 group-focus-within:text-[#d4af37] transition-colors"></i>
+                        <input type="file" name="project_file" required 
+                               class="w-full pl-14 pr-6 py-[14px] bg-white border border-gray-200 rounded-2xl outline-none focus:ring-8 focus:ring-[#d4af37]/5 focus:border-[#d4af37] transition-all font-black text-gray-500 text-xs shadow-sm
+                                      file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00204a]/10 file:text-[#00204a] hover:file:bg-[#00204a]/20 file:transition-all">
+                    </div>
+                </div>
             </div>
 
             <div>

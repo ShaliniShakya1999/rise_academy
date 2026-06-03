@@ -9,13 +9,13 @@ class Auth extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('core/User_model');
+        $this->load->model('core/User_model', 'user_model');
         $this->load->library('form_validation');
     }
 
     public function login()
     {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in') && $this->session->userdata('portal_type') === 'website') {
             redirect('dashboard');
             return;
         }
@@ -65,7 +65,7 @@ class Auth extends My_Controller
 
     public function register()
     {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in') && $this->session->userdata('portal_type') === 'website') {
             redirect('dashboard');
             return;
         }
@@ -142,11 +142,16 @@ class Auth extends My_Controller
     private function _set_login_session($user)
     {
         $this->session->set_userdata([
-            'user_id'   => (int) $user->id,
-            'role_id'   => (int) $user->role_id,
-            'full_name' => $user->full_name,
-            'email'     => $user->email,
-            'logged_in' => true,
+            'user_id'           => (int) $user->id,
+            'role_id'           => (int) $user->role_id,
+            'full_name'         => $user->full_name,
+            'email'             => $user->email,
+            'website_user_id'   => (int) $user->id,
+            'website_role_id'   => (int) $user->role_id,
+            'website_full_name' => $user->full_name,
+            'website_email'     => $user->email,
+            'portal_type'       => 'website',
+            'logged_in'         => true,
         ]);
     }
 
@@ -162,7 +167,7 @@ class Auth extends My_Controller
         }
         $this->session->unset_userdata('pending_wishlist');
 
-        $this->load->model('website/Wishlist_model');
+        $this->load->model('website/Wishlist_model', 'wishlist_model');
 
         $type    = $pending['type'];
         $item_id = (int) $pending['item_id'];
@@ -170,7 +175,7 @@ class Auth extends My_Controller
 
         $snapshot = [];
         if ($type === 'job') {
-            $this->load->model('website/Job_model');
+            $this->load->model('website/Job_model', 'job_model');
             $row = $this->job_model->find($item_id);
             if ($row) {
                 $snapshot = [
@@ -183,7 +188,7 @@ class Auth extends My_Controller
                 ];
             }
         } else if ($type === 'internship') {
-            $this->load->model('learning/Internship_model');
+            $this->load->model('learning/Internship_model', 'internship_model');
             $row = $this->internship_model->find($item_id);
             if ($row) {
                 $snapshot = [

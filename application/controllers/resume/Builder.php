@@ -9,8 +9,8 @@ class Builder extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('resume/Resume_model');
-        $this->load->model('resume/Template_model');
+        $this->load->model('resume/Resume_model', 'resume_model');
+        $this->load->model('resume/Template_model', 'template_model');
     }
 
     public function dashboard()

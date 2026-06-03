@@ -15,7 +15,7 @@ class Auth extends My_Controller
 
     public function login()
     {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in') && $this->session->userdata('portal_type') === 'projects') {
             $this->_redirect_by_role();
             return;
         }
@@ -52,7 +52,7 @@ class Auth extends My_Controller
 
     public function register()
     {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in') && $this->session->userdata('portal_type') === 'projects') {
             $this->_redirect_by_role();
             return;
         }
@@ -102,7 +102,7 @@ class Auth extends My_Controller
 
     public function forgot_password()
     {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in') && $this->session->userdata('portal_type') === 'projects') {
             $this->_redirect_by_role();
             return;
         }
@@ -147,7 +147,7 @@ class Auth extends My_Controller
 
     public function reset_password()
     {
-        if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('logged_in') && $this->session->userdata('portal_type') === 'projects') {
             $this->_redirect_by_role();
             return;
         }
@@ -218,12 +218,46 @@ class Auth extends My_Controller
     private function _set_login_session($user)
     {
         $this->session->set_userdata([
-            'user_id'   => (int) $user->id,
-            'role_id'   => (int) $user->role_id,
-            'full_name' => $user->full_name,
-            'email'     => $user->email,
-            'logged_in' => true,
+            'user_id'            => (int) $user->id,
+            'role_id'            => (int) $user->role_id,
+            'full_name'          => $user->full_name,
+            'email'              => $user->email,
+            'projects_user_id'   => (int) $user->id,
+            'projects_role_id'   => (int) $user->role_id,
+            'projects_full_name' => $user->full_name,
+            'projects_email'     => $user->email,
+            'portal_type'        => 'projects',
+            'logged_in'          => true,
         ]);
+
+        // Auto sync/register/load standard website user for this email to enable seamless Resume Builder access
+        $this->load->model('core/User_model', 'core_user_model');
+        $web_user = $this->core_user_model->get_by_email($user->email);
+        if ($web_user) {
+            $this->session->set_userdata([
+                'website_user_id'   => (int) $web_user->id,
+                'website_role_id'   => (int) $web_user->role_id,
+                'website_full_name' => $web_user->full_name,
+                'website_email'     => $web_user->email,
+            ]);
+        } else {
+            // Auto register website user
+            $web_user_id = $this->core_user_model->create([
+                'role_id'       => 2,
+                'email'         => $user->email,
+                'password_hash' => $user->password_hash,
+                'full_name'     => $user->full_name,
+                'mobile'        => $user->mobile,
+            ]);
+            if ($web_user_id) {
+                $this->session->set_userdata([
+                    'website_user_id'   => (int) $web_user_id,
+                    'website_role_id'   => 2,
+                    'website_full_name' => $user->full_name,
+                    'website_email'     => $user->email,
+                ]);
+            }
+        }
     }
 
     private function _redirect_by_role()

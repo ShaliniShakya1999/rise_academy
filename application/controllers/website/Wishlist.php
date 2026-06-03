@@ -9,7 +9,7 @@ class Wishlist extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('website/Wishlist_model');
+        $this->load->model('website/Wishlist_model', 'wishlist_model');
     }
 
     /**
@@ -130,7 +130,7 @@ class Wishlist extends My_Controller
     private function _build_snapshot($type, $item_id)
     {
         if ($type === 'job') {
-            $this->load->model('website/Job_model');
+            $this->load->model('website/Job_model', 'job_model');
             $row = $this->job_model->find($item_id);
             if (!$row) return ['type' => 'job', 'item_id' => $item_id];
             return [
@@ -147,7 +147,7 @@ class Wishlist extends My_Controller
             ];
         }
 
-        $this->load->model('learning/Internship_model');
+        $this->load->model('learning/Internship_model', 'internship_model');
         $row = $this->internship_model->find($item_id);
         if (!$row) return ['type' => 'internship', 'item_id' => $item_id];
         return [

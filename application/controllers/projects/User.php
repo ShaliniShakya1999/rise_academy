@@ -9,7 +9,7 @@ class User extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->require_login();
+        $this->require_login('projects');
         
         // If Admin tries to access user dashboard, redirect to admin panel
         if ($this->session->userdata('role_id') == 1) {

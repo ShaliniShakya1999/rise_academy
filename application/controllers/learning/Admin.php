@@ -9,8 +9,8 @@ class Admin extends My_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->require_admin();
-        $this->load->model('learning/Internship_model');
+        $this->require_admin('projects');
+        $this->load->model('learning/Internship_model', 'internship_model');
     }
 
     public function manage_videos()
